@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Les coûts cachés — Ce qui n'a pas été compté…</title>
+<meta property="og:title" content="Ce qui n'a pas été compté…">
+<meta property="og:description" content="Combien coûtent les décisions qu'on n'a jamais mesurées ? En vies, en milliards, en années perdues. Dix épisodes documentés, chiffrés, sourcés.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ce qui n'a pas été compté…">
+<meta name="twitter:description" content="Combien coûtent les décisions qu'on n'a jamais mesurées ? En vies, en milliards, en années perdues.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -481,7 +488,7 @@ header {
     <div style="display:flex;align-items:center;gap:2.5rem">
       <button class="btn-apropos" onclick="openApropos()">À propos</button>
       <button class="btn-apropos" onclick="openFaq()">FAQ</button>
-      <span class="header-count" id="hcount">Épisodes</span>
+      <span class="header-count" id="hcount" onclick="showGrid()" style="cursor:pointer">Épisodes</span>
     </div>
   </div>
 </header>
@@ -937,7 +944,7 @@ header {
 <div class="fiche-overlay" id="fiche-overlay">
   <div class="fiche-topbar">
     <button class="btn-back" onclick="closeFiche()">← Retour</button>
-    <button class="btn-share" onclick="copyLink()">Copier le lien</button>
+    <button class="btn-share" onclick="copyLink()">Partager cet épisode</button>
   </div>
   <div class="fiche-body" id="fiche-body"></div>
 </div>
@@ -1221,9 +1228,11 @@ const fiches = {
 };
 
 // ══ FICHE OPEN/CLOSE ══
+let currentFicheId = null;
 function openFiche(id) {
   const f = fiches[id];
   if (!f) return;
+  currentFicheId = id;
   const body = document.getElementById('fiche-body');
   const tabsHTML = f.tabs.map((t,i) => `<button class="tab${i===0?' active':''}${t.label==='Et si ?'?' tab-etsi':''}" onclick="switchTab('${t.id}',this)">${t.label}</button>`).join('');
   const panelsHTML = f.tabs.map((t,i) => `<div class="tab-panel${i===0?' active':''}" id="panel-${t.id}">${f.panels[t.id]||''}</div>`).join('');
@@ -1232,10 +1241,13 @@ function openFiche(id) {
   ov.classList.add('open');
   ov.scrollTop = 0;
   document.body.style.overflow = 'hidden';
+  try { history.replaceState(null, '', '?ep=' + id); } catch(e) {}
 }
 function closeFiche() {
   document.getElementById('fiche-overlay').classList.remove('open');
   document.body.style.overflow = '';
+  currentFicheId = null;
+  try { history.replaceState(null, '', window.location.pathname); } catch(e) {}
 }
 function switchTab(pid, btn) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -1245,15 +1257,26 @@ function switchTab(pid, btn) {
   if(p) p.classList.add('active');
 }
 function copyLink() {
-  navigator.clipboard.writeText(window.location.href).then(() => {
+  const url = currentFicheId
+    ? window.location.origin + window.location.pathname + '?ep=' + currentFicheId
+    : window.location.href;
+  navigator.clipboard.writeText(url).then(() => {
     const btn = document.querySelector('.btn-share');
     btn.textContent = 'Lien copié';
-    setTimeout(() => btn.textContent = 'Copier le lien', 2000);
+    setTimeout(() => btn.textContent = 'Partager cet épisode', 2000);
   });
 }
 document.addEventListener('keydown', e => { if(e.key==='Escape') { closeFiche(); closeApropos(); closeFaq(); } });
 
 // ══ INIT ══
+// Ouvrir un épisode si ?ep= est dans l'URL
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const ep = params.get('ep');
+  if (ep && fiches[ep]) {
+    openFiche(ep);
+  }
+})();
 </script>
 </body>
 </html>
