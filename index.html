@@ -549,50 +549,6 @@ header {
 .site-footer a:hover { color: var(--paper); }
 .footer-sep { color: #555; }
 
-/* ── EPISODE NAV ── */
-.ep-nav {
-  display: flex; align-items: center; justify-content: space-between;
-  border-top: 1px solid var(--rule);
-  margin-top: 3rem; padding-top: 1.5rem;
-}
-.ep-nav-btn {
-  display: flex; align-items: center; gap: 0.5rem;
-  background: none; border: 1px solid var(--rule);
-  padding: 0.6rem 1.2rem; border-radius: 2px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
-  font-weight: 500; color: var(--grey); cursor: pointer;
-  transition: all 0.15s; max-width: 45%;
-}
-.ep-nav-btn:hover { border-color: var(--ink); color: var(--ink); }
-.ep-nav-btn.next { margin-left: auto; text-align: right; }
-.ep-nav-btn .ep-nav-arrow { font-size: 1rem; flex-shrink: 0; }
-.ep-nav-btn .ep-nav-label { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); font-family: 'DM Mono', monospace; display: block; margin-bottom: 0.15rem; }
-.ep-nav-btn .ep-nav-title { display: block; line-height: 1.3; }
-.ep-nav-btn.disabled { opacity: 0.3; pointer-events: none; }
-
-/* Compteur dans la topbar de la fiche */
-.ep-counter {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  color: var(--grey);
-  background: var(--paper2);
-  padding: 0.2rem 0.6rem;
-  border-radius: 2px;
-}
-
-/* Bouton tri solidité */
-.sort-group { display: flex; align-items: center; gap: 0.4rem; margin-left: auto; }
-.sort-label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); font-family: 'DM Mono', monospace; }
-.sort-btn {
-  border: 1px solid var(--rule); background: transparent;
-  padding: 0.25rem 0.65rem; border-radius: 2px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--grey);
-  cursor: pointer; transition: all 0.12s;
-}
-.sort-btn:hover { border-color: var(--ink); color: var(--ink); }
-.sort-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
   header, .filters-bar, .grid-wrap, .fiche-body, .fiche-topbar { padding-left: 1rem; padding-right: 1rem; }
@@ -608,7 +564,7 @@ header {
     <div style="display:flex;align-items:center;gap:2.5rem">
       <button class="btn-apropos" onclick="openApropos()">À propos</button>
       <button class="btn-apropos" onclick="openFaq()">FAQ</button>
-      <span class="header-count" id="hcount">Épisodes</span>
+      <span class="header-count" id="hcount" onclick="showGrid(event)" style="cursor:pointer">Épisodes</span>
     </div>
   </div>
 </header>
@@ -846,17 +802,12 @@ header {
       <button class="badge-filter be" data-badge="e">≈ Estimation</button>
       <button class="badge-filter bc" data-badge="c">? Probabilité</button>
     </div>
-    <div class="sort-group">
-      <span class="sort-label">Tri</span>
-      <button class="sort-btn" data-sort="default" onclick="sortGrid('default',this)">Par défaut</button>
-      <button class="sort-btn" data-sort="solidite" onclick="sortGrid('solidite',this)">Par solidité</button>
-    </div>
   </div>
   <div class="grid-wrap">
-    <p class="grid-count" id="grid-count">10 épisodes</p>
+    <p class="grid-count" id="grid-count">11 épisodes</p>
     <div class="fiches-grid" id="fiches-grid">
 
-      <div class="card" data-domain="justice" data-badge="c" data-ep="jeanne" data-order="11" onclick="openFiche('jeanne')">
+      <div class="card" data-domain="justice" data-badge="c" onclick="openFiche('jeanne')">
         <p class="card-domain">Justice · Politique coloniale</p>
         <div><p class="card-number">7 à 12 M<span class="card-unit">de vies estimées</span></p></div>
         <p class="card-title">Jeanne la Folle</p>
@@ -865,7 +816,7 @@ header {
         <span class="card-arrow">↗</span>
       </div>
 
-      <div class="card" data-domain="transport" data-badge="e" data-ep="crash" data-order="1" onclick="openFiche('crash')">
+      <div class="card" data-domain="transport" data-badge="e" onclick="openFiche('crash')">
         <p class="card-domain">Transport · Sécurité routière</p>
         <div><p class="card-number">~160 Mds €<span class="card-unit">estimés, France</span></p></div>
         <div class="card-evitable">
@@ -878,7 +829,7 @@ header {
         <span class="card-arrow">↗</span>
       </div>
 
-      <div class="card" data-domain="sante" data-badge="c" data-ep="kariko" data-order="3" onclick="openFiche('kariko')">
+      <div class="card" data-domain="sante" data-badge="c" onclick="openFiche('kariko')">
         <p class="card-domain">Santé · Recherche médicale</p>
         <div><p class="card-number">170 000 à 350 000<span class="card-unit">morts évitables estimées</span></p></div>
         <div class="card-evitable">
@@ -891,7 +842,7 @@ header {
         <span class="card-arrow">↗</span>
       </div>
 
-      <div class="card" data-domain="religion" data-badge="e" data-ep="celibat" data-order="10" onclick="openFiche('celibat')">
+      <div class="card" data-domain="religion" data-badge="e" onclick="openFiche('celibat')">
         <p class="card-domain">Religion · Droit canon</p>
         <div><p class="card-number">1 à 4 M<span class="card-unit">de victimes estimées depuis 1139</span></p></div>
         <div class="card-evitable">
@@ -904,7 +855,7 @@ header {
         <span class="card-arrow">↗</span>
       </div>
 
-      <div class="card" data-domain="religion" data-badge="c" data-ep="adam" data-order="9" onclick="openFiche('adam')">
+      <div class="card" data-domain="religion" data-badge="c" onclick="openFiche('adam')">
         <p class="card-domain">Religion · Droit civil</p>
         <div><p class="card-number">~120 000 Mds $<span class="card-unit">cumulés sur 161 ans</span></p></div>
         <div class="card-evitable">
@@ -917,7 +868,7 @@ header {
         <span class="card-arrow">↗</span>
       </div>
 
-      <div class="card" data-domain="sante" data-badge="e" data-ep="marie" data-order="8" onclick="openFiche('marie')">
+      <div class="card" data-domain="sante" data-badge="e" onclick="openFiche('marie')">
         <p class="card-domain">Santé · Théologie · Histoire de la médecine</p>
         <div><p class="card-number">26,6 Mds $<span class="card-unit">par an, États-Unis</span></p></div>
         <div class="card-evitable">
@@ -930,7 +881,7 @@ header {
         <span class="card-arrow">↗</span>
       </div>
 
-      <div class="card" data-domain="sante" data-badge="e" data-ep="cardio" data-order="2" onclick="openFiche('cardio')">
+      <div class="card" data-domain="sante" data-badge="e" onclick="openFiche('cardio')">
         <p class="card-domain">Santé · Médecine cardiovasculaire</p>
         <div><p class="card-number">28 Mds $<span class="card-unit">par an récupérables, États-Unis</span></p></div>
         <div class="card-evitable">
@@ -943,7 +894,7 @@ header {
         <span class="card-arrow">↗</span>
       </div>
 
-      <div class="card" data-domain="education" data-badge="e" data-ep="education" data-order="6" onclick="openFiche('education')">
+      <div class="card" data-domain="education" data-badge="e" onclick="openFiche('education')">
         <p class="card-domain">Éducation · Droit civil · Santé publique</p>
         <div><p class="card-number">15 000 Mds $<span class="card-unit">coût mondial, pertes cumulées</span></p></div>
         <div class="card-evitable">
@@ -956,7 +907,7 @@ header {
         <span class="card-arrow">↗</span>
       </div>
 
-      <div class="card" data-domain="agriculture" data-badge="v" data-ep="nourrir" data-order="5" onclick="openFiche('nourrir')">
+      <div class="card" data-domain="agriculture" data-badge="v" onclick="openFiche('nourrir')">
         <p class="card-domain">Agriculture · Droit civil · Foncier</p>
         <div><p class="card-number">1 000 Mds $<span class="card-unit">par an, mondial</span></p></div>
         <div class="card-evitable">
@@ -969,7 +920,7 @@ header {
         <span class="card-arrow">↗</span>
       </div>
 
-      <div class="card" data-domain="finance" data-badge="e" data-ep="plafond" data-order="7" onclick="openFiche('plafond')">
+      <div class="card" data-domain="finance" data-badge="e" onclick="openFiche('plafond')">
         <p class="card-domain">Finance · Gouvernance d'entreprise</p>
         <div><p class="card-number">≈ 104 Mds €<span class="card-unit">par an, CAC40</span></p></div>
         <div class="card-evitable">
@@ -982,7 +933,7 @@ header {
         <span class="card-arrow">↗</span>
       </div>
 
-      <div class="card" data-domain="urbanisme" data-badge="e" data-ep="rue" data-order="4" onclick="openFiche('rue')">
+      <div class="card" data-domain="urbanisme" data-badge="e" onclick="openFiche('rue')">
         <p class="card-domain">Urbanisme · Transport · Espace public</p>
         <div><p class="card-number">~75–150 Mds €<span class="card-unit">cumulés sur 25 ans, France</span></p></div>
         <div class="card-evitable">
@@ -1160,7 +1111,6 @@ header {
 <div class="fiche-overlay" id="fiche-overlay">
   <div class="fiche-topbar">
     <button class="btn-back" onclick="closeFiche()">← Retour</button>
-    <span class="ep-counter" id="ep-counter"></span>
     <button class="btn-share" onclick="copyLink()">Copier le lien</button>
   </div>
   <div class="fiche-body" id="fiche-body"></div>
@@ -1492,111 +1442,7 @@ function copyLink() {
 }
 document.addEventListener('keydown', e => { if(e.key==='Escape') { closeFiche(); closeApropos(); closeFaq(); } });
 
-// ══ STRATEGIC EPISODE ORDER ══
-// Du plus solide au plus spéculatif — parcours guidé pour les neutres
-const episodeOrder = ['crash','cardio','kariko','rue','nourrir','education','plafond','marie','adam','celibat','jeanne'];
-const episodeLabels = {
-  crash:'Les crash tests', cardio:'Le cœur oublié', kariko:'La molécule boycottée',
-  rue:'Dans la rue', nourrir:'Nourrir le monde', education:'Le tableau noir',
-  plafond:'Des milliards perdus', marie:'La Vierge Marie', adam:'Adam et Ève',
-  celibat:'Le célibat des prêtres', jeanne:'Jeanne la Folle'
-};
-
-let currentEpisodeId = null;
-
-// ══ FICHE OPEN (augmenté) ══
-const _origOpenFiche = openFiche;
-openFiche = function(id) {
-  _origOpenFiche(id);
-  currentEpisodeId = id;
-
-  // Compteur
-  const idx = episodeOrder.indexOf(id);
-  const counter = document.getElementById('ep-counter');
-  if (idx !== -1) {
-    counter.textContent = (idx + 1) + ' / ' + episodeOrder.length;
-    counter.style.display = '';
-  } else {
-    counter.style.display = 'none';
-  }
-
-  // Navigation épisode suivant / précédent
-  const prevId = idx > 0 ? episodeOrder[idx - 1] : null;
-  const nextId = idx < episodeOrder.length - 1 ? episodeOrder[idx + 1] : null;
-
-  // Supprimer l'ancienne nav si elle existe
-  const oldNav = document.querySelector('.ep-nav');
-  if (oldNav) oldNav.remove();
-
-  const nav = document.createElement('div');
-  nav.className = 'ep-nav';
-
-  const prevBtn = document.createElement('button');
-  prevBtn.className = 'ep-nav-btn prev' + (prevId ? '' : ' disabled');
-  prevBtn.innerHTML = '<span class="ep-nav-arrow">←</span><span><span class="ep-nav-label">Précédent</span><span class="ep-nav-title">' + (prevId ? episodeLabels[prevId] : '') + '</span></span>';
-  if (prevId) prevBtn.onclick = function() { openFiche(prevId); };
-
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'ep-nav-btn next' + (nextId ? '' : ' disabled');
-  nextBtn.innerHTML = '<span><span class="ep-nav-label">Suivant</span><span class="ep-nav-title">' + (nextId ? episodeLabels[nextId] : '') + '</span></span><span class="ep-nav-arrow">→</span>';
-  if (nextId) nextBtn.onclick = function() { openFiche(nextId); };
-
-  nav.appendChild(prevBtn);
-  nav.appendChild(nextBtn);
-
-  document.getElementById('fiche-body').appendChild(nav);
-
-  // Mettre à jour l'URL
-  const url = new URL(window.location);
-  url.searchParams.set('ep', id);
-  history.replaceState(null, '', url);
-};
-
-// ══ GRID SORTING ══
-let originalCardOrder = [];
-document.addEventListener('DOMContentLoaded', function() {
-  const grid = document.getElementById('fiches-grid');
-  if (grid) {
-    originalCardOrder = Array.from(grid.children).filter(c => c.classList.contains('card'));
-  }
-});
-
-function sortGrid(mode, btn) {
-  // Activer le bouton
-  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-
-  const grid = document.getElementById('fiches-grid');
-  const cards = Array.from(grid.querySelectorAll('.card'));
-
-  if (mode === 'solidite') {
-    cards.sort((a, b) => parseInt(a.dataset.order) - parseInt(b.dataset.order));
-  } else {
-    // Restaurer l'ordre original par position dans le DOM initial
-    cards.sort((a, b) => originalCardOrder.indexOf(a) - originalCardOrder.indexOf(b));
-  }
-
-  cards.forEach(card => grid.appendChild(card));
-}
-
-// ══ URL ROUTING ══
-function handleUrlParams() {
-  const params = new URLSearchParams(window.location.search);
-  const ep = params.get('ep');
-  if (ep && fiches[ep]) {
-    // Ouvrir directement la fiche sans montrer la frise
-    openFiche(ep);
-  }
-}
-
 // ══ INIT ══
-document.addEventListener('DOMContentLoaded', function() {
-  const grid = document.getElementById('fiches-grid');
-  if (grid) {
-    originalCardOrder = Array.from(grid.children).filter(c => c.classList.contains('card'));
-  }
-  handleUrlParams();
-});
 </script>
 </body>
 </html>
