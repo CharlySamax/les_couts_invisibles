@@ -4,16 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Les coûts cachés — Ce qui n'a pas été compté…</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --ink: #111110;
-  --paper: #f5f3ee;
-  --paper2: #eceae3;
-  --red: #b5292a;
-  --grey: #3d3c38;
-  --rule: #d8d5cc;
+  /* New design system */
+  --bg:   #f5f0e8;
+  --bg2:  #eee9e0;
+  --ink:  #1a1820;
+  --ink2: #55505f;
+  --ink3: #9a96a5;
+  --line: rgba(26,24,32,0.12);
+  --sans: 'Outfit', sans-serif;
+  --mono: 'Space Grotesk', sans-serif;
+  /* Legacy compat */
+  --paper: #f5f0e8;
+  --paper2: #eee9e0;
+  --red: #e8175d;
+  --grey: #55505f;
+  --rule: rgba(26,24,32,0.12);
   --green: #2a5c2a;
   --green-bg: #e4f0e4;
   --orange: #7a3d00;
@@ -24,297 +35,246 @@
 }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--paper);
+  font-family: var(--sans);
+  background: var(--bg);
   color: var(--ink);
   font-size: 18px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  cursor: none;
 }
 
-/* ── HEADER ── */
-header {
-  position: sticky; top: 0; z-index: 100;
-  background: var(--ink);
-  padding: 0 2.5rem;
-  display: flex; flex-direction: column;
+/* ── CUSTOM CURSOR ── */
+.cursor { position: fixed; width: 12px; height: 12px; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); background: var(--red); transition: background 0.3s ease, transform 0.2s ease; mix-blend-mode: multiply; }
+.cursor-ring { position: fixed; width: 34px; height: 34px; border: 1.5px solid currentColor; border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); color: var(--red); transition: color 0.3s ease; opacity: 0.5; }
+
+/* ── PROGRESS BAR ── */
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 500; transition: width 0.1s linear; background: var(--ink); }
+
+/* ── NAV ── */
+nav, header {
+  position: fixed; top: 3px; left: 0; right: 0; z-index: 400;
+  padding: 1.2rem 5vw; display: flex; justify-content: space-between; align-items: center;
+  background: rgba(245,240,232,0.94); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  flex-direction: row;
 }
-.header-top {
-  height: 56px;
-  display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid #222;
+.nav-logo, .site-title {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink);
+  cursor: pointer; text-decoration: none;
 }
-.site-title {
-  font-size: 1.35rem; font-weight: 700; color: var(--paper);
-  letter-spacing: -0.01em; cursor: pointer; text-decoration: none;
-  line-height: 1;
-}
-.site-title span { color: var(--red); }
-.header-count { font-size: 0.95rem; color: #aaa; letter-spacing: 0.02em; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+.nav-logo span, .site-title span { color: var(--red); }
+.nav-right { display: flex; align-items: center; gap: 2rem; }
+.nav-count, .header-count { font-family: var(--mono); font-size: 0.62rem; color: var(--ink3); cursor: pointer; font-weight: 500; }
+.nav-count b { color: var(--ink); font-weight: 500; }
+.header-top { width: 100%; display: flex; align-items: center; justify-content: space-between; height: auto; border-bottom: none; }
 
 
-/* ── FRISE CHRONOLOGIQUE ── */
-.home-title {
-  position: absolute;
-  top: 2.2rem;
-  left: 5%;
-  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
-  font-weight: 700;
-  color: var(--red);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  z-index: 6;
+/* ── HERO ── */
+.hero {
+  min-height: 85vh; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 14vh 8vw 6vh;
+  border-bottom: 1px solid var(--line); position: relative;
 }
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink3); margin-bottom: 1.8rem;
+  opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s;
+}
+.hero-title {
+  font-size: clamp(4rem, 10vw, 9.5rem); font-weight: 800;
+  line-height: 0.9; letter-spacing: -0.04em; margin-bottom: 2rem; color: var(--ink);
+}
+.hero-title .l1 { display: block; opacity: 0; transform: translateY(28px); animation: fadeUp 0.85s cubic-bezier(0.16,1,0.3,1) forwards 0.4s; }
+.hero-title .l2 { display: block; opacity: 0; transform: translateY(28px); animation: fadeUp 0.85s cubic-bezier(0.16,1,0.3,1) forwards 0.58s; }
+.hero-sub {
+  font-size: clamp(1.2rem, 2vw, 1.7rem); font-weight: 600;
+  color: var(--red); line-height: 1.4; max-width: 580px;
+  opacity: 0; animation: fadeUp 0.7s ease forwards 0.85s;
+}
+.scroll-hint {
+  position: absolute; bottom: 4vh; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  opacity: 0; animation: fadeUp 0.8s ease forwards 1.3s;
+}
+.scroll-hint span { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink3); }
+.scroll-arrow { width: 1px; height: 32px; background: linear-gradient(to bottom, var(--ink3), transparent); animation: scrollPulse 2s infinite; }
+
+/* ── VERTICAL TIMELINE (replaces flash-view) ── */
 #flash-view {
-  min-height: calc(100vh - 56px);
   position: relative;
-  overflow: hidden;
-  background: var(--paper);
+  padding: 6vh 0 10vh;
+  background: var(--bg);
+}
+.timeline-axis-v {
+  position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+  background: var(--line); transform: translateX(-50%); z-index: 0;
+}
+
+/* ── EP ROW ── */
+.ep-row {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 4vh;
+  opacity: 0; transform: translateY(44px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
 }
-.timeline-axis {
-  position: absolute;
-  top: 50%; left: 5%; right: 3%;
-  height: 2px;
-  background: #bbb;
-  z-index: 1;
+.ep-row.visible { opacity: 1; transform: translateY(0); }
+.ep-row.left {
+  justify-content: flex-end;
+  padding-left: 5vw;
+  padding-right: calc(50% + 1.5rem);
 }
-.timeline-axis::after {
-  content: '';
-  position: absolute;
-  right: -8px; top: -4px;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 9px solid #bbb;
+.ep-row.right {
+  justify-content: flex-start;
+  padding-right: 5vw;
+  padding-left: calc(50% + 1.5rem);
+  margin-top: -3vh;
 }
-.tl-label {
-  position: absolute;
-  top: 50%;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 500;
-  color: #888;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
+.ep-pip {
+  position: absolute; left: 50%; top: 2rem;
   transform: translateX(-50%);
-  margin-top: 14px;
-  z-index: 2;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--ep-color);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 0 var(--ep-color);
+  z-index: 3;
+  animation: pipPulse 2.5s infinite;
+  transition: transform 0.3s ease;
 }
-/* PIN sur la frise */
-.pin-duration {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--red);
-  opacity: 0.85;
-  white-space: nowrap;
-  margin-top: 3px;
+.ep-row:hover .ep-pip { transform: translateX(-50%) scale(1.6); animation: none; box-shadow: 0 0 0 6px var(--ep-color); }
+@keyframes pipPulse {
+  0% { box-shadow: 0 0 0 0 var(--ep-color); }
+  60% { box-shadow: 0 0 0 8px rgba(0,0,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
 }
-.pin-bubble.grey .pin-duration { color: #ccc; }
-.pin-duration .arrow { font-size: 0.6rem; }
-.tl-now {
-  position: absolute;
-  top: 50%;
-  left: 97%;
-  transform: translateX(-50%);
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  pointer-events: none;
-}
-.tl-now-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--red);
-  margin-bottom: 6px;
-}
-.tl-now-label {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.62rem;
-  color: var(--red);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-.pin {
-  position: absolute;
-  display: flex; flex-direction: column; align-items: center;
+.ep-row.left .ep-card { text-align: right; }
+.ep-row.left .ep-sep { margin-left: auto; }
+.ep-row.left .ep-current { flex-direction: row-reverse; }
+.ep-row.left .ep-badge { margin-left: auto; }
+.ep-card {
+  background: var(--ep-color);
+  width: 100%;
+  max-width: 440px;
+  padding: 2.2rem 2.4rem;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
   cursor: pointer;
-  z-index: 4;
-  transform: translateX(-50%);
-  transition: filter 0.15s;
 }
-.pin:hover { filter: drop-shadow(0 4px 14px rgba(0,0,0,0.16)); z-index: 10; }
-.pin-stem {
-  width: 1.5px;
-  background: var(--red);
-  flex-shrink: 0;
+.ep-row:hover .ep-card {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
 }
-.pin-stem.grey { background: #666; }
-.pin-bubble {
-  background: #fff;
-  border: 2px solid var(--red);
-  border-radius: 4px;
-  width: 112px;
-  padding: 8px 10px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+.ep-title {
+  font-size: clamp(1.5rem, 2.2vw, 2rem); font-weight: 700;
+  line-height: 1.05; color: #fff; margin-bottom: 0.8rem;
 }
-.pin-bubble.grey { border-color: #333; background: #2a2a28; color: #f0ede6; }
-.pin-title {
-  font-size: 0.75rem; font-weight: 700;
-  color: inherit; line-height: 1.25;
-  margin-bottom: 3px;
+.ep-subtitle {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem); font-weight: 400;
+  color: rgba(255,255,255,0.9); line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
-.pin-number {
-  font-size: 0.92rem; font-weight: 700; line-height: 1.2;
-  color: var(--red); letter-spacing: -0.01em;
+.ep-sep { width: 24px; height: 2px; background: rgba(255,255,255,0.35); margin-bottom: 1.2rem; }
+.ep-cost-main {
+  font-family: var(--mono);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 600;
+  line-height: 1; color: #fff; margin-bottom: 0.25rem;
 }
-.pin-bubble.grey .pin-number { color: #f0ede6; font-weight: 700; }
-.pin-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--red);
-  border: 2px solid var(--paper);
-  box-shadow: 0 0 0 1.5px var(--red);
-  flex-shrink: 0; z-index: 3;
+.ep-cost-label {
+  font-family: var(--mono); font-size: 0.78rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75); margin-bottom: 1rem;
 }
-.pin-dot.grey { background: #555; box-shadow: 0 0 0 1.5px #555; }
-
-/* Signal évitable dans pin-bubble */
-.pin-evitable {
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--green);
-  line-height: 1.2;
-  margin-top: 4px;
-  padding-top: 4px;
-  border-top: 1px solid rgba(42,92,42,0.25);
-  letter-spacing: -0.01em;
+.ep-current { display: flex; align-items: flex-start; gap: 0.55rem; margin-bottom: 1rem; }
+.pulse-dot {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 0.3rem;
+  background: #fff; animation: pulse 2.2s infinite;
 }
-.pin-evitable-sub {
-  font-size: 0.58rem;
-  font-weight: 500;
-  color: var(--green);
-  opacity: 0.8;
-  margin-top: 1px;
+.ep-current-value {
+  font-family: var(--mono); font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  font-weight: 600; color: #fff; line-height: 1.2;
 }
-.pin-bubble.grey .pin-evitable {
-  color: #6abf6a;
-  border-top-color: rgba(106,191,106,0.25);
+.ep-current-label {
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+  display: block; margin-top: 0.15rem;
 }
-.pin-bubble.grey .pin-evitable-sub {
-  color: #6abf6a;
-}
-.pin-geo {
-  font-size: 0.52rem;
-  font-weight: 400;
-  color: #999;
-  letter-spacing: 0.02em;
-  margin-top: 1px;
-}
-.pin-bubble.grey .pin-geo {
-  color: #aaa;
+.ep-badge {
+  display: inline-flex; align-items: center; width: fit-content;
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.2rem 0.55rem;
+  background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
-/* MAP LEGEND */
-.map-legend {
-  position: absolute; bottom: 1.5rem; left: 2rem;
-  background: rgba(245,243,238,0.92);
-  border: 1px solid var(--rule);
-  padding: 0.6rem 0.9rem;
-  font-size: 0.68rem; color: var(--grey);
-  font-family: 'DM Mono', monospace;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  z-index: 5;
+/* ── ERA SEPARATORS ── */
+.era-sep {
+  position: relative; z-index: 2;
+  text-align: center; padding: 1rem 0; margin: 1vh 0;
+  opacity: 0; transition: opacity 0.5s ease;
 }
-.map-legend-title { font-weight: 700; margin-bottom: 0.35rem; color: var(--ink); }
-.map-legend-row { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.2rem; }
-.map-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.era-sep.visible { opacity: 1; }
+.era-sep::before {
+  content: ''; position: absolute; top: 50%; left: 20%; right: 20%;
+  height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+.era-sep span {
+  display: inline-block; background: var(--bg); position: relative;
+  padding: 0.3rem 1.2rem;
+  font-family: var(--mono); font-size: 0.58rem;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink3);
+}
 
-/* MAP GRID BUTTON */
-.map-grid-btn {
-  position: absolute; top: 1rem; right: 1rem; z-index: 10;
-  background: var(--ink); color: var(--paper);
-  border: none; padding: 0.5rem 1.1rem;
-  font-family: 'DM Mono', monospace; font-size: 0.72rem;
-  letter-spacing: 0.06em; cursor: pointer;
-  transition: opacity 0.15s;
+/* ── ANCHOR ── */
+.anchor {
+  min-height: 35vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; padding: 8vh 8vw; text-align: center;
+  border-top: 1px solid var(--line);
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.map-grid-btn:hover { opacity: 0.85; }
+.anchor.visible { opacity: 1; transform: translateY(0); }
+.anchor-range {
+  font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800;
+  color: transparent; -webkit-text-stroke: 1.5px var(--ink3);
+  letter-spacing: -0.04em; margin-bottom: 1.2rem;
+}
+.anchor-text { font-size: 1rem; color: var(--ink2); max-width: 400px; line-height: 1.8; }
 
-/* POPUP */
-.pin-popup {
-  position: fixed; z-index: 300;
-  background: var(--ink); color: var(--paper);
-  padding: 1.8rem 2rem;
-  max-width: 380px; width: calc(100vw - 2rem);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
-  display: none;
-  animation: popIn 0.18s ease;
-}
-.pin-popup.open { display: block; }
-@keyframes popIn { from { opacity:0; transform:scale(0.96) translateY(6px); } to { opacity:1; transform:scale(1) translateY(0); } }
-.popup-badge {
-  display: inline-flex; align-items: center; gap: 0.3rem;
-  font-size: 0.65rem; font-weight: 600; padding: 0.18rem 0.45rem;
-  border-radius: 2px; margin-bottom: 0.9rem;
-  font-family: 'DM Mono', monospace;
-}
-.popup-badge.v { background: var(--green-bg); color: var(--green); }
-.popup-badge.e { background: var(--orange-bg); color: var(--orange); }
-.popup-badge.c { background: var(--blue-bg); color: var(--blue); }
-.popup-number {
-  font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700;
-  line-height: 1.1; letter-spacing: -0.02em;
-  color: #f0ede6; margin-bottom: 0.5rem;
-}
-.popup-title {
-  font-size: 0.82rem; font-weight: 600; color: #ccc;
-  margin-bottom: 0.7rem;
-}
-.popup-desc {
-  font-size: 0.88rem; color: #e8e5de; font-weight: 400; line-height: 1.65;
-  margin-bottom: 1.4rem;
-}
-.popup-actions { display: flex; gap: 0.6rem; align-items: center; }
-.popup-btn-full {
-  background: var(--red); color: #fff; border: none;
-  padding: 0.45rem 1rem; font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem; cursor: pointer; border-radius: 2px;
-}
-.popup-btn-close {
-  background: none; border: 1px solid #333; color: #666;
-  padding: 0.45rem 0.8rem; font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem; cursor: pointer; border-radius: 2px;
-}
-.popup-btn-close:hover { border-color: #555; color: #999; }
+/* ── KEYFRAMES ── */
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%,100% { opacity: 0.8; transform: scale(1); } 50% { opacity: 0.2; transform: scale(0.45); } }
+@keyframes scrollPulse { 0%,100% { opacity: 0.25; } 50% { opacity: 0.8; } }
+
+/* POPUP — hidden, fiches open directly */
+.pin-popup { display: none !important; }
 
 /* ── FILTERS ── */
 #grid-view { display: none; }
 .filters-bar {
-  position: sticky; top: 56px; z-index: 90;
-  background: var(--paper); border-bottom: 1px solid var(--rule);
-  padding: 0.9rem 2.5rem;
+  position: sticky; top: 57px; z-index: 90;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+  padding: 0.9rem 5vw;
   display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;
 }
 .filter-group { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
-.filter-label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); margin-right: 0.2rem; font-family: 'DM Mono', monospace; }
+.filter-label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); margin-right: 0.2rem; font-family: var(--mono); }
 .filter-btn {
-  border: 1px solid var(--rule); background: transparent;
+  border: 1px solid var(--line); background: transparent;
   padding: 0.25rem 0.65rem; border-radius: 2px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--grey);
+  font-family: var(--sans); font-size: 0.75rem; color: var(--ink2);
   cursor: pointer; transition: all 0.12s;
 }
 .filter-btn:hover { border-color: var(--ink); color: var(--ink); }
-.filter-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.filter-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .badge-filter {
   display: inline-flex; align-items: center; gap: 0.3rem;
-  border: 1px solid var(--rule); background: transparent;
+  border: 1px solid var(--line); background: transparent;
   padding: 0.25rem 0.65rem; border-radius: 2px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--grey);
+  font-family: var(--sans); font-size: 0.75rem; color: var(--ink2);
   cursor: pointer; transition: all 0.12s;
 }
 .badge-filter:hover { border-color: var(--ink); color: var(--ink); }
@@ -323,67 +283,67 @@ header {
 .badge-filter.active.bc { background: var(--blue-bg); border-color: var(--blue); color: var(--blue); }
 
 /* ── GRID ── */
-.grid-wrap { padding: 2rem 2.5rem; max-width: 1400px; margin: 0 auto; }
-.grid-count { font-size: 0.68rem; color: var(--grey); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; font-family: 'DM Mono', monospace; }
-.fiches-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.grid-wrap { padding: 2rem 5vw; max-width: 1400px; margin: 0 auto; }
+.grid-count { font-size: 0.68rem; color: var(--ink3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; font-family: var(--mono); }
+.fiches-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 
 /* ── CARD ── */
 .card {
-  background: var(--paper); padding: 1.8rem 1.6rem;
+  background: var(--bg); padding: 1.8rem 1.6rem;
   cursor: pointer; transition: background 0.15s;
   display: flex; flex-direction: column; gap: 0.75rem;
   position: relative; min-height: 260px;
 }
 .card:hover { background: var(--white); }
 .card.hidden { display: none; }
-.card-domain { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); font-family: 'DM Mono', monospace; }
+.card-domain { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); font-family: var(--mono); }
 .card-number { font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--red); }
-.card-unit { font-size: 0.75rem; font-weight: 400; color: var(--grey); display: block; margin-top: 0.15rem; }
+.card-unit { font-size: 0.75rem; font-weight: 400; color: var(--ink2); display: block; margin-top: 0.15rem; }
 .card-title { font-size: 1.05rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
 .card-sub { font-size: 0.85rem; color: var(--red); line-height: 1.55; }
-.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--rule); }
-.card-epoch { font-size: 0.65rem; color: var(--grey); font-family: 'DM Mono', monospace; }
-.badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.65rem; padding: 0.18rem 0.45rem; border-radius: 2px; font-weight: 600; letter-spacing: 0.03em; font-family: 'DM Mono', monospace; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--line); }
+.card-epoch { font-size: 0.65rem; color: var(--ink3); font-family: var(--mono); }
+.badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.65rem; padding: 0.18rem 0.45rem; border-radius: 2px; font-weight: 600; letter-spacing: 0.03em; font-family: var(--mono); }
 .badge.v { background: var(--green-bg); color: var(--green); }
 .badge.e { background: var(--orange-bg); color: var(--orange); }
 .badge.c { background: var(--blue-bg); color: var(--blue); }
-.card-arrow { position: absolute; bottom: 1.6rem; right: 1.6rem; font-size: 0.85rem; color: var(--rule); transition: color 0.15s, transform 0.15s; }
+.card-arrow { position: absolute; bottom: 1.6rem; right: 1.6rem; font-size: 0.85rem; color: var(--line); transition: color 0.15s, transform 0.15s; }
 .card:hover .card-arrow { color: var(--red); transform: translate(2px,-2px); }
 .legend { display: flex; gap: 1.5rem; flex-wrap: wrap; padding: 1.5rem 0 0; }
-.legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; color: var(--grey); }
-.legend-sym { font-weight: 700; font-size: 0.78rem; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 2px; font-family: 'DM Mono', monospace; }
+.legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; color: var(--ink2); }
+.legend-sym { font-weight: 700; font-size: 0.78rem; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 2px; font-family: var(--mono); }
 
 /* ── FICHE OVERLAY ── */
-.fiche-overlay { position: fixed; inset: 0; background: var(--paper); z-index: 200; overflow-y: auto; display: none; }
+.fiche-overlay { position: fixed; inset: 0; background: var(--bg); z-index: 200; overflow-y: auto; display: none; }
 .fiche-overlay.open { display: block; animation: fadeUp 0.2s ease; }
 @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
 .fiche-topbar {
   position: sticky; top: 0; z-index: 10;
-  background: var(--paper); border-bottom: 1px solid var(--rule);
-  padding: 0 2.5rem; height: 56px;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+  padding: 0 5vw; height: 56px;
   display: flex; align-items: center; justify-content: space-between;
 }
 .btn-apropos {
   background: none; border: none;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem; font-weight: 600; color: #aaa;
+  font-family: var(--sans);
+  font-size: 0.95rem; font-weight: 600; color: var(--ink3);
   cursor: pointer; letter-spacing: 0.02em;
   transition: color 0.12s; padding: 0;
 }
-.btn-apropos:hover { color: var(--paper); }
-.btn-back { background: none; border: 1px solid var(--rule); padding: 0.35rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--grey); cursor: pointer; border-radius: 2px; transition: all 0.12s; }
+.btn-apropos:hover { color: var(--ink); }
+.btn-back { background: none; border: 1px solid var(--line); padding: 0.35rem 1rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--ink2); cursor: pointer; border-radius: 2px; transition: all 0.12s; }
 .btn-back:hover { border-color: var(--ink); color: var(--ink); }
-.btn-share { background: var(--red); color: #fff; border: none; padding: 0.3rem 0.9rem; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; cursor: pointer; border-radius: 2px; }
+.btn-share { background: var(--red); color: #fff; border: none; padding: 0.3rem 0.9rem; font-family: var(--sans); font-size: 0.78rem; cursor: pointer; border-radius: 2px; }
 
 /* ── FICHE BODY ── */
-.fiche-body { max-width: 820px; margin: 0 auto; padding: 2.5rem 2.5rem 6rem; }
-.fiche-eyebrow { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace; }
-.fiche-heading { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-.fiche-dateline { font-size: 0.95rem; color: var(--grey); padding-bottom: 1.8rem; border-bottom: 2px solid var(--ink); margin-bottom: 2rem; }
+.fiche-body { max-width: 820px; margin: 0 auto; padding: 2.5rem 5vw 6rem; }
+.fiche-eyebrow { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.5rem; font-family: var(--mono); }
+.fiche-heading { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+.fiche-dateline { font-size: 0.95rem; color: var(--ink2); padding-bottom: 1.8rem; border-bottom: 2px solid var(--ink); margin-bottom: 2rem; }
 
 /* ── TABS ── */
-.tabs { display: flex; border-bottom: 1px solid var(--rule); margin-bottom: 2rem; overflow-x: auto; gap: 0; }
-.tab { background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 0.7rem 1.2rem; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--grey); cursor: pointer; white-space: nowrap; transition: all 0.12s; }
+.tabs { display: flex; border-bottom: 1px solid var(--line); margin-bottom: 2rem; overflow-x: auto; gap: 0; }
+.tab { background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 0.7rem 1.2rem; font-family: var(--sans); font-size: 0.92rem; color: var(--ink2); cursor: pointer; white-space: nowrap; transition: all 0.12s; }
 .tab:hover { color: var(--ink); }
 .tab.active { color: var(--ink); font-weight: 600; border-bottom-color: var(--ink); }
 .tab.tab-etsi { color: var(--red); font-weight: 600; }
@@ -393,11 +353,11 @@ header {
 .tab-panel.active { display: block; }
 
 /* ── L1 ── */
-.l1-block { background: var(--ink); color: var(--paper); padding: 2.5rem; margin-bottom: 1.5rem; }
+.l1-block { background: var(--ink); color: var(--bg); padding: 2.5rem; margin-bottom: 1.5rem; }
 .l1-badges { display: flex; gap: 0.4rem; margin-bottom: 1rem; }
-.l1-number { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+.l1-number { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
 .l1-desc { font-size: 1rem; color: #ddd; font-weight: 400; line-height: 1.65; margin-bottom: 1.2rem; }
-.l1-sources { font-size: 0.82rem; color: #bbb; font-weight: 400; font-family: 'DM Sans', sans-serif; border-top: 1px solid #222; padding-top: 0.8rem; line-height: 1.7; }
+.l1-sources { font-size: 0.82rem; color: #bbb; font-weight: 400; font-family: var(--sans); border-top: 1px solid #222; padding-top: 0.8rem; line-height: 1.7; }
 
 /* ── BLOC COÛT ÉVITABLE (L1) ── */
 .l1-block-evitable {
@@ -446,42 +406,42 @@ header {
 }
 
 /* ── SECTIONS ── */
-.sec-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #444; margin: 2rem 0 0.8rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); font-family: 'DM Mono', monospace; }
-.prose p { font-size: 1.08rem; font-weight: 400; color: #111110; line-height: 1.75; margin-bottom: 1rem; }
+.sec-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #444; margin: 2rem 0 0.8rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--line); font-family: var(--mono); }
+.prose p { font-size: 1.08rem; font-weight: 400; color: var(--ink); line-height: 1.75; margin-bottom: 1rem; }
 .prose strong { font-weight: 600; }
 
 /* ── CHAIN ── */
-.chain { border: 1px solid var(--rule); background: var(--white); margin: 1rem 0; }
-.chain-step { display: flex; gap: 1rem; padding: 0.7rem 1.2rem; border-bottom: 1px solid var(--paper2); align-items: baseline; }
+.chain { border: 1px solid var(--line); background: var(--white); margin: 1rem 0; }
+.chain-step { display: flex; gap: 1rem; padding: 0.7rem 1.2rem; border-bottom: 1px solid var(--bg2); align-items: baseline; }
 .chain-step:last-child { border-bottom: none; }
-.chain-year { font-weight: 700; font-size: 0.95rem; color: var(--red); white-space: nowrap; min-width: 90px; font-family: 'DM Sans', sans-serif; letter-spacing: -0.01em; }
-.chain-text { font-size: 1rem; font-weight: 400; color: #111110; line-height: 1.65; }
+.chain-year { font-weight: 700; font-size: 0.95rem; color: var(--red); white-space: nowrap; min-width: 90px; font-family: var(--sans); letter-spacing: -0.01em; }
+.chain-text { font-size: 1rem; font-weight: 400; color: var(--ink); line-height: 1.65; }
 
 /* ── TABLE ── */
 .dtable { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin: 1rem 0; }
 .dtable th { background: var(--blue-bg); color: var(--blue); font-weight: 600; padding: 0.5rem 0.75rem; text-align: left; border: 1px solid #c5d8ef; font-size: 0.75rem; }
-.dtable td { padding: 0.45rem 0.75rem; border: 1px solid var(--rule); vertical-align: top; }
-.dtable tr:nth-child(even) td { background: var(--paper2); }
-.dtable tr.total td { font-weight: 700; background: var(--paper2); }
+.dtable td { padding: 0.45rem 0.75rem; border: 1px solid var(--line); vertical-align: top; }
+.dtable tr:nth-child(even) td { background: var(--bg2); }
+.dtable tr.total td { font-weight: 700; background: var(--bg2); }
 .delta-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin: 1rem 0; }
 .delta-table th { background: var(--blue-bg); color: var(--blue); font-weight: 600; padding: 0.5rem 0.75rem; text-align: left; border: 1px solid #c5d8ef; font-size: 0.75rem; }
-.delta-table td { padding: 0.45rem 0.75rem; border: 1px solid var(--rule); vertical-align: top; }
-.delta-table tr:nth-child(even) td { background: var(--paper2); }
-.delta-table tfoot td { font-weight: 700; background: var(--paper2); }
+.delta-table td { padding: 0.45rem 0.75rem; border: 1px solid var(--line); vertical-align: top; }
+.delta-table tr:nth-child(even) td { background: var(--bg2); }
+.delta-table tfoot td { font-weight: 700; background: var(--bg2); }
 
 /* ── PROOF ── */
 .proof-list { display: flex; flex-direction: column; margin: 1rem 0; }
-.proof-row { display: flex; border: 1px solid var(--rule); border-bottom: none; }
-.proof-row:last-child { border-bottom: 1px solid var(--rule); }
-.proof-sym { width: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; font-family: 'DM Mono', monospace; }
+.proof-row { display: flex; border: 1px solid var(--line); border-bottom: none; }
+.proof-row:last-child { border-bottom: 1px solid var(--line); }
+.proof-sym { width: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; font-family: var(--mono); }
 .proof-sym.v { background: var(--green-bg); color: var(--green); }
 .proof-sym.e { background: var(--orange-bg); color: var(--orange); }
 .proof-sym.c { background: var(--blue-bg); color: var(--blue); }
-.proof-text { padding: 0.6rem 0.85rem; font-size: 0.95rem; color: #111110; line-height: 1.55; border-left: 1px solid var(--rule); }
+.proof-text { padding: 0.6rem 0.85rem; font-size: 0.95rem; color: var(--ink); line-height: 1.55; border-left: 1px solid var(--line); }
 
 /* ── SOURCES LIST ── */
 .src-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; margin: 0.8rem 0; }
-.src-list li { font-size: 0.95rem; color: #111110; line-height: 1.55; padding-left: 1.1rem; position: relative; }
+.src-list li { font-size: 0.95rem; color: var(--ink); line-height: 1.55; padding-left: 1.1rem; position: relative; }
 .src-list li::before { content: "→"; position: absolute; left: 0; }
 
 /* ── CF NOTE ── */
@@ -494,7 +454,7 @@ header {
 .etsi-badge {
   background: var(--red);
   color: #fff;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -513,24 +473,24 @@ header {
 }
 .cf-note { background: #fff5f5; border-left: 3px solid var(--red); padding: 0.75rem 1rem; font-size: 0.85rem; color: #6b1010; margin-bottom: 1.5rem; line-height: 1.6; }
 
-/* ── ACCORDÉON FAQ ── */
-.faq-item { border-bottom: 1px solid var(--rule); }
+/* ── FAQ ── */
+.faq-item { border-bottom: 1px solid var(--line); }
 .faq-question {
   display: flex; justify-content: space-between; align-items: center;
   width: 100%; background: none; border: none;
   padding: 1.2rem 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--sans);
   font-size: 1.05rem; font-weight: 600;
   color: var(--ink); text-align: left;
   cursor: pointer; transition: color 0.12s;
 }
 .faq-question:hover { color: var(--red); }
-.faq-chevron { font-size: 0.9rem; color: var(--grey); transition: transform 0.2s; flex-shrink: 0; margin-left: 1rem; }
+.faq-chevron { font-size: 0.9rem; color: var(--ink3); transition: transform 0.2s; flex-shrink: 0; margin-left: 1rem; }
 .faq-item.open .faq-chevron { transform: rotate(180deg); }
 .faq-item.open .faq-question { color: var(--red); }
 .faq-answer { display: none; padding: 0 0 1.4rem 0; }
 .faq-item.open .faq-answer { display: block; }
-.faq-answer p { font-size: 1rem; color: #2a2a28; line-height: 1.75; margin-bottom: 0.8rem; }
+.faq-answer p { font-size: 1rem; color: var(--ink); line-height: 1.75; margin-bottom: 0.8rem; }
 .faq-answer p:last-child { margin-bottom: 0; }
 .faq-note { background: #fff5f5; border-left: 3px solid var(--red); padding: 0.7rem 1rem; font-size: 0.88rem; color: #6b1010; line-height: 1.65; font-style: italic; margin-top: 0.6rem; }
 
@@ -538,9 +498,9 @@ header {
 .site-footer {
   background: var(--ink);
   color: #888;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--sans);
   font-size: 0.72rem;
-  padding: 1.2rem 2.5rem;
+  padding: 1.2rem 5vw;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -551,44 +511,42 @@ header {
   text-decoration: none;
   transition: color 0.12s;
 }
-.site-footer a:hover { color: var(--paper); }
+.site-footer a:hover { color: var(--bg); }
 .footer-sep { color: #555; }
 
 
-/* ── RESPONSIVE FRISE ── */
-@media (max-width: 1100px) {
-  .pin-bubble { width: 100px !important; padding: 6px 8px; }
-  .pin-title { font-size: 0.65rem; }
-  .pin-number { font-size: 0.78rem; }
-  .pin-evitable { font-size: 0.78rem; }
-  .pin-evitable-sub { font-size: 0.5rem; }
-  .pin-geo { font-size: 0.45rem; }
-  .pin-duration { font-size: 0.52rem; }
-  .tl-label { font-size: 0.5rem; }
-}
-@media (max-width: 768px) {
-  #flash-view { min-height: auto; padding: 2rem 0; display: none; }
-  #grid-view { display: block !important; }
-  .map-grid-btn { display: none; }
-  .home-title { position: static; padding: 1.5rem 1rem 0.5rem; font-size: 1.4rem; }
-}
-@media (min-width: 769px) and (max-width: 1100px) {
-  .pin { transform: translateX(-50%) scale(0.85); }
-  .pin:hover { transform: translateX(-50%) scale(0.92); }
-}
 /* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .timeline-axis-v { left: 20px; }
+  .ep-row.left, .ep-row.right {
+    padding: 0 5vw 0 48px;
+    justify-content: flex-start;
+    margin-top: 0; margin-bottom: 3vh;
+  }
+  .ep-pip { left: 20px; }
+  .ep-card { max-width: 100%; text-align: left !important; }
+  .ep-row.left .ep-sep { margin-left: 0; }
+  .ep-row.left .ep-current { flex-direction: row; }
+  .ep-row.left .ep-badge { margin-left: 0; }
+}
 @media (max-width: 640px) {
-  header, .filters-bar, .grid-wrap, .fiche-body, .fiche-topbar { padding-left: 1rem; padding-right: 1rem; }
-  .filters-bar { gap: 0.8rem; }
+  nav, header { padding-left: 1rem; padding-right: 1rem; }
+  .filters-bar { padding-left: 1rem; padding-right: 1rem; gap: 0.8rem; }
+  .grid-wrap, .fiche-body, .fiche-topbar { padding-left: 1rem; padding-right: 1rem; }
+  .hero { padding: 12vh 1rem 5vh; }
 }
 </style>
 </head>
 <body>
 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="progress-bar" id="progressBar"></div>
+
 <header>
   <div class="header-top">
-    <span class="site-title" onclick="showFlash()">Les coûts <span>cachés</span></span>
-    <div style="display:flex;align-items:center;gap:2.5rem">
+    <span class="nav-logo" onclick="showFlash()">Les coûts <span>cachés</span></span>
+    <div class="nav-right">
       <button class="btn-apropos" onclick="openApropos()">À propos</button>
       <button class="btn-apropos" onclick="openFaq()">FAQ</button>
       <span class="header-count" id="hcount" onclick="showGrid(event)" style="cursor:pointer">Épisodes</span>
@@ -596,222 +554,259 @@ header {
   </div>
 </header>
 
-<!-- ══ FRISE CHRONOLOGIQUE ══ -->
-<div id="flash-view">
-
-  <!-- Titre home -->
-  <div class="home-title">Ce qui n'est toujours pas pris en compte</div>
-
-  <!-- Axe horizontal -->
-  <div class="timeline-axis"></div>
-
-  <!-- Labels d'époque -->
-  <!-- IIIe s. av. J.-C. ≈ left:7%, 405 ≈ 14%, 1139 ≈ 30%, 1479 ≈ 42%,
-       1950 ≈ 60%, 1973 ≈ 67%, 2023 ≈ 92% -->
-  <div class="tl-label" style="left:7%">Genèse</div>
-  <div class="tl-label" style="left:30%">1139</div>
-  <div class="tl-label" style="left:42%">1479</div>
-  <div class="tl-label" style="left:49%">1804</div>
-  <div class="tl-label" style="left:54%">1808</div>
-  <div class="tl-label" style="left:60%">1950</div>
-  <div class="tl-label" style="left:67%">1973</div>
-  <div class="tl-label" style="left:92%">2023</div>
-
-  <!--
-    Disposition alternée haut/bas pour éviter les chevauchements.
-    Haut = pin-bubble → stem → dot (ordre flex normal)
-    Bas  = dot → stem → pin-bubble (top: 50%)
-
-    Chaque pin est positionné :
-    - left : position sur l'axe temporel
-    - top: 50% pour tous (l'axe est à 50%)
-    Les pins en haut ont transform: translateX(-50%) translateY(-100%) via la tige
-    Les pins en bas ont transform: translateX(-50%)
-  -->
-
-  <!-- Adam et Ève — Genèse hébraïque — HAUT -->
-  <div class="pin" style="left:7%;top:50%;transform:translateX(-50%) translateY(calc(-100% - 4px))" onclick="openPopup('adam')">
-    <div class="pin-bubble grey" style="width:130px">
-      <div class="pin-title">Adam et Ève</div>
-      <div class="pin-number">~120k Mds $</div>
-      <div class="pin-geo">Europe occidentale</div>
-      <div class="pin-duration">depuis 405</div>
-      <div class="pin-evitable">12–28k Mds $/an</div>
-      <div class="pin-evitable-sub">encore perdus · mondial</div>
-    </div>
-    <div class="pin-stem grey" style="height:40px"></div>
-    <div class="pin-dot grey"></div>
+<!-- ══ HERO ══ -->
+<section class="hero" id="flash-view">
+  <div class="hero-eyebrow">Ce qui n'a pas été compté</div>
+  <h1 class="hero-title">
+    <span class="l1">Les coûts</span>
+    <span class="l2">cachés</span>
+  </h1>
+  <p class="hero-sub">Des vies et des milliards que nous perdons encore et toujours</p>
+  <div class="scroll-hint">
+    <span>Défiler</span>
+    <div class="scroll-arrow"></div>
   </div>
+</section>
 
+<!-- ══ TIMELINE VERTICALE ══ -->
+<section id="timeline-section" style="display:block">
+<div style="position:relative; padding: 6vh 0 0;">
+  <div class="timeline-axis-v"></div>
 
-  <!-- Célibat des prêtres — 1139 — HAUT -->
-  <div class="pin" style="left:30%;top:50%;transform:translateX(-50%) translateY(calc(-100% - 4px))" onclick="openPopup('celibat')">
-    <div class="pin-bubble" style="width:140px">
-      <div class="pin-title">Le célibat des prêtres</div>
-      <div class="pin-number">1–4 M victimes</div>
-      <div class="pin-geo">mondial</div>
-      <div class="pin-duration">depuis 1139</div>
-      <div class="pin-evitable">pas de données formelles</div>
-      <div class="pin-evitable-sub">faits toujours en cours · mondial</div>
-    </div>
-    <div class="pin-stem" style="height:48px"></div>
-    <div class="pin-dot"></div>
-  </div>
-
-  <!-- Jeanne la Folle — 1479 — BAS -->
-  <div class="pin" style="left:42%;top:50%;transform:translateX(-50%) translateY(4px)" onclick="openPopup('jeanne')">
-    <div class="pin-dot grey"></div>
-    <div class="pin-stem grey" style="height:40px"></div>
-    <div class="pin-bubble grey">
-      <div class="pin-title">Jeanne la Folle</div>
-      <div class="pin-number">7–12 M vies</div>
-      <div class="pin-geo">Amériques</div>
-      <div class="pin-duration">1479–1555</div>
+  <!-- 1 · 2023 · Magenta · gauche -->
+  <div class="ep-row left" style="--ep-color:#e8175d;" onclick="openFiche('plafond')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Des milliards perdus</h2>
+      <p class="ep-subtitle">Avec seulement 24 % de femmes dans les comités exécutifs du CAC40</p>
+      <div class="ep-cost-main">≈ 104 Mds €</div>
+      <div class="ep-cost-label">coût cumulé · CAC40</div>
+      <div class="ep-sep"></div>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">≈ 104 Mds €/an</div>
+          <span class="ep-current-label">encore perdus · CAC40</span>
+        </div>
+      </div>
+      <div class="ep-badge">≈ Estimation</div>
     </div>
   </div>
 
-  <!-- Nourrir le monde — 1804 — BAS -->
-  <div class="pin" style="left:49%;top:50%;transform:translateX(-50%) translateY(4px)" onclick="openPopup('nourrir')">
-    <div class="pin-dot"></div>
-    <div class="pin-stem" style="height:42px"></div>
-    <div class="pin-bubble" style="width:140px">
-      <div class="pin-title">Nourrir le monde</div>
-      <div class="pin-number">1 000 Mds $/an</div>
-      <div class="pin-geo">mondial</div>
-      <div class="pin-duration">depuis 1804</div>
-      <div class="pin-evitable">1 000 Mds $/an</div>
-      <div class="pin-evitable-sub">coût en cours · mondial</div>
+  <div class="era-sep"><span>Décennies récentes</span></div>
+
+  <!-- 2 · 2000 · Bleu · droit -->
+  <div class="ep-row right" style="--ep-color:#1469c7;" onclick="openFiche('rue')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Dans la rue</h2>
+      <p class="ep-subtitle">25 ans de données de mobilité genrées ignorées. Vienne a agi, la France non.</p>
+      <div class="ep-cost-main">~75–150 Mds €</div>
+      <div class="ep-cost-label">coût cumulé · France</div>
+      <div class="ep-sep"></div>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">~3–6 Mds €/an</div>
+          <span class="ep-current-label">encore perdus · France</span>
+        </div>
+      </div>
+      <div class="ep-badge">≈ Estimation</div>
     </div>
   </div>
 
-  <!-- Le tableau noir — 1808 — HAUT -->
-  <div class="pin" style="left:54%;top:50%;transform:translateX(-50%) translateY(calc(-100% - 4px))" onclick="openPopup('education')">
-    <div class="pin-bubble" style="width:135px">
-      <div class="pin-title">Le tableau noir</div>
-      <div class="pin-number">15 000 Mds $</div>
-      <div class="pin-geo">mondial</div>
-      <div class="pin-duration">depuis 1808</div>
-      <div class="pin-evitable">15–30k Mds $</div>
-      <div class="pin-evitable-sub">stock en croissance · mondial</div>
-    </div>
-    <div class="pin-stem" style="height:44px"></div>
-    <div class="pin-dot"></div>
-  </div>
-
-  <!-- Crash tests — 1950 — HAUT -->
-  <div class="pin" style="left:60%;top:50%;transform:translateX(-50%) translateY(calc(-100% - 4px))" onclick="openPopup('crash')">
-    <div class="pin-bubble" style="width:130px">
-      <div class="pin-title">Les crash tests</div>
-      <div class="pin-number">~160 Mds €</div>
-      <div class="pin-geo">France</div>
-      <div class="pin-duration">depuis 1950</div>
-      <div class="pin-evitable">~3 Mds €/an</div>
-      <div class="pin-evitable-sub">encore perdus · France</div>
-    </div>
-    <div class="pin-stem" style="height:36px"></div>
-    <div class="pin-dot"></div>
-  </div>
-
-  <!-- Karikó — 1973 — BAS -->
-  <div class="pin" style="left:67%;top:50%;transform:translateX(-50%) translateY(4px)" onclick="openPopup('kariko')">
-    <div class="pin-dot grey"></div>
-    <div class="pin-stem grey" style="height:44px"></div>
-    <div class="pin-bubble grey" style="width:140px">
-      <div class="pin-title">La molécule boycottée</div>
-      <div class="pin-number">170–350k morts</div>
-      <div class="pin-geo">mondial</div>
-      <div class="pin-duration">1989–2020</div>
-      <div class="pin-evitable">pas de données formelles</div>
-      <div class="pin-evitable-sub">faits toujours en cours · mondial</div>
+  <!-- 3 · ~1950 sport · Rouge · gauche -->
+  <div class="ep-row left" style="--ep-color:#e02020;" onclick="openFiche('sport-dangereux')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Un sport dangereux</h2>
+      <p class="ep-subtitle">15 000 à 30 000 ruptures du LCA évitables par an. Un équipement conçu sur le seul corps masculin.</p>
+      <div class="ep-cost-main">1,5–5 Mds $/an</div>
+      <div class="ep-cost-label">É.-U. + Europe</div>
+      <div class="ep-sep"></div>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">1,5–5 Mds $/an</div>
+          <span class="ep-current-label">encore perdus chaque année</span>
+        </div>
+      </div>
+      <div class="ep-badge">≈ Estimation</div>
     </div>
   </div>
 
-  <!-- Le cœur oublié — 1973 — HAUT (décalé à droite) -->
-  <div class="pin" style="left:74%;top:50%;transform:translateX(-50%) translateY(calc(-100% - 4px))" onclick="openPopup('cardio')">
-    <div class="pin-bubble" style="width:130px">
-      <div class="pin-title">Le cœur oublié</div>
-      <div class="pin-number">28 Mds $/an</div>
-      <div class="pin-geo">États-Unis</div>
-      <div class="pin-duration">depuis 1973</div>
-      <div class="pin-evitable">28 Mds $/an</div>
-      <div class="pin-evitable-sub">coût en cours · États-Unis</div>
-    </div>
-    <div class="pin-stem" style="height:52px"></div>
-    <div class="pin-dot"></div>
-  </div>
-
-  <!-- Des milliards perdus — 2023 — BAS -->
-  <div class="pin" style="left:92%;top:50%;transform:translateX(-50%) translateY(4px)" onclick="openPopup('plafond')">
-    <div class="pin-dot"></div>
-    <div class="pin-stem" style="height:36px"></div>
-    <div class="pin-bubble" style="width:135px">
-      <div class="pin-title">Des milliards perdus</div>
-      <div class="pin-number">≈104 Mds €/an</div>
-      <div class="pin-geo">CAC40</div>
-      <div class="pin-duration">depuis 2023</div>
-      <div class="pin-evitable">≈104 Mds €/an</div>
-      <div class="pin-evitable-sub">coût en cours · CAC40</div>
+  <!-- 4 · 1973 · Marine · droit -->
+  <div class="ep-row right" style="--ep-color:#1a2480;" onclick="openFiche('cardio')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Le cœur oublié</h2>
+      <p class="ep-subtitle">50 ans d'études cliniques sans femmes. 50 % de risques supplémentaires de mauvais diagnostic.</p>
+      <div class="ep-cost-main">28 Mds $/an</div>
+      <div class="ep-cost-label">récupérables · États-Unis</div>
+      <div class="ep-sep"></div>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">28 Mds $/an</div>
+          <span class="ep-current-label">encore perdus · États-Unis</span>
+        </div>
+      </div>
+      <div class="ep-badge">≈ Estimation</div>
     </div>
   </div>
 
+  <div class="era-sep"><span>XXe siècle</span></div>
 
-  <!-- Un sport dangereux — ~1950 — BAS -->
-  <div class="pin" style="left:80%;top:50%;transform:translateX(-50%) translateY(4px)" onclick="openPopup('sport-dangereux')">
-    <div class="pin-dot"></div>
-    <div class="pin-stem" style="height:36px"></div>
-    <div class="pin-bubble" style="width:140px">
-      <div class="pin-title">Un sport dangereux</div>
-      <div class="pin-number">1,5–5 Mds $/an</div>
-      <div class="pin-geo">États-Unis + Europe</div>
-      <div class="pin-duration">depuis ~1950</div>
-      <div class="pin-evitable">1,5–5 Mds $/an</div>
-      <div class="pin-evitable-sub">encore perdus chaque année</div>
+  <!-- 5 · 1989 · Magenta · gauche -->
+  <div class="ep-row left" style="--ep-color:#e8175d;" onclick="openFiche('kariko')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">La molécule boycottée</h2>
+      <p class="ep-subtitle">17 ans de rejets institutionnels. Katalin Karikó et les vaccins ARNm attendront 2006.</p>
+      <div class="ep-cost-main">170–350k morts</div>
+      <div class="ep-cost-label">évitables · mondial</div>
+      <div class="ep-sep"></div>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">Pas de données formelles</div>
+          <span class="ep-current-label">faits toujours en cours</span>
+        </div>
+      </div>
+      <div class="ep-badge">? Probabilité</div>
     </div>
   </div>
 
-  <!-- Dans la rue — 2000 — HAUT -->
-  <div class="pin" style="left:85%;top:50%;transform:translateX(-50%) translateY(calc(-100% - 4px))" onclick="openPopup('rue')">
-    <div class="pin-bubble" style="width:135px">
-      <div class="pin-title">Dans la rue</div>
-      <div class="pin-number">~75–150 Mds €</div>
-      <div class="pin-geo">France</div>
-      <div class="pin-duration">depuis 2000</div>
-      <div class="pin-evitable">~3–6 Mds €/an</div>
-      <div class="pin-evitable-sub">coût en cours · France</div>
+  <!-- 6 · 1950 crash · Orange · droit -->
+  <div class="ep-row right" style="--ep-color:#f07800;" onclick="openFiche('crash')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Les crash tests</h2>
+      <p class="ep-subtitle">53 ans sans mannequin féminin au volant. Les femmes subissent 73 % de risques supplémentaires de blessures graves.</p>
+      <div class="ep-cost-main">~160 Mds €</div>
+      <div class="ep-cost-label">depuis 1950 · France</div>
+      <div class="ep-sep"></div>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">~3 Mds €/an</div>
+          <span class="ep-current-label">encore perdus · France</span>
+        </div>
+      </div>
+      <div class="ep-badge">≈ Estimation</div>
     </div>
-    <div class="pin-stem" style="height:40px"></div>
-    <div class="pin-dot"></div>
   </div>
 
-  <!-- Marqueur aujourd'hui -->
-  <div class="tl-now">
-    <div class="tl-now-dot"></div>
-    <div class="tl-now-label">2026</div>
+  <div class="era-sep"><span>XIXe siècle</span></div>
+
+  <!-- 7 · 1808 · Bleu · gauche -->
+  <div class="ep-row left" style="--ep-color:#1469c7;" onclick="openFiche('education')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Le tableau noir</h2>
+      <p class="ep-subtitle">116 ans sans baccalauréat pour les filles. 70 000 à 120 000 morts évitables lors de la seule épidémie de 1918.</p>
+      <div class="ep-cost-main">15 000 Mds $</div>
+      <div class="ep-cost-label">coût mondial cumulé</div>
+      <div class="ep-sep"></div>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">15–30k Mds $</div>
+          <span class="ep-current-label">stock en croissance · mondial</span>
+        </div>
+      </div>
+      <div class="ep-badge">≈ Estimation</div>
+    </div>
   </div>
 
-  <!-- Légende -->
-  <div class="map-legend">
-    <div class="map-legend-title">Niveau de preuve</div>
-    <div class="map-legend-row"><span class="map-legend-dot" style="background:var(--red)"></span>Documenté / Estimation</div>
-    <div class="map-legend-row"><span class="map-legend-dot" style="background:#bbb"></span>Probabilité</div>
+  <!-- 8 · 1804 · Rouge · droit -->
+  <div class="ep-row right" style="--ep-color:#e02020;" onclick="openFiche('nourrir')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Nourrir le monde</h2>
+      <p class="ep-subtitle">161 ans d'incapacité juridique des femmes en agriculture. 2,5 millions d'hectares laissés en friche.</p>
+      <div class="ep-cost-main">1 000 Mds $/an</div>
+      <div class="ep-cost-label">mondial</div>
+      <div class="ep-sep"></div>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">1 000 Mds $/an</div>
+          <span class="ep-current-label">coût en cours · mondial</span>
+        </div>
+      </div>
+      <div class="ep-badge">✓ Documenté</div>
+    </div>
+  </div>
+
+  <div class="era-sep"><span>Ancien régime · Conquêtes</span></div>
+
+  <!-- 9 · 1479 · Orange · gauche -->
+  <div class="ep-row left" style="--ep-color:#f07800;" onclick="openFiche('jeanne')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Jeanne la Folle</h2>
+      <p class="ep-subtitle">Reine de Castille séquestrée 46 ans sans procès. Une politique de protection des populations coloniales n'a jamais été appliquée.</p>
+      <div class="ep-cost-main">7–12 M vies</div>
+      <div class="ep-cost-label">estimées · Amériques · 1479–1555</div>
+      <div class="ep-sep"></div>
+      <div class="ep-badge">? Probabilité</div>
+    </div>
+  </div>
+
+  <div class="era-sep"><span>Moyen-Âge · Antiquité tardive</span></div>
+
+  <!-- 10 · 1139 · Marine · droit -->
+  <div class="ep-row right" style="--ep-color:#1a2480;" onclick="openFiche('celibat')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Le célibat des prêtres</h2>
+      <p class="ep-subtitle">Concile de Latran II, mobile patrimonial documenté. Les abus systémiques sont une conséquence identifiée dès le XIXe siècle.</p>
+      <div class="ep-cost-main">1–4 M victimes</div>
+      <div class="ep-cost-label">depuis 1139 · mondial</div>
+      <div class="ep-sep"></div>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">Pas de données formelles</div>
+          <span class="ep-current-label">faits toujours en cours</span>
+        </div>
+      </div>
+      <div class="ep-badge">≈ Estimation</div>
+    </div>
+  </div>
+
+  <!-- 11 · 405 · Magenta · gauche -->
+  <div class="ep-row left" style="--ep-color:#e8175d;" onclick="openFiche('adam')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Adam et Ève</h2>
+      <p class="ep-subtitle">La traduction latine de la Bible fixe qu'Ève naît d'une côte. 161 ans d'incapacité juridique codifiée à partir de cette interprétation.</p>
+      <div class="ep-cost-main">~120 000 Mds $</div>
+      <div class="ep-cost-label">cumulés · mondial</div>
+      <div class="ep-sep"></div>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">12–28k Mds $/an</div>
+          <span class="ep-current-label">encore perdus · mondial</span>
+        </div>
+      </div>
+      <div class="ep-badge">? Probabilité</div>
+    </div>
   </div>
 
 </div>
 
-<!-- POPUP -->
-<div class="pin-popup" id="pin-popup">
-  <div id="popup-badge" class="popup-badge c">? Probabilité</div>
-  <div id="popup-number" class="popup-number"></div>
-  <div id="popup-title" class="popup-title"></div>
-  <div id="popup-desc" class="popup-desc"></div>
-  <div class="popup-actions">
-    <button class="popup-btn-full" id="popup-btn-full">Voir la fiche complète</button>
-    <button class="popup-btn-close" onclick="closePopup()">Fermer</button>
-  </div>
+<div class="anchor" id="anchor">
+  <div class="anchor-range">405 — 2026</div>
+  <p class="anchor-text">Seize siècles de décisions mesurables. Les structures qui les ont produites n'ont pas toutes disparu.</p>
 </div>
+
+</section>
 
 <!-- ══ GRID VIEW ══ -->
-<div id="grid-view">
+<div id="grid-view" style="padding-top:57px">
   <div class="filters-bar">
     <div class="filter-group">
       <span class="filter-label">Domaine</span>
@@ -1155,43 +1150,66 @@ header {
 </footer>
 
 <script>
-// ══ MAP POPUP DATA ══
+// ══ CURSOR ══
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => {
+  mx=e.clientX; my=e.clientY;
+  cursor.style.left=mx+'px'; cursor.style.top=my+'px';
+});
+(function loop(){
+  rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('.ep-row').forEach(row => {
+  const color = getComputedStyle(row).getPropertyValue('--ep-color').trim();
+  row.addEventListener('mouseenter', () => { cursor.style.background=color; ring.style.color=color; });
+  row.addEventListener('mouseleave', () => { cursor.style.background='#e8175d'; ring.style.color='#e8175d'; });
+});
+
+// ══ PROGRESS BAR ══
+const bar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+});
+
+// ══ SCROLL REVEAL ══
+let visCount = 0;
+const hcount = document.getElementById('hcount');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      if(e.target.classList.contains('ep-row')){ visCount = Math.min(visCount+1, 11); hcount.textContent = visCount + ' / 11 épisodes'; }
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.ep-row, .era-sep, .anchor').forEach(el => obs.observe(el));
+
+// ══ MAP POPUP DATA ══ (conservé pour compatibilité)
 const popupData = {
   jeanne: { badge:"c", badgeTxt:"? Probabilité", number:"7 à 12 millions de vies", title:"Jeanne la Folle", desc:"Coût humain de la colonisation des Amériques par Ferdinand d'Aragon puis Charles Quint, menée à la place de la politique de protection amérindienne qu'Isabelle la Catholique avait mise en place et que Jeanne aurait pu maintenir." },
   crash:  { badge:"e", badgeTxt:"≈ Estimation", number:"~160 milliards €", title:"Les crash tests", desc:"Coût estimé des blessures graves et décès féminins évitables en France, liés à l'absence de mannequin de crash test adapté au corps féminin — 1959 à 2011." },
   kariko: { badge:"c", badgeTxt:"? Probabilité", number:"170 000 à 350 000 morts évitables", title:"La molécule boycottée", desc:"Estimation du coût humain du retard pris sur la technologie ARNm, du fait des 17 ans de rejets de financements subis par Katalin Karikó entre 1989 et 2006." },
-  celibat:{ badge:"e", badgeTxt:"≈ Estimation", number:"1 à 4 millions de victimes", title:"Célibat obligatoire des prêtres", desc:"Estimées depuis 1139 — extrapolation mondiale sur 880 ans à partir des taux documentés 1950–2020 (taux réel : 2,6 à 7% selon les pays)." },
-  adam:   { badge:"c", badgeTxt:"? Probabilité", number:"~120 000 milliards de dollars", title:"Adam et Ève", desc:"Perte cumulée en Europe occidentale entre 1804 et 1965, du fait de l'exclusion des femmes de l'éducation et du travail qualifié, parce que la femme serait née de la côte d'Adam." },
-  cardio: { badge:"e", badgeTxt:"≈ Estimation", number:"28 milliards $/an", title:"Le cœur oublié", desc:"Gain annuel récupérable aux États-Unis si l'écart de diagnostic et de traitement cardiovasculaire entre hommes et femmes était comblé. 50 ans d'études sans femmes. 50 % de risques supplémentaires de mauvais diagnostic." },
-  plafond:{ badge:"e", badgeTxt:"≈ Estimation", number:"≈ 104 milliards €/an", title:"Des milliards perdus", desc:"Manque à gagner estimé pour les entreprises du CAC40 si leurs comités exécutifs atteignaient 30 % de femmes. Calculé sur le CA agrégé 2023 (1 736 Mds€) et la corrélation Peterson/EY (+6 pts de marge nette)." },
-  education:{ badge:"e", badgeTxt:"≈ Estimation", number:"15 000 milliards de dollars", title:"Le tableau noir", desc:"Coût mondial de la non-scolarisation des filles : pertes de productivité et de revenus sur la vie active. En France, 116 ans sans baccalauréat pour les filles (1808–1924), soit 146 milliards de dollars de croissance perdue." },
-  nourrir:{ badge:"v", badgeTxt:"✓ Documenté", number:"1 000 milliards $/an", title:"Nourrir le monde", desc:"Coût mondial annuel de l'écart de productivité entre agricultrices et agriculteurs. En France, 161 ans d'incapacité juridique des femmes en agriculture (1804–1965). 2,5 millions d'hectares en friche aujourd'hui." },
-  rue:    { badge:"e", badgeTxt:"≈ Estimation", number:"~75–150 milliards €", title:"Dans la rue", desc:"Coût cumulé sur 25 ans de la non-prise en compte des données de mobilité genrées dans la planification des transports français. Restriction du bassin d'emploi, temps perdu, mortalité piétonne." },
-  'sport-dangereux': { badge:"e", badgeTxt:"≈ Estimation", number:"1,5 à 5 milliards $/an", title:"Un sport dangereux", desc:"Coût sociétal estimé des blessures sportives féminines évitables aux États-Unis et en Europe, liées à des équipements conçus sur le corps masculin — 15 000 à 30 000 ruptures du LCA évitables chaque année." }
+  celibat:{ badge:"e", badgeTxt:"≈ Estimation", number:"1 à 4 millions de victimes", title:"Célibat obligatoire des prêtres", desc:"Estimées depuis 1139 — extrapolation mondiale sur 880 ans à partir des taux documentés 1950–2020." },
+  adam:   { badge:"c", badgeTxt:"? Probabilité", number:"~120 000 milliards de dollars", title:"Adam et Ève", desc:"Perte cumulée en Europe occidentale entre 1804 et 1965, du fait de l'exclusion des femmes de l'éducation et du travail qualifié." },
+  cardio: { badge:"e", badgeTxt:"≈ Estimation", number:"28 milliards $/an", title:"Le cœur oublié", desc:"Gain annuel récupérable aux États-Unis si l'écart de diagnostic et de traitement cardiovasculaire entre hommes et femmes était comblé." },
+  plafond:{ badge:"e", badgeTxt:"≈ Estimation", number:"≈ 104 milliards €/an", title:"Des milliards perdus", desc:"Manque à gagner estimé pour les entreprises du CAC40 si leurs comités exécutifs atteignaient 30 % de femmes." },
+  education:{ badge:"e", badgeTxt:"≈ Estimation", number:"15 000 milliards de dollars", title:"Le tableau noir", desc:"Coût mondial de la non-scolarisation des filles : pertes de productivité et de revenus sur la vie active." },
+  nourrir:{ badge:"v", badgeTxt:"✓ Documenté", number:"1 000 milliards $/an", title:"Nourrir le monde", desc:"Coût mondial annuel de l'écart de productivité entre agricultrices et agriculteurs." },
+  rue:    { badge:"e", badgeTxt:"≈ Estimation", number:"~75–150 milliards €", title:"Dans la rue", desc:"Coût cumulé sur 25 ans de la non-prise en compte des données de mobilité genrées dans la planification des transports français." },
+  'sport-dangereux': { badge:"e", badgeTxt:"≈ Estimation", number:"1,5 à 5 milliards $/an", title:"Un sport dangereux", desc:"Coût sociétal estimé des blessures sportives féminines évitables aux États-Unis et en Europe, liées à des équipements conçus sur le corps masculin." }
 };
 
 let currentPopupId = null;
 
 function openPopup(id) {
-  const d = popupData[id];
-  if (!d) return;
-  currentPopupId = id;
-  document.getElementById('popup-badge').className = 'popup-badge ' + d.badge;
-  document.getElementById('popup-badge').textContent = d.badgeTxt;
-  document.getElementById('popup-number').textContent = d.number;
-  document.getElementById('popup-title').textContent = d.title;
-  document.getElementById('popup-desc').textContent = d.desc;
-  document.getElementById('popup-btn-full').onclick = () => { closePopup(); openFiche(id); };
-  const popup = document.getElementById('pin-popup');
-  popup.classList.add('open');
-  // position near center
-  popup.style.left = '50%';
-  popup.style.top = '50%';
-  popup.style.transform = 'translate(-50%, -50%)';
+  openFiche(id);
 }
-
 function closePopup() {
-  document.getElementById('pin-popup').classList.remove('open');
+  document.getElementById('pin-popup') && document.getElementById('pin-popup').classList.remove('open');
   currentPopupId = null;
 }
 
@@ -1225,22 +1243,26 @@ function closeApropos() {
 }
 function showFlash() {
   document.getElementById('grid-view').style.display = 'none';
-  document.getElementById('flash-view').style.display = 'block';
+  document.getElementById('flash-view').style.display = 'flex';
+  document.getElementById('timeline-section').style.display = 'block';
   closeFiche();
   closePopup();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function showGrid(e) {
   if(e) e.stopPropagation();
   closePopup();
   document.getElementById('flash-view').style.display = 'none';
+  document.getElementById('timeline-section').style.display = 'none';
   document.getElementById('grid-view').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Close popup on Escape or outside click
 document.addEventListener('click', e => {
   const popup = document.getElementById('pin-popup');
-  if (popup.classList.contains('open') && !popup.contains(e.target) && !e.target.closest('.pin')) {
+  if (popup && popup.classList.contains('open') && !popup.contains(e.target) && !e.target.closest('.pin')) {
     closePopup();
   }
 });
@@ -1475,6 +1497,8 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') { closeFiche();
 
 // ══ INIT ══
 (function() {
+  // Initialize hcount
+  document.getElementById('hcount').textContent = '0 / 11 épisodes';
   const h = window.location.hash.replace('#','');
   if (h && fiches[h]) { openFiche(h); }
 })();
