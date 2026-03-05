@@ -56,18 +56,18 @@ body {
 nav, header {
   position: fixed; top: 3px; left: 0; right: 0; z-index: 400;
   padding: 1.2rem 5vw; display: flex; justify-content: space-between; align-items: center;
-  background: rgba(245,240,232,0.94); backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  background: #1a1820;
+  border-bottom: none;
   flex-direction: row;
 }
 .nav-logo, .site-title {
-  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink);
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #fff;
   cursor: pointer; text-decoration: none;
 }
 .nav-logo span, .site-title span { color: var(--red); }
 .nav-right { display: flex; align-items: center; gap: 2rem; }
-.nav-count, .header-count { font-family: var(--sans); font-size: 1rem; color: var(--ink); cursor: pointer; font-weight: 700; letter-spacing: 0.01em; }
-.nav-count b { color: var(--ink); font-weight: 500; }
+.nav-count, .header-count { font-family: var(--sans); font-size: 1rem; color: rgba(255,255,255,0.85); cursor: pointer; font-weight: 700; letter-spacing: 0.01em; }
+.nav-count b { color: #fff; font-weight: 500; }
 .header-top { width: 100%; display: flex; align-items: center; justify-content: space-between; height: auto; border-bottom: none; }
 
 
@@ -325,7 +325,7 @@ nav, header {
 .fiche-overlay.open { display: block; animation: fadeUp 0.2s ease; }
 @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
 .fiche-topbar {
-  position: sticky; top: 0; z-index: 600;
+  position: sticky; top: 0; z-index: 10;
   background: var(--fiche-color, var(--ink)); 
   border-bottom: none;
   padding: 0 5vw; height: 56px;
@@ -334,11 +334,11 @@ nav, header {
 .btn-apropos {
   background: none; border: none;
   font-family: var(--sans);
-  font-size: 1rem; font-weight: 700; color: var(--ink);
+  font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.85);
   cursor: pointer; letter-spacing: 0.01em;
   transition: color 0.12s; padding: 0;
 }
-.btn-apropos:hover { color: var(--red); }
+.btn-apropos:hover { color: #fff; }
 .btn-back { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); padding: 0.35rem 1rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; color: #fff; cursor: pointer; border-radius: 2px; transition: all 0.12s; letter-spacing: 0.01em; }
 .btn-back:hover { background: rgba(255,255,255,0.28); border-color: #fff; }
 .btn-share { background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.35); padding: 0.3rem 0.9rem; font-family: var(--sans); font-size: 0.78rem; cursor: pointer; border-radius: 2px; transition: all 0.12s; }
@@ -351,7 +351,7 @@ nav, header {
 .fiche-dateline { font-size: 0.95rem; color: var(--ink2); padding-bottom: 1.8rem; border-bottom: 2px solid var(--ink); margin-bottom: 2rem; }
 
 /* ── TABS ── */
-.tabs { display: flex; border-bottom: 2px solid var(--fiche-color, var(--line)); margin-bottom: 2rem; overflow-x: auto; gap: 0; }
+.tabs { display: flex; border-bottom: 2px solid var(--fiche-color, var(--line)); margin-bottom: 2rem; overflow-x: auto; gap: 0; position: sticky; top: 56px; background: var(--bg); z-index: 5; }
 .tab { background: none; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px; padding: 0.7rem 1.2rem; font-family: var(--sans); font-size: 0.92rem; color: var(--ink2); cursor: pointer; white-space: nowrap; transition: all 0.12s; }
 .tab:hover { color: var(--ink); }
 .tab.active { color: var(--fiche-color, var(--ink)); font-weight: 700; border-bottom-color: var(--fiche-color, var(--ink)); }
@@ -554,7 +554,7 @@ nav, header {
 
 <header>
   <div class="header-top">
-    <span class="nav-logo" onclick="showFlash()">Les coûts <span>cachés</span></span>
+    <span class="nav-logo" onclick="showFlash()">Ce qui n'a pas été compté</span>
     <div class="nav-right">
       <button class="btn-apropos" onclick="openApropos()">À propos</button>
       <button class="btn-apropos" onclick="openFaq()">FAQ</button>
@@ -565,7 +565,6 @@ nav, header {
 
 <!-- ══ HERO ══ -->
 <section class="hero" id="flash-view">
-  <div class="hero-eyebrow">Ce qui n'a pas été compté</div>
   <h1 class="hero-title">
     <span class="l1">Les coûts</span>
     <span class="l2">cachés</span>
@@ -1154,7 +1153,6 @@ nav, header {
 <div class="fiche-overlay" id="fiche-overlay">
   <div class="fiche-topbar">
     <button class="btn-back" onclick="closeFiche()">← Retour</button>
-    <button class="btn-share" onclick="copyLink()">Copier le lien</button>
   </div>
   <div class="fiche-body" id="fiche-body"></div>
 </div>
@@ -1532,7 +1530,26 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') { closeFiche();
 (function() {
   document.getElementById('hcount').textContent = 'Épisodes';
 
-  // Shuffle grid cards on each load
+  // Shuffle timeline: collect all ep-rows, remove era-seps, reinsert rows randomly
+  const container = document.querySelector('#timeline-section > div');
+  if (container) {
+    // Remove era separators
+    container.querySelectorAll('.era-sep').forEach(s => s.remove());
+    // Collect and shuffle ep-rows
+    const rows = Array.from(container.querySelectorAll('.ep-row'));
+    for (let i = rows.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [rows[i], rows[j]] = [rows[j], rows[i]];
+    }
+    // Alternate left/right regardless of original class
+    rows.forEach((row, i) => {
+      row.classList.remove('left', 'right');
+      row.classList.add(i % 2 === 0 ? 'left' : 'right');
+      container.appendChild(row);
+    });
+  }
+
+  // Also shuffle grid cards
   const grid = document.querySelector('.fiches-grid');
   if (grid) {
     const cards = Array.from(grid.children);
