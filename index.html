@@ -184,30 +184,35 @@ nav, header {
   line-height: 1; color: #fff; margin-bottom: 0.25rem;
 }
 .ep-cost-label {
-  font-family: var(--mono); font-size: 0.78rem;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(255,255,255,0.75); margin-bottom: 1rem;
+  font-family: var(--mono); font-size: 0.72rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7); margin-bottom: 1.2rem;
 }
-.ep-current { display: flex; align-items: flex-start; gap: 0.55rem; margin-bottom: 1rem; }
+.ep-current { display: flex; align-items: flex-start; gap: 0.55rem; margin-bottom: 0.6rem; }
 .pulse-dot {
-  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 0.3rem;
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 0.5rem;
   background: #fff; animation: pulse 2.2s infinite;
 }
 .ep-current-value {
-  font-family: var(--mono); font-size: clamp(1.25rem, 1.7vw, 1.5rem);
-  font-weight: 600; color: #fff; line-height: 1.2;
+  font-family: var(--mono); font-size: clamp(1.35rem, 1.9vw, 1.7rem);
+  font-weight: 700; color: #fff; line-height: 1.2;
 }
 .ep-current-label {
-  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em;
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.65);
+  display: block; margin-top: 0.2rem;
+}
+.ep-encore-header {
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em;
   text-transform: uppercase; color: rgba(255,255,255,0.5);
-  display: block; margin-top: 0.15rem;
+  margin-bottom: 0.5rem; display: block;
 }
 .ep-badge {
   display: inline-flex; align-items: center; width: fit-content;
-  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em;
   text-transform: uppercase; padding: 0.2rem 0.55rem;
-  background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8);
-  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.3); margin-top: 0.5rem;
 }
 
 /* ── ERA SEPARATORS ── */
@@ -320,8 +325,9 @@ nav, header {
 .fiche-overlay.open { display: block; animation: fadeUp 0.2s ease; }
 @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
 .fiche-topbar {
-  position: sticky; top: 0; z-index: 10;
-  background: var(--bg); border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 600;
+  background: var(--fiche-color, var(--ink)); 
+  border-bottom: none;
   padding: 0 5vw; height: 56px;
   display: flex; align-items: center; justify-content: space-between;
 }
@@ -333,9 +339,10 @@ nav, header {
   transition: color 0.12s; padding: 0;
 }
 .btn-apropos:hover { color: var(--red); }
-.btn-back { background: none; border: 1px solid var(--line); padding: 0.35rem 1rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--ink2); cursor: pointer; border-radius: 2px; transition: all 0.12s; }
-.btn-back:hover { border-color: var(--ink); color: var(--ink); }
-.btn-share { background: var(--red); color: #fff; border: none; padding: 0.3rem 0.9rem; font-family: var(--sans); font-size: 0.78rem; cursor: pointer; border-radius: 2px; }
+.btn-back { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); padding: 0.35rem 1rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; color: #fff; cursor: pointer; border-radius: 2px; transition: all 0.12s; letter-spacing: 0.01em; }
+.btn-back:hover { background: rgba(255,255,255,0.28); border-color: #fff; }
+.btn-share { background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.35); padding: 0.3rem 0.9rem; font-family: var(--sans); font-size: 0.78rem; cursor: pointer; border-radius: 2px; transition: all 0.12s; }
+.btn-share:hover { background: rgba(255,255,255,0.32); }
 
 /* ── FICHE BODY ── */
 .fiche-body { max-width: 820px; margin: 0 auto; padding: 2.5rem 5vw 6rem; }
@@ -344,10 +351,10 @@ nav, header {
 .fiche-dateline { font-size: 0.95rem; color: var(--ink2); padding-bottom: 1.8rem; border-bottom: 2px solid var(--ink); margin-bottom: 2rem; }
 
 /* ── TABS ── */
-.tabs { display: flex; border-bottom: 1px solid var(--line); margin-bottom: 2rem; overflow-x: auto; gap: 0; }
-.tab { background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 0.7rem 1.2rem; font-family: var(--sans); font-size: 0.92rem; color: var(--ink2); cursor: pointer; white-space: nowrap; transition: all 0.12s; }
+.tabs { display: flex; border-bottom: 2px solid var(--fiche-color, var(--line)); margin-bottom: 2rem; overflow-x: auto; gap: 0; }
+.tab { background: none; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px; padding: 0.7rem 1.2rem; font-family: var(--sans); font-size: 0.92rem; color: var(--ink2); cursor: pointer; white-space: nowrap; transition: all 0.12s; }
 .tab:hover { color: var(--ink); }
-.tab.active { color: var(--ink); font-weight: 600; border-bottom-color: var(--ink); }
+.tab.active { color: var(--fiche-color, var(--ink)); font-weight: 700; border-bottom-color: var(--fiche-color, var(--ink)); }
 .tab.tab-etsi { color: var(--red); font-weight: 600; }
 .tab.tab-etsi.active { color: var(--red); border-bottom-color: var(--red); font-weight: 700; }
 .tab.tab-etsi:hover { color: var(--red); }
@@ -584,11 +591,12 @@ nav, header {
       <div class="ep-cost-main">≈ 104 Mds €</div>
       <div class="ep-cost-label">coût cumulé · CAC40</div>
       <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
         <div class="pulse-dot"></div>
         <div>
           <div class="ep-current-value">≈ 104 Mds €/an</div>
-          <span class="ep-current-label">encore perdus · CAC40</span>
+          <span class="ep-current-label">CAC40</span>
         </div>
       </div>
       <div class="ep-badge">≈ Estimation</div>
@@ -606,11 +614,12 @@ nav, header {
       <div class="ep-cost-main">~75–150 Mds €</div>
       <div class="ep-cost-label">coût cumulé · France</div>
       <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
         <div class="pulse-dot"></div>
         <div>
           <div class="ep-current-value">~3–6 Mds €/an</div>
-          <span class="ep-current-label">encore perdus · France</span>
+          <span class="ep-current-label">France</span>
         </div>
       </div>
       <div class="ep-badge">≈ Estimation</div>
@@ -626,11 +635,12 @@ nav, header {
       <div class="ep-cost-main">1,5–5 Mds $/an</div>
       <div class="ep-cost-label">É.-U. + Europe</div>
       <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
         <div class="pulse-dot"></div>
         <div>
           <div class="ep-current-value">1,5–5 Mds $/an</div>
-          <span class="ep-current-label">encore perdus chaque année</span>
+          <span class="ep-current-label">États-Unis</span>
         </div>
       </div>
       <div class="ep-badge">≈ Estimation</div>
@@ -646,11 +656,12 @@ nav, header {
       <div class="ep-cost-main">28 Mds $/an</div>
       <div class="ep-cost-label">récupérables · États-Unis</div>
       <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
         <div class="pulse-dot"></div>
         <div>
           <div class="ep-current-value">28 Mds $/an</div>
-          <span class="ep-current-label">encore perdus · États-Unis</span>
+          <span class="ep-current-label">États-Unis</span>
         </div>
       </div>
       <div class="ep-badge">≈ Estimation</div>
@@ -668,6 +679,7 @@ nav, header {
       <div class="ep-cost-main">170–350k morts</div>
       <div class="ep-cost-label">évitables · mondial</div>
       <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
         <div class="pulse-dot"></div>
         <div>
@@ -688,11 +700,12 @@ nav, header {
       <div class="ep-cost-main">~160 Mds €</div>
       <div class="ep-cost-label">depuis 1950 · France</div>
       <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
         <div class="pulse-dot"></div>
         <div>
           <div class="ep-current-value">~3 Mds €/an</div>
-          <span class="ep-current-label">encore perdus · France</span>
+          <span class="ep-current-label">France</span>
         </div>
       </div>
       <div class="ep-badge">≈ Estimation</div>
@@ -710,6 +723,7 @@ nav, header {
       <div class="ep-cost-main">15 000 Mds $</div>
       <div class="ep-cost-label">coût mondial cumulé</div>
       <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
         <div class="pulse-dot"></div>
         <div>
@@ -730,6 +744,7 @@ nav, header {
       <div class="ep-cost-main">1 000 Mds $/an</div>
       <div class="ep-cost-label">mondial</div>
       <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
         <div class="pulse-dot"></div>
         <div>
@@ -767,6 +782,7 @@ nav, header {
       <div class="ep-cost-main">1–4 M victimes</div>
       <div class="ep-cost-label">depuis 1139 · mondial</div>
       <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
         <div class="pulse-dot"></div>
         <div>
@@ -787,11 +803,12 @@ nav, header {
       <div class="ep-cost-main">~120 000 Mds $</div>
       <div class="ep-cost-label">cumulés · mondial</div>
       <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
         <div class="pulse-dot"></div>
         <div>
           <div class="ep-current-value">12–28k Mds $/an</div>
-          <span class="ep-current-label">encore perdus · mondial</span>
+          <span class="ep-current-label">Mondial</span>
         </div>
       </div>
       <div class="ep-badge">? Probabilité</div>
@@ -1301,6 +1318,7 @@ function applyFilters() {
 const fiches = {
   jeanne: {
     domain:'Justice · Politique coloniale', epoch:'1479–1555',
+    color:'#f07800',
     title:'Jeanne la Folle',
     dateline:'1479–1555  ·  Reine séquestrée  ·  Politique coloniale  ·  46 ans sans procès',
     tabs:[
@@ -1321,6 +1339,7 @@ const fiches = {
 
   crash: {
     domain:'Transport · Sécurité routière', epoch:'1950–2011',
+    color:'#f07800',
     title:'Les crash tests',
     dateline:'1950–2011  ·  53 ans sans mannequin féminin au volant  ·  Sécurité routière  ·  Biais de conception',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1335,6 +1354,7 @@ const fiches = {
 
   kariko: {
     domain:'Santé · Recherche médicale', epoch:'1989–2006',
+    color:'#e8175d',
     title:'La molécule boycottée',
     dateline:'1989–2006  ·  17 ans de rejets  ·  ARNm  ·  Prix Nobel 2023',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1349,6 +1369,7 @@ const fiches = {
 
   celibat: {
     domain:'Religion · Droit canon', epoch:'1139–2020',
+    color:'#1a2480',
     title:'Célibat obligatoire des prêtres',
     dateline:'Concile de Latran II, 1139  ·  Mobile patrimonial  ·  Abus systémiques  ·  Exclusion des femmes',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Accumulation foncière',id:'l3f2'},{label:'Victimes des abus',id:'l3f3'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1365,6 +1386,7 @@ const fiches = {
 
   adam: {
     domain:'Religion · Droit civil', epoch:'405–1965',
+    color:'#e8175d',
     title:'Adam et Ève',
     dateline:'Traduction latine de la Bible, 405  ·  Exclusion juridique des femmes  ·  161 ans codifiés',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1380,6 +1402,7 @@ const fiches = {
 
   cardio: {
     domain:'Santé · Médecine cardiovasculaire · Recherche clinique', epoch:'1973–2024',
+    color:'#1a2480',
     title:'Le cœur oublié',
     dateline:'1973–2024  ·  Quand la médecine cardiovasculaire a construit ses protocoles sur la moitié de ses patients',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1394,6 +1417,7 @@ const fiches = {
 
   plafond: {
     domain:'Finance · Gouvernance d\'entreprise · Économie de genre', epoch:'2023–2024',
+    color:'#e8175d',
     title:'Des milliards perdus',
     dateline:'2023  ·  Ce que coûte aux entreprises françaises la sous-représentation des femmes dans leurs comités de direction',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1408,6 +1432,7 @@ const fiches = {
 
   education: {
     domain:'Éducation · Droit civil · Santé publique', epoch:'1808–1924',
+    color:'#1469c7',
     title:'Le tableau noir',
     dateline:'1808–1924  ·  116 ans sans baccalauréat pour les filles  ·  France',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1422,6 +1447,7 @@ const fiches = {
 
   nourrir: {
     domain:'Agriculture · Droit civil · Foncier', epoch:'1804–1965',
+    color:'#e02020',
     title:'Nourrir le monde',
     dateline:'1804–1965  ·  161 ans d\'incapacité juridique des femmes en agriculture  ·  France / Mondial',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1436,6 +1462,7 @@ const fiches = {
 
   rue: {
     domain:'Urbanisme · Transport · Espace public', epoch:'2000–2025',
+    color:'#1469c7',
     title:'Dans la rue',
     dateline:'2000–2025  ·  25 ans de données ignorées  ·  France / Vienne',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'Vienne',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1450,6 +1477,7 @@ const fiches = {
 
   'sport-dangereux': {
     domain:'Sport · Équipement', epoch:'~1950–2026',
+    color:'#e02020',
     title:'Un sport dangereux',
     dateline:'~1950–2026  ·  Équipement sportif conçu sur le corps masculin  ·  « Shrink it and pink it »',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1468,11 +1496,14 @@ const fiches = {
 function openFiche(id) {
   const f = fiches[id];
   if (!f) return;
+  const ov = document.getElementById('fiche-overlay');
+  // Apply fiche color to overlay so topbar, tabs, heading all use it
+  const color = f.color || '#1a1820';
+  ov.style.setProperty('--fiche-color', color);
   const body = document.getElementById('fiche-body');
   const tabsHTML = f.tabs.map((t,i) => `<button class="tab${i===0?' active':''}${t.label==='Et si ?'?' tab-etsi':''}" onclick="switchTab('${t.id}',this)">${t.label}</button>`).join('');
   const panelsHTML = f.tabs.map((t,i) => `<div class="tab-panel${i===0?' active':''}" id="panel-${t.id}">${f.panels[t.id]||''}</div>`).join('');
-  body.innerHTML = `<p class="fiche-eyebrow">${f.domain}</p><h2 class="fiche-heading">${f.title}</h2><p class="fiche-dateline">${f.dateline}</p><nav class="tabs">${tabsHTML}</nav><div>${panelsHTML}</div>`;
-  const ov = document.getElementById('fiche-overlay');
+  body.innerHTML = `<p class="fiche-eyebrow">${f.domain}</p><h2 class="fiche-heading" style="color:var(--fiche-color)">${f.title}</h2><p class="fiche-dateline">${f.dateline}</p><nav class="tabs">${tabsHTML}</nav><div>${panelsHTML}</div>`;
   ov.classList.add('open');
   ov.scrollTop = 0;
   document.body.style.overflow = 'hidden';
@@ -1499,8 +1530,19 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') { closeFiche();
 
 // ══ INIT ══
 (function() {
-  // Initialize hcount
   document.getElementById('hcount').textContent = 'Épisodes';
+
+  // Shuffle grid cards on each load
+  const grid = document.querySelector('.fiches-grid');
+  if (grid) {
+    const cards = Array.from(grid.children);
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      grid.appendChild(cards[j]);
+      cards.splice(j, 1);
+    }
+  }
+
   const h = window.location.hash.replace('#','');
   if (h && fiches[h]) { openFiche(h); }
 })();
