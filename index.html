@@ -1750,4 +1750,13 @@ function copyLink() {
     row.classList.remove('left', 'right');
     row.classList.add(i % 2 === 0 ? 'left' : 'right');
   });
-  document.querySele
+  document.querySelectorAll('.ep-row').forEach(el => revObs.observe(el));
+})();
+(function(){
+  const hash = window.location.hash.replace('#','');
+  if(hash && typeof popupData !== 'undefined' && popupData[hash]) {
+    openFiche(hash);
+  }
+})();
+</script></body>
+</html>
