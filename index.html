@@ -667,7 +667,7 @@ nav, header {
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">Nourrir le monde</h2>
-      <p class="ep-subtitle">Pendant 161 ans, de nombreuses personnes exploitant des terres n'ont pas pu signer un bail ni un emprunt. Les terres ont produit moins que ce qu'elles auraient pu.</p>
+      <p class="ep-subtitle">Pendant 161 ans en France, une partie des personnes exploitant des terres n'ont pas pu signer ni bail ni emprunt. Aujourd'hui, à l'échelle mondiale, les inégalités d'accès réduisent la production. ✓ Source institutionnelle + ≈ Estimation modélisée</p>
       <div class="ep-cost-main">✓ 1 000 Mds $/an</div>
       <div class="ep-cost-label">mondial</div>
       <div class="ep-sep"></div>
@@ -1325,48 +1325,99 @@ const popupData = {
   },
 
   nourrir: {
-    domain:'Agriculture · Droit civil · Foncier · Mondial', epoch:'1804–1965',
+    domain:'Agriculture · Droit civil · Foncier · Mondial', epoch:'1804–1985',
     color:'#e02020',
     title:'Nourrir le monde',
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
-  <div class="l1-badges"><span class="badge v">✓ Documenté</span></div>
+  <div class="l1-badges"><span class="badge v">✓ Documenté</span><span class="badge e">≈ Estimation modélisée</span></div>
   <div class="l1-number">1 000 milliards de dollars par an</div>
-  <p class="l1-desc">Les femmes produisent une grande partie de la nourriture mondiale. Elles ont moins accès que les hommes à la terre, au crédit, aux machines et à la formation. Cet écart d'accès a un coût : 1 000 milliards de dollars de richesse agricole non produite chaque année dans le monde.</p>
+  <p class="l1-desc">Selon la FAO, réduire les écarts d'accès aux ressources productives entre femmes et hommes dans les systèmes agroalimentaires augmenterait la production agricole mondiale et générerait environ 1 000 milliards de dollars brut supplémentaires par an.<br><br>En France, cet écart d'accès a été inscrit dans la loi pendant 161 ans. De 1804 à 1965, une femme mariée ne pouvait pas signer un bail agricole, emprunter, ni gérer une exploitation sans l'autorisation de son mari.</p>
   <div class="l1-sources">Source : FAO, La situation des femmes dans les systèmes agroalimentaires, avril 2023</div>
 </div>
 <div class="l1-block-evitable">
   <div class="l1-evitable-label">Encore perdu en 2026 · Mondial</div>
   <div class="l1-number">1 000 milliards de dollars par an</div>
-  <p class="l1-desc">En 2024, 45 millions de personnes supplémentaires souffrent d'insécurité alimentaire à cause de cet écart.</p>
+  <p class="l1-desc">C'est ce que le monde perdrait aujourd'hui, chaque année, tant que l'écart d'accès aux ressources n'est pas comblé. Selon la FAO, dans un scénario d'égalisation de l'accès aux ressources productives, le nombre de personnes en situation d'insécurité alimentaire pourrait être réduit de plusieurs dizaines de millions. En 2024, 45 millions de personnes supplémentaires souffrent d'insécurité alimentaire à cause de cet écart.</p>
 </div>`,
-      l2:`<div class="sec-title">Ce que la loi interdisait</div>
-<div class="prose"><p>De 1804 à 1965, le Code civil français place la femme mariée parmi les personnes juridiquement incapables. En agriculture : pas de bail agricole, pas d'emprunt, pas de compte bancaire sans l'autorisation du mari.</p></div>
-<div class="sec-title">Ce que montrent les comparaisons internationales</div>
-<div class="prose"><p>Un programme des Nations Unies mené dans sept pays entre 2014 et 2021 a donné aux femmes rurales un accès égal à la terre, au crédit, à la formation et aux machines : la production a augmenté de 82 %.</p></div>
+      l2:`<div class="sec-title">Le monde aujourd'hui : des inégalités d'accès aux facteurs de production</div>
+<div class="prose"><p>Dans plusieurs pays, lorsque les femmes ont eu accès aux mêmes intrants agricoles que les hommes, la production de leurs exploitations a augmenté d'environ 19 %. Un programme des Nations Unies mené dans sept pays entre 2014 et 2021 — Éthiopie, Guatemala, Kirghizstan, Liberia, Népal, Niger et Rwanda — a donné aux femmes rurales un accès égal à la terre, au crédit, à la formation et aux machines : la production a augmenté de 82 %. Ces hausses ont été observées sur le terrain. L'estimation mondiale de la FAO projette ce type d'effet à l'échelle globale.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+82 % de production avec accès égal aux ressources : FAO/FIDA/ONU Femmes/PAM, 2014–2021, 7 pays</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">8 % de femmes cheffes d'exploitation en 1970, 24,5 % en 2023 : Agreste, recensements agricoles</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+82 % de production avec accès égal aux ressources — FAO · FIDA · ONU Femmes · Programme conjoint 2014–2021 · 7 pays · 80 000 participantes — résultat observé sur exploitations accompagnées</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+19 % de production en corrigeant l'accès aux intrants — ONU Femmes · Banque mondiale · 2015 — résultat observé dans les pays étudiés</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Estimation d'un gain mondial d'environ 1 000 milliards de dollars par an — FAO, La situation des femmes dans les systèmes agroalimentaires, 2023 — scénario modélisé d'égalisation de l'accès aux ressources</span></div>
+</div>
+<div class="sec-title">France 1804–1985 : l'incapacité juridique</div>
+<div class="prose"><p>De 1804 à 1965, le Code civil place la femme mariée en incapacité juridique. Conséquence économique directe documentée : impossibilité de signer un bail, d'emprunter, de gérer les biens communs. La loi du 13 juillet 1965 lève partiellement cette incapacité. L'égalité complète dans la gestion des biens n'arrive qu'en 1985.</p></div>
+<div class="sec-title">France aujourd'hui : un foncier morcelé</div>
+<div class="prose"><p>Le fractionnement foncier est dû à de nombreux facteurs : successions, structure familiale, évolution démographique, fiscalité, transformations agricoles. L'incapacité juridique des femmes a pu être un facteur parmi d'autres en limitant leur capacité à gérer ou regrouper des terres héritées.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">8 % de femmes cheffes d'exploitation en 1970 · 24 % en 2000 · 24,5 % en 2023 — Agreste, recensements agricoles</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">8,1 % des cheffes accèdent au statut par transfert entre époux en 2023 (16 % dans les années 2000) — MSA, 2023</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">2,5 millions d'hectares en friche · 20 000 hectares abandonnés par an — CGAAER, 2024 · Conseil supérieur du notariat</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Environ un tiers de la surface agricole en indivision</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Lien direct entre incapacité juridique 1804–1965 et niveau actuel de friches ou d'indivisions — hypothèse contrefactuelle non mesurée</span></div>
 </div>`,
       l3f:`<div class="chain">
-  <div class="chain-step"><span class="chain-year">1804</span><span class="chain-text">Le Code civil place la femme mariée parmi les personnes juridiquement incapables.</span></div>
-  <div class="chain-step"><span class="chain-year">1894</span><span class="chain-text">L'État crée le Crédit Agricole. Pendant 71 ans, la moitié des exploitants potentiels ne peut pas y accéder.</span></div>
-  <div class="chain-step"><span class="chain-year">1914</span><span class="chain-text">La mobilisation appelle deux millions d'hommes qui travaillaient la terre. Les femmes labourent, sèment, récoltent. Sans pouvoir emprunter pour acheter du matériel.</span></div>
-  <div class="chain-step"><span class="chain-year">1965</span><span class="chain-text">La loi du 13 juillet met fin à une partie des restrictions juridiques.</span></div>
+  <div class="chain-step"><span class="chain-year">1804</span><span class="chain-text">Le Code civil place la femme mariée en incapacité juridique totale. Ce n'est pas une nouveauté absolue — l'Ancien Régime limitait déjà les droits des femmes —, mais le Code le systématise et l'étend à tout le territoire français. Pendant 161 ans, cette règle s'applique sans exception.</span></div>
+  <div class="chain-step"><span class="chain-year">1894</span><span class="chain-text">L'État crée le Crédit Agricole pour permettre aux exploitants de mécaniser leurs exploitations, d'acheter des semences, d'investir. Pendant 71 ans, la moitié des exploitants potentiels ne peut pas y accéder. Les exploitations gérées de fait par des femmes accumulent un retard de mécanisation.</span></div>
+  <div class="chain-step"><span class="chain-year">1914</span><span class="chain-text">La mobilisation appelle deux millions d'hommes qui travaillaient la terre. Les femmes labourent, sèment, récoltent, sans pouvoir emprunter pour acheter du matériel. Ce que la guerre révèle, ce n'est pas l'incapacité des femmes à gérer des exploitations. C'est l'écart entre ce qu'elles font et ce que la loi leur permet de faire.</span></div>
+  <div class="chain-step"><span class="chain-year">1965</span><span class="chain-text">La loi du 13 juillet met fin à une partie des restrictions. À partir de cette date, les femmes mariées peuvent gérer leurs biens personnels et travailler sans autorisation de leur mari. L'égalité complète dans la gestion des biens du couple n'arrive qu'en 1985 — 181 ans après le Code civil.</span></div>
+  <div class="chain-step"><span class="chain-year">1970–2023</span><span class="chain-text">En 1970, 8 % de femmes cheffes d'exploitation. En 2023, 24,5 %. Le retard de mécanisation des exploitations féminines, les terres morcelées par des décennies de successions contraintes, les 2,5 millions d'hectares en friche : ces héritages ne se corrigent pas par une loi.</span></div>
+</div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Code civil 1804, article 1124 : incapacité juridique de la femme mariée</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Création du Crédit Agricole : 1894</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Mobilisation 1914 : deux millions d'actifs agricoles — Gervais, Jollivet, Tavernier, Histoire de la France rurale, tome 4, 1977</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Loi du 13 juillet 1965 : levée partielle de l'incapacité</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Loi du 23 décembre 1985 : égalité complète dans la gestion des biens</span></div>
 </div>`,
-      l3cf:`<div class="etsi-header"><span class="etsi-badge">Et si ?</span></div>
-<div class="prose"><p>Si le taux de femmes cheffes d'exploitation atteint en 2000 (24 %) avait existé dès 1804, la France aurait compté environ 475 000 exploitantes supplémentaires chaque année sur 161 ans. Avec une hypothèse basse de 20 % de la valeur actuelle, le manque à gagner annuel est de l'ordre de 21 milliards d'euros. Ce chiffre repose sur trois hypothèses empilées.</p></div>`,
-      l4:`<div class="sec-title">Droit</div>
+      l3cf:`<div class="sec-title">Ce que l'on sait</div>
+<div class="prose"><p>Pendant 161 ans, une femme mariée ne pouvait ni signer un bail agricole, ni emprunter, ni gérer légalement une exploitation sans autorisation. On sait aussi que lorsqu'elles ont accès aux mêmes ressources que les hommes, leur production augmente fortement (de +19 % à +82 % selon les contextes) ; l'accès au crédit accélère la mécanisation ; la sécurité foncière favorise l'investissement de long terme. Ces effets sont documentés.</p></div>
+<div class="sec-title">Ce que cela implique logiquement</div>
+<div class="prose"><p>Si les femmes avaient eu, dès le XIXe siècle, les mêmes droits contractuels : davantage d'exploitations auraient pu investir ; davantage de terres héritées auraient été directement gérées ; l'accès au crédit agricole créé en 1894 aurait concerné l'ensemble des exploitants réels ; une partie du retard de mécanisation aurait été réduite ; certaines terres aujourd'hui morcelées ou en indivision auraient pu connaître d'autres trajectoires. Cela signifie qu'une partie du potentiel agricole français est restée juridiquement bloquée.</p></div>
+<div class="sec-title">Ce que l'on ne peut pas calculer précisément</div>
+<div class="prose"><p>On ne peut pas reconstituer combien d'exploitations auraient été dirigées par des femmes en 1850, la productivité moyenne d'une agriculture égalitaire au XIXe siècle, ni combien d'hectares aujourd'hui en friche en sont la conséquence directe. Les données n'existent pas.</p></div>
+<div class="sec-title">Mais on peut dire ceci</div>
+<div class="prose"><p>Pendant 161 ans, une partie du travail agricole était invisible juridiquement ; une partie des décisions d'investissement était empêchée ; une partie du capital foncier était immobilisée ; une partie du potentiel de production n'a pas été activée. À l'échelle mondiale, les institutions internationales estiment que les inégalités d'accès aux ressources en agriculture coûtent encore des centaines de milliards de dollars chaque année. L'histoire n'est pas terminée.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Effets documentés de l'accès aux ressources : +19 % à +82 % de production — FAO/FIDA/ONU Femmes 2014–2021 · ONU Femmes/BM 2015</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Perte cumulée France 1804–1965 : non calculable avec les données disponibles</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Part des friches actuelles directement attribuable à l'incapacité juridique : hypothèse contrefactuelle non mesurée</span></div>
+</div>`,
+      l4:`<div class="sec-title">Droit et législation — France</div>
 <ul class="src-list">
-  <li>Code civil, 21 mars 1804, article 1124</li>
-  <li>Loi n° 65-570 du 13 juillet 1965</li>
+  <li>Code civil des Français, 21 mars 1804, article 1124</li>
+  <li>Loi n° 65-570 du 13 juillet 1965 portant réforme des régimes matrimoniaux</li>
+  <li>Loi n° 85-1372 du 23 décembre 1985 relative à l'égalité des époux dans la gestion des biens</li>
+</ul>
+<div class="sec-title">Statistiques agricoles — France</div>
+<ul class="src-list">
+  <li>Agreste, Recensements agricoles : 1970, 1979, 1988, 2000, 2010, 2020</li>
+  <li>Agreste, Recensement agricole 2020, Portrait des femmes exploitantes, édition 2024</li>
+  <li>MSA, Statistiques des chefs d'exploitation agricole, 2023</li>
+  <li>Sénat, Femmes et agriculture : pour l'égalité dans les territoires, rapport d'information, 2017</li>
+  <li>INSEE, Comptes de l'agriculture, valeur de la production agricole 2024</li>
+</ul>
+<div class="sec-title">Foncier et friches — France</div>
+<ul class="src-list">
+  <li>CGAAER, Rapport sur l'abandon des terres agricoles, 2024</li>
+  <li>Conseil supérieur du notariat, Données sur la propriété et l'indivision des terres agricoles, 2023</li>
+  <li>Terre de Liens · CEREMA, Étude sur la propriété des terres agricoles en France, 2022</li>
+  <li>Congrès des notaires de France, Actes 2018, Successions et foncier agricole</li>
+</ul>
+<div class="sec-title">Agriculture et guerre 1914–1918</div>
+<ul class="src-list">
+  <li>Gervais, Michel · Jollivet, Marcel · Tavernier, Yves — Histoire de la France rurale, tome 4, Seuil, 1977</li>
+  <li>OFCE, Économie française en guerre 1914–1918 : production et commerce extérieur, 2021</li>
 </ul>
 <div class="sec-title">Données mondiales</div>
 <ul class="src-list">
-  <li>FAO, « La situation des femmes dans les systèmes agroalimentaires », avril 2023</li>
-  <li>FAO/IFAD/ONU Femmes/PAM, programme JP RWEE, résultats 2014–2021 (+82 %)</li>
+  <li>FAO, La situation des femmes dans les systèmes agroalimentaires, 2023</li>
+  <li>FAO · FIDA · ONU Femmes · PAM, Joint Programme on Rural Women's Economic Empowerment 2014–2021, rapport final</li>
+  <li>ONU Femmes · Banque mondiale · PNUD · PNUE, The Cost of the Gender Gap in Agricultural Productivity in Malawi, Tanzania and Uganda, 2015</li>
 </ul>`
     }
   },
