@@ -709,9 +709,9 @@ nav, header {
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">Adam et Ève</h2>
-      <p class="ep-subtitle">Ève est née d'une côte d'Adam, assure la Bible. Une traduction injustifiée qui servira de base à des lois et à des croyances réduisant les droits et la dignité des femmes.</p>
-      <div class="ep-cost-main">~120 000 Mds $</div>
-      <div class="ep-cost-label">cumulés · mondial</div>
+      <p class="ep-subtitle">Ève est née d'une côte d'Adam, assure la Bible. Une traduction influencée qui servira de base à des lois et à des croyances réduisant les droits et la dignité des femmes.</p>
+      <div class="ep-cost-main">12 000–28 000 Mds $/an</div>
+      <div class="ep-cost-label">mondial · depuis 1965</div>
       <div class="ep-sep"></div>
       <span class="ep-encore-header">Encore perdus en 2026</span>
       <div class="ep-current">
@@ -1467,15 +1467,15 @@ const popupData = {
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
-      l1:`<div class="cost-badge">? Ordre de grandeur maximal sous hypothèses favorables</div>
-<div class="cost-main">170 000–350 000</div>
-<div class="cost-label">morts évitables · Mondial · 1989–2006</div>
-<div class="cost-sub">Ordre de grandeur illustratif</div>
-<div class="prose"><p>Katalin Karikó est la chercheuse qui a rendu possible les vaccins à ARNm, la technologie utilisée dans les vaccins Pfizer et Moderna contre le Covid. Pendant 17 ans, ses demandes de financement ont été refusées, elle a été rétrogradée quatre fois, elle n'a jamais obtenu de poste stable.</p><p>Si elle avait eu les mêmes ressources que ses collègues, la découverte aurait pu arriver plus tôt. Un calendrier scientifique plus avancé aurait pu accélérer la mise à disposition des vaccins contre le Covid-19.</p><p>En 2020, selon les données publiées par l'Organisation mondiale de la santé, la mortalité mondiale liée au Covid correspond à un ordre de grandeur compris entre 170 000 et 350 000 décès par mois.</p><p>Ce chiffre correspond au scénario le plus favorable à l'hypothèse examinée. Le raisonnement repose sur trois étapes successives qui s'appuient sur des données réelles. Le lien entre ces étapes est une hypothèse.</p></div>
-<div class="src-inline">Sources : NIH grant records · OMS données Covid 2020 · Nature Medicine, 2022</div>
-<div class="l1-encore">
-  <div class="l1-encore-header">Encore perdu en 2026 · Mondial</div>
-  <div class="l1-encore-badge">Non chiffrable</div>
+      l1:`<div class="l1-block" style="background:#2a1a3a;">
+  <div class="l1-badges"><span class="badge c">? Ordre de grandeur maximal sous hypothèses favorables</span></div>
+  <div class="l1-number">170 000–350 000</div>
+  <p class="l1-desc">morts évitables · Mondial · 1989–2006<br><br>Katalin Karikó est la chercheuse qui a rendu possible les vaccins à ARNm, la technologie utilisée dans les vaccins Pfizer et Moderna contre le Covid. Pendant 17 ans, ses demandes de financement ont été refusées, elle a été rétrogradée quatre fois, elle n'a jamais obtenu de poste stable.<br><br>Si elle avait eu les mêmes ressources que ses collègues, la découverte aurait pu arriver plus tôt. Un calendrier scientifique plus avancé aurait pu accélérer la mise à disposition des vaccins contre le Covid-19.<br><br>En 2020, selon les données publiées par l'OMS, la mortalité mondiale liée au Covid correspond à un ordre de grandeur compris entre 170 000 et 350 000 décès par mois. Ce chiffre correspond au scénario le plus favorable à l'hypothèse examinée. Le raisonnement repose sur trois étapes successives. Le lien entre ces étapes est une hypothèse.</p>
+  <div class="l1-sources">Sources : NIH grant records · OMS données Covid 2020 · Nature Medicine, 2022</div>
+</div>
+<div class="l1-block-evitable">
+  <div class="l1-evitable-label">Encore perdu en 2026 · Mondial</div>
+  <div class="l1-badges"><span class="badge">Non chiffrable</span></div>
   <p class="l1-desc">En 2024, aux États-Unis, les femmes reçoivent moins d'un tiers des financements de recherche, alors qu'elles sont majoritaires parmi les personnes titulaires d'un doctorat en biologie et en médecine. En 2026, d'autres chercheuses travaillent avec des ressources limitées. On ignore quelles découvertes pourraient en dépendre.</p>
 </div>`,
       l2:`<div class="sec-title">Le biais de financement : un mécanisme mesuré</div>
@@ -1647,53 +1647,110 @@ const popupData = {
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
-  <div class="l1-badges"><span class="badge c">? Probabilité</span><span class="badge e">≈ Estimation</span></div>
-  <div class="l1-number">~120 000 milliards de dollars</div>
-  <p class="l1-desc">Entre 1804 et 1965, les femmes d'Europe occidentale n'ont pas le droit de signer un contrat, d'ouvrir un compte bancaire ni de gérer leurs biens. Cette exclusion repose sur une doctrine construite à partir d'un seul mot de la Bible : la côte d'Adam.</p>
-  <div class="l1-sources">Sources : McKinsey Global Institute, 2015 · Maddison Project · Claudia Goldin, prix Nobel 2023</div>
+  <div class="l1-badges"><span class="badge e">≈ Estimation</span><span class="badge c">? Probabilité</span></div>
+  <div class="l1-number">12 000–28 000 Mds $/an</div>
+  <p class="l1-desc">Entre 1804 et 1965, dans plusieurs pays d'Europe occidentale, les femmes mariées ne pouvaient pas signer un contrat sans l'accord de leur mari. Elles ne pouvaient pas non plus ouvrir un compte bancaire ni gérer librement leurs biens. Cette exclusion juridique s'appuyait sur une doctrine religieuse ancienne, justifiée par une interprétation d'un passage de la Bible affirmant que la femme aurait été créée à partir d'une côte d'Adam.<br><br>En 2015, le McKinsey Global Institute a évalué l'écart entre ce que l'économie mondiale produit réellement et ce qu'elle produirait si les femmes participaient au travail et à l'activité économique au même niveau que les hommes. Selon cette étude, cet écart représentait entre 12 000 et 28 000 milliards de dollars par an. Pour donner un ordre de grandeur : 12 000 milliards de dollars correspondent à peu près au Produit intérieur brut annuel de la Chine à cette période.<br><br>Ce chiffre correspond à l'écart observé en 2015, après environ 50 années de rapprochement progressif. La traduction d'un texte religieux réalisée en 405, appelée plus tard la Vulgate, a contribué à fixer durablement certaines interprétations sur le rôle des femmes. Les effets de cette interprétation, maintenue pendant environ quinze siècles, ainsi que son coût économique cumulé, sont étudiés dans la rubrique « Et si ? ».</p>
+  <div class="l1-sources">✓ Incapacité juridique des femmes mariées : Code Napoléon, articles 213–226 · Lefebvre-Teillard, 1996 · ≈ Écart de production annuel : McKinsey Global Institute, The Power of Parity, 2015</div>
 </div>
 <div class="l1-block-evitable">
   <div class="l1-evitable-label">Encore perdu en 2026 · Mondial</div>
-  <div class="l1-number">≈ 12 000–28 000 Mds $/an</div>
-  <p class="l1-desc">Si les femmes avaient le même accès que les hommes au travail, à l'éducation et au capital, l'économie mondiale produirait chaque année entre 12 000 et 28 000 milliards de dollars de plus. (McKinsey Global Institute, 2015)</p>
+  <div class="l1-number">12 000–28 000 Mds $/an</div>
+  <p class="l1-desc">Si les femmes avaient le même accès que les hommes au travail, à l'éducation et au capital, l'économie mondiale produirait chaque année entre 12 000 et 28 000 milliards de dollars de plus. Source : McKinsey Global Institute, 2015</p>
 </div>`,
       l2:`<div class="chain">
-  <div class="chain-step"><span class="chain-year">405 apr. J.-C.</span><span class="chain-text">Le moine Jérôme achève la Vulgate. En hébreu, le mot « tsela » désigne un côté ou un flanc. Jérôme choisit « costa » : un os du thorax. Ève est désormais créée d'un os prélevé sur le corps d'Adam.</span></div>
-  <div class="chain-step"><span class="chain-year">Ve au XIIIe siècle</span><span class="chain-text">Augustin d'Hippone tire une conclusion de soumission naturelle. Thomas d'Aquin qualifie la femme de « mâle raté ». Les juristes de l'Église interdisent aux femmes de parler devant un tribunal et d'exercer des fonctions religieuses.</span></div>
-  <div class="chain-step"><span class="chain-year">1804</span><span class="chain-text">Le Code Napoléon inscrit cela dans la loi. La femme mariée est traitée comme un enfant mineur.</span></div>
-  <div class="chain-step"><span class="chain-year">1804–1965</span><span class="chain-text">Pendant 161 ans, les femmes d'Europe occidentale sont exclues du travail qualifié, de la propriété et des décisions économiques.</span></div>
+  <div class="chain-step"><span class="chain-year">405</span><span class="chain-text">Le moine Jérôme achève la Vulgate, la traduction latine de la Bible. En hébreu, le mot « tsela » désigne un côté ou un flanc. Jérôme choisit « costa » : un os du thorax. Ève est désormais créée d'un os prélevé sur le corps d'Adam. Pendant quinze siècles, la Vulgate est le seul texte biblique autorisé dans l'Église catholique.</span></div>
+  <div class="chain-step"><span class="chain-year">Ve–XIIIe siècle</span><span class="chain-text">Augustin d'Hippone, théologien et évêque du Ve siècle, tire une conclusion de ce texte : parce qu'Ève vient du corps d'Adam, la femme lui est naturellement soumise. Thomas d'Aquin, philosophe et théologien du XIIIe siècle, va plus loin. Il s'appuie sur Aristote pour qualifier la femme de « mâle raté » (en latin : mas occasionatus) : un être à la raison incomplète, inapte à l'autorité. Les juristes de l'Église utilisent ces textes pour interdire aux femmes de parler devant un tribunal, d'enseigner et d'exercer des fonctions religieuses.</span></div>
+  <div class="chain-step"><span class="chain-year">XIIIe–XVIIIe siècle</span><span class="chain-text">Ces principes religieux passent progressivement dans les droits civils européens. Les femmes mariées ne peuvent plus signer de contrat, ouvrir un compte ni gérer leurs propres biens.</span></div>
+  <div class="chain-step"><span class="chain-year">1804</span><span class="chain-text">Le Code Napoléon inscrit cette incapacité dans la loi française. La femme mariée y est traitée juridiquement comme un enfant mineur : elle ne peut pas agir en justice, signer un contrat ni exercer une profession sans l'accord écrit de son mari.</span></div>
+  <div class="chain-step"><span class="chain-year">1804–1965</span><span class="chain-text">Pendant 161 ans, les femmes d'Europe occidentale sont exclues du travail qualifié, de la propriété et des décisions économiques. La levée de ces interdits se fait pays par pays, sur plus d'un siècle.</span></div>
+</div>
+
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Traduction « costa » : Vulgata, éd. Weber-Gryson, 2007</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Doctrine mas occasionatus : Thomas d'Aquin, Somme théologique, Ia, q.92 · Børresen, 1968</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Passage au droit civil européen : Lefebvre-Teillard, 1996</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Code Napoléon : articles 213–226, Gallica / BnF</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Levée des interdits pays par pays : Banque mondiale, Women, Business and the Law 2024</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Traduction de Jérôme comme maillon principal, et non cause unique : documenté, autres facteurs non quantifiés</span></div>
 </div>`,
       l3f:`<div class="sec-title">Le détail du texte</div>
-<div class="prose"><p>Avant Jérôme, la Septante avait choisi le mot grec « pleura », qui peut signifier aussi bien le flanc que l'os. L'ambiguïté était restée entière. C'est Jérôme qui la tranche en choisissant « costa », l'os.</p></div>
+<div class="prose"><p>Avant Jérôme, des savants juifs d'Alexandrie avaient déjà traduit la Bible en grec au IIIe siècle avant notre ère. Leur version, appelée la Septante, avait choisi le mot grec « pleura », qui peut désigner aussi bien le flanc que l'os. L'ambiguïté restait entière. C'est Jérôme qui la tranche en choisissant « costa », l'os.</p></div>
+<div class="sec-title">Le principe juridique</div>
+<div class="prose"><p>À partir des textes d'Augustin et de Thomas d'Aquin, le droit de l'Église construit un principe : la « faiblesse naturelle du sexe féminin » (en latin : imbecilitas sexus). Ce principe est explicitement invoqué dans les droits civils européens pour justifier que les femmes ne puissent pas parler devant un tribunal, signer un contrat ni hériter à égalité avec un homme.</p></div>
 <div class="sec-title">Les dates de réforme en Europe occidentale</div>
-<table class="dtable"><thead><tr><th>Pays</th><th>Capacité civile de base</th><th>Égalité juridique complète</th></tr></thead><tbody>
-  <tr><td>France</td><td>1938</td><td>1965</td></tr>
-  <tr><td>Grande-Bretagne</td><td>1882</td><td>1975</td></tr>
-  <tr><td>Allemagne</td><td>1919</td><td>1957</td></tr>
-  <tr><td>Italie</td><td>1919</td><td>1975</td></tr>
-  <tr><td>Espagne</td><td>1931</td><td>1981</td></tr>
-  <tr><td>Suisse</td><td>1907</td><td>1988</td></tr>
-</tbody></table>`,
-      l3cf:`<div class="etsi-header"><span class="etsi-badge">Et si ?</span></div>
-<div class="prose"><p>En 2015, le McKinsey Global Institute a calculé que combler l'écart entre hommes et femmes dans l'accès au travail ajouterait 26 % au PIB mondial. Appliqué aux revenus historiques de l'Europe occidentale entre 1804 et 1965 à partir des données du Maddison Project, la perte cumulée est d'environ 120 000 milliards de dollars. C'est une estimation construite par étapes, pas un chiffre directement mesuré.</p></div>
-<table class="dtable"><thead><tr><th>Période</th><th>PIB moyen Europe occ.</th><th>Perte estimée/an</th><th>Total cumulé</th></tr></thead><tbody>
-  <tr><td>1804–1850</td><td>~330 Mds $ (1990)</td><td>~86 Mds/an</td><td>~3 960 Mds</td></tr>
-  <tr><td>1850–1913</td><td>~900 Mds $ (1990)</td><td>~234 Mds/an</td><td>~14 700 Mds</td></tr>
-  <tr><td>1913–1965</td><td>~2 200 Mds $ (1990)</td><td>~572 Mds/an</td><td>~29 700 Mds</td></tr>
-  <tr class="total"><td>Total 161 ans</td><td></td><td></td><td>~120 000 Mds $ (valeur 2024)</td></tr>
-</tbody></table>`,
-      l4:`<div class="sec-title">Sources primaires</div>
+<div class="prose"><table style="width:100%;border-collapse:collapse;font-size:0.9em;margin:12px 0;">
+<tr style="background:#f0f0f0;"><th style="padding:6px 10px;text-align:left;">Pays</th><th style="padding:6px 10px;text-align:left;">Capacité civile de base</th><th style="padding:6px 10px;text-align:left;">Égalité juridique complète</th></tr>
+<tr><td style="padding:6px 10px;">France</td><td style="padding:6px 10px;">1938</td><td style="padding:6px 10px;">1965 (biens et profession)</td></tr>
+<tr style="background:#f9f9f9;"><td style="padding:6px 10px;">Grande-Bretagne</td><td style="padding:6px 10px;">1882 (biens propres)</td><td style="padding:6px 10px;">1975 (discrimination)</td></tr>
+<tr><td style="padding:6px 10px;">Allemagne</td><td style="padding:6px 10px;">1919 (Constitution de Weimar)</td><td style="padding:6px 10px;">1957 (égalité dans le mariage)</td></tr>
+<tr style="background:#f9f9f9;"><td style="padding:6px 10px;">Italie</td><td style="padding:6px 10px;">1919</td><td style="padding:6px 10px;">1975 (réforme droit de famille)</td></tr>
+<tr><td style="padding:6px 10px;">Espagne</td><td style="padding:6px 10px;">1931 (République)</td><td style="padding:6px 10px;">1981 (après Franco)</td></tr>
+<tr style="background:#f9f9f9;"><td style="padding:6px 10px;">Suisse</td><td style="padding:6px 10px;">1907 (Code civil)</td><td style="padding:6px 10px;">1988 (égalité dans le mariage)</td></tr>
+</table><p style="font-size:0.85em;color:#666;">Ces dates indiquent le moment où la loi a changé, pas nécessairement celui où les pratiques ont suivi.</p></div>
+<div class="sec-title">Et ailleurs ?</div>
+<div class="prose"><p>L'exclusion des femmes de la vie juridique et économique ne vient pas uniquement de cette traduction. D'autres sociétés, sans Vulgate ni tradition catholique, ont produit des règles similaires à la même époque. La traduction de Jérôme n'est pas la cause unique : elle est le maillon qui fixe et transmet cette interprétation dans le droit européen pendant quinze siècles.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Choix de traduction « costa » : Vulgata, éd. Weber-Gryson, 2007 · Septuaginta, éd. Rahlfs, 1935</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Principe juridique imbecilitas sexus : Børresen, Subordination et équivalence, 1968</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Dates de réforme : sources législatives nationales</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Écart entre changement de loi et évolution des pratiques : documenté dans la littérature historique, non quantifié pays par pays</span></div>
+</div>`,
+      l3cf:`<div class="prose"><p><em>Ce qui suit est un raisonnement construit sur ce qui aurait pu être, pas un fait établi.</em></p></div>
+<div class="sec-title">Ce que l'on sait</div>
+<div class="prose"><p>En 405, le moine Jérôme traduit la Bible en latin. Pour un mot hébreu, « tsela », qui peut désigner aussi bien un flanc, un côté ou une côte, il choisit « costa » : un os du thorax. Ce choix produit une image précise : Ève est faite d'un os d'Adam. Les théologiens des siècles suivants en tirent une conclusion : puisqu'elle vient de son corps, elle lui est naturellement soumise.</p><p>Ce n'était pas la seule lecture possible. Dans la même période, des communautés chrétiennes de tradition syriaque accordaient aux femmes un rôle public dans les assemblées religieuses. Le Nouveau Testament lui-même contient des textes qui vont dans le sens contraire de la subordination. L'apôtre Paul écrit aux habitants de Galatie : « Il n'y a ni homme ni femme, car vous êtes tous un en Jésus-Christ » (Galates 3:28). La doctrine d'infériorité n'était donc pas inscrite dans le texte : elle résulte d'un choix d'interprétation.</p></div>
+<div class="sec-title">Ce que cela implique logiquement</div>
+<div class="prose"><p>Si Jérôme avait choisi « côté » plutôt que « côte », le récit de la Création n'aurait pas produit cette image : une femme faite d'un os d'Adam, donc placée sous son autorité. Les lois qui ont interdit aux femmes de signer un contrat ou d'hériter à égalité auraient été plus difficiles à justifier de cette façon. Cela ne veut pas dire que l'exclusion des femmes n'aurait pas existé. Mais en Europe, c'est ce texte précis, dans cette traduction précise, qui a servi de justification pendant quinze siècles.</p></div>
+<div class="sec-title">Ce que l'on ne peut pas calculer précisément</div>
+<div class="prose"><p>On ne peut pas savoir quel droit aurait existé sans cette traduction, ni à quelle date les femmes auraient obtenu les mêmes droits que les hommes. Le chiffre McKinsey pose aussi une limite claire : il mesure un écart économique observé en 2015, dans des économies modernes. En 1850, environ 90 % de l'économie européenne reposait sur l'agriculture. Appliquer directement ce chiffre à 1850 donne un résultat trop élevé.</p></div>
+<div class="sec-title">Mais on peut dire ceci</div>
+<div class="prose"><p>Entre 1804 et 1965, le travail des femmes existait, mais la loi ne le reconnaissait pas. Elles étaient payées moins, ne pouvaient pas décider d'un investissement, accéder à un crédit, ou choisir leur métier sans autorisation. Une partie de la richesse que l'Europe aurait pu produire n'a pas été produite. Si on applique l'écart mesuré par McKinsey en 2015 (les femmes produisent 26 % de moins que ce qu'elles produiraient à égalité) aux richesses produites en Europe occidentale entre 1804 et 1965, on obtient environ 120 000 milliards de dollars en valeur actuelle. Ce chiffre est une image, pas un calcul économique rigoureux. Le détail du calcul figure dans l'onglet Sources.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Traduction « costa » : Vulgata, éd. Weber-Gryson, 2007 · Septuaginta, éd. Rahlfs, 1935</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Doctrine juridique médiévale : Børresen, Subordination et équivalence, 1968</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Ministère féminin syriaque : Harvey, Women in the Syriac Tradition, American Foundation for Syriac Studies</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Galates 3:28 · Évangiles (Luc 8:1-3, Jean 4:7-26)</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Maillon textuel comme vecteur principal dans le droit européen : documenté, mais d'autres facteurs ont joué</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Contrefactuel « traduction différente = droit différent » : plausible, non mesurable</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Cumul 120 000 Mds $ : illustration de l'ordre de grandeur, non causale</span></div>
+</div>`,
+      l4:`<div class="sec-title">Texte source et traductions</div>
 <ul class="src-list">
-  <li>Jérôme de Stridon, Biblia Sacra Vulgata (405)</li>
-  <li>Thomas d'Aquin, Somme théologique, Ia, q.92</li>
-  <li>Code Napoléon (1804), articles 213–226</li>
+  <li>Biblia Sacra Vulgata, Jérôme de Stridon (405) — édition critique Weber-Gryson, Deutsche Bibelgesellschaft, Stuttgart, 5e éd. 2007</li>
+  <li>Septuaginta, éd. Alfred Rahlfs, Deutsche Bibelgesellschaft, Stuttgart, 1935 ; Editio altera rév. Robert Hanhart, 2006</li>
+</ul>
+<div class="sec-title">Doctrine théologique</div>
+<ul class="src-list">
+  <li>Augustin d'Hippone, De Genesi ad litteram (401–415), livres IX–XI — CSEL 28/1, éd. J. Zycha, Vienne, 1894</li>
+  <li>Thomas d'Aquin, Somme théologique, Ia, q.92 (XIIIe s.) — éd. Leonine, Rome, 1888 ; trad. A.-M. Roguet, Éd. du Cerf, Paris, 1984–1986</li>
+  <li>Kari Elisabeth Børresen, Subordination et équivalence : nature et rôle de la femme d'après Augustin et Thomas d'Aquin, Universitetsforlaget/Maison Mame, Oslo/Paris, 1968</li>
+</ul>
+<div class="sec-title">Tradition syriaque</div>
+<ul class="src-list">
+  <li>Susan Ashbrook Harvey, Women in the Syriac Tradition, American Foundation for Syriac Studies</li>
+</ul>
+<div class="sec-title">Droit et évolutions législatives</div>
+<ul class="src-list">
+  <li>Code Napoléon (1804), articles 213–226 — Gallica / BnF</li>
+  <li>Anne Lefebvre-Teillard, Introduction historique au droit des personnes et de la famille, PUF, Paris, 1996</li>
+  <li>Banque mondiale, Women, Business and the Law 2024</li>
 </ul>
 <div class="sec-title">Données économiques</div>
 <ul class="src-list">
-  <li>McKinsey Global Institute, The power of parity, septembre 2015</li>
-  <li>Claudia Goldin, Career and Family, Princeton University Press, 2021</li>
   <li>Maddison Project Database, Université de Groningue</li>
-</ul>`
+  <li>McKinsey Global Institute, The Power of Parity, septembre 2015</li>
+  <li>Claudia Goldin, Career and Family, Princeton University Press, Princeton, 2021</li>
+</ul>
+<div class="sec-title">Note méthodologique</div>
+<div class="prose"><p>La chaîne qui va de la traduction de Jérôme en 405 jusqu'aux lois civiles européennes s'étend sur quinze siècles. Ce qui est établi : les textes juridiques médiévaux et modernes justifient explicitement l'incapacité juridique des femmes par une doctrine construite sur la Genèse. La traduction de 405 est le maillon textuel qui fixe et transmet cette interprétation. Elle n'est pas la seule cause.</p>
+<p><strong>Le calcul des 120 000 milliards de dollars</strong> repose sur trois étapes. Première étape : l'étude McKinsey (2015) mesure un écart de 26 % du PIB mondial entre production réelle et production à égalité totale — c'est un plafond théorique. Deuxième étape : les données du Maddison Project donnent le PIB de l'Europe occidentale à partir de 1820 ; pour 1804–1820, extrapolation. Troisième étape : conversion en valeur 2024 par le déflateur CPI américain (facteur 2,5).</p></div>
+<div class="prose"><table style="width:100%;border-collapse:collapse;font-size:0.85em;margin:12px 0;">
+<tr style="background:#f0f0f0;"><th style="padding:5px 8px;text-align:left;">Période</th><th style="padding:5px 8px;text-align:right;">PIB moy. Europe occ.</th><th style="padding:5px 8px;text-align:right;">Perte estimée/an</th><th style="padding:5px 8px;text-align:right;">Total cumulé</th></tr>
+<tr><td style="padding:5px 8px;">1804–1850 (46 ans)</td><td style="padding:5px 8px;text-align:right;">~330 Mds $ (1990)</td><td style="padding:5px 8px;text-align:right;">~86 Mds/an</td><td style="padding:5px 8px;text-align:right;">~3 960 Mds</td></tr>
+<tr style="background:#f9f9f9;"><td style="padding:5px 8px;">1850–1913 (63 ans)</td><td style="padding:5px 8px;text-align:right;">~900 Mds $ (1990)</td><td style="padding:5px 8px;text-align:right;">~234 Mds/an</td><td style="padding:5px 8px;text-align:right;">~14 700 Mds</td></tr>
+<tr><td style="padding:5px 8px;">1913–1965 (52 ans)</td><td style="padding:5px 8px;text-align:right;">~2 200 Mds $ (1990)</td><td style="padding:5px 8px;text-align:right;">~572 Mds/an</td><td style="padding:5px 8px;text-align:right;">~29 700 Mds</td></tr>
+<tr style="background:#e8f4e8;font-weight:bold;"><td style="padding:5px 8px;">Total 161 ans</td><td style="padding:5px 8px;"></td><td style="padding:5px 8px;"></td><td style="padding:5px 8px;text-align:right;">~48 360 Mds $ (1990)<br>soit ~120 000 Mds $ (2024)</td></tr>
+</table></div>
+<div class="prose"><p><strong>Trois limites principales.</strong> Ce calcul repose sur une hypothèse centrale qui n'est pas réaliste : que l'écart mesuré en 2015 aurait été identique en 1850 dans une économie à 90 % agricole. Par ailleurs, le taux McKinsey mesure un écart résiduel en 2015, après cinquante ans de convergence ; il ne mesure pas l'exclusion quasi totale de 1850. Enfin, aucun économiste n'a produit d'estimation équivalente sur cette période. Les travaux de Claudia Goldin documentent les mécanismes d'exclusion sans produire de chiffre cumulé comparable. Ce calcul est une illustration de l'ordre de grandeur, pas une estimation économique au sens strict.</p></div>`
     }
   },
 
