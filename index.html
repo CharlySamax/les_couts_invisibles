@@ -1222,57 +1222,95 @@ const popupData = {
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
-  <div class="l1-badges"><span class="badge e">≈ Estimation</span><span class="badge v">✓ Documenté</span></div>
+  <div class="l1-badges"><span class="badge e">≈ Estimation</span></div>
   <div class="l1-number">15 000 milliards de dollars</div>
-  <p class="l1-desc">En France, les filles n'ont pas eu accès au baccalauréat pendant 116 ans. Dans le monde, des centaines de millions de filles n'ont toujours pas accès à l'école secondaire. La Banque mondiale a calculé ce que ça coûte : 15 000 milliards de dollars de richesse en moins, mesurée sur toute la vie professionnelle de ces femmes.</p>
-  <div class="l1-sources">Sources : Banque mondiale, Missed Opportunities, 2018 · Banque mondiale/UNICEF</div>
+  <p class="l1-desc">En 1808, la France crée le baccalauréat. Les filles n'y ont pas accès pendant 116 ans. La Banque mondiale a chiffré ce que coûte ce type d'exclusion à l'échelle du monde.<br><br>Ce chiffre mesure l'écart de revenus sur toute la vie professionnelle entre les femmes scolarisées et celles qui ne l'ont pas été, extrapolé à l'échelle mondiale. Il a été construit sur des données de pays en développement actuels. 15 000 milliards de dollars représentent environ dix fois le PIB annuel de la France.<br><br>Chaque année de scolarisation supplémentaire augmente les revenus futurs d'une femme de 8 à 10 %. ✓</p>
+  <div class="l1-sources">Source : Banque mondiale, Missed Opportunities, 2018</div>
 </div>
 <div class="l1-block-evitable">
   <div class="l1-evitable-label">Encore perdu en 2026 · Mondial</div>
-  <div class="l1-number">15 000 à 30 000 milliards de dollars</div>
-  <p class="l1-desc">En 2024, 122 millions de filles ne vont toujours pas à l'école dans le monde. En Afrique, si toutes les filles étaient scolarisées d'ici 2040, cela pourrait générer 2 400 milliards de dollars de richesse supplémentaire.</p>
+  <div class="l1-badges"><span class="badge e">≈ Estimation</span></div>
+  <div class="l1-number">15 000 à 30 000 Mds $, stock en hausse</div>
+  <p class="l1-desc">En 2025, l'UNESCO estime à 133 millions le nombre de filles non scolarisées dans le monde. Les pertes s'accumulent à chaque génération.</p>
 </div>`,
-      l2:`<div class="sec-title">Ce qu'une année de scolarisation change</div>
-<div class="prose"><p>Chaque année supplémentaire d'école augmente les revenus futurs d'une femme de 8 à 10 %. Une augmentation d'un point du taux de scolarisation des filles dans le secondaire fait progresser le PIB annuel d'un pays de 0,2 point.</p></div>
-<div class="sec-title">Ce que l'exclusion a produit en 1918</div>
-<div class="prose"><p>En 1918, la France compte environ 20 000 médecins. La mobilisation militaire en a retiré la grande majorité de la vie civile. La grippe espagnole tue 240 000 personnes en France. Les femmes n'avaient pas accès au baccalauréat, donc pas aux études de médecine. Il n'existait pas de réserve de femmes médecins pour compenser les départs au front. Sur la base des données de densité médicale, entre 70 000 et 120 000 décès auraient pu être évités.</p></div>
+      l2:`<div class="chain">
+  <div class="chain-step"><span class="chain-year">1808</span><span class="chain-text">Napoléon crée le baccalauréat. Les lycées ne sont ouverts qu'aux garçons. L'idée qu'une fille puisse avoir besoin d'une formation secondaire ne fait pas partie des questions posées à l'époque.</span></div>
+  <div class="chain-step"><span class="chain-year">1880</span><span class="chain-text">La loi Camille Sée crée les premiers lycées de filles. Les programmes sont volontairement différents : pas de latin, pas de grec, pas de mathématiques avancées. La couture est obligatoire. Le diplôme délivré n'ouvre ni l'université ni une profession qualifiée. Il prépare à tenir un foyer, et au mieux à devenir institutrice.</span></div>
+  <div class="chain-step"><span class="chain-year">1914–1918</span><span class="chain-text">Quand la guerre éclate, les femmes prennent en charge les usines, les exploitations agricoles, les hôpitaux. En 1917, elles représentent 25 % de la main-d'œuvre des usines d'armement. Elles font ce travail sans avoir été formées pour, sans statut juridique adapté, sans salaire équivalent. ✓</span></div>
+  <div class="chain-step"><span class="chain-year">1924</span><span class="chain-text">Le baccalauréat est ouvert aux filles, 116 ans après sa création.</span></div>
+  <div class="chain-step"><span class="chain-year">Années 1930</span><span class="chain-text">Dans plusieurs académies, les filles réussissent mieux que les garçons au baccalauréat. ✓ Des quotas limitent leur accès à certains postes dans la fonction publique.</span></div>
+  <div class="chain-step"><span class="chain-year">1940</span><span class="chain-text">Le régime de Vichy interdit l'embauche des femmes mariées dans les services de l'État. Les premières bachelières qualifiées se heurtent à de nouvelles exclusions au moment précis où elles auraient pu exercer. ✓</span></div>
+  <div class="chain-step"><span class="chain-year">2022</span><span class="chain-text">84 % des filles d'une génération obtiennent le baccalauréat, contre 75 % des garçons. ✓</span></div>
+</div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+0,2 point de PIB par point de scolarisation féminine : Banque mondiale/UNICEF</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">240 000 morts, grippe espagnole France 1918 : Vinet, 2001</span></div>
-  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">70 000 à 120 000 décès évitables : inférence à partir de la densité médicale</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Meilleurs résultats des filles au baccalauréat dans les années 1930 : Héry, Clio, 2003</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Création du baccalauréat réservé aux garçons, 1808 : fait établi</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Loi Camille Sée, 1880, programmes sans baccalauréat : fait établi</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">25 % de femmes dans les usines d'armement en 1917 — Archives nationales du monde du travail · Sénat, colloque octobre 2018</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">240 000 morts, grippe espagnole France 1918 — Darmon, Annales de démographie historique, 2001</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Effet de l'absence de femmes médecins sur la mortalité de 1918 : réel, non quantifiable</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Ouverture du baccalauréat aux filles, 1924 : fait établi</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Meilleurs résultats des filles au baccalauréat dans les années 1930 — Héry, Clio, 2003</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Quotas et interdictions Vichy — Schoeni, 2012</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">84 % de bachelières en 2022 — ministère de l'Éducation nationale, DEPP, 2024</span></div>
 </div>`,
-      l3f:`<div class="chain">
-  <div class="chain-step"><span class="chain-year">1808</span><span class="chain-text">Napoléon crée le baccalauréat. Les lycées ne sont ouverts qu'aux garçons.</span></div>
-  <div class="chain-step"><span class="chain-year">1880</span><span class="chain-text">La loi Camille Sée crée les lycées de filles. Programmes amputés : pas de latin, pas de grec, pas de mathématiques avancées. Aucun accès au baccalauréat.</span></div>
-  <div class="chain-step"><span class="chain-year">1924</span><span class="chain-text">Ouverture du baccalauréat aux filles, 116 ans après les garçons.</span></div>
-  <div class="chain-step"><span class="chain-year">Années 1930</span><span class="chain-text">Les filles réussissent mieux que les garçons au baccalauréat dans plusieurs académies. ✓ Source : Héry, Clio, 2003.</span></div>
-  <div class="chain-step"><span class="chain-year">1940–1945</span><span class="chain-text">Vichy interdit d'embaucher des femmes mariées dans tous les services de l'État. Les premières bachelières qualifiées sont exclues des professions qu'elles auraient pu exercer.</span></div>
-  <div class="chain-step"><span class="chain-year">2022</span><span class="chain-text">84 % des filles d'une génération obtiennent le baccalauréat contre 75 % des garçons. ✓ Source : DEPP, 2024.</span></div>
-</div>`,
-      l3cf:`<div class="etsi-header"><span class="etsi-badge">Et si ?</span></div>
-<div class="cf-note">Ce qui suit relie des faits documentés à des états du monde qui auraient pu être différents.</div>
-<div class="sec-title">Le calcul économique</div>
-<div class="prose"><p>Si les filles avaient eu accès au baccalauréat dès 1808 : environ 65 milliards d'euros de richesse supplémentaire pour l'économie française sur 116 ans. Ce calcul a une limite : le paramètre utilisé a été construit sur des données de pays en développement au XXe siècle.</p></div>
-<div class="sec-title">Le calcul médical</div>
-<div class="prose"><p>Si des femmes médecins avaient existé en nombre suffisant en 1918 : entre 70 000 et 120 000 décès évitables lors de la seule épidémie de grippe espagnole. Ce chiffre repose sur trois hypothèses enchaînées.</p></div>
+      l3f:`<div class="sec-title">Pourquoi 1808 exclut sans le dire</div>
+<div class="prose"><p>Le baccalauréat napoléonien n'interdit pas explicitement les filles. Il les ignore. L'institution est conçue pour produire des cadres civils et militaires dans un État qui ne leur réserve aucun de ces rôles. L'exclusion n'a pas besoin d'être écrite : elle est dans la logique du projet.</p></div>
+<div class="sec-title">Ce que la loi Camille Sée dit vraiment</div>
+<div class="prose"><p>En créant des lycées de filles en 1880, la République reconnaît que les femmes méritent une instruction. Mais elle tranche en même temps sur ce que cette instruction doit produire : des épouses éclairées, pas des professionnelles qualifiées. Les programmes différents ne sont pas un oubli. Ils sont une décision. Former les filles au même niveau aurait ouvert des droits que la société n'était pas prête à accorder.</p></div>
+<div class="sec-title">Ce que la guerre de 1914 révèle</div>
+<div class="prose"><p>La mobilisation expose un paradoxe que personne n'avait calculé : les femmes sont capables de tenir l'économie du pays, mais elles n'ont pas été formées pour le faire. L'écart entre leurs capacités réelles et leur formation officielle devient visible dans l'urgence. Il ne disparaît pas avec l'armistice.</p></div>
+<div class="sec-title">1930–1940 : une ouverture rattrapée par les institutions</div>
+<div class="prose"><p>Les premières bachelières arrivent sur un marché du travail qui ne les attendait pas. Dès les années 1930, des quotas limitent leur accès à certains postes dans la fonction publique. La crise économique de 1929 fournit un argument supplémentaire : les femmes qui travaillent sont accusées de prendre la place des hommes. En 1940, le régime de Vichy interdit l'embauche des femmes mariées dans les services de l'État. Une génération entière de femmes qualifiées exerce en dessous de ses compétences, ou renonce.</p><p>Ce qui se passe entre 1924 et 1945 n'est pas un accident. Chaque fois qu'une barrière formelle tombe, d'autres se reconstituent. Le diplôme s'ouvre, la carrière se ferme.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">65 milliards d'euros cumulés sur 116 ans : paramètre Banque mondiale appliqué au PIB français, transposition approximative</span></div>
-  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">70 000 à 120 000 décès évitables en 1918 : trois hypothèses enchaînées</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Loi Camille Sée, 1880, programmes sans baccalauréat : fait établi</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">25 % de femmes dans les usines d'armement en 1917 — Archives nationales du monde du travail · Sénat, colloque octobre 2018</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Citation attribuée au général Joffre : rapportée par le Sénat, aucune source primaire identifiée</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Quotas et interdictions Vichy — Schoeni, 2012</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Meilleurs résultats des filles au baccalauréat dans les années 1930 — Héry, Clio, 2003</span></div>
 </div>`,
-      l4:`<div class="sec-title">Coût mondial</div>
+      l3cf:`<div class="sec-title">Ce que l'on sait</div>
+<div class="prose"><p>Pendant 116 ans, les filles n'ont pas eu accès au baccalauréat. On sait aussi que chaque année de scolarisation supplémentaire augmente les revenus futurs d'une femme de 8 à 10 % ; que dans les pays où les filles accèdent à l'éducation secondaire, la productivité économique augmente, l'innovation progresse et la qualité des décisions collectives s'améliore ; que dès les années 1930, là où elles ont accès aux mêmes examens que les garçons, elles obtiennent de meilleurs résultats.</p></div>
+<div class="sec-title">Ce que cela implique logiquement</div>
+<div class="prose"><p>Si les filles avaient eu accès au baccalauréat dès 1808 : plus de femmes auraient eu accès aux professions qualifiées — médecine, droit, enseignement supérieur — ; davantage de décisions économiques, scientifiques et administratives auraient été prises avec l'ensemble des compétences disponibles ; le nombre de médecins civils en 1918 aurait été plus important, alors que la mobilisation des hommes pendant la guerre avait fortement réduit la capacité médicale du pays.</p></div>
+<div class="sec-title">Ce que l'on ne peut pas calculer</div>
+<div class="prose"><p>On ne peut pas reconstituer combien de femmes auraient exercé une profession qualifiée en 1850, ni la productivité moyenne d'une économie qui aurait formé l'ensemble de ses talents dès le XIXe siècle. Les structures économiques, le droit du travail et les normes sociales de l'époque constituaient des obstacles indépendants de l'éducation. Un diplôme ne suffisait pas : le Code civil interdisait aux femmes mariées de travailler sans autorisation maritale jusqu'en 1965.</p></div>
+<div class="sec-title">Mais on peut dire ceci</div>
+<div class="prose"><p>Pendant 116 ans, une partie des compétences disponibles dans la société française n'a pas été formée. Une partie des décisions a été prise sans elles. Une partie des problèmes n'a jamais été posée, parce que celles qui auraient pu les poser n'avaient pas été formées pour ça. Ces coûts n'apparaissent dans aucun compte. À l'échelle mondiale, la Banque mondiale estime que les inégalités d'accès à l'éducation coûtent encore 15 000 à 30 000 milliards de dollars en revenus non produits. L'histoire n'est pas terminée.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+8 à 10 % de revenus par année de scolarisation — Banque mondiale, données panel, dizaines de pays</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Effet de l'exclusion des femmes médecins sur la mortalité de 1918 : réel, non quantifiable</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Coût des décisions prises sans les femmes sur 116 ans : non calculé, non calculable</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Interdiction de travailler sans autorisation maritale jusqu'en 1965 — Code civil, article 216, loi du 13 juillet 1965</span></div>
+</div>`,
+      l4:`<div class="sec-title">Coût mondial et scolarisation</div>
 <ul class="src-list">
-  <li>Banque mondiale (2018). Missed Opportunities: The High Cost of Not Educating Girls.</li>
-  <li>Banque mondiale/UNICEF. Paramètre : +0,2 pt de PIB par point de scolarisation féminine secondaire.</li>
+  <li>Banque mondiale (2018). Missed Opportunities: The High Cost of Not Educating Girls. Washington D.C. Estimation : 15 000 milliards de dollars de pertes de productivité et de revenus sur toute la vie professionnelle.</li>
+  <li>Banque mondiale (2024). Pathways to Prosperity for Adolescent Girls in Africa. Estimation : 2 400 milliards de dollars de gains potentiels d'ici 2040.</li>
+  <li>UNESCO, Rapport mondial de suivi sur l'éducation (2025). Estimation : 133 millions de filles non scolarisées dans le monde.</li>
 </ul>
-<div class="sec-title">Grippe espagnole</div>
+<div class="sec-title">Note méthodologique</div>
+<div class="prose"><p>Le paramètre associant un point de scolarisation féminine dans le secondaire à +0,2 point de PIB annuel est utilisé dans les publications Banque mondiale et UNICEF. Il a été construit sur des données de pays en développement. Sa source primaire n'a pas été identifiée dans la littérature académique. Il n'est pas utilisé dans cette fiche pour produire un chiffre sur la France du XIXe siècle : les structures économiques, le marché du travail et les droits civils de l'époque ne permettent pas cette transposition.</p></div>
+<div class="sec-title">Éducation et baccalauréat</div>
 <ul class="src-list">
-  <li>Vinet, F. (2001). Annales de démographie historique. 240 000 morts en France.</li>
+  <li>Héry, E. (2003). « Quand le baccalauréat devient mixte. » Clio. Histoire, femmes et sociétés, n° 18.</li>
+  <li>Ministère de l'Éducation nationale, DEPP (2024). Résultats au baccalauréat 2022 : 84 % des filles contre 75 % des garçons.</li>
 </ul>
-<div class="sec-title">Éducation</div>
+<div class="sec-title">Grippe espagnole et capacité médicale</div>
 <ul class="src-list">
-  <li>Héry, E. (2003). Clio. Histoire, femmes et sociétés, n° 18.</li>
-  <li>Ministère de l'Éducation nationale, DEPP (2024). 84 % de bachelières en 2022.</li>
+  <li>Darmon, P. (2001). « Une tragédie dans la tragédie : la grippe espagnole en France (avril 1918-avril 1919). » Annales de démographie historique, n° 2000-2, pp. 153-175.</li>
+</ul>
+<div class="sec-title">Effort de guerre et main-d'œuvre féminine</div>
+<ul class="src-list">
+  <li>Archives nationales du monde du travail. Les travailleuses des usines d'armement pendant la Première Guerre mondiale. Données : 25 % de la main-d'œuvre en 1917.</li>
+  <li>Sénat (2018). Les femmes pendant la Grande Guerre, actes du colloque du 18 octobre 2018. Citation attribuée au général Joffre rapportée au conditionnel, aucune source primaire identifiée.</li>
+</ul>
+<div class="sec-title">Exclusion professionnelle après 1924</div>
+<ul class="src-list">
+  <li>Schoeni, C. (2012). Travail féminin : retour à l'ordre ! L'offensive contre le travail des femmes durant la crise économique des années 1930. Antipodes.</li>
+</ul>
+<div class="sec-title">Droits civils</div>
+<ul class="src-list">
+  <li>Code civil, article 216, modifié par la loi du 13 juillet 1965. Suppression de l'autorisation maritale pour exercer une activité professionnelle.</li>
 </ul>`
     }
   },
