@@ -555,7 +555,7 @@ nav, header {
     <div class="ep-card">
       <h2 class="ep-title">Le fiasco financier</h2>
       <p class="ep-subtitle">Parce qu'une minorité ne représente que 24 % dans les comités de direction des plus grandes entreprises françaises…</p>
-      <div class="ep-cost-main">≈ 104 Mds €/an</div>
+      <div class="ep-cost-main">≈ 52–104 Mds €/an</div>
       <div class="ep-cost-label">CAC40 · 2023</div>
       <div class="ep-sep"></div>
       <span class="ep-encore-header">Encore perdu en 2026 · France</span>
@@ -853,13 +853,13 @@ nav, header {
 
       <div class="card" data-domain="finance" data-badge="e" onclick="openFiche('plafond')">
         <p class="card-domain">Finance · Gouvernance d'entreprise · France</p>
-        <div><p class="card-number">≈ 104 Mds €<span class="card-unit">par an, CAC40</span></p></div>
+        <div><p class="card-number">≈ 52–104 Mds €<span class="card-unit">par an, CAC40</span></p></div>
         <div class="card-evitable">
           <span class="card-evitable-label">Encore perdu en 2026 · CAC40</span><br>
           ≈ 104 Mds €/an
         </div>
         <p class="card-title">Le fiasco financier</p>
-        <p class="card-sub">24 % de femmes dans les COMEX CAC40 en 2024 — 0 femme PDG</p>
+        <p class="card-sub">31 % de femmes dans les comex CAC 40 en 2026, mais 30 % seulement aux postes opérationnels</p>
         <div class="card-footer"><span class="badge e">≈ Estimation</span><span class="card-epoch">CAC40 · 2023</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -1603,33 +1603,73 @@ const popupData = {
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
-  <div class="l1-badges"><span class="badge e">≈ Estimation</span><span class="badge v">✓ Documenté</span></div>
-  <div class="l1-number">104 milliards € / an</div>
-  <p class="l1-desc">Le CAC 40 regroupe les 40 plus grandes entreprises françaises cotées. En 2023, elles ont réalisé ensemble 1 736 milliards d'euros de chiffre d'affaires. Si elles avaient atteint la part de femmes dans leurs directions associée à jusqu'à 6 points de marge nette supplémentaire, elles auraient produit environ 104 milliards d'euros de richesse supplémentaire.</p>
-  <div class="l1-sources">Sources : Peterson Institute / EY, 2016 · EY, Profil financier du CAC 40, 18e éd., 2024</div>
+  <div class="l1-badges"><span class="badge e">≈ Estimation</span></div>
+  <div class="l1-number">52–104 Mds €/an</div>
+  <p class="l1-desc">En 2023, les 40 plus grandes entreprises françaises cotées en bourse (le CAC 40) ont réalisé un total de 1 736 milliards d'euros de chiffre d'affaires.<br><br>Atteindre 30 % de femmes dans les équipes dirigeantes est associé à une hausse pouvant aller jusqu'à 6 points de marge sur les ventes, selon une étude EY portant sur 21 980 entreprises dans 91 pays. Appliqué au CAC 40, cela représente entre 52 et 104 milliards d'euros par an. ≈ Ce résultat est le meilleur observé dans l'étude, pas une moyenne : les deux phénomènes évoluent ensemble, mais l'un n'est pas forcément la conséquence de l'autre. 52 milliards correspond à l'hypothèse médiane, 104 milliards au meilleur résultat observé.<br><br>Cette estimation ne prend pas en compte le coût lié à l'absence d'autres profils écartés de la direction des entreprises du CAC 40.</p>
+  <div class="l1-sources">Source : Noland M., Moran T., Kotschwar B., Peterson Institute / EY, Working Paper 16-3, 2016 · EY, Profil financier du CAC 40, 2024</div>
 </div>
 <div class="l1-block-evitable">
-  <div class="l1-evitable-label">Toujours en cours · CAC 40</div>
-  <div class="l1-number">Aucune femme PDG</div>
-  <p class="l1-desc">En 2024, aucune des 40 premières entreprises françaises cotées n'est dirigée par une femme. Les femmes représentent 45 % des membres des conseils d'administration, mais seulement 24 % des membres des comités exécutifs.</p>
+  <div class="l1-evitable-label">Encore perdu en 2026 · France</div>
+  <div class="l1-badges"><span class="badge c">? ~52 Mds €/an</span></div>
+  <p class="l1-desc">Pour la première fois, les comités exécutifs du CAC 40 comptent 31 % de femmes. Nous sommes en 2026. Mais seules 30 % d'entre elles dirigent une activité opérationnelle ou un centre de profit, contre 60 % des hommes. Le potentiel économique encore mobilisable est estimé à environ 52 milliards d'euros par an. Ce chiffre repose sur trois étapes de raisonnement successives. Le détail du calcul figure dans les sources et références.<br><em>Source : IFA / Ethics & Boards, Baromètre 2026</em></p>
 </div>`,
-      l2:`<div class="chain">
-  <div class="chain-step"><span class="chain-year">2016</span><span class="chain-text">Le Peterson Institute for International Economics et EY publient une étude sur 21 980 entreprises dans 91 pays. Résultat : passer de 0 % à 30 % de femmes dans les postes de direction est associé à une augmentation allant jusqu'à 6 points de marge nette. C'est une corrélation, pas une causalité.</span></div>
-  <div class="chain-step"><span class="chain-year">2024</span><span class="chain-text">Les femmes représentent 45 % des membres des CA du CAC 40, contre 24 % dans les comités exécutifs. Aucune femme ne dirige l'une des 40 entreprises.</span></div>
-</div>`,
-      l3f:`<div class="sec-title">Ce que les chiffres du CAC 40 disent en 2024</div>
-<div class="prose"><p>La loi Copé-Zimmermann de 2011 a imposé 40 % de femmes dans les conseils d'administration. Résultat en 2024 : 45 % dans les CA. Les comités exécutifs ne sont pas soumis à la même obligation. Résultat : 24 % de femmes. L'écart traduit la différence entre une obligation légale appliquée et un changement de culture non imposé.</p></div>`,
-      l3cf:`<div class="etsi-header"><span class="etsi-badge">Et si ?</span></div>
-<div class="prose"><p>6 % × 1 736 milliards (CA agrégé CAC 40, 2023) = environ 104 milliards d'euros. C'est le gain potentiel si les entreprises du CAC 40 atteignaient la structure de direction associée à la performance maximale observée dans l'étude. Ce n'est pas un gain certain. C'est une borne haute calculée à partir d'une corrélation.</p></div>
+      l2:`<div class="prose"><p>Pendant des décennies, aucune règle n'imposait de compter les femmes dans les directions des grandes entreprises françaises. En 2007, elles n'occupaient que 8,5 % des sièges dans les conseils d'administration du CAC 40.</p><p>La loi Copé-Zimmermann, adoptée en 2011, a fixé un premier objectif : 40 % de femmes dans les conseils d'administration d'ici 2017. Ce seuil a été atteint : les conseils d'administration du CAC 40 comptent aujourd'hui 46,4 % de femmes. Mais les entreprises ne sont pas dirigées au quotidien par les conseils d'administration. Les décisions opérationnelles appartiennent aux comités exécutifs.</p><p>C'est là que l'écart reste net. En 2014, les comités exécutifs du CAC 40 ne comptaient que 9,5 % de femmes. La loi Rixain, adoptée en 2021, a étendu l'obligation aux instances dirigeantes avec un objectif de 30 % à atteindre en 2026. En 2024, le taux atteignait 27 %. En 2026, le seuil légal de 30 % est atteint pour la première fois.</p><p>La progression française est liée à une obligation légale, pas à un changement volontaire de pratiques. Les entreprises étrangères cotées en bourse (SBF 120) n'affichent que 18,8 % de femmes dans leurs comités exécutifs. Elles ne sont pas soumises à la loi Rixain.</p><p>À l'échelle internationale, la France se situe dans le peloton de tête : Norvège 33 %, Royaume-Uni 32 %, Finlande 32 %, France 31 %, devant l'Allemagne (23–26 %), l'Espagne (23 %) ou l'Italie (19 %).</p><p>Mais atteindre 30 % ne dit rien sur la nature des postes occupés. Parmi les femmes en comité exécutif du CAC 40, 30 % pilotent une activité opérationnelle ou un centre de profit, contre 60 % des hommes. Or ces postes pèsent le plus sur les résultats économiques et mènent à la direction générale.</p><p>Aux États-Unis, une étude sur la période 1960–2010 a montré que l'ouverture progressive de professions jusqu'alors fermées aux femmes et aux minorités avait contribué à hauteur de 20 à 40 % à la croissance du pays sur cinquante ans.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Jusqu'à 6 points de marge nette : corrélation, pas causalité. Peterson Institute / EY, 2016</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">CA agrégé CAC 40 2023 : 1 736 milliards € : EY, 2024</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">8,5 % CA CAC 40 en 2007 : Sénat, rapport Copé-Zimmermann, 2021</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">46,4 % CA CAC 40 en 2026 : IFA / Ethics & Boards, Baromètre 2026</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">9,5 % comex CAC 40 en 2014 : Observatoire Skema de la féminisation des entreprises, 2025</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">27 % en 2024, 31 % en 2026, 18,8 % étrangers SBF 120 : IFA / Ethics & Boards, Baromètre 2026</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">30 % postes opérationnels (femmes) vs 60 % (hommes) : IFA / Ethics & Boards, Baromètre 2026</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">20–40 % croissance liée à l'ouverture des professions : Hsieh, Hurst, Jones, Klenow, Econometrica, 2019</span></div>
 </div>`,
-      l4:`<div class="sec-title">Références</div>
+      l3f:`<div class="chain">
+  <div class="chain-step"><span class="chain-year">2007</span><span class="chain-text">8,5 % de femmes dans les CA du CAC 40.</span></div>
+  <div class="chain-step"><span class="chain-year">2011</span><span class="chain-text">Loi Copé-Zimmermann : quota de 40 % dans les CA, à atteindre en 2017.</span></div>
+  <div class="chain-step"><span class="chain-year">2014</span><span class="chain-text">9,5 % de femmes dans les comex du CAC 40. La loi de 2011 n'a produit aucun effet de ruissellement.</span></div>
+  <div class="chain-step"><span class="chain-year">2017</span><span class="chain-text">Seuil de 40 % atteint dans les CA.</span></div>
+  <div class="chain-step"><span class="chain-year">2021</span><span class="chain-text">Loi Rixain : 30 % de femmes dans les comex exigés en 2026, 40 % en 2029.</span></div>
+  <div class="chain-step"><span class="chain-year">2024</span><span class="chain-text">27 % de femmes dans les comex du CAC 40.</span></div>
+  <div class="chain-step"><span class="chain-year">2026</span><span class="chain-text">31 % dans les comex du CAC 40 : seuil légal atteint pour la première fois. Les entreprises étrangères du SBF 120, hors loi Rixain, n'affichent que 18,8 %.</span></div>
+</div>
+<div class="sec-title">L'angle mort</div>
+<div class="prose"><p>Cette fiche mesure ce qui se passe à l'intérieur des grandes entreprises cotées. Elle ne mesure pas ce qui se passe en amont. En France, les équipes dirigeantes 100 % féminines reçoivent 4,3 fois moins de capital-investissement que leurs homologues masculines. 15 % des PME et ETI sont dirigées par des femmes, mais elles ne représentent que 4 % des entreprises financées par des fonds.</p><p>Les femmes créant des entreprises n'atteignent pas les directions du CAC 40. Parce qu'elles n'ont pas accès au capital pour les faire grandir.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">8,5 % CA CAC 40 en 2007 : Sénat, rapport Copé-Zimmermann, 2021</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Loi Copé-Zimmermann, 27 janvier 2011 · Loi Rixain, 24 décembre 2021</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">27 % en 2024, 31 % en 2026, 18,8 % étrangers SBF 120 : IFA / Ethics & Boards, Baromètre 2026</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">4,3 fois moins financées, 4 % du capital-investissement : Bpifrance, données genrées 2025</span></div>
+</div>`,
+      l3cf:`<div class="cf-note"><em>Ce qui suit porte sur l'ensemble des entreprises françaises dirigées par des femmes.</em></div>
+<div class="sec-title">Ce que l'on sait</div>
+<div class="prose"><p>En France, les équipes dirigeantes 100 % féminines reçoivent 4,3 fois moins de capital-investissement. ✓ 15 % des PME et ETI sont dirigées par des femmes, mais elles ne sont que 4 % dans lesquelles des fonds investissent. ✓</p></div>
+<div class="sec-title">Ce que cela implique logiquement</div>
+<div class="prose"><p>Moins de capital, c'est moins de croissance possible, moins d'emplois créés, moins de chiffre d'affaires réalisé. Si autant de femmes que d'hommes créaient leur entreprise et accédaient aux mêmes financements, la France gagnerait 0,4 % de croissance annuelle supplémentaire, selon l'OCDE. ?</p></div>
+<div class="sec-title">Ce que l'on ne peut pas calculer précisément</div>
+<div class="prose"><p>Cette projection suppose que le manque de financement est le frein principal et que le combler produirait mécaniquement plus de croissance. Ces hypothèses restent non vérifiées. La part de l'écart attribuable au seul financement n'a pas été isolée.</p></div>
+<div class="sec-title">Mais on peut dire ceci</div>
+<div class="prose"><p>Appliqué au PIB 2023, ce 0,4 % représente environ 11 milliards d'euros par an. ? Le manque à gagner est réel. Son montant précis n'est pas calculé.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">0,4 % croissance : OCDE, Note de politique sur l'entrepreneuriat féminin, 2017</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">PIB France 2023 (~2 800 Mds €) : INSEE, comptes nationaux, 2023</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">4,3 fois moins financées, 4 % du capital-investissement : Bpifrance, données genrées 2025</span></div>
+</div>`,
+      l4:`<div class="sec-title">Notes méthodologiques</div>
+<div class="prose"><p><strong>52 milliards : médiane de la fourchette historique (badge ≈)</strong> — Hypothèse médiane de l'étude Peterson / EY (+3 % de marge) appliquée au chiffre d'affaires du CAC 40 en 2023 (1 736 Mds €). Corrélation, pas causalité. Fourchette complète : 17 Mds € (hypothèse basse, +1 %) à 104 Mds € (hypothèse haute, +6 %).</p><p><strong>52 milliards : gain résiduel 2026 (badge ?)</strong> — Raisonnement en trois inférences : (1) l'effet Peterson porte sur les postes opérationnels ≈ ; (2) en 2026, 30 % des femmes en comex occupent un poste opérationnel, contre 60 % des hommes ✓ ; (3) ratio d'activation 30/60 = 50 % × 104 Mds € = ~52 Mds €. ?</p><p><strong>11 milliards : projection OCDE (badge ?)</strong> — 0,4 % de croissance annuelle (OCDE, 2017) appliqué au PIB français 2023 (2 800 Mds €). Périmètre distinct : ensemble de l'économie française, pas les seules directions du CAC 40. Les deux chiffres ne s'additionnent pas.</p></div>
+<div class="sec-title">Références</div>
 <ul class="src-list">
-  <li>Noland M., Moran T., Kotschwar B., Is Gender Diversity Profitable?, Peterson Institute / EY, Working Paper 16-3, 2016</li>
-  <li>EY, Profil financier du CAC40, 18e édition, juin 2024</li>
-  <li>Observatoire Skema de la féminisation des entreprises, édition 2023-2024</li>
+  <li>≈ Noland M., Moran T., Kotschwar B., Is Gender Diversity Profitable? Peterson Institute / EY, Working Paper 16-3, 2016</li>
+  <li>✓ EY, Profil financier du CAC 40, 18e édition, 2024</li>
+  <li>✓ IFA / Ethics & Boards, Baromètre de la mixité des instances dirigeantes du SBF 120, février 2026</li>
+  <li>✓ Sénat, Parité en entreprise : dix ans après la loi Copé-Zimmermann, rapport d'information, 2021</li>
+  <li>✓ Observatoire Skema de la féminisation des entreprises, édition 2025</li>
+  <li>✓ Hsieh C.-T., Hurst E., Jones C., Klenow P., The Allocation of Talent and U.S. Economic Growth, Econometrica, vol. 87, n° 5, 2019</li>
+  <li>✓ Eckbo B.E., Nygaard K., Thorburn K.S., Board Gender-Balancing and Firm Value, Management Science, 2022</li>
+  <li>✓ Green T., Hand J., Diversity Wins? A Replication Study, Econ Journal Watch, 2024</li>
+  <li>? OCDE, Note de politique sur l'entrepreneuriat féminin, 2017</li>
+  <li>✓ INSEE, comptes nationaux, PIB 2023</li>
+  <li>✓ Bpifrance, données genrées 2025 sur l'exercice 2024</li>
+  <li>≈ MSCI, Women on Boards : Global Trends in Gender Diversity on Corporate Boards, 2015–2016</li>
+  <li>≈ McKinsey & Company, Diversity Wins: How Inclusion Matters, 2020</li>
 </ul>`
     }
   },
