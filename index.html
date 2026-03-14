@@ -483,6 +483,32 @@ nav, header {
   .grid-wrap, .fiche-body, .fiche-topbar { padding-left: 1rem; padding-right: 1rem; }
   .hero { padding: 7rem 1rem 5vh; }
 }
+
+/* ── Hero layout (restauré) ── */
+.hero { display:block; }
+
+/* ── Widget flottant chiffre du jour ── */
+#chiffre-du-jour {
+  position:fixed;
+  top:8rem;
+  right:8vw;
+  z-index:999;
+  background:#fff;
+  border-radius:20px;
+  padding:1.2rem 1.4rem 1.1rem;
+  border:1.5px solid #f0e8ea;
+  box-shadow:0 2px 14px rgba(232,23,93,.12);
+  transition:transform .15s ease, box-shadow .15s ease;
+  max-width:240px;
+  text-align:left;
+}
+#chiffre-du-jour:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(232,23,93,.2); }
+.hcd-label { font-size:.7rem; letter-spacing:.13em; text-transform:uppercase; color:#aaa; font-weight:600; margin-bottom:.6rem; }
+.hcd-stat-wrap { display:flex; align-items:baseline; gap:.3rem; }
+.hcd-stat { font-size:2.2rem; font-weight:900; line-height:1; color:#e8175d; font-variant-numeric:tabular-nums; }
+.hcd-unit { font-size:1rem; font-weight:700; color:#e8175d; opacity:.75; }
+.hcd-sublabel { font-size:.75rem; color:#bbb; line-height:1.4; margin-top:.4rem; }
+@media(max-width:640px){ #chiffre-du-jour { top:auto; bottom:1rem; right:1rem; } }
 </style>
 </head>
 <body>
@@ -510,6 +536,13 @@ nav, header {
   </h1>
   <p class="hero-sub">On parle toujours des inégalités comme d'un débat moral<br>Ici, on les compte<br>En vies, en santé, en richesses</p>
 </section>
+
+<!-- Widget flottant -->
+<div id="chiffre-du-jour" onclick="heroCardClick()" style="cursor:pointer;">
+  <div class="hcd-label">Le chiffre du jour</div>
+  <div class="hcd-stat-wrap"><span id="hcd-stat" class="hcd-stat"></span><span id="hcd-unit" class="hcd-unit"></span></div>
+  <div class="hcd-sublabel" id="hcd-sublabel"></div>
+</div>
 
 <!-- ══ TIMELINE VERTICALE ══ -->
 <section id="timeline-section" style="display:block">
@@ -855,10 +888,10 @@ nav, header {
 
       <div class="card" data-domain="travail" data-badge="e" onclick="openFiche('travail-dangereux')">
         <p class="card-domain">Travail · Santé · Ergonomie · France</p>
-        <div><p class="card-number">≈ 100–150 M €<span class="card-unit">surcoût annuel · branche AT · France</span></p></div>
+        <div><p class="card-number">≈ 98 M€<span class="card-unit">surcoût annuel · branche AT · France</span></p></div>
         <div class="card-evitable">
           <span class="card-evitable-label">Encore perdu en 2026 · France</span><br>
-          ≈ 100–150 M €/an
+          ≈ 98 M€/an
         </div>
         <p class="card-title">Le travail dangereux</p>
         <p class="card-sub">−27 % d'accidents pour les hommes entre 2001 et 2019 · +42 % pour les femmes — postes et EPI calibrés sur un seul gabarit</p>
@@ -1057,98 +1090,97 @@ const popupData = {
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
-  <div class="l1-badges"><span class="badge e">≈ Estimation</span><span class="badge v">✓ Documenté</span></div>
-  <div class="l1-number">100 à 150 millions € par an</div>
-  <p class="l1-desc">En France, les accidents du travail ont diminué de 11 % entre 2001 et 2019. Cette moyenne cache une réalité différente : pour les hommes, la baisse est de 27 %. Pour les femmes, le nombre d'accidents a augmenté de 42 %.<br><br>Quand une femme est accidentée au travail, son arrêt dure en moyenne 6 jours de plus que celui d'un homme, dans tous les secteurs sauf le BTP. En 2019, 243 000 femmes ont eu un accident du travail reconnu. Ce différentiel de 6 jours représente un surcoût annuel de 100 à 150 millions d'euros pour la branche Accidents du travail de la Sécurité sociale.<br><br>Ce chiffre est probablement sous-estimé. Les indemnités journalières sont calculées sur le salaire : les femmes gagnant en moyenne 16 % de moins que les hommes, le coût enregistré par la Sécurité sociale est donc plus faible. La durée réelle des arrêts, elle, ne l'est pas.</p>
-  <div class="l1-sources">Sources : ANACT, Photographie statistique de la sinistralité, 2022 · INSEE, salaires 2019</div>
+  <div class="l1-badges"><span class="badge e">≈ Estimation</span></div>
+  <div class="l1-number">Au moins 98 M€/an</div>
+  <p class="l1-desc">En 2019, les accidents du travail ont coûté au moins 98 millions d'euros de plus à la branche Accidents du travail de la Sécurité sociale dans les secteurs santé, aide à domicile, nettoyage et agroalimentaire.<br><br>Lorsqu'une femme avait un accident du travail, son arrêt durait en moyenne 5,9 jours de plus que celui d'un homme (tous secteurs sauf BTP). Sur 243 000 accidents féminins reconnus, cela représente 1 433 700 journées d'arrêt supplémentaires.<br><br>Cet écart s'explique probablement en partie par la façon dont les postes de travail ont été délimités : outils, équipements de protection et rythmes de travail ont été pensés pour un homme de taille et de force moyennes. Ce montant est un minimum : il ne mesure que le surcoût lié aux femmes accidentées. Pendant vingt ans, les politiques nationales de prévention ont surtout visé le BTP et l'industrie lourde. Le surrisque dans les secteurs féminisés était connu. Il n'était pas prioritaire.</p>
+  <div class="l1-sources">≈ Estimation · Calcul basé sur données ANACT 2022 et INSEE 2019<br>Sources : Chappert F., Therry P., ANACT, 2022 · INSEE, Salaires EQTP, 2019</div>
 </div>
 <div class="l1-block-evitable">
   <div class="l1-evitable-label">Encore perdu en 2026 · France</div>
-  <div class="l1-badges"><span class="badge e">≈ Estimation</span></div>
-  <div class="l1-number">≈ 100–150 M €/an</div>
-  <p class="l1-desc">Les postes de travail, les équipements de protection individuelle et les cadences n'ont pas été redéfinis. Les secteurs les plus touchés — santé, aide à domicile, nettoyage, agroalimentaire — emploient majoritairement des femmes et restent sous-couverts par les programmes nationaux de prévention.</p>
+  <div class="l1-badges"><span class="badge e">≈ Au moins 98 M€/an</span></div>
 </div>`,
       l2:`<div class="chain">
-  <div class="chain-step"><span class="chain-year">Années 1970</span><span class="chain-text">Les secteurs de la santé, de l'aide à domicile, du nettoyage et de l'agroalimentaire se développent massivement. Faiblement syndicalisés, ils recrutent une main-d'œuvre moins coûteuse, donc majoritairement des femmes. Les normes de conception des postes de travail, établies dans les secteurs industriels à prédominance masculine, ne sont pas révisées.</span></div>
-  <div class="chain-step"><span class="chain-year">2001–2019</span><span class="chain-text">L'ANACT publie une analyse longitudinale de la sinistralité au travail selon le sexe sur 19 ans. Les accidents du travail baissent de 27 % pour les hommes et augmentent de 42 % pour les femmes. L'écart est continu et s'accélère à partir de 2013. ✓</span></div>
-  <div class="chain-step"><span class="chain-year">2019</span><span class="chain-text">243 000 femmes ont un accident du travail reconnu, soit 37,3 % du total. Durée moyenne d'arrêt : 73,8 jours pour les femmes, contre 67,9 jours pour les hommes, dans tous les secteurs sauf le BTP. Les maladies professionnelles progressent deux fois plus vite pour les femmes que pour les hommes depuis 2001. ✓</span></div>
-  <div class="chain-step"><span class="chain-year">2022</span><span class="chain-text">La loi du 2 août 2021 pour renforcer la prévention en santé au travail impose aux entreprises d'intégrer dans leur document unique d'évaluation des risques professionnels (DUERP) « l'impact différencié de l'exposition au risque en fonction du sexe ». Première obligation légale en ce sens en France. ✓</span></div>
+  <div class="chain-step"><span class="chain-year">Années 1970</span><span class="chain-text">Les secteurs de la santé, de l'aide à domicile, du nettoyage et de l'agroalimentaire se développent fortement. Peu syndiqués, ils recrutent une main-d'œuvre moins chère, surtout féminine. Les règles de conception des postes, déterminées avec des critères de l'industrie surtout masculine, ne sont pas adaptées. ✓</span></div>
+  <div class="chain-step"><span class="chain-year">2001–2019</span><span class="chain-text">L'ANACT publie une étude sur 19 ans distinguant femmes et hommes. Les accidents du travail diminuent de 27 % chez les hommes et augmentent de 42 % chez les femmes. À noter qu'une partie de cette hausse s'explique aussi par l'arrivée de davantage de femmes sur le marché du travail. Mais l'écart est constant sur toute la période et s'accentue à partir de 2013. ✓ / ≈</span></div>
+  <div class="chain-step"><span class="chain-year">2019</span><span class="chain-text">243 000 femmes ont un accident du travail reconnu, soit 37,3 % du total. Leur arrêt dure en moyenne 73,8 jours, contre 67,9 jours pour les hommes (hors BTP). Depuis 2001, les maladies professionnelles augmentent deux fois plus vite chez les femmes que chez les hommes. ✓</span></div>
+  <div class="chain-step"><span class="chain-year">2022</span><span class="chain-text">La loi du 2 août 2021 impose aux entreprises d'intégrer les différences entre femmes et hommes dans l'évaluation des risques professionnels, via le DUERP. C'est la première fois qu'une loi française impose explicitement cette évaluation différenciée. ✓</span></div>
 </div>
 <div class="sec-title">L'angle mort</div>
-<div class="prose"><p>La norme utilisée pour concevoir les postes de travail n'est pas « le corps masculin » en général. C'est le corps d'un homme de taille et de morphologie moyennes. Un homme de petite stature dans un poste non adapté subit le même surrisque. Le biais de conception touche tous ceux qui s'écartent du gabarit de référence. Les femmes en sont les premières affectées, statistiquement, parce qu'elles s'en écartent davantage et plus systématiquement.</p></div>
+<div class="prose"><p>Le chiffre principal ne mesure qu'une partie du problème : il ne comptabilise pas les maladies professionnelles, la désorganisation productive, ni les coûts de remplacement.</p><p>Les femmes ne sont pas les seules touchées. Ceux qui s'écartent du gabarit créé pour un homme moyen sont exposés au même surrisque : les hommes de petite taille, qui portent des charges ou utilisent des outils calibrés pour un corps plus grand, et les hommes très grands, dont les postures génèrent des contraintes non prévues. Les travailleurs vieillissants forment une troisième catégorie : à 50 ans et plus, 32 % des salariés présentent une incapacité permanente liée au travail. Les postes de travail n'ont pas été conçus pour des corps qui vieillissent.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">−27 % d'accidents hommes, +42 % accidents femmes sur 2001–2019 : ANACT, Chappert F., Therry P., 2022</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">243 000 accidents féminins reconnus en 2019, 37,3 % du total : ANACT 2022</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Durée arrêt : 73,8 j (femmes) vs 67,9 j (hommes) hors BTP : ANACT 2022</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">75 % des EPI portés par les femmes conçus pour des hommes : Women's Engineering Society, 2010</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Loi du 2 août 2021, DUERP à impact différencié selon le sexe : Journal officiel</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">32 % d'incapacité permanente à 50 ans et plus : DARES, 2019</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Durée d'arrêt croissante avec l'âge : CNAMTS, statistiques AT 2019</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Surrisque des hommes hors gabarit : mécanisme documenté par l'ergonomie du travail, non chiffré en France</span></div>
 </div>`,
       l3f:`<div class="sec-title">Une norme construite par défaut</div>
-<div class="prose"><p>Quand les grandes industries manufacturières et les secteurs de services se structurent au XXe siècle, les normes s'installent là où les accidents sont les plus visibles : le BTP et la métallurgie, là où travaillent majoritairement des hommes. Les programmes de prévention suivent.</p><p>Les secteurs de la santé, de l'aide à domicile, du nettoyage et de l'agroalimentaire se développent massivement à partir des années 1970. Faiblement syndicalisés, ils recrutent une main-d'œuvre moins coûteuse, donc majoritairement des femmes. Personne ne repense les normes pour elles.</p></div>
-<div class="sec-title">Le surrisque documenté, pas corrigé</div>
-<div class="prose"><p>Florence Chappert, chercheuse à l'ANACT, documente le mécanisme : systèmes de travail et EPI inadaptés à la morphologie des femmes, port de charges excessives par rapport à leur force musculaire, cadences calibrées sur d'autres corps. Les factrices sont soumises à des cadences de tournées adaptées au rythme de travail d'hommes jeunes et en bonne santé. Dans une entreprise d'imprimerie suivie par l'ANACT, des femmes ont pu porter jusqu'à onze tonnes par jour. ✓</p><p>75 % des EPI portés par les femmes ont été conçus pour des hommes. Plus de la moitié des femmes interrogées dans une étude de la Women's Engineering Society signalent que leurs EPI les gênent dans leur travail. ✓ Une chaussure de sécurité trop large fait trébucher. Une combinaison mal ajustée réduit la liberté de mouvement au moment critique.</p><p>Les femmes ont deux fois plus de risques que les hommes de contracter une tendinite reconnue comme maladie professionnelle. ✓ Depuis 2001, les maladies professionnelles progressent deux fois plus vite pour les femmes que pour les hommes.</p></div>
-<div class="sec-title">La prévention déployée là où les femmes ne travaillent pas</div>
-<div class="prose"><p>Il y a aujourd'hui autant, si ce n'est plus, d'accidents du travail et de trajet dans le secteur des services à la personne que dans le BTP. ✓ Dans le BTP, chaque accident entraîne en moyenne 71 jours d'arrêt : les accidents y sont d'une violence physique qui égalise les durées, et l'écart femmes/hommes disparaît. C'est précisément hors BTP que l'écart de 6 jours apparaît et se stabilise. Pourtant, pendant deux décennies, les programmes nationaux de prévention ont ciblé le BTP et l'industrie lourde. Le surrisque dans les secteurs féminisés n'était pas inconnu. Il n'était pas prioritaire.</p></div>
+<div class="prose"><p>Quand les grandes industries manufacturières se structurent au XXe siècle, les employeurs travaillent avec les corps qu'ils ont sous la main. Donc surtout des hommes. Le BTP et la métallurgie concentrent les accidents. Des programmes de prévention sont mis en place.</p><p>De leur côté, les secteurs de la santé, de l'aide à domicile, du nettoyage et de l'agroalimentaire se développent massivement à partir des années 1970. Peu syndiqués, ils recrutent une main-d'œuvre moins chère, majoritairement des femmes. Personne ne repense les normes pour elles : tailles plus petites, couleurs différentes, mais les différences de morphologie, de force et de répartition des charges ne sont pas intégrées dans la conception des postes.</p></div>
+<div class="sec-title">Des risques identifiés, peu pris en compte</div>
+<div class="prose"><p>Florence Chappert, chercheuse à l'ANACT, documente le mécanisme : les outils, les EPI et les rythmes de travail ne sont pas adaptés à la morphologie de ceux qui s'écartent du gabarit de référence. Les factrices sont soumises à des cadences de tournées conçues pour le rythme de travail d'hommes jeunes et en bonne santé.</p><p>75 % des EPI portés par les femmes ayant répondu à une enquête britannique ont été conçus pour des hommes. Plus de la moitié signalent que ces équipements les gênent dans leur travail. Une chaussure de sécurité trop large fait trébucher. Une combinaison mal ajustée réduit la liberté de mouvement au moment critique. ≈</p><p>Le risque d'avoir une tendinite reconnue comme maladie professionnelle est deux fois plus élevé chez les femmes que chez les hommes. ≈ Les maladies professionnelles reconnues ont augmenté de 169,8 % pour les femmes contre 91,2 % pour les hommes entre 2001 et 2012.</p></div>
+<div class="sec-title">Peu de prévention là où les femmes sont en nombre</div>
+<div class="prose"><p>Il y a aujourd'hui autant, si ce n'est plus, d'accidents du travail et de trajet dans le secteur des services à la personne que dans le BTP. ≈ Dans ce dernier, chaque accident entraîne en moyenne 71 jours d'arrêt : les traumatismes physiques y sont si violents qu'ils augmentent la durée de l'arrêt pour tout le monde, effaçant mécaniquement l'écart entre femmes et hommes. Ce n'est pas que le BTP est mieux adapté, c'est que la gravité des accidents y est un égalisateur par le bas. ✓</p><p>C'est précisément hors BTP que l'écart de 6 jours apparaît et se stabilise. Pourtant, pendant 20 ans, les programmes nationaux de prévention concernaient uniquement le BTP et l'industrie lourde. Le surrisque dans les secteurs féminisés n'était pas inconnu. Il n'était pas prioritaire.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">11 tonnes portées par jour par des femmes en imprimerie : Chappert F., ANACT, cas documenté</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Surrisque tendinite ×2 pour les femmes : Chappert F., Centre Hubertine Auclert</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Autant d'accidents dans les services à la personne que dans le BTP : Assurance maladie, ameli.fr</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Cadences des factrices inadaptées : Chappert F., entretien, Décideurs RH, mai 2024</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">75 % des EPI portés par les femmes conçus pour des hommes : Women's Engineering Society (WES), enquête 2010, citée dans HesaMag, ETUI</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Risque de tendinite deux fois plus élevé chez les femmes : Chappert F., Centre Hubertine Auclert</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Maladies professionnelles progressant deux fois plus vite chez les femmes depuis 2001 : Chappert F., Therry P., ANACT, 2022</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Autant d'accidents dans les services à la personne que dans le BTP : Chappert F., Centre Hubertine Auclert</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Durée moyenne d'arrêt BTP : 71 jours : Assurance maladie, ameli.fr</span></div>
 </div>`,
-      l3cf:`<div class="etsi-header"><span class="etsi-badge">Et si ?</span></div>
-<div class="cf-note">Ce scénario est une hypothèse, pas un fait établi. Les hypothèses sont explicitées à chaque étape.</div>
-<div class="sec-title">Le calcul</div>
-<div class="prose"><p>Si les postes de travail, les rythmes et les équipements avaient été pensés pour tous les gabarits, les femmes n'auraient sans doute pas plus de jours d'arrêt que les hommes. On sait que plusieurs raisons expliquent cet écart — outils mal adaptés, protections inadaptées, organisation du travail —, mais on ne peut pas isoler exactement le poids de chaque facteur.</p><p>Ce qu'on sait en revanche : dès les années 1970, l'armée américaine, qui intégrait massivement des femmes, a mesuré précisément leur morphologie et a ensuite conçu des équipements et des postes de travail spécifiques. Autrement dit, on sait faire. Mais cette démarche reste très peu appliquée dans les secteurs civils où les femmes sont majoritaires.</p></div>
-<table class="dtable">
-<thead><tr><th>Étape</th><th>Donnée</th><th>Source</th></tr></thead>
-<tbody>
-  <tr><td>Accidents féminins 2019</td><td>650 715 total × 37,3 % = 243 000</td><td>✓ ANACT 2022</td></tr>
-  <tr><td>Écart de durée d'arrêt</td><td>73,8 j − 67,9 j = 5,9 jours hors BTP</td><td>✓ ANACT 2022</td></tr>
-  <tr><td>Journées supplémentaires</td><td>243 000 × 5,9 = 1 433 700 j/an</td><td>✓ Calcul direct</td></tr>
-  <tr><td>Coût journalier direct</td><td>26 430 €/an × 70 % / 365 = 50,70 €/j</td><td>✓ INSEE 2019 · ≈</td></tr>
-  <tr><td>Avec coûts indirects (×1,7)</td><td>50,70 × 1,7 = ≈ 86 €/j</td><td>≈ Assurance maladie</td></tr>
-  <tr class="total"><td>Surcoût annuel</td><td>72,7 M€ (direct) → 123,3 M€ (direct + indirect)</td><td>≈ Fourchette retenue : 100–150 M€</td></tr>
-</tbody>
-</table>
-<div class="sec-title">Ce que ce chiffre ne mesure pas</div>
-<div class="prose"><p>Ce calcul porte sur l'écart de gravité des accidents, pas sur leur nombre. La progression de +42 % des accidents féminins depuis 2001, ni la hausse deux fois plus rapide des maladies professionnelles chez les femmes, ne sont pas comptabilisées. Le surcoût réel est donc supérieur à cette fourchette.</p><p>Les indemnités journalières étant calculées sur le salaire, l'écart salarial de 16 % réduit le coût enregistré par la Sécurité sociale. La durée réelle des arrêts n'est pas affectée. ✓</p></div>
+      l3cf:`<div class="cf-note"><em>Ce qui suit est un raisonnement construit sur ce qui aurait pu être, pas un fait établi.</em></div>
+<div class="sec-title">Ce que l'on sait</div>
+<div class="prose"><p>On sait qu'adapter le travail aux différentes morphologies réduit les blessures. Dans des hôpitaux américains, l'installation de lève-malades et de rails plafonniers a réduit de 62 % les blessures liées à la manutention. ✓ Dans les usines, les programmes ergonomiques menés avec la participation des salariés réduisent nettement les TMS (troubles musculo-squelettiques) ainsi que les jours d'arrêt. ✓</p><p>La situation est comparable dans les armées occidentales. Pendant des décennies, gilets pare-balles, sacs à dos et harnais ont été conçus pour un gabarit masculin moyen. Les femmes militaires présentent des taux nettement plus élevés de blessures musculo-squelettiques et de fractures de fatigue. ✓ À partir des années 2010, plusieurs armées ont adapté leurs équipements. Les études montrent une amélioration du confort, de la mobilité et une diminution des contraintes exercées sur le corps. ✓</p></div>
+<div class="sec-title">Ce que cela implique logiquement</div>
+<div class="prose"><p>Si les postes des secteurs à majorité féminine étaient conçus pour tenir compte de la diversité des corps, une partie des 5,9 jours d'écart aurait probablement été évitée. ? Cela ne signifie pas que l'écart aurait disparu totalement. La part exacte liée à l'ergonomie n'a pas été mesurée.</p><p>Adapter les postes a un coût. Aux États-Unis, plusieurs programmes de manutention sécurisée des patients ont récupéré leur investissement en moins de trois ans grâce à la baisse des accidents et des arrêts.</p></div>
+<div class="sec-title">Ce que l'on ne peut pas calculer précisément</div>
+<div class="prose"><p>On ne peut pas déterminer la part exacte des 5,9 jours supplémentaires qui aurait été supprimée. Les études disponibles montrent que le mécanisme fonctionne, mais elles ont été menées dans des contextes précis. On ne peut pas non plus transposer directement ces résultats à la France : les règles de prévention, les obligations légales et les coûts sont différents.</p></div>
+<div class="sec-title">Mais on peut dire ceci</div>
+<div class="prose"><p>Ces exemples montrent qu'une conception du travail adaptée à la diversité des corps réduit les blessures et les arrêts. Dans les secteurs les plus touchés en France, cette approche a été peu appliquée. Les 98 M€ estimés mesurent le coût de cette absence d'adaptation, pas celui des solutions.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Salaire net féminin moyen 26 430 €/an : INSEE, salaires nets en EQTP, 2019</span></div>
-  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Coûts indirects ×1,7 : fourchette milieu Assurance maladie</span></div>
-  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">100–150 M€/an : trois hypothèses empilées, fourchette basse–haute</span></div>
-  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Part du surrisque directement attribuable à l'inadaptation des équipements : non isolée</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Réduction de 62 % des blessures liées à la manutention après programme SPH : Nelson A. et al., AAOHN Journal, 2006</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Baisse des lésions dorsales et des jours d'arrêt : Collins J.W. et al., Injury Prevention, 2004</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Retour sur investissement en moins de 3 ans : Washington State Department of Labor and Industries, 2009</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Réduction des TMS par ergonomie participative : Rivilis I. et al., Scandinavian Journal of Work, 2008</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Surrisque de blessures et fractures de fatigue chez les femmes militaires : Knapik J. et al., American Journal of Preventive Medicine, 2004</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Améliorations biomécaniques après adaptation des équipements : U.S. Army Natick Soldier Research Center, 2012–2016 ; GAO, 2015</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">L'adaptation ergonomique aurait réduit l'écart de 5,9 jours : plausible, non quantifiable</span></div>
 </div>`,
-      l4:`<div class="sec-title">Données de sinistralité</div>
+      l4:`<div class="sec-title">Sinistralité au travail selon le sexe</div>
 <ul class="src-list">
-  <li>ANACT, Chappert F., Therry P. — « Photographie statistique de la sinistralité au travail en France selon le sexe entre 2001 et 2019 », Lyon, ANACT, 2022. Source principale pour l'ensemble des chiffres AT-MP de cette fiche.</li>
+  <li>Chappert F., Therry P. — Photographie statistique de la sinistralité au travail en France selon le sexe entre 2001 et 2019, Lyon, ANACT, 2022.</li>
 </ul>
-<div class="sec-title">Sur les EPI et la morphologie</div>
+<div class="sec-title">Mécanismes : postes, cadences, secteurs</div>
 <ul class="src-list">
-  <li>Women's Engineering Society (WES) — enquête sur les EPI féminins, 2010. Citée dans HesaMag, magazine de l'Institut syndical européen (ETUI).</li>
-  <li>ETUI — « Équipement de protection individuelle : le défi de l'adaptation aux femmes », HesaMag.</li>
+  <li>Chappert F. — entretien, Décideurs RH, mai 2024.</li>
+  <li>Chappert F. — entretien, Centre Hubertine Auclert.</li>
+  <li>Infoprotection — La pénibilité est aussi une affaire de genre, 2019.</li>
 </ul>
-<div class="sec-title">Sur les mécanismes : postes, cadences, secteurs</div>
+<div class="sec-title">Équipements de protection individuelle</div>
 <ul class="src-list">
-  <li>Chappert F. — entretien « Les femmes sont exposées à des risques professionnels invisibilisés et sous-évalués », Décideurs RH, mai 2024.</li>
-  <li>Chappert F. — entretien, Centre Hubertine Auclert (sur le double risque tendinite).</li>
-  <li>Chappert F. — « La prévention passe par l'analyse sexuée du travail », Santé & Travail, juillet 2017.</li>
+  <li>Women's Engineering Society (WES) — enquête sur les EPI féminins, 2010. Citée dans HesaMag, ETUI.</li>
 </ul>
-<div class="sec-title">Sur les salaires</div>
+<div class="sec-title">Salaires et féminisation</div>
 <ul class="src-list">
-  <li>INSEE — « Salaires nets annuels moyens en équivalent temps plein selon le sexe », 2019.</li>
+  <li>INSEE — Salaires nets annuels moyens en équivalent temps plein selon le sexe, 2019.</li>
+  <li>Observatoire des territoires — Depuis les années 1970, la féminisation de la population active a concerné tous les territoires, INSEE, 2021.</li>
 </ul>
-<div class="sec-title">Sur le BTP</div>
+<div class="sec-title">BTP et obligation légale</div>
 <ul class="src-list">
-  <li>Assurance maladie, ameli.fr — « Accidents du travail et maladies professionnelles dans le BTP : chiffres clés ».</li>
+  <li>Assurance maladie, ameli.fr — Accidents du travail et maladies professionnelles dans le BTP : chiffres clés.</li>
+  <li>Loi n° 2021-1018 du 2 août 2021 pour renforcer la prévention en santé au travail.</li>
 </ul>
-<div class="sec-title">Obligation légale</div>
+<div class="sec-title">Cas comparables</div>
 <ul class="src-list">
-  <li>Loi n° 2021-1018 du 2 août 2021 pour renforcer la prévention en santé au travail, article intégrant l'impact différencié selon le sexe dans le DUERP.</li>
+  <li>Nelson A. et al. — Effectiveness of a comprehensive safe patient handling program, AAOHN Journal, 2006.</li>
+  <li>Collins J.W. et al. — An evaluation of a "no lift" policy in nursing homes, Injury Prevention, 2004.</li>
+  <li>Washington State Department of Labor and Industries — Chhokar R., Engst C., Miller A., Robinson D. (2005). The three-year economic benefits of a ceiling lift intervention. Applied Ergonomics, 36(2), 223–229.</li>
+  <li>Stock S.R. et al. (2018). Economic evaluations of ergonomic interventions. Scandinavian Journal of Work, Environment & Health.</li>
+  <li>Lahiri S., Latif E., Punnett L. (2009). An economic analysis of a safe resident handling program. American Journal of Industrial Medicine.</li>
+  <li>Rivilis I. et al. — Scandinavian Journal of Work, Environment and Health, 2008.</li>
+  <li>Knapik J. et al. — American Journal of Preventive Medicine, 2004.</li>
+  <li>U.S. Army Natick Soldier Research Center, 2012–2016 ; GAO, 2015.</li>
 </ul>
-<div class="sec-title">Pour aller plus loin</div>
-<ul class="src-list">
-  <li>ANACT — guide DUERP, « Évaluation différenciée des risques professionnels pour les femmes et les hommes », 2023.</li>
-  <li>Observatoire des territoires — « Depuis les années 1970, la féminisation de la population active a concerné tous les territoires », 2021.</li>
-</ul>`
+<div class="sec-title">Note méthodologique</div>
+<div class="prose"><p>Chiffre principal : ≈ au moins 98 M€/an.</p><p>Données sources : 243 000 accidents féminins reconnus en 2019 (ANACT 2022) · écart de durée d'arrêt hors BTP : 5,9 jours (73,8 − 67,9) · salaire brut annuel féminin moyen EQTP : 34 474 € (INSEE, 2019).</p><p>Calcul : 243 000 × 5,9 = 1 433 700 journées supplémentaires. SJR = 34 474 / 12 / 30,42 = 94,45 €. IJ moyenne pondérée sur 74 jours : (28 × 56,67 + 46 × 75,56) / 74 = 68,25 €. Coût direct : 1 433 700 × 68,25 = 98 M€/an.</p><p>Limites : l'écart salarial de 16 % minore le coût comptable sans réduire la durée réelle des arrêts. Les maladies professionnelles ne sont pas comptabilisées. Les coûts indirects ne sont pas intégrés. La part de l'écart attribuable à l'ergonomie n'a pas été isolée. Le chiffre est donc une borne basse.</p></div>`
     }
   },
 
@@ -1957,5 +1989,51 @@ function copyLink() {
     openFiche(hash);
   }
 })();
-</script></body>
+</script>
+<script>
+(function(){
+  var fiches = [
+    { id:"plafond",   stat:"104 Mds",        unit:"€/an",       sub:"CAC40 · 2023" },
+    { id:"faciale",   stat:"3–7 Mds",   unit:"€/an",       sub:"Algorithmes · France" },
+    { id:"travail-dangereux", stat:"98 M", unit:"€/an", sub:"Surcoût annuel · France" },
+    { id:"sport-dangereux",   stat:"1,5–5 Mds", unit:"$/an",    sub:"États-Unis + Europe" },
+    { id:"cardio",    stat:"28 Mds",          unit:"$/an",            sub:"États-Unis · 1973–2024" },
+    { id:"kariko",    stat:"170 000–350 000", unit:"",           sub:"Ordre de grandeur · 1989–2006" },
+    { id:"education", stat:"15 000 Mds",      unit:"$",               sub:"Coût mondial · 1808–1924" },
+    { id:"nourrir",   stat:"1 000 Mds",       unit:"$/an",            sub:"Mondial" },
+    { id:"celibat",   stat:"1–4 M",      unit:"victimes",        sub:"Estimées depuis 1139" },
+    { id:"adam",      stat:"12 000–28 000", unit:"Mds $/an", sub:"Mondial · depuis 1965" },
+  ];
+
+  var d = new Date();
+  var seed = d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate();
+  var f = fiches[seed % fiches.length];
+
+  document.getElementById("hcd-sublabel").textContent = f.sub;
+  document.getElementById("hcd-unit").textContent = f.unit;
+  window.heroCardClick = function(){ openFiche(f.id); };
+
+  // Animation compteur
+  var statEl = document.getElementById("hcd-stat");
+  var nums = f.stat.replace(/\s/g,"").match(/\d+/g);
+  if (!nums) { statEl.textContent = f.stat; return; }
+
+  var target = parseInt(nums[nums.length-1]);
+  var prefix = f.stat.indexOf("–") >= 0 ? f.stat.split("–")[0] + "–" : "";
+  var suffix = f.stat.match(/\d+(.*)$/)[1] || "";
+
+  var duration = 1400;
+  var start = null;
+  function ease(t){ return t<0.5 ? 2*t*t : -1+(4-2*t)*t; }
+  function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g," "); }
+
+  requestAnimationFrame(function step(ts){
+    if(!start) start = ts;
+    var p = Math.min((ts-start)/duration, 1);
+    statEl.textContent = prefix + fmt(Math.round(ease(p)*target)) + suffix;
+    if(p < 1) requestAnimationFrame(step);
+  });
+})();
+</script>
+</body>
 </html>
