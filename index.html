@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Bien utiliser chaque outil IA · BRS Shipbrokers</title>
+<title>Formation IA · BRS · v23-mars-2026</title>
 <style>
 
   @import url('https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap');
@@ -272,16 +272,18 @@
   .btn-accent:disabled { opacity: 0.3; cursor: not-allowed; }
 
   /* ── CONTENT AREA ───────────────────────── */
-  .content { padding: 48px 64px 80px; width: 100%; }
+  .content { padding: 48px 64px 80px; width: 100%; max-width: 100%; box-sizing: border-box; }
 
   /* ── PAGE ───────────────────────────────── */
-  .page { display: none; animation: fadeIn 0.25s ease; }
-  .page.active { display: block; }
+  .page { display: none; opacity: 0; }
+  .page.active { display: block !important; opacity: 1 !important; animation: fadeIn 0.2s ease forwards; }
   .content { overflow-x: hidden; }
   .main { overflow-x: hidden; }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
     to   { opacity: 1; transform: translateY(0); }
   }
 
@@ -796,7 +798,7 @@
     .overlay.show { display: block; }
     .main { margin-left: 0; }
     .mobile-toggle { display: flex; }
-    .content { padding: 32px 24px 64px; }
+    
     .topbar { padding: 0 24px; }
     .do-dont, .card-grid, .technique-list, .price-grid, .pattern-list, .conf-grid { grid-template-columns: 1fr; }
     .module-title { font-size: 34px; }
@@ -1430,7 +1432,7 @@
 }
 .wtab-body { padding: 28px; }
 .wtab-pane { display: none; }
-.wtab-pane.active { display: block; }
+.wtab-pane.active { display: block; padding: 20px; }
 .formation-card {
   background: var(--surface2);
   border: 1px solid var(--border);
@@ -2014,59 +2016,52 @@
     <h1 class="module-title">L'IA ne lit pas. <em>Elle calcule.</em></h1>
     <p class="module-desc">Une seule idée à retenir : l'IA prédit le mot suivant. C'est pour ça qu'elle se trompe avec conviction.</p>
   </div>
-
   <div class="widget-wrap">
     <div class="wtab-nav">
       <button class="wtab-btn on" onclick="wTab(this,'b1l-t0')">1 · Comment l'IA lit un mot</button>
-      <button class="wtab-btn" onclick="wTab(this,'b1l-t1')">2 · Ce que « comprendre » veut dire</button>
+      <button class="wtab-btn" onclick="wTab(this,'b1l-t1')">2 · Ce que «&nbsp;comprendre&nbsp;» veut dire</button>
       <button class="wtab-btn" onclick="wTab(this,'b1l-t2')">3 · La prédiction en direct</button>
     </div>
 
     <div class="wtab-pane active" id="b1l-t0">
-      <p style="font-size:17px;color:var(--muted);line-height:1.65;margin-bottom:18px;">Quand vous tapez un mot, l'IA ne le « lit » pas comme vous. Elle lui attribue une adresse dans un immense tableau de nombres, un peu comme un code postal, mais à des centaines de chiffres. Ce code représente le sens du mot d'après tout ce qu'elle a lu pendant son entraînement.</p>
-      <p style="font-size:15px;font-weight:600;color:var(--muted);margin-bottom:10px;">Cliquez sur un mot pour voir son « code ».</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;" id="b1-word-btns"></div>
-      <div style="position:relative;margin-top:4px;">
-        <canvas id="b1-sem-map" width="660" height="220" style="width:100%;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface2);cursor:pointer;"></canvas>
-        <div id="b1-sem-hint" style="margin-top:8px;min-height:40px;border-left:3px solid var(--blue);padding:8px 14px;background:#e8f0fe40;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:var(--muted);line-height:1.6;display:none;"></div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:14px;">Quand vous tapez un mot, l'IA ne le «&nbsp;lit&nbsp;» pas comme vous. Elle le convertit en une adresse&nbsp;: une liste de milliers de chiffres, appelée vecteur ou <em>embedding</em>.</p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:14px;">Cette adresse est construite pendant l'entraînement, par l'analyse de milliards de phrases. Le modèle observe que <strong>charterparty</strong> apparaît très souvent avec <em>clause</em> ou <em>affrètement</em>, jamais avec <em>girafe</em>. Ces cooccurrences statistiques façonnent son adresse numérique. Résultat&nbsp;: deux mots qui se côtoient fréquemment ont des adresses proches. Deux mots sans rapport ont des adresses éloignées.</p>
+      <div id="b1-embed-schema" style="margin:18px 0;"></div>
+      <div class="warn-box" style="margin-top:4px;">
+        <strong>Ce que personne ne connaît</strong> Ni les concepteurs, ni le modèle lui-même ne savent ce que représente précisément chaque dimension. On peut parfois observer qu'une dimension semble capter un registre juridique ou maritime, mais c'est une interprétation après coup. C'est ce qu'on appelle la «&nbsp;boîte noire&nbsp;»&nbsp;: le résultat est observable, le chemin interne ne l'est pas. Le mot n'a pas de sens ,  il n'est que coordonnées statistiques.
       </div>
-      <div class="warn-box" style="margin-top:16px;"><strong>Ce qu'il faut retenir</strong> l'IA ne comprend pas le sens d'un mot. Elle sait avec quels autres mots il apparaît souvent. « Charterparty » et « clause » ont des codes proches parce qu'ils se côtoient dans des milliers de documents. C'est tout.</div>
     </div>
 
     <div class="wtab-pane" id="b1l-t1">
-      <p style="font-size:17px;color:var(--muted);line-height:1.65;margin-bottom:18px;">Ce que le modèle appelle « comprendre », c'est calculer. Il mesure la distance entre des codes. Deux mots sont « proches » si leurs codes se ressemblent, parce qu'ils apparaissent souvent dans les mêmes phrases dans ses données d'entraînement.</p>
-      <div class="do-dont" style="margin-bottom:16px;">
-        <div class="dont-block">
-          <h3>Ce que ça veut dire</h3>
-          <p style="font-size:16px;margin-top:8px;">« Charterparty » et « clause » ont des codes proches. Pas parce que le modèle sait ce qu'est un charterparty. Parce que ces deux mots apparaissent ensemble dans des milliers de documents.</p>
-        </div>
-        <div class="dont-block">
-          <h3>Ce que ça ne veut pas dire</h3>
-          <p style="font-size:16px;margin-top:8px;">Il n'y a pas de « compréhension ». Pas d'intention. Pas de vérification de sens. Le modèle produit ce qui est statistiquement plausible, pas ce qui est vrai.</p>
-        </div>
-      </div>
-      <div class="tip-box"><strong>Le modèle est figé depuis sa fabrication.</strong> Ce qu'il sait du monde s'arrête à sa date de coupure. Ce qu'il fait avec vos mots s'adapte au contexte de la conversation. Les deux sont du calcul.</div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:14px;">L'embedding donne à chaque mot une adresse de départ. Mais quand l'IA traite une phrase entière, elle ne traite pas chaque mot isolément. Pour chaque mot, elle calcule l'importance relative de tous les autres mots présents dans la phrase. C'est le mécanisme d'<strong>attention</strong>.</p>
+      <div id="b1-attention-schema" style="margin:18px 0;"></div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:10px;"><em>Piraterie</em> se situe dans un espace entre vocabulaire maritime, cinématographique et informatique. Avec ces voisins, le mécanisme d'attention renforce ses dimensions maritimes.</p>
+      <div class="tip-box" style="margin-bottom:14px;"><strong>Point crucial</strong> Ce recalcul est refait à chaque nouvelle phrase. Le prompt ne modifie pas les adresses de base. Il modifie uniquement les poids d'attention appliqués entre les mots, le temps d'un calcul. Ces poids sont purement mathématiques.</div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:10px;">Dans une conversation en cours, le modèle a accès à tout ce qui précède, parce qu'il recalcule ses poids d'attention sur l'ensemble du texte visible à chaque nouveau message. C'est la <strong>fenêtre de contexte</strong>.</p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:10px;">Dans une conversation en cours, le modèle a accès à tout ce qui précède. Il recalcule ses poids d'attention sur l'ensemble du texte visible à chaque nouveau message, les siens et les nôtres. C'est la <strong>fenêtre de contexte</strong>.</p>
+      <div class="warn-box"><strong>Limite</strong> Chaque modèle a une fenêtre maximale. Au-delà, ce qui est trop loin dans la conversation disparaît du calcul, sans alerte.</div>
     </div>
 
     <div class="wtab-pane" id="b1l-t2">
-      <p style="font-size:17px;color:var(--muted);line-height:1.65;margin-bottom:18px;">À chaque étape, le modèle choisit le mot suivant le plus probable. Aucune vérification. Aucune alarme. C'est pour ça qu'il se trompe avec autant d'assurance.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:14px;" id="b1pred-seq">
-        <span style="padding:4px 10px;border-radius:4px;font-size:16px;border:1px solid var(--border);background:var(--white);">Le</span>
-        <span style="padding:4px 10px;border-radius:4px;font-size:16px;border:1px solid var(--border);background:var(--white);">taux</span>
-        <span style="padding:4px 10px;border-radius:4px;font-size:16px;border:1px solid var(--border);background:var(--white);">de</span>
-        <span style="padding:4px 10px;border-radius:4px;font-size:16px;border:1px solid var(--border);background:var(--white);">fret</span>
-        <span style="padding:4px 10px;border-radius:4px;font-size:16px;border:1px solid var(--border);background:var(--white);">VLCC</span>
-        <span style="padding:4px 10px;border-radius:4px;font-size:16px;border:1px solid var(--border);background:var(--white);">est</span>
-        <span style="padding:4px 10px;border-radius:4px;font-size:16px;border:1px solid var(--border);background:var(--white);">à</span>
-        <span id="b1-pred-next" style="padding:4px 10px;border-radius:4px;font-size:16px;border:1px dashed var(--border);color:var(--muted);">?</span>
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:14px;">À partir des embeddings et des poids d'attention, le modèle fait une seule chose&nbsp;: il choisit le mot suivant statistiquement le plus probable. Puis il recommence. Et ainsi de suite.</p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:14px;">Si la séquence «&nbsp;Freight VLCC est à 52&nbsp;» est souvent suivie de <em>WS</em> dans les textes d'entraînement, le modèle propose <em>WS</em>. Si le chiffre 52 est inexact, il ne le sait pas. Il sait seulement que <em>52 WS</em> est une suite statistiquement cohérente.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px;" id="b1pred-seq">
+        <span style="padding:5px 12px;border-radius:5px;font-size:15px;border:1px solid var(--border);background:var(--white);">Le</span>
+        <span style="padding:5px 12px;border-radius:5px;font-size:15px;border:1px solid var(--border);background:var(--white);">taux</span>
+        <span style="padding:5px 12px;border-radius:5px;font-size:15px;border:1px solid var(--border);background:var(--white);">de</span>
+        <span style="padding:5px 12px;border-radius:5px;font-size:15px;border:1px solid var(--border);background:var(--white);">fret</span>
+        <span style="padding:5px 12px;border-radius:5px;font-size:15px;border:1px solid var(--border);background:var(--white);">VLCC</span>
+        <span style="padding:5px 12px;border-radius:5px;font-size:15px;border:1px solid var(--border);background:var(--white);">est</span>
+        <span style="padding:5px 12px;border-radius:5px;font-size:15px;border:1px solid var(--border);background:var(--white);">à</span>
+        <span id="b1-pred-placeholder" style="padding:5px 12px;border-radius:5px;font-size:15px;border:1px dashed var(--border);color:var(--muted);">?</span>
       </div>
-      <div id="b1prob-section" style="margin-bottom:14px;"></div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+      <div id="b1prob-section" style="margin-bottom:16px;"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
         <button class="btn btn-accent" id="b1-btn-next" onclick="b1PredShow(false)">Mot suivant</button>
-        <button class="btn btn-ghost" onclick="b1PredReset()">Recommencer</button>
+        <button class="btn btn-ghost" onclick="b1PredReset()">Remettre à zéro</button>
         <button class="btn btn-ghost" id="b1-btn-wrong" style="border-color:var(--danger);color:var(--danger);display:none;" onclick="b1PredShow(true)">Voir une erreur plausible</button>
       </div>
-      <div class="warn-box"><strong>C'est pour ça qu'elle se trompe avec autant d'assurance</strong> Elle ne sait pas qu'elle invente. Elle choisit ce qui est statistiquement cohérent. Un chiffre inventé peut être parfaitement cohérent. Aucune alarme ne se déclenche.</div>
+      <div class="warn-box">L'IA calcule la probabilité du mot suivant. C'est tout. Elle ne consulte pas de base de données en temps réel, ne vérifie pas les faits, ne sonne pas l'alarme quand elle invente. Une réponse fausse sort avec la même fluidité qu'une réponse exacte.</div>
     </div>
   </div>
 </div>
@@ -2083,30 +2078,50 @@
     <div class="wtab-nav">
       <button class="wtab-btn on" onclick="wTab(this,'b1c-t0')">1 · Combien de chiffres ?</button>
       <button class="wtab-btn" onclick="wTab(this,'b1c-t1')">2 · L'importance du prompt</button>
+      <button class="wtab-btn" onclick="wTab(this,'b1c-t2')">3 · Ce que ça change</button>
     </div>
 
     <div class="wtab-pane active" id="b1c-t0">
       <div id="b1-piraterie-cards"></div>
-      <div id="b1-static-conclusion" style="margin-top:24px;border-top:1px solid var(--border);padding-top:18px;">
-        <div style="font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:24px;font-weight:800;color:var(--navy);margin-bottom:16px;">Même mot, deux modèles qui vont directement au maritime. Pourquoi eux&nbsp;?</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-          <div style="border:1px solid rgba(217,119,87,.3);border-radius:var(--radius);overflow:hidden;background:var(--white);">
-            <div style="padding:8px 14px;background:rgba(217,119,87,.08);border-bottom:1px solid rgba(217,119,87,.2);">
-              <div style="font-size:16px;font-weight:700;color:var(--navy);">🇺🇸 Claude</div>
-              <div style="font-size:13px;color:var(--muted);">8&nbsp;192 dimensions</div>
-            </div>
-            <div style="padding:12px 14px;font-size:15px;color:var(--muted);line-height:1.7;">Claude a pourtant <strong>moins de chiffres que ChatGPT</strong>… Anthropic a entraîné Claude sur des textes analytiques contrats longs, documents juridiques, raisonnement structuré. Ses 8&nbsp;192 chiffres pour «&nbsp;piraterie&nbsp;» sont mieux calibrés sur le droit maritime que les 12&nbsp;288 de ChatGPT, entraîné sur un corpus grand public bien plus large.</div>
-          </div>
-          <div style="border:1px solid rgba(32,184,205,.3);border-radius:var(--radius);overflow:hidden;background:var(--white);">
-            <div style="padding:8px 14px;background:rgba(32,184,205,.08);border-bottom:1px solid rgba(32,184,205,.2);">
-              <div style="font-size:16px;font-weight:700;color:var(--navy);">🇺🇸 Perplexity</div>
-              <div style="font-size:13px;color:var(--muted);">100&nbsp;% temps réel</div>
-            </div>
-            <div style="padding:12px 14px;font-size:15px;color:var(--muted);line-height:1.7;">Perplexity n'a pas de modèle propre. Il interroge le web en temps réel et classe ce qu'il trouve. Depuis fin 2023, les articles les plus récents sur «&nbsp;piraterie&nbsp;» parlent des Houthis, de la mer Rouge, des primes War Risk. <strong>C'est l'actualité qui oriente le calcul</strong>, pas une compréhension du sujet.</div>
-          </div>
+    <div class="wtab-pane" id="b1c-t2">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-top:4px;">
+        <div class="card-sm" style="border-top:3px solid var(--navy);">
+          <strong style="font-size:14px;color:var(--navy);">1. Le contexte doit être redonné à chaque fois</strong>
+          <p style="font-size:14px;margin-top:8px;color:var(--muted);line-height:1.65;">Le modèle n'apprend pas de vos échanges. Ce que vous lui expliquez dans un prompt ne le forme pas. À la prochaine conversation, il repart de zéro. Si vous avez précisé que vous travaillez sur un voyage charter, il ne s'en souvient pas la fois suivante.</p>
         </div>
-        <div style="padding:12px 16px;background:var(--warn-dim);border-left:3px solid var(--orange);border-radius:0 var(--radius) var(--radius) 0;font-size:16px;color:var(--text);line-height:1.65;">
-          <strong>Ce que cela change pour vous</strong> le meilleur outil n'est pas le plus gros. C'est celui dont les données correspondent à votre besoin.
+        <div class="card-sm" style="border-top:3px solid var(--orange);">
+          <strong style="font-size:14px;color:var(--orange);">2. Un prompt bien construit pèse lourd</strong>
+          <p style="font-size:14px;margin-top:8px;color:var(--muted);line-height:1.65;">Puisque le modèle recalcule tout à partir de ce que vous lui donnez, la qualité de votre prompt détermine directement la qualité de la réponse. Ce n'est pas « bien parler à une machine », c'est lui fournir les coordonnées dont elle a besoin pour orienter ses calculs.</p>
+        </div>
+        <div class="card-sm" style="border-top:3px solid var(--danger);">
+          <strong style="font-size:14px;color:var(--danger);">3. Il ne se corrige pas</strong>
+          <p style="font-size:14px;margin-top:8px;color:var(--muted);line-height:1.65;">Il n'a pas de mécanisme interne qui détecte ses propres erreurs. Une réponse fausse sort avec la même fluidité qu'une réponse exacte. La relecture reste indispensable.</p>
+        </div>
+        <div class="card-sm" style="border-top:3px solid var(--success);">
+          <strong style="font-size:14px;color:var(--success);">4. Le bon outil dépend du besoin</strong>
+          <p style="font-size:14px;margin-top:8px;color:var(--muted);line-height:1.65;">Document long à analyser ou rédiger &rarr; Claude<br>Information récente à vérifier (War Risk, incident, sanction IMO) &rarr; Perplexity<br>Fichiers internes BRS, environnement Microsoft &rarr; Copilot<br>Données sensibles, confidentialité &rarr; Le Chat (Mistral)</p>
+        </div>
+      </div>
+
+      <div id="b1-static-conclusion" style="margin-top:24px;border-top:1px solid var(--border);padding-top:20px;">
+        <div style="font-family:'Inter',sans-serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:16px;">Ce que ça change pour vous</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="card-sm" style="border-top:3px solid var(--navy);">
+            <strong style="font-size:14px;color:var(--navy);">1. Le contexte doit être redonné à chaque fois</strong>
+            <p style="font-size:13px;margin-top:6px;color:var(--muted);line-height:1.65;">Le modèle n'apprend pas de vos échanges. Ce que vous lui expliquez dans un prompt ne le forme pas. À la prochaine conversation, il repart de zéro. Si vous avez précisé que vous travaillez sur un voyage charter, il ne s'en souvient pas la fois suivante.</p>
+          </div>
+          <div class="card-sm" style="border-top:3px solid var(--orange);">
+            <strong style="font-size:14px;color:var(--orange);">2. Un prompt bien construit pèse lourd</strong>
+            <p style="font-size:13px;margin-top:6px;color:var(--muted);line-height:1.65;">Puisque le modèle recalcule tout à partir de ce que vous lui donnez, la qualité de votre prompt détermine directement la qualité de la réponse. Ce n'est pas «&nbsp;bien parler à une machine&nbsp;», c'est lui fournir les coordonnées dont elle a besoin pour orienter ses calculs.</p>
+          </div>
+          <div class="card-sm" style="border-top:3px solid var(--danger);">
+            <strong style="font-size:14px;color:var(--danger);">3. Il ne se corrige pas</strong>
+            <p style="font-size:13px;margin-top:6px;color:var(--muted);line-height:1.65;">Il n'a pas de mécanisme interne qui détecte ses propres erreurs. Une réponse fausse sort avec la même fluidité qu'une réponse exacte. La relecture reste indispensable.</p>
+          </div>
+          <div class="card-sm" style="border-top:3px solid var(--success);">
+            <strong style="font-size:14px;color:var(--success);">4. Le bon outil dépend du besoin</strong>
+            <p style="font-size:13px;margin-top:6px;color:var(--muted);line-height:1.65;">Document long à analyser ou rédiger &rarr; Claude<br>Information récente à vérifier (War Risk, incident, sanction IMO) &rarr; Perplexity<br>Fichiers internes BRS, environnement Microsoft &rarr; Copilot<br>Données sensibles, confidentialité &rarr; Le Chat (Mistral)</p>
+          </div>
         </div>
       </div>
     </div>
@@ -2139,8 +2154,9 @@
     </div>
   </div>
 </div>
+</div><!-- fix b1c -->
 
-
+<div class="page" </div>
 <div class="page" id="page-bloc2-outils">
   <div class="module-hero">
     <div class="module-tag">Bloc 2 · 20 min</div>
@@ -2150,7 +2166,9 @@
   <div class="widget-wrap">
     <div class="wtab-nav">
       <button class="wtab-btn on" onclick="wTab(this,'b2ou-t0')">Les outils</button>
-      <button class="wtab-btn" onclick="wTab(this,'b2ou-t1')">Sources et données</button>
+      <button class="wtab-btn" onclick="wTab(this,'b2ou-t1');initBloc2Sources();">Sources et données</button>
+      <button class="wtab-btn" onclick="wTab(this,'b2ou-t2');initBloc2Priority();">Quelle priorité&nbsp;?</button>
+      <button class="wtab-btn" onclick="wTab(this,'b2ou-t3');initBloc2Versions();">Comprendre les versions</button>
     </div>
     <div class="wtab-pane active" id="b2ou-t0">
       <div style="padding-top:12px;">
@@ -2159,66 +2177,19 @@
       </div>
     </div>
     <div class="wtab-pane" id="b2ou-t1">
-      <div style="padding:16px 0 4px;">
-        <p style="font-size:17px;color:var(--muted);line-height:1.6;margin-bottom:18px;">Chaque outil a été entraîné sur des données différentes. Ces différences déterminent ce que chaque outil sait et ce qu'il ignore.</p>
-        <div class="tool-grid">
-          <div class="tool-card">
-            <div class="tool-card-name">ChatGPT <span class="tool-badge badge-us">US</span></div>
-            <div class="tool-card-desc">Web public (410 Md mots), livres, Wikipedia, GitHub, Reddit, RLHF. Jusqu'à début 2025. Recherche web activable.</div>
-          </div>
-          <div class="tool-card">
-            <div class="tool-card-name">Claude <span class="tool-badge badge-us">US</span></div>
-            <div class="tool-card-desc">Web public, livres, code, RLHF. Arrêt début 2025. <strong>Fenêtre de 200 000 tokens</strong> (~150 000 mots) : le point fort distinctif. Recherche web selon le plan.</div>
-          </div>
-          <div class="tool-card">
-            <div class="tool-card-name">Gemini <span class="tool-badge badge-us">US</span></div>
-            <div class="tool-card-desc">Web public + Google Search, YouTube, Maps, Gmail anonymisé, avantage exclusif. Connexion web native et permanente par défaut.</div>
-          </div>
-          <div class="tool-card">
-            <div class="tool-card-name">Copilot <span class="tool-badge badge-us">US</span></div>
-            <div class="tool-card-desc">Base GPT-5 + index Bing temps réel + (plan M365) vos propres fichiers d'entreprise. Recherche web intégrée par défaut.</div>
-          </div>
-          <div class="tool-card">
-            <div class="tool-card-name">Perplexity <span class="tool-badge badge-us">US</span></div>
-            <div class="tool-card-desc">Pas de modèle propre : surcouche sur GPT-5, Claude ou Gemini avec recherche web systématique. 100 % temps réel, chaque affirmation = un lien cliquable.</div>
-          </div>
-          <div class="tool-card">
-            <div class="tool-card-name">Le Chat <span class="tool-badge badge-fr">🇫🇷</span></div>
-            <div class="tool-card-desc">Web public (priorité français), livres, code, données nettoyées. Open source. Version Pro : AFP en temps réel.</div>
-          </div>
-          <div class="tool-card">
-            <div class="tool-card-name">Poe <span class="tool-badge badge-us">US</span></div>
-            <div class="tool-card-desc">Interface multi-modèles : accède à GPT-5, Claude, Gemini, Llama, 100+ modèles. Pas de données propres.</div>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <h2>Quelle priorité selon le besoin</h2>
-        <div class="scenario-list">
-          <div class="scenario-row">
-            <div class="scenario-task">Infos très récentes</div>
-            <span class="scenario-tool tool-perplexity">Perplexity</span>
-            <span class="scenario-tool tool-gemini">Gemini</span>
-          </div>
-          <div class="scenario-row">
-            <div class="scenario-task">Document très long (50+ pages)</div>
-            <span class="scenario-tool tool-claude">Claude (200k tokens)</span>
-          </div>
-          <div class="scenario-row">
-            <div class="scenario-task">Données sensibles, Europe</div>
-            <span class="scenario-tool tool-lechat">Le Chat 🇫🇷</span>
-          </div>
-          <div class="scenario-row">
-            <div class="scenario-task">Tester et comparer plusieurs IA</div>
-            <span class="scenario-tool tool-poe">Poe</span>
-          </div>
-        </div>
+      <div id="b2-sources-grid" style="padding-top:4px;"></div>
+    </div>
+    <div class="wtab-pane" id="b2ou-t2">
+      <div style="padding-top:4px;">
+        <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:18px;">Tous les outils ne font pas la même chose. Voici comment choisir selon votre besoin immédiat.</p>
+        <div id="b2-priority-grid"></div>
       </div>
+    </div>
+    <div class="wtab-pane" id="b2ou-t3">
+      <div id="b2-versions-content" style="padding-top:4px;"></div>
     </div>
   </div>
 </div>
-
 
 
 <div class="page" id="page-bloc2-decision">
@@ -2368,7 +2339,7 @@
         <p style="font-size:17px;color:var(--muted);margin-bottom:16px;">Voici ce qu'il faut vérifier, dans l'ordre. Cliquez sur chaque point.</p>
         <div class="checklist-f" id="rl-checklist"></div>
         <div id="rl-check-insight" style="border-left:3px solid var(--blue);padding:10px 14px;background:var(--accent2-dim);border-radius:0 var(--radius) var(--radius) 0;font-size:16px;color:var(--muted);">Cliquez sur un point pour voir ce qu'il implique concrètement.</div>
-        <div class="warn-box" style="margin-top:14px;"><strong>Le piège principal</strong> — on lit l’IA comme on lirait un collègue compétent. Elle est fluide, confiante, structurée. Rien n'indique qu'elle a inventé un chiffre ou omis une clause essentielle.</div>
+        <div class="warn-box" style="margin-top:14px;"><strong>Le piège principal</strong> ,  on lit l’IA comme on lirait un collègue compétent. Elle est fluide, confiante, structurée. Rien n'indique qu'elle a inventé un chiffre ou omis une clause essentielle.</div>
       </div>
 
       <div class="wtab-pane" id="rl1">
@@ -2529,7 +2500,7 @@ hub.io/Utiliser-IA/" target="_blank" style="color:var(--blue);">charlysamax.gith
   <div class="widget-wrap">
     <div id="b4-cas-nav" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;"></div>
     <div id="b4-cas-body"></div>
-  </div>
+v>
 </div>
       </div>
     
@@ -3854,11 +3825,13 @@ updateNav();
 function showPage(id, btn) {
   const idx = PAGES.indexOf(id);
   if (idx < 0) return;
-  document.querySelectorAll(`.page`).forEach(p => p.classList.remove(`active`));
+  document.querySelectorAll(`.page`).forEach(p => { p.classList.remove(`active`); p.style.display = ``; p.style.opacity = ``; });
   document.querySelectorAll(`.nav-item`).forEach(b => b.classList.remove(`active`));
   const page = document.getElementById(`page-` + id);
   if (!page) return;
   page.classList.add(`active`);
+  page.style.display = `block`;
+  page.style.opacity = `1`;
   if (btn) btn.classList.add(`active`);
   current = idx;
   visited.add(idx);
@@ -4074,47 +4047,78 @@ function b1ResetPred() {
 
 // ── BLOC 2 : TOOLS WIDGET ───────────────
 const B2_TOOLS = [
-  {name:"Copilot",flag:"🇺🇸",color:"#0078D4",family:"Données internes M365",
-   use:"Vos fichiers Teams, Outlook, Excel, SharePoint. L'outil de base BRS.",
+  {name:"Copilot", flag:"🇺🇸", color:"#0078D4", family:"Données internes M365",
+   use:"Vos fichiers Teams, Outlook, Excel, SharePoint. L’outil de base BRS.",
    tags:["Teams","Outlook","Excel","SharePoint"],
-   good:["Synthèse de réunion Teams","Email depuis quelques notes","Analyse Excel sans export","Résumé d'un document Word ouvert"],
+   good:["Synthèse de réunion Teams","Email depuis quelques notes","Analyse Excel sans export","Résumé d’un document Word ouvert"],
    bad:["Recherche externe ou marché","Documents 50+ pages","Sans licence M365 payante : accès limité"],
-   brs:"Vous l'avez déjà. Vos fichiers sont déjà dedans. C'est votre point de départ."},
-  {name:"Claude",flag:"🇺🇸",color:"#D97757",family:"Analyse longue",
+   brs:"Vous l’avez déjà. Vos fichiers sont déjà dedans. C’est votre point de départ.",
+   sources:"Base GPT-4 / GPT-5 + index Bing en temps réel + vos fichiers M365 (plan payant). Teams, Outlook, SharePoint. Recherche web intégrée par défaut."},
+  {name:"Claude", flag:"🇺🇸", color:"#D97757", family:"Analyse longue",
    use:"Documents longs, raisonnement complexe, analyse de contrats.",
    tags:["200k tokens","analyse","contrats"],
-   good:["Charterparty complet en une fois","Analyse de clauses a risque","Mémo ou pitch structuré","Cohérence sur textes très longs"],
-   bad:["Données en temps réel sans web","Génération d'images"],brs:null},
-  {name:"ChatGPT",flag:"🇺🇸",color:"#10A37F",family:"Rédaction",
+   good:["Charterparty complet en une fois","Analyse de clauses à risque","Mémo ou pitch structuré","Cohérence sur textes très longs"],
+   bad:["Données en temps réel sans web","Génération d’images"],
+   brs:"Idéal pour les dossiers denses : CP, recap de fixtures, analyse de clauses, raisonnement pas à pas sur un cas complexe.",
+   sources:"Web public sélectionné, livres, articles scientifiques, code. 200 000 tokens de contexte. Recherche web selon le plan."},
+  {name:"ChatGPT", flag:"🇺🇸", color:"#10A37F", family:"Rédaction",
    use:"Rédaction, reformulation, traduction, brainstorming.",
    tags:["rédaction","traduction","créativité"],
    good:["Emails et mémos","Traduction tous formats","Reformulation rapide","Idées et angles"],
-   bad:["Documents très longs (tronque)","Données chiffrées sans outil dédié"],brs:null},
-  {name:"Gemini",flag:"🇺🇸",color:"#4285F4",family:"Écosystème Google",
+   bad:["Documents très longs (tronque)","Données chiffrées sans vérification"],
+   brs:"Utile pour reformuler des instructions d’affrètement ou rédiger une confirmation de fixture en anglais professionnel.",
+   sources:"Web public (410 Md de mots), livres, Wikipedia, Reddit, GitHub. Recherche web activable (GPT-4o)."},
+  {name:"Gemini", flag:"🇺🇸", color:"#4285F4", family:"Écosystème Google",
    use:"Natif dans Google Workspace. Connexion web permanente par défaut.",
    tags:["Google","web natif","Drive"],
    good:["Gmail, Docs, Sheets sans friction","Connexion web permanente","Corpus volumineux"],
    bad:["Hors Google Workspace : ChatGPT ou Claude plus adaptés","Données sensibles sur version gratuite"],
-   brs:"BRS est sous Microsoft 365. Gemini pertinent uniquement si vous utilisez Google Workspace."},
-  {name:"Perplexity",flag:"🇺🇸",color:"#20B8CD",family:"Vérification sourcée",
+   brs:"BRS est sous Microsoft 365. Gemini pertinent uniquement si vous utilisez Google Workspace.",
+   sources:"Web public + Google Search, YouTube, Maps, Gmail anonymisé. Données Google exclusives. Connexion web native et permanente."},
+  {name:"Perplexity", flag:"🇺🇸", color:"#20B8CD", family:"Vérification sourcée",
    use:"Chaque affirmation = un lien source cliquable.",
    tags:["temps réel","sources","veille"],
    good:["Taux, indices, chiffres du jour","Veille IMO, EU ETS, réglementation","Incidents récents sourcés"],
-   bad:["Analyse de documents longs","Rédaction de contenu"],brs:null},
-  {name:"Le Chat",flag:"🇫🇷",color:"#FF7000",family:"Données sensibles · Europe",
+   bad:["Analyse de documents longs","Rédaction de contenu"],
+   brs:"Outil de référence pour la veille War Risk, incidents Houthis, sanctions IMO : chaque chiffre est vérifiable en un clic.",
+   sources:"Surcouche sur GPT / Claude / Gemini. Recherche web systématique. 100 % temps réel. Chaque réponse = sources cliquables (ICC-CCS, BIMCO, Lloyd’s)."},
+  {name:"Le Chat", flag:"🇫🇷", color:"#FF7000", family:"Données sensibles · Europe",
    use:"Seul outil hébergé en Europe. RGPD natif. Sans configuration extra.",
    tags:["🇪🇺 EU","RGPD","confidentiel"],
-   good:["Contrats, données RH, finances","Aucune loi américaine ne s'applique","Rapide sur les volumes"],
-   bad:["Fenetre de contexte plus courte","Écosystème de plugins limité"],brs:null},,
-  {
-    name:"Poe", flag:"🇺🇸", color:"#9B59B6", family:"Multi-modèles",
-    use:"Interface unique : accès à ChatGPT, Claude, Gemini, Llama et 100+ modèles dans une seule app.",
-    tags:["Comparer les IA","Bots d’équipe","100+ modèles"],
-    good:["Comparer plusieurs modèles sur une même tâche","Bots partageables avec contexte d’équipe","Accès à des modèles open source (Llama)"],
-    bad:["Données sensibles (double exposition : Poe + l’IA utilisée)","Si vous n’utilisez qu’un seul modèle : abonnement direct plus économique"],
-    brs:"Utile pour comparer les modèles sur un cas BRS avant de choisir lequel utiliser régulièrement."
-  }
+   good:["Contrats, données RH, finances","Aucune loi américaine ne s’applique","Rapide sur les volumes"],
+   bad:["Fenêtre de contexte plus courte","Écosystème de plugins limité"],
+   brs:"Pour toute analyse impliquant des données confidentielles BRS : contrats en cours, clés de répartition, informations client.",
+   sources:"Web public (priorité français), livres, code. Open source Mistral. Hébergement EU. Version Pro : flux AFP en temps réel."},
+  {name:"Poe", flag:"🇺🇸", color:"#9B59B6", family:"Multi-modèles",
+   use:"Interface unique : accès à ChatGPT, Claude, Gemini, Llama et 100+ modèles.",
+   tags:["Comparer les IA","Bots d’équipe","100+ modèles"],
+   good:["Comparer plusieurs modèles sur une même tâche","Bots partageables avec contexte d’équipe","Accès à des modèles open source (Llama)"],
+   bad:["Données sensibles (double exposition : Poe + l’IA utilisée)","Un seul modèle : abonnement direct plus économique"],
+   brs:"Utile pour comparer les modèles sur un cas BRS avant de choisir lequel utiliser régulièrement.",
+   sources:"Pas de modèle propre. Surcouche sur GPT, Claude, Gemini, Llama et 100+ modèles. Pas de données propres."},
+  {name:"Kimi", flag:"🇨🇳", color:"#E84B3A", family:"Documents très longs",
+   use:"Très grande fenêtre de contexte. Raisonnement structuré. Bon niveau en code.",
+   tags:["contexte étendu","raisonnement","code"],
+   good:["CP ou dossiers très denses chargés en une fois","Explication et réécriture de scripts","Raisonnement pas à pas sur problèmes complexes"],
+   bad:["Interface orientée Asie, moins intégrée aux outils occidentaux","Certains contenus très spécifiques en français métier"],
+   brs:"Alternative à Claude pour les documents très longs : CP volumineux, échanges d’emails denses, documentation technique.",
+   sources:"Web public, forums, documentation, code open source + RLHF. Fenêtre de contexte étendue. Très à l’aise sur raisonnement soutenu et manipulation de code."},
+  {name:"Grok", flag:"🇺🇸", color:"#1DA1F2", family:"Actualité temps réel",
+   use:"Connecté à X (ex-Twitter). Très bon sur les tendances et l’actualité chaude.",
+   tags:["X / Twitter","tendances","ton direct"],
+   good:["Sujets qui montent sur X en quasi temps réel","Lecture brute d’un débat sans lissage","Décrypter des conversations en ligne"],
+   bad:["Reflète les biais de X","Ton parfois trop direct pour un usage professionnel"],
+   brs:"Pour surveiller les réactions marché sur X après un événement (incident Houthis, annonce IMO) avant une analyse plus structurée.",
+   sources:"Web public général + données X (ex-Twitter) en continu. Données synthétiques. Très bon sur l’actualité et la culture internet."},
+  {name:"DeepSeek", flag:"🇨🇳", color:"#4D6BFE", family:"Raisonnement avancé",
+   use:"Raisonnement étape par étape. Problèmes techniques, analytiques, mathématiques.",
+   tags:["raisonnement","chain-of-thought","analytique"],
+   good:["Problèmes techniques avec explication détaillée","Analyse de tableaux, logs, données structurées","Chaînes de raisonnement explicites"],
+   bad:["Interface plus technique, moins clé-en-main","Raisonnements détaillés : impression de certitude à vérifier"],
+   brs:"Utile pour décomposer un problème de calcul de fret ou de répartition de coûts étape par étape.",
+   sources:"Large corpus : web, livres, code, données multilingues. Accent sur la diversité des tâches de raisonnement. Chain-of-thought renforcé par RLHF."},
 ];
+
 
 let b2SelTool = null;
 function initBloc2Outils() {
@@ -4543,22 +4547,7 @@ function initBloc5Regles() {
     if (b5OpenRegle === i) card.style.borderColor = r.color;
     const items = r.items.map(x => `<div class="fitem">` + x + `</div>`).join(``);
     card.innerHTML = `<div class="fc-head"><div class="fc-num" style="background:` + r.color + `15;color:` + r.color + `;">` + r.num + `</div><div class="fc-title">` + r.title + `</div><span class="fc-tag" style="color:` + r.color + `;border-color:` + r.color + `40;background:` + r.color + `10;">` + r.tag + `</span></div><div class="fc-body">` + items + `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;"><div class="compare-good"><div class="compare-label">A faire</div><div class="compare-text">` + r.good + `</div></div><div class="compare-bad"><div class="compare-label">A éviter</div><div class="compare-text">` + r.bad + `</div></div></div></div>`;
-    card.querySelector(`.fc-head`).onclick = () => { b5OpenRegle = b5OpenRegle === i ? null : i; initBloc5Regles(); };
-    g.appendChild(card);
-  });
-}
-
-const B5_PATTERNS = [
-  {title:"Le prompt sans contexte",color:"#C0392B",bad:"'Analyse ce charterparty.'",good:"'Tu es juriste shipping senior. Analyse ce CP VLCC. Identifie les clauses a renégocier. 🔴 / 🟠 / 🟡'",why:"Sans role ni format, l'IA reste généraliste. Avec un role précis, elle active le bon espace sémantique."},
-  {title:"La confiance sur les chiffres",color:"#E8943A",bad:"Copier un chiffre produit par une IA dans une note client sans vérification.",good:"Vérifier chaque chiffre sur Baltic Exchange, BIMCO ou une source primaire avant d'utiliser.",why:"Un chiffre inventé est indétectable a la lecture. Il faut le chercher activement."},
-  {title:"Le premier jet envoyé tel quel",color:"#7D3C98",bad:"Copier-coller direct du résultat vers le client ou la contrepartie.",good:"Itérer, vérifier, adapter au destinataire. Faire relire par une 2e IA si l'enjeu est fort.",why:"L'IA optimise la cohérence du texte, pas sa justesse juridique ou commerciale."},
-];
-
-function initBloc5Patterns() {
-  const g = document.getElementById(`b5-patterns`);
-  if (!g || g.children.length > 0) return;
-  B5_PATTERNS.forEach(p => {
-    g.innerHTML += `<div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;"><div style="padding:8px 12px;font-size:13px;font-weight:700;border-bottom:1px solid var(--border);background:` + p.color + `10;color:` + p.color + `;">` + p.title + `</div><div style="padding:12px;display:flex;flex-direction:column;gap:8px;"><div class="compare-bad"><div class="compare-label">Pattern a éviter</div><div class="compare-text">` + p.bad + `</div></div><div style="text-align:center;font-size:11px;color:var(--muted);">&#8595;</div><div class="compare-good"><div class="compare-label">Alternative</div><div class="compare-text">` + p.good + `</div></div><div style="font-size:12px;color:var(--muted);">` + p.why + `</div></div></div>`;
+          ;
   });
 }
 
@@ -4574,6 +4563,22 @@ const B5_TECHNIQUES = [
 ];
 
 let b5OpenTech = null;
+const B5_PATTERNS = [
+  {title:"Le prompt sans contexte",color:"#C0392B",bad:"'Analyse ce charterparty.'",good:"'Tu es juriste shipping senior. Analyse ce CP VLCC. Identifie les clauses a renégocier. 🔴 / 🟠 / 🟡'",why:"Sans role ni format, l'IA reste généraliste. Avec un role précis, elle active le bon espace sémantique."},
+  {title:"La confiance sur les chiffres",color:"#E8943A",bad:"Copier un chiffre produit par une IA dans une note client sans vérification.",good:"Vérifier chaque chiffre sur Baltic Exchange, BIMCO ou une source primaire avant d'utiliser.",why:"Un chiffre inventé est indétectable a la lecture. Il faut le chercher activement."},
+  {title:"Le premier jet envoyé tel quel",color:"#7D3C98",bad:"Copier-coller direct du résultat vers le client ou la contrepartie.",good:"Itérer, vérifier, adapter au destinataire. Faire relire par une 2e IA si l'enjeu est fort.",why:"L'IA optimise la cohérence du texte, pas sa justesse juridique ou commerciale."},
+];
+
+function initBloc5Patterns() {
+  const g = document.getElementById(`b5-patterns`);
+  if (!g || g.children.length > 0) return;
+  B5_PATTERNS.forEach(p => {
+    g.innerHTML += `<div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;"><div style="padding:8px 12px;font-size:13px;font-weight:700;border-bottom:1px solid var(--border);background:` + p.color + `10;color:` + p.color + `;">` + p.title + `</div><div style="padding:12px;display:flex;flex-direction:column;gap:8px;"><div class="compare-bad"><div class="compare-label">Pattern a éviter</div><div class="compare-text">` + p.bad + `</div></div><div style="text-align:center;font-size:11px;color:var(--muted);">&#8595;</div><div class="compare-good"><div class="compare-label">Alternative</div><div class="compare-text">` + p.good + `</div></div><div style="font-size:12px;color:var(--muted);">` + p.why + `</div></div></div>`;
+  });
+}
+
+
+
 function initBloc5Techniques() {
   const g = document.getElementById(`b5-techniques`);
   if (!g) return;
@@ -4591,8 +4596,9 @@ function initBloc5Techniques() {
 
 // ── PAGE INIT DISPATCHER ─────────────────
 function initPage(id) {
+  try {
   switch(id) {
-    case "bloc1-llm": initBloc1LLM(); break;
+    case "bloc1-llm": initBloc1LLM(); b1DrawEmbedSchema(); b1DrawAttentionSchema(); break;
     case "bloc1-consequences": buildB1PiraterieCards(); break;
     case "bloc2-outils": initBloc2Outils(); break;
     case "bloc2-decision": initBloc2Decision(); break;
@@ -4609,11 +4615,16 @@ function initPage(id) {
     case "bloc5-regles": initBloc5Regles(); initBloc5Patterns(); initBloc5Techniques(); break;
     case "quiz": buildQuiz(); break;
   }
+  } catch(e) { console.warn("initPage error for", id, e.message); }
 }
 
 // ── INIT ON LOAD ─────────────────────────
 document.addEventListener(`DOMContentLoaded`, () => {
+  // Auto-correction : replace any .page outside .content
+  const _ct = document.querySelector('.content');
+  if (_ct) document.querySelectorAll('.page').forEach(pg => { if (!_ct.contains(pg)) _ct.appendChild(pg); });
   showPage(`intro`, document.querySelector(`.nav-item`));
+  console.log('Formation BRS v23-mars-2026 — OK');
 });
 // ── BLOC 1 : IA PIRATERIE WIDGET ─────────────────────────────────────
 const B1_IAS = [
@@ -5030,6 +5041,194 @@ function b1InitMap() {
     });
     if (hit) b1SemClick(hit);
   });
+}
+
+// ── BLOC1 : EMBEDDING SCHEMA ──────────────────────────────────────────
+function b1DrawEmbedSchema() {
+  const el = document.getElementById('b1-embed-schema');
+  if (!el || el.children.length > 0) return;
+  el.innerHTML = `
+    <div style="overflow-x:auto;">
+      <table style="border-collapse:collapse;font-size:13px;width:100%;margin-bottom:14px;">
+        <thead>
+          <tr style="background:var(--surface2);">
+            <th style="padding:7px 12px;text-align:left;border:1px solid var(--border);color:var(--muted);font-weight:700;">Mot</th>
+            <th style="padding:7px 8px;text-align:center;border:1px solid var(--border);color:var(--muted);" colspan="7">Vecteur d'embedding (7 dimensions affichées sur 8&nbsp;192)</th>
+          </tr>
+          <tr style="background:var(--surface2);font-size:11px;color:var(--muted);">
+            <th style="padding:4px 12px;border:1px solid var(--border);"></th>
+            <th style="padding:4px 8px;text-align:center;border:1px solid var(--border);">Dim.1</th>
+            <th style="padding:4px 8px;text-align:center;border:1px solid var(--border);">Dim.2</th>
+            <th style="padding:4px 8px;text-align:center;border:1px solid var(--border);">Dim.3</th>
+            <th style="padding:4px 8px;text-align:center;border:1px solid var(--border);">Dim.4</th>
+            <th style="padding:4px 8px;text-align:center;border:1px solid var(--border);">Dim.5</th>
+            <th style="padding:4px 8px;text-align:center;border:1px solid var(--border);">Dim.6</th>
+            <th style="padding:4px 8px;text-align:center;border:1px solid var(--border);">Dim.7</th>
+          </tr>
+        </thead>
+        <tbody id="b1-embed-tbody"></tbody>
+      </table>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;">
+        <div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:600;">Réduction en 2 dimensions (visualisation)</div>
+          <canvas id="b1-embed-canvas" width="260" height="160" style="width:100%;max-width:260px;border:1px solid var(--border);border-radius:var(--radius);background:var(--white);"></canvas>
+        </div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.7;">
+          <p style="margin-bottom:8px;">Les 8&nbsp;192 dimensions réelles ne peuvent pas être visualisées. On les réduit à 2 pour voir les proximités.</p>
+          <p><strong style="color:var(--navy);">charterparty</strong> et <strong style="color:var(--navy);">clause</strong> sont voisines&nbsp;: elles coexistent dans les mêmes textes juridiques. <strong style="color:var(--muted);">girafe</strong> est isolée&nbsp;: elle n'a aucune cooccurrence maritime.</p>
+        </div>
+      </div>
+    </div>`;
+  const words = [
+    {label:"charterparty", color:"#D95F18", x:0.35, y:0.38, vals:[0.82,-0.31,0.71,0.23,-0.09,0.55,0.37]},
+    {label:"clause",       color:"#04588C", x:0.42, y:0.30, vals:[0.79,-0.28,0.68,0.31,-0.12,0.51,0.41]},
+    {label:"affrètement",  color:"#2EAA6E", x:0.28, y:0.45, vals:[0.75,-0.22,0.64,0.28,-0.15,0.48,0.39]},
+    {label:"piraterie",    color:"#9B59B6", x:0.58, y:0.55, vals:[0.44, 0.61,0.29,0.18, 0.72,0.33,0.55]},
+    {label:"girafe",       color:"#aaa",    x:0.82, y:0.20, vals:[0.11, 0.88,0.04,0.62,-0.44,0.71,0.09]},
+  ];
+  // Fill table
+  const tbody = document.getElementById('b1-embed-tbody');
+  words.forEach(w => {
+    const tr = document.createElement('tr');
+    const vals = w.vals.map(v => {
+      const pos = v >= 0;
+      return `<td style="padding:6px 8px;text-align:center;border:1px solid var(--border);color:${pos?'#D95F18':'#04588C'};font-weight:600;">${v.toFixed(2)}</td>`;
+    }).join('');
+    tr.innerHTML = `<td style="padding:6px 12px;border:1px solid var(--border);font-weight:700;color:${w.color};">${w.label}</td>${vals}<td style="padding:6px 8px;text-align:center;border:1px solid var(--border);color:var(--muted);font-size:11px;">…</td>`;
+    tbody.appendChild(tr);
+  });
+  // Draw canvas
+  const canvas = document.getElementById('b1-embed-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0,0,W,H);
+  // Draw cluster zone
+  ctx.beginPath();
+  ctx.ellipse(0.38*W, 0.40*H, 0.18*W, 0.22*H, 0, 0, Math.PI*2);
+  ctx.fillStyle = '#04588C18';
+  ctx.fill();
+  ctx.strokeStyle = '#04588C30';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  // Draw points
+  words.forEach(w => {
+    const px = w.x * W, py = w.y * H;
+    ctx.beginPath();
+    ctx.arc(px, py, 7, 0, Math.PI*2);
+    ctx.fillStyle = w.color;
+    ctx.fill();
+    ctx.font = 'bold 11px Inter, sans-serif';
+    ctx.fillStyle = w.color;
+    ctx.fillText(w.label, px + 10, py + 4);
+  });
+  // Label cluster
+  ctx.font = '10px Inter, sans-serif';
+  ctx.fillStyle = '#04588C80';
+  ctx.fillText('cluster juridique/maritime', 0.10*W, 0.15*H);
+}
+
+// ── BLOC1 : ATTENTION SCHEMA ──────────────────────────────────────────
+function b1DrawAttentionSchema() {
+  const el = document.getElementById('b1-attention-schema');
+  if (!el || el.children.length > 0) return;
+  const words = ['broker', 'risques', 'piraterie', 'mer Rouge', 'VLCC', 'War Risk'];
+  const weights = [0.08, 0.22, 1.0, 0.95, 0.88, 0.92]; // attention weights toward piraterie
+  const cols = ['#aaa','#888','#D95F18','#D95F18','#D95F18','#D95F18'];
+  let html2 = "<div style=\"margin-bottom:12px;\"><div style=\"font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:600;\">Phrase analysée, poids d’attention vers « piraterie »</div>";
+  html2 += '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">';
+  words.forEach((w,i) => {
+    const isTarget = w === 'piraterie';
+    const bg = isTarget ? 'var(--navy)' : 'var(--white)';
+    const col = isTarget ? '#fff' : cols[i];
+    html2 += `<span style="padding:5px 12px;border-radius:5px;font-size:14px;border:1.5px solid ${isTarget?'var(--navy)':'var(--border)'};background:${bg};color:${col};font-weight:${isTarget?700:400};">${w}</span>`;
+  });
+  html2 += '</div>';
+  // Attention bars
+  html2 += '<div style="display:flex;flex-direction:column;gap:6px;">';
+  words.forEach((w,i) => {
+    if (w === 'piraterie') return;
+    const pct = Math.round(weights[i] * 100);
+    const col = weights[i] > 0.5 ? 'var(--orange)' : '#ccc';
+    html2 += `<div style="display:flex;align-items:center;gap:10px;">
+      <div style="width:80px;font-size:12px;color:var(--muted);text-align:right;flex-shrink:0;">${w}</div>
+      <div style="flex:1;height:14px;background:var(--surface2);border-radius:3px;overflow:hidden;">
+        <div style="width:${pct}%;height:100%;background:${col};border-radius:3px;transition:width .5s;"></div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);width:36px;font-family:monospace;">${pct > 50 ? 'fort' : 'faible'}</div>
+    </div>`;
+  });
+  html2 += '</div></div>';
+  el.innerHTML = html2;
+}
+
+// -- BLOC2 : SOURCES TAB -----------------------------------------------
+function initBloc2Sources() {
+  const g = document.getElementById("b2-sources-grid");
+  if (!g || g.children.length > 0) return;
+  B2_TOOLS.forEach(t => {
+    const card = document.createElement("div");
+    card.style.cssText = "border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--white);margin-bottom:10px;";
+    card.innerHTML = `<div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--surface2);border-bottom:1px solid var(--border);">`
+      + `<div style="width:9px;height:9px;border-radius:50%;background:${t.color};flex-shrink:0;"></div>`
+      + `<div style="font-size:14px;font-weight:700;color:var(--navy);">${t.flag} ${t.name}</div>`
+      + `<div style="font-size:12px;color:${t.color};margin-left:auto;padding:2px 8px;border-radius:4px;background:${t.color}15;border:1px solid ${t.color}30;">${t.family}</div>`
+      + `</div><div style="padding:12px 16px;font-size:14px;color:var(--muted);line-height:1.7;">${t.sources || "Données non renseignées."}</div>`;
+    g.appendChild(card);
+  });
+}
+
+// -- BLOC2 : PRIORITY TAB ----------------------------------------------
+const B2_PRIORITY = [
+  {need:"Informations très récentes (taux, incident, sanction)", tools:["Perplexity","Gemini"], note:"Chaque réponse sourcée, vérifiable en un clic."},
+  {need:"Document très long (50+ pages, CP volumineux)", tools:["Claude","Kimi"], note:"200k tokens pour Claude. Kimi en alternative."},
+  {need:"Données sensibles ou confidentielles (contrats, RH, finance)", tools:["Le Chat"], note:"Hébergement européen. Aucune loi américaine ne s’applique."},
+  {need:"Fichiers internes BRS (Teams, Outlook, SharePoint)", tools:["Copilot"], note:"Vous l’avez déjà. Vos fichiers sont déjà dedans."},
+  {need:"Rédaction, traduction, reformulation", tools:["ChatGPT","Claude"], note:"ChatGPT pour la vitesse, Claude pour les textes longs."},
+  {need:"Raisonnement analytique ou technique", tools:["Claude","DeepSeek"], note:"DeepSeek montre son raisonnement étape par étape."},
+  {need:"Actualité et tendances (X, réactions marché)", tools:["Grok","Perplexity"], note:"Grok pour la réaction à chaud, Perplexity pour sourcer."},
+  {need:"Tester et comparer plusieurs IA", tools:["Poe"], note:"100+ modèles dans une interface unique."},
+];
+const B2_TOOL_COLORS = {"Perplexity":"#20B8CD","Gemini":"#4285F4","Claude":"#D97757","Kimi":"#E84B3A","Le Chat":"#FF7000","Copilot":"#0078D4","ChatGPT":"#10A37F","DeepSeek":"#4D6BFE","Grok":"#1DA1F2","Poe":"#9B59B6"};
+
+function initBloc2Priority() {
+  const g = document.getElementById("b2-priority-grid");
+  if (!g || g.children.length > 0) return;
+  g.style.cssText = "border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--white);";
+  B2_PRIORITY.forEach(row => {
+    const tools = row.tools.map(t => {
+      const col = B2_TOOL_COLORS[t] || "#888";
+      return `<span style="padding:3px 10px;border-radius:12px;font-size:13px;font-weight:700;background:${col}18;border:1px solid ${col}40;color:${col};">${t}</span>`;
+    }).join(" ");
+    const div = document.createElement("div");
+    div.style.cssText = "display:flex;align-items:flex-start;gap:16px;padding:12px 16px;border-bottom:1px solid var(--border);";
+    div.innerHTML = `<div style="flex:1;font-size:14px;color:var(--text);font-weight:500;">${row.need}</div>`
+      + `<div style="text-align:right;flex-shrink:0;"><div style="display:flex;gap:6px;justify-content:flex-end;margin-bottom:4px;">${tools}</div>`
+      + `<div style="font-size:12px;color:var(--muted);font-style:italic;">${row.note}</div></div>`;
+    g.appendChild(div);
+  });
+}
+
+// -- BLOC2 : VERSIONS TAB ----------------------------------------------
+function initBloc2Versions() {
+  const el = document.getElementById("b2-versions-content");
+  if (!el || el.children.length > 0) return;
+  el.innerHTML = `<p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:18px;">Une même IA existe souvent en plusieurs versions. Comprendre la logique évite de s’y perdre.</p>`
+    + `<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">`
+    + `<div class="card-sm" style="border-top:3px solid var(--navy);"><strong style="font-size:14px;color:var(--navy);">Les générations</strong><p style="font-size:14px;margin-top:8px;color:var(--muted);line-height:1.65;">Chaque nouvelle génération est entraînée sur plus de données avec de meilleurs algorithmes. GPT-3, GPT-4, GPT-5 : la compréhension et la précision progressent à chaque saut. L’ancienne génération reste souvent disponible et moins chère.</p></div>`
+    + `<div class="card-sm" style="border-top:3px solid var(--orange);"><strong style="font-size:14px;color:var(--orange);">Les variantes</strong><p style="font-size:14px;margin-top:8px;color:var(--muted);line-height:1.65;">À l’intérieur d’une génération, on trouve des variantes : modèles complets (qualité maximale), versions légères (plus rapides et moins chères) et modèles spécialisés (code, images, données d’entreprise).</p></div>`
+    + `</div>`
+    + `<div class="tip-box"><strong>Ce qui compte pour vous</strong> Pas besoin de retenir les numéros. L’important : utilisez-vous une génération récente ou ancienne, et la variante choisie est-elle orientée qualité ou vitesse ?</div>`
+    + `<div style="margin-top:18px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;">`
+    + `<div style="padding:10px 16px;background:var(--surface2);border-bottom:1px solid var(--border);font-size:13px;font-weight:700;color:var(--muted);">Exemples de variantes par IA</div>`
+    + `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;font-size:13px;">`
+    + `<div style="padding:10px 14px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);font-weight:700;color:var(--navy);">ChatGPT (OpenAI)</div>`
+    + `<div style="padding:10px 14px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);font-weight:700;color:var(--navy);">Claude (Anthropic)</div>`
+    + `<div style="padding:10px 14px;border-bottom:1px solid var(--border);font-weight:700;color:var(--navy);">Gemini (Google)</div>`
+    + `<div style="padding:10px 14px;border-right:1px solid var(--border);color:var(--muted);">GPT-4o (complet)<br>GPT-4o mini (rapide)<br>o1 / o3 (raisonnement)</div>`
+    + `<div style="padding:10px 14px;border-right:1px solid var(--border);color:var(--muted);">Opus (complet)<br>Sonnet (équilibré)<br>Haiku (rapide)</div>`
+    + `<div style="padding:10px 14px;color:var(--muted);">Gemini Ultra (complet)<br>Gemini Flash (rapide)<br>Gemini Pro (équilibré)</div>`
+    + `</div></div>`;
 }
 </script>
 </body>
