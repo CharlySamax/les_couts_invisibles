@@ -1,4 +1,4 @@
-# Audit des sources — Les coûts cachés
+# Audit des sources — La boulette du siècle
 
 Document de travail : vérification source par source, fiche par fiche.
 Pour chaque source : référence actuelle dans le site, lien d'accès vérifié, page/section précise, statut.
