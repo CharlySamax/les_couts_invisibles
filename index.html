@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Les coûts cachés · Ce qui n'a pas été compté…</title>
+<title>La boulette du siècle — On en paie tous le prix</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -94,6 +94,18 @@ nav, header {
   font-size: clamp(1.2rem, 2vw, 1.7rem); font-weight: 600;
   color: #1e3a2f; line-height: 1.4; max-width: 580px;
   opacity: 0; animation: fadeUp 0.7s ease forwards 0.85s;
+}
+.hero-pivot {
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 700;
+  color: #1e3a2f; line-height: 1.3; max-width: 700px;
+  margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeUp 0.7s ease forwards 0.7s;
+}
+.hero-chute {
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 700;
+  color: #e85d04; line-height: 1.3; max-width: 700px;
+  margin-top: 1.5rem;
+  opacity: 0; animation: fadeUp 0.7s ease forwards 1.1s;
 }
 .scroll-hint {
   position: absolute; bottom: 4vh; left: 50%; transform: translateX(-50%);
@@ -223,12 +235,12 @@ nav, header {
 .anchor.visible { opacity: 1; transform: translateY(0); }
 .anchor-range {
   font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 700;
-  color: #1e3a2f;
+  color: #e85d04;
   letter-spacing: 0.08em; margin-bottom: 2.5rem;
   font-family: var(--sans);
 }
 .anchor-text { font-size: 1.6rem; color: #1e3a2f; max-width: 580px; line-height: 1.6; font-weight: 600; }
-.anchor-text strong { font-weight: 700; color: var(--ink); }
+.anchor-text strong { font-weight: 700; color: #1e3a2f; }
 @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 @keyframes pulse { 0%,100% { opacity: 0.8; transform: scale(1); } 50% { opacity: 0.2; transform: scale(0.45); } }
 @keyframes scrollPulse { 0%,100% { opacity: 0.25; } 50% { opacity: 0.8; } }
@@ -273,69 +285,34 @@ nav, header {
 }
 .card:hover { background: var(--white); }
 .card.hidden { display: none; }
-.card-domain { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); font-family: var(--mono); }
+.card-domain { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); font-family: var(--mono); }
 .card-number { font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--red); }
-.card-unit { font-size: 0.75rem; font-weight: 400; color: var(--ink2); display: block; margin-top: 0.15rem; }
+.card-unit { font-size: 0.88rem; font-weight: 400; color: var(--ink2); display: block; margin-top: 0.15rem; }
 .card-title { font-size: 1.05rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
 .card-sub { font-size: 0.85rem; color: var(--red); line-height: 1.55; }
 .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--line); }
-.card-epoch { font-size: 0.65rem; color: var(--ink3); font-family: var(--mono); }
-.badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.65rem; padding: 0.18rem 0.45rem; border-radius: 2px; font-weight: 600; letter-spacing: 0.03em; font-family: var(--mono); }
+.card-epoch { font-size: 0.78rem; color: var(--ink3); font-family: var(--mono); }
+.badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.78rem; padding: 0.18rem 0.45rem; border-radius: 2px; font-weight: 600; letter-spacing: 0.03em; font-family: var(--mono); }
 .badge.v { background: var(--green-bg); color: var(--green); }
 .badge.e { background: var(--orange-bg); color: var(--orange); }
 .badge.c { background: var(--blue-bg); color: var(--blue); }
 .card-arrow { position: absolute; bottom: 1.6rem; right: 1.6rem; font-size: 0.85rem; color: var(--line); transition: color 0.15s, transform 0.15s; }
 .card:hover .card-arrow { color: var(--red); transform: translate(2px,-2px); }
 .card-evitable {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   color: var(--green);
   font-weight: 500;
   line-height: 1.4;
   padding-top: 0.3rem;
 }
 .card-evitable-label {
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--green);
   font-family: 'DM Mono', monospace;
   font-weight: 600;
   opacity: 0.8;
-}
-.card-solde {
-  font-size: 0.78rem;
-  color: var(--blue);
-  font-weight: 500;
-  line-height: 1.4;
-  padding-top: 0.3rem;
-  border-top: 1px solid rgba(26,56,96,0.15);
-  margin-top: 0.1rem;
-}
-.card-solde-label {
-  font-size: 0.58rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--blue);
-  font-family: 'DM Mono', monospace;
-  font-weight: 600;
-  opacity: 0.8;
-}
-.ep-solde-header {
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-  display: block;
-}
-.ep-solde-value {
-  font-family: var(--mono);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.88);
-  line-height: 1.4;
 }
 .legend { display: flex; gap: 1.5rem; flex-wrap: wrap; padding: 1.5rem 0 0; }
 .legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; color: var(--ink2); }
@@ -554,10 +531,11 @@ nav, header {
 
 <header>
   <div class="header-top">
-    <span class="nav-logo" onclick="goToHome()">Ce qui n'a pas été compté</span>
+    <span class="nav-logo" onclick="goToHome()">La boulette du siècle</span>
     <div class="nav-right">
       <button class="btn-apropos" onclick="openApropos()">À propos</button>
       <button class="btn-apropos" onclick="openFaq()">FAQ</button>
+      <button class="btn-apropos" onclick="openDroits()">Droits</button>
       <span class="nav-count" id="hcount" onclick="goToGrid()" style="cursor:pointer;"></span>
     </div>
   </div>
@@ -566,10 +544,12 @@ nav, header {
 <!-- ══ HERO ══ -->
 <section class="hero" id="flash-view">
   <h1 class="hero-title">
-    <span class="l1">Les coûts</span>
-    <span class="l2">cachés</span>
+    <span class="l1">La boulette</span>
+    <span class="l2">du siècle</span>
   </h1>
-  <p class="hero-sub">On parle toujours des inégalités<br>comme d'un débat moral<br>Ici, on les compte<br>En vies, en santé, en richesses</p>
+  <p class="hero-pivot">Oups, on n'a pas tout compté…</p>
+  <p class="hero-sub">On parle toujours des inégalités<br>comme d'un débat moral<br>Ici, on en calcule le coût<br>En vies, en santé, en richesses</p>
+  <p class="hero-chute">Chacun de nous en paie le prix</p>
 </section>
 
 <!-- Widget flottant -->
@@ -589,7 +569,7 @@ nav, header {
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">Le fiasco financier</h2>
-      <p class="ep-subtitle">Parce qu'une minorité ne représente que 28,81 % dans les comités de direction des plus grandes entreprises françaises…</p>
+      <p class="ep-subtitle">Parce qu'une minorité ne représente que 24 % dans les comités de direction des plus grandes entreprises françaises…</p>
       <div class="ep-cost-main">≈ 52–104 Mds €/an</div>
       <div class="ep-cost-label">CAC40 · 2023</div>
       <div class="ep-sep"></div>
@@ -601,9 +581,6 @@ nav, header {
           <span class="ep-current-label">CAC40</span>
         </div>
       </div>
-      <div class="ep-sep"></div>
-      <span class="ep-solde-header">Le solde</span>
-      <div class="ep-solde-value">1 € investi = 500 € évités (borne basse)</div>
     </div>
   </div>
 
@@ -626,9 +603,6 @@ nav, header {
           <span class="ep-current-label">France</span>
         </div>
       </div>
-      <div class="ep-sep"></div>
-      <span class="ep-solde-header">Le solde</span>
-      <div class="ep-solde-value">1 € investi = 100 € évités (borne basse)</div>
     </div>
   </div>
 
@@ -649,9 +623,6 @@ nav, header {
           <span class="ep-current-label">France · 2019</span>
         </div>
       </div>
-      <div class="ep-sep"></div>
-      <span class="ep-solde-header">Le solde</span>
-      <div class="ep-solde-value">Retour sur investissement : moins de 3 ans</div>
     </div>
   </div>
 
@@ -672,9 +643,6 @@ nav, header {
           <span class="ep-current-label">États-Unis + Europe</span>
         </div>
       </div>
-      <div class="ep-sep"></div>
-      <span class="ep-solde-header">Le solde</span>
-      <div class="ep-solde-value">Retour sur investissement : moins de 2 ans</div>
     </div>
   </div>
 
@@ -695,9 +663,6 @@ nav, header {
           <span class="ep-current-label">États-Unis</span>
         </div>
       </div>
-      <div class="ep-sep"></div>
-      <span class="ep-solde-header">Le solde</span>
-      <div class="ep-solde-value">1 € investi = 100 € évités (borne basse)</div>
     </div>
   </div>
 
@@ -720,9 +685,6 @@ nav, header {
           <span class="ep-current-label">pour les mêmes raisons</span>
         </div>
       </div>
-      <div class="ep-sep"></div>
-      <span class="ep-solde-header">Le solde</span>
-      <div class="ep-solde-value">Coût d'une correction : 5 à 30 M$. Coût de l'inaction : en vies humaines</div>
     </div>
   </div>
 
@@ -765,9 +727,6 @@ nav, header {
           <span class="ep-current-label">aujourd'hui encore</span>
         </div>
       </div>
-      <div class="ep-sep"></div>
-      <span class="ep-solde-header">Le solde</span>
-      <div class="ep-solde-value">Coût d'une correction en 1804 : nul. L'écart se mesure sur deux siècles</div>
     </div>
   </div>
 
@@ -790,9 +749,6 @@ nav, header {
           <span class="ep-current-label">Mondial · 1139–2020</span>
         </div>
       </div>
-      <div class="ep-sep"></div>
-      <span class="ep-solde-header">Le solde</span>
-      <div class="ep-solde-value">Coût d'une correction : nul. Coût de l'inaction : en millions de victimes</div>
     </div>
   </div>
 
@@ -813,9 +769,6 @@ nav, header {
           <span class="ep-current-label">Mondial</span>
         </div>
       </div>
-      <div class="ep-sep"></div>
-      <span class="ep-solde-header">Le solde</span>
-      <div class="ep-solde-value">Coût d'une correction : nul. Le lien entre cause et coût couvre 16 siècles</div>
     </div>
   </div>
 
@@ -859,12 +812,8 @@ nav, header {
       <div class="card" data-domain="religion" data-badge="e" onclick="openFiche('celibat')">
         <p class="card-domain">Religion · Droit canon</p>
         <div><p class="card-number">1 à 4 M<span class="card-unit">de victimes estimées depuis 1139</span></p></div>
-        <div class="card-solde">
-          <span class="card-solde-label">Le solde</span><br>
-          Coût d'une correction : nul. Coût de l'inaction : en millions de victimes
-        </div>
         <p class="card-title">Le célibat des prêtres</p>
-        <p class="card-sub">Concile de Latran II, mobile patrimonial documenté · abus systémiques</p>
+        <p class="card-sub">Concile de Latran II, mobile patrimonial documenté — abus systémiques</p>
         <div class="card-footer"><span class="badge e">≈ Estimation</span><span class="card-epoch">1139–2025</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -876,12 +825,8 @@ nav, header {
           <span class="card-evitable-label">Encore perdu en 2026 · Mondial</span><br>
           1 000 Mds $/an
         </div>
-        <div class="card-solde">
-          <span class="card-solde-label">Le solde</span><br>
-          Coût d'une correction en 1804 : nul. L'écart se mesure sur deux siècles
-        </div>
         <p class="card-title">Nourrir le monde</p>
-        <p class="card-sub">161 ans d'incapacité juridique des agricultri&shy;ces · FAO 2011 : 2,5 Mha inutilisés</p>
+        <p class="card-sub">161 ans d'incapacité juridique des agricultri&shy;ces — FAO 2011 : 2,5 Mha inutilisés</p>
         <div class="card-footer"><span class="badge v">✓ Documenté</span><span class="card-epoch">1804–2024</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -894,7 +839,7 @@ nav, header {
           15–30k Mds $, stock en hausse
         </div>
         <p class="card-title">L'école a-t-elle toute sa tête ?</p>
-        <p class="card-sub">116 ans sans baccalauréat pour les filles · 70–120k morts en 1918</p>
+        <p class="card-sub">116 ans sans baccalauréat pour les filles — 70–120k morts en 1918</p>
         <div class="card-footer"><span class="badge e">≈ Estimation</span><span class="card-epoch">1808–1924</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -902,12 +847,8 @@ nav, header {
       <div class="card" data-domain="sante" data-badge="c" onclick="openFiche('kariko')">
         <p class="card-domain">Santé · Recherche médicale · Mondial</p>
         <div><p class="card-number">170–350k<span class="card-unit">morts évitables, estimation mondiale</span></p></div>
-        <div class="card-solde">
-          <span class="card-solde-label">Le solde</span><br>
-          Coût d'une correction : 5 à 30 M$. Coût de l'inaction : en vies humaines
-        </div>
         <p class="card-title">La molécule boycottée</p>
-        <p class="card-sub">17 ans de rejets institutionnels · ARNm disponible dès 1989, vaccins COVID 2020</p>
+        <p class="card-sub">17 ans de rejets institutionnels — ARNm disponible dès 1989, vaccins COVID 2020</p>
         <div class="card-footer"><span class="badge c">? Probabilité</span><span class="card-epoch">1989–2006</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -919,12 +860,8 @@ nav, header {
           <span class="card-evitable-label">Encore perdu en 2026 · États-Unis</span><br>
           28 Mds $/an
         </div>
-        <div class="card-solde">
-          <span class="card-solde-label">Le solde</span><br>
-          1 € investi = 100 € évités (borne basse)
-        </div>
         <p class="card-title">Cœur : des diagnostics faussés</p>
-        <p class="card-sub">50 ans d'études cliniques sans femmes · +50 % de risques de mauvais diagnostic</p>
+        <p class="card-sub">50 ans d'études cliniques sans femmes — +50 % de risques de mauvais diagnostic</p>
         <div class="card-footer"><span class="badge e">≈ Estimation</span><span class="card-epoch">1973–2024</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -936,12 +873,8 @@ nav, header {
           <span class="card-evitable-label">Encore perdu en 2026 · CAC40</span><br>
           ≈ 104 Mds €/an
         </div>
-        <div class="card-solde">
-          <span class="card-solde-label">Le solde</span><br>
-          1 € investi = 500 € évités (borne basse)
-        </div>
         <p class="card-title">Le fiasco financier</p>
-        <p class="card-sub">28,81 % de femmes dans les comex CAC 40 en 2025, mais seulement 7,5 % aux postes de direction générale</p>
+        <p class="card-sub">31 % de femmes dans les comex CAC 40 en 2026, mais 30 % seulement aux postes opérationnels</p>
         <div class="card-footer"><span class="badge e">≈ Estimation</span><span class="card-epoch">CAC40 · 2023</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -953,12 +886,8 @@ nav, header {
           <span class="card-evitable-label">Encore perdu en 2026 · France</span><br>
           ~200 M €/an
         </div>
-        <div class="card-solde">
-          <span class="card-solde-label">Le solde</span><br>
-          Retour sur investissement : moins de 2 ans
-        </div>
         <p class="card-title">Un sport dangereux</p>
-        <p class="card-sub">15 000 à 30 000 ruptures du LCA évitables par an · équipement calibré sur le corps masculin</p>
+        <p class="card-sub">15 000 à 30 000 ruptures du LCA évitables par an — équipement calibré sur le corps masculin</p>
         <div class="card-footer"><span class="badge e">≈ Estimation</span><span class="card-epoch">depuis ~1950</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -966,12 +895,8 @@ nav, header {
       <div class="card" data-domain="histoire" data-badge="c" onclick="openFiche('adam')">
         <p class="card-domain">Histoire · Droit · Religion</p>
         <div><p class="card-number">~120 000 Mds $<span class="card-unit">cumulés sur 1 600 ans, mondial</span></p></div>
-        <div class="card-solde">
-          <span class="card-solde-label">Le solde</span><br>
-          Coût d'une correction : nul. Le lien entre cause et coût couvre 16 siècles
-        </div>
         <p class="card-title">Adam et Ève</p>
-        <p class="card-sub">Traduction latine de la Bible · 161 ans d'incapacité juridique · Code Napoléon</p>
+        <p class="card-sub">Traduction latine de la Bible — 161 ans d'incapacité juridique — Code Napoléon</p>
         <div class="card-footer"><span class="badge c">? Probabilité</span><span class="card-epoch">405–2025</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -983,12 +908,8 @@ nav, header {
           <span class="card-evitable-label">Encore perdu en 2026 · France</span><br>
           ≈ 98 M€/an
         </div>
-        <div class="card-solde">
-          <span class="card-solde-label">Le solde</span><br>
-          Retour sur investissement : moins de 3 ans
-        </div>
         <p class="card-title">Le travail dangereux</p>
-        <p class="card-sub">−27 % d'accidents pour les hommes entre 2001 et 2019 · +42 % pour les femmes · postes et EPI calibrés sur un seul gabarit</p>
+        <p class="card-sub">−27 % d'accidents pour les hommes entre 2001 et 2019 · +42 % pour les femmes — postes et EPI calibrés sur un seul gabarit</p>
         <div class="card-footer"><span class="badge e">≈ Estimation</span><span class="card-epoch">2001–2019</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -1000,12 +921,8 @@ nav, header {
           <span class="card-evitable-label">Encore perdu en 2026 · France</span><br>
           3–7 Mds €/an
         </div>
-        <div class="card-solde">
-          <span class="card-solde-label">Le solde</span><br>
-          1 € investi = 100 € évités (borne basse)
-        </div>
         <p class="card-title">La sélection des CV</p>
-        <p class="card-sub">Taux d'erreur 34,7 % / 0,8 % selon le visage · algorithmes entraînés sur données incomplètes</p>
+        <p class="card-sub">Taux d'erreur 34,7 % / 0,8 % selon le visage — algorithmes entraînés sur données incomplètes</p>
         <div class="card-footer"><span class="badge v">✓ Documenté</span><span class="card-epoch">depuis 2003</span></div>
         <span class="card-arrow">↗</span>
       </div>
@@ -1021,10 +938,11 @@ nav, header {
 <!-- ══ FAQ OVERLAY ══ -->
 <div id="faq-overlay" style="position:fixed;inset:0;background:var(--bg);z-index:700;overflow-y:auto;display:none;">
   <header style="position:sticky;top:0;z-index:10;padding:1.2rem 5vw;display:flex;justify-content:space-between;align-items:center;background:#1e3a2f;">
-    <span class="nav-logo" onclick="goToHome()" style="cursor:pointer;">Ce qui n'a pas été compté</span>
+    <span class="nav-logo" onclick="goToHome()" style="cursor:pointer;">La boulette du siècle</span>
     <div class="nav-right">
       <button class="btn-apropos" onclick="openApropos()">À propos</button>
       <button class="btn-apropos" style="color:#fff;font-weight:700;" onclick="closeFaq()">FAQ</button>
+      <button class="btn-apropos" onclick="openDroits()">Droits</button>
       <span class="nav-count" id="hcount-faq" onclick="goToGrid()" style="cursor:pointer;"></span>
       <button class="btn-back" onclick="closeFaq()">← Retour</button>
     </div>
@@ -1093,10 +1011,11 @@ nav, header {
 <!-- ══ À PROPOS OVERLAY ══ -->
 <div id="apropos-overlay" style="position:fixed;inset:0;background:var(--bg);z-index:700;overflow-y:auto;display:none;">
   <header style="position:sticky;top:0;z-index:10;padding:1.2rem 5vw;display:flex;justify-content:space-between;align-items:center;background:#1e3a2f;">
-    <span class="nav-logo" onclick="goToHome()" style="cursor:pointer;">Ce qui n'a pas été compté</span>
+    <span class="nav-logo" onclick="goToHome()" style="cursor:pointer;">La boulette du siècle</span>
     <div class="nav-right">
       <button class="btn-apropos" style="color:#fff;font-weight:700;" onclick="closeApropos()">À propos</button>
       <button class="btn-apropos" onclick="openFaq()">FAQ</button>
+      <button class="btn-apropos" onclick="openDroits()">Droits</button>
       <span class="nav-count" id="hcount-apropos" onclick="goToGrid()" style="cursor:pointer;"></span>
       <button class="btn-back" onclick="closeApropos()">← Retour</button>
     </div>
@@ -1104,12 +1023,57 @@ nav, header {
   <div style="max-width:720px;margin:0 auto;padding:3rem 5vw 6rem;">
     <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:2rem;line-height:1.1;">À propos</h2>
     <div class="prose">
-      <p>On a longtemps mesuré l'inégalité comme un problème moral. Ce projet la mesure autrement : comme un coût.</p>
-      <p>Pendant des siècles, une partie de l'humanité a pris des décisions pour l'autre. Une règle imposée en 1139 pour protéger un patrimoine. Un code civil qui interdit aux femmes de signer un bail jusqu'en 1965. Des crash tests menés sans mannequin féminin jusqu'en 2003. Des algorithmes entraînés sur des données qui excluent la moitié de la population.</p>
-      <p>Ce projet ne pose pas de question morale. Il pose une question comptable : qu'est-ce que ces absences ont coûté ? En vies, en santé, en richesses non produites, en crises évitables.</p>
-      <p>Chaque fiche part d'un fait documenté, suit une logique, et arrive à un chiffre. Ce chiffre porte toujours un indicateur d'incertitude : ✓ Documenté, ≈ Estimation, ? Probabilité. Les hypothèses sont écrites en clair. Vous pouvez les contester.</p>
-      <p>Ce n'est pas de l'histoire-fiction. C'est de l'histoire économique appliquée à des décisions qui ont été prises, et à ce qu'elles ont coûté.</p>
-      <p>Si on additionne les seuls cas traités ici, la facture annuelle dépasse 110 milliards d'euros en France, et plusieurs dizaines de milliards de dollars aux États-Unis. Pour des décisions prises il y a des décennies ou des siècles qui, souvent, perdurent encore.</p>
+      <p>L'inégalité, on en a longtemps fait un débat moral. Ce projet en fait le compte.</p>
+      <p>Pendant des siècles, une partie de l'humanité a pris des décisions pour l'autre. Une règle imposée en 1139 pour protéger un patrimoine. Un Code civil qui interdit aux femmes de signer un bail jusqu'en 1965. Des crash tests menés sans mannequin féminin jusqu'en 2003. Des algorithmes entraînés sur des données qui excluent la moitié de la population.</p>
+      <p>À chaque fois, la même boulette : oublier de compter avec la moitié, ou plus, du monde.</p>
+      <p>Ces décisions ont coûté. En vies, en santé, en richesses non produites, en crises sociales et financières.</p>
+      <p>Chaque fiche part d'un fait documenté, suit une logique, et arrive à un chiffre. Trois indicateurs marquent le degré de certitude : ✓ Documenté, ≈ Estimation, ? Probabilité. Les hypothèses sont écrites en clair. Vous pouvez les contester.</p>
+      <p>Si on additionne les seuls cas traités ici, la facture annuelle dépasse 110 milliards d'euros en France et plusieurs dizaines de milliards de dollars aux États-Unis. Pour des décisions prises il y a des décennies ou des siècles. Et qui, souvent, perdurent encore.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DROITS OVERLAY ══ -->
+<div id="droits-overlay" style="position:fixed;inset:0;background:var(--bg);z-index:700;overflow-y:auto;display:none;">
+  <header style="position:sticky;top:0;z-index:10;padding:1.2rem 5vw;display:flex;justify-content:space-between;align-items:center;background:#1e3a2f;">
+    <span class="nav-logo" onclick="goToHome()" style="cursor:pointer;">La boulette du siècle</span>
+    <div class="nav-right">
+      <button class="btn-apropos" onclick="openApropos()">À propos</button>
+      <button class="btn-apropos" onclick="openFaq()">FAQ</button>
+      <button class="btn-apropos" style="color:#fff;font-weight:700;" onclick="closeDroits()">Droits</button>
+      <span class="nav-count" id="hcount-droits" onclick="goToGrid()" style="cursor:pointer;"></span>
+      <button class="btn-back" onclick="closeDroits()">← Retour</button>
+    </div>
+  </header>
+  <div style="max-width:720px;margin:0 auto;padding:3rem 5vw 6rem;">
+    <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:2rem;line-height:1.1;">Droits</h2>
+    <div class="prose">
+      <h3 style="font-size:1.2rem;font-weight:700;margin-top:1.5rem;margin-bottom:0.5rem;">Éditeur du site</h3>
+      <p>Charly Samax<br>Contact : Charly_Samax@proton.me</p>
+
+      <h3 style="font-size:1.2rem;font-weight:700;margin-top:1.5rem;margin-bottom:0.5rem;">Hébergement</h3>
+      <p>GitHub Pages (GitHub Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis)</p>
+
+      <h3 style="font-size:1.2rem;font-weight:700;margin-top:1.5rem;margin-bottom:0.5rem;">Droits d'utilisation</h3>
+      <p>L'ensemble des contenus de ce site (textes, visuels, structure des fiches, sélection et organisation des données, raisonnements, méthodologie de chiffrage) est protégé par le droit d'auteur et par le droit des bases de données (articles L.341-1 et suivants du Code de la propriété intellectuelle français).</p>
+
+      <p><strong>Sont autorisées sans demande préalable :</strong></p>
+      <ul style="margin-left:1.5rem;margin-bottom:1rem;">
+        <li>les citations courtes avec mention de la source (URL du site)</li>
+        <li>les liens hypertextes vers les pages du site</li>
+        <li>l'utilisation pour un usage strictement personnel et privé</li>
+      </ul>
+
+      <p><strong>Sont soumises à autorisation écrite préalable :</strong></p>
+      <ul style="margin-left:1.5rem;margin-bottom:1rem;">
+        <li>toute reproduction, totale ou partielle, des textes, fiches, visuels ou structures</li>
+        <li>toute réutilisation dans un cadre professionnel, commercial, éditorial, pédagogique ou institutionnel (livre, article, rapport, formation, présentation, outil, plateforme, etc.)</li>
+        <li>toute extraction substantielle ou répétée de la base de données</li>
+        <li>toute adaptation, traduction ou dérivation</li>
+        <li>toute utilisation pour entraîner ou alimenter un modèle d'intelligence artificielle</li>
+      </ul>
+
+      <p>Les demandes d'autorisation peuvent être adressées à Charly_Samax@proton.me.</p>
     </div>
   </div>
 </div>
@@ -1117,10 +1081,11 @@ nav, header {
 <!-- ══ FICHE OVERLAY ══ -->
 <div id="fiche-overlay" class="fiche-overlay">
   <header id="ficheHeader" style="position:sticky;top:0;z-index:10;padding:1.2rem 5vw;display:flex;justify-content:space-between;align-items:center;background:var(--fiche-color,#1e3a2f);border-bottom:none;">
-    <span class="nav-logo" onclick="goToHome()" style="cursor:pointer;">Ce qui n'a pas été compté</span>
+    <span class="nav-logo" onclick="goToHome()" style="cursor:pointer;">La boulette du siècle</span>
     <div class="nav-right">
       <button class="btn-apropos" onclick="openApropos()">À propos</button>
       <button class="btn-apropos" onclick="openFaq()">FAQ</button>
+      <button class="btn-apropos" onclick="openDroits()">Droits</button>
       <span class="nav-count" id="hcount-fiche" onclick="goToGrid()" style="cursor:pointer;"></span>
       <button class="btn-back" onclick="closeFiche()">← Retour</button>
     </div>
@@ -1137,7 +1102,11 @@ nav, header {
 
 <!-- ══ FOOTER ══ -->
 <footer class="site-footer">
-  <span>Ce qui n'a pas été compté</span>
+  <span>La boulette du siècle</span>
+  <span class="footer-sep">·</span>
+  <span>© Charly Samax</span>
+  <span class="footer-sep">·</span>
+  <a href="javascript:void(0)" onclick="openDroits()" style="color:inherit;text-decoration:underline;">Droits</a>
   <span class="footer-sep">·</span>
   <a href="/cdn-cgi/l/email-protection#96d5fef7e4faefc9c5f7fbf7eed6e6e4f9e2f9f8b8fbf3"><span class="__cf_email__" data-cfemail="5c1f343d2e3025030f3d313d241c2c2e33283332723139">[email&#160;protected]</span></a>
   <span class="footer-sep">·</span>
@@ -1185,7 +1154,7 @@ const popupData = {
     color:'#2d6a4f',
     title:'Le travail dangereux',
     dateline:'',
-    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Le solde',id:'lsolde'},{label:'Sources & références',id:'l4'}],
+    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
   <div class="l1-badges"><span class="badge e">≈ Estimation</span></div>
@@ -1245,53 +1214,41 @@ const popupData = {
 </div>`,
       l4:`<div class="sec-title">Sinistralité au travail selon le sexe</div>
 <ul class="src-list">
-  <li>Chappert F., Therry P. · Photographie statistique de la sinistralité au travail en France selon le sexe entre 2001 et 2019, Lyon, ANACT, 2022.</li>
+  <li>Chappert F., Therry P. — Photographie statistique de la sinistralité au travail en France selon le sexe entre 2001 et 2019, Lyon, ANACT, 2022.</li>
 </ul>
 <div class="sec-title">Mécanismes : postes, cadences, secteurs</div>
 <ul class="src-list">
-  <li>Chappert F. · entretien, Décideurs RH, mai 2024.</li>
-  <li>Chappert F. · entretien, Centre Hubertine Auclert.</li>
-  <li>Infoprotection · La pénibilité est aussi une affaire de genre, 2019.</li>
+  <li>Chappert F. — entretien, Décideurs RH, mai 2024.</li>
+  <li>Chappert F. — entretien, Centre Hubertine Auclert.</li>
+  <li>Infoprotection — La pénibilité est aussi une affaire de genre, 2019.</li>
 </ul>
 <div class="sec-title">Équipements de protection individuelle</div>
 <ul class="src-list">
-  <li>Women's Engineering Society (WES) · enquête sur les EPI féminins, 2010. Citée dans HesaMag, ETUI.</li>
+  <li>Women's Engineering Society (WES) — enquête sur les EPI féminins, 2010. Citée dans HesaMag, ETUI.</li>
 </ul>
 <div class="sec-title">Salaires et féminisation</div>
 <ul class="src-list">
-  <li>INSEE · Salaires nets annuels moyens en équivalent temps plein selon le sexe, 2019.</li>
-  <li>Observatoire des territoires · Depuis les années 1970, la féminisation de la population active a concerné tous les territoires, INSEE, 2021.</li>
+  <li>INSEE — Salaires nets annuels moyens en équivalent temps plein selon le sexe, 2019.</li>
+  <li>Observatoire des territoires — Depuis les années 1970, la féminisation de la population active a concerné tous les territoires, INSEE, 2021.</li>
 </ul>
 <div class="sec-title">BTP et obligation légale</div>
 <ul class="src-list">
-  <li>Assurance maladie, ameli.fr · Accidents du travail et maladies professionnelles dans le BTP : chiffres clés.</li>
-  <li>Loi n° 2014-873 du 4 août 2014 pour l'égalité réelle entre les femmes et les hommes · article modifiant l'article L. 4121-3 du Code du travail (évaluation des risques différenciée selon le sexe).</li>
-  <li>Anact · Intégrer le genre dans l'évaluation des risques professionnels · guide opérationnel, 2025.</li>
+  <li>Assurance maladie, ameli.fr — Accidents du travail et maladies professionnelles dans le BTP : chiffres clés.</li>
+  <li>Loi n° 2021-1018 du 2 août 2021 pour renforcer la prévention en santé au travail.</li>
 </ul>
 <div class="sec-title">Cas comparables</div>
 <ul class="src-list">
-  <li>Nelson A. et al. · Effectiveness of a comprehensive safe patient handling program, AAOHN Journal, 2006.</li>
-  <li>Collins J.W. et al. · An evaluation of a "no lift" policy in nursing homes, Injury Prevention, 2004.</li>
-  <li>Washington State Department of Labor and Industries · Chhokar R., Engst C., Miller A., Robinson D. (2005). The three-year economic benefits of a ceiling lift intervention. Applied Ergonomics, 36(2), 223–229.</li>
+  <li>Nelson A. et al. — Effectiveness of a comprehensive safe patient handling program, AAOHN Journal, 2006.</li>
+  <li>Collins J.W. et al. — An evaluation of a "no lift" policy in nursing homes, Injury Prevention, 2004.</li>
+  <li>Washington State Department of Labor and Industries — Chhokar R., Engst C., Miller A., Robinson D. (2005). The three-year economic benefits of a ceiling lift intervention. Applied Ergonomics, 36(2), 223–229.</li>
   <li>Stock S.R. et al. (2018). Economic evaluations of ergonomic interventions. Scandinavian Journal of Work, Environment & Health.</li>
   <li>Lahiri S., Latif E., Punnett L. (2009). An economic analysis of a safe resident handling program. American Journal of Industrial Medicine.</li>
-  <li>Rivilis I. et al. · Scandinavian Journal of Work, Environment and Health, 2008.</li>
-  <li>Knapik J. et al. · American Journal of Preventive Medicine, 2004.</li>
+  <li>Rivilis I. et al. — Scandinavian Journal of Work, Environment and Health, 2008.</li>
+  <li>Knapik J. et al. — American Journal of Preventive Medicine, 2004.</li>
   <li>U.S. Army Natick Soldier Research Center, 2012–2016 ; GAO, 2015.</li>
 </ul>
 <div class="sec-title">Note méthodologique</div>
-<div class="prose"><p>Chiffre principal : ≈ au moins 98 M€/an.</p><p>Données sources : 243 000 accidents féminins reconnus en 2019 (ANACT 2022) · écart de durée d'arrêt hors BTP : 5,9 jours (73,8 − 67,9) · salaire brut annuel féminin moyen EQTP : 34 474 € (INSEE, 2019).</p><p>Calcul : 243 000 × 5,9 = 1 433 700 journées supplémentaires. SJR = 34 474 / 12 / 30,42 = 94,45 €. IJ moyenne pondérée sur 74 jours : (28 × 56,67 + 46 × 75,56) / 74 = 68,25 €. Coût direct : 1 433 700 × 68,25 = 98 M€/an.</p><p>Limites : l'écart salarial de 16 % minore le coût comptable sans réduire la durée réelle des arrêts. Les maladies professionnelles ne sont pas comptabilisées. Les coûts indirects ne sont pas intégrés. La part de l'écart attribuable à l'ergonomie n'a pas été isolée. Le chiffre est donc une borne basse.</p></div>`,
-      lsolde:`<div class="sec-title">Vers 2000–2005</div>
-<div class="prose"><p>Adapter les postes de travail aux différentes morphologies, former les préventeurs et revoir les équipements dans les secteurs concernés aurait représenté un coût estimé à 20 à 50 M€/an. ≈ Estimation par analogie : dans des hôpitaux américains, l\'installation de lève-malades et de rails plafonniers a réduit de 62 % les blessures liées à la manutention, avec un retour sur investissement inférieur à trois ans.</p></div>
-<div class="sec-title">En 2026</div>
-<div class="prose"><p>La loi du 4 août 2014 pour l\'égalité réelle entre les femmes et les hommes a modifié l\'article L. 4121-3 du Code du travail : l\'évaluation des risques professionnels doit tenir compte de l\'impact différencié de l\'exposition au risque selon le sexe. Le document unique d\'évaluation des risques (le registre obligatoire où chaque employeur consigne les risques auxquels ses salariés sont exposés) doit contenir, pour chaque danger identifié, une analyse distincte selon le sexe. ✓ En pratique, cette obligation reste peu appliquée. L\'Anact (Agence nationale pour l\'amélioration des conditions de travail) a publié en 2025 un guide opérationnel pour aider les employeurs à la mettre en oeuvre.</p><p>Un déploiement national complet, couvrant la formation, les équipements adaptés et les audits, est estimé à 50 à 150 M€ sur 3 à 5 ans. ≈</p></div>
-<div class="sec-title">Le solde</div>
-<div class="prose"><p>Coût de la mesure corrective initiale : 20 à 50 M€/an. ≈ Coût annuel de l\'inaction : au moins 98 M€/an. Les programmes comparables documentés ont récupéré leur investissement en moins de 3 ans.</p></div>
-<div class="proof-list">
-  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Retour sur investissement inférieur à 3 ans : Nelson A. et al., Effectiveness of a comprehensive safe patient handling program, AAOHN Journal, 2006</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Obligation d\'évaluation différenciée selon le sexe : loi n° 2014-873 du 4 août 2014, article L. 4121-3 du Code du travail</span></div>
-  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Guide opérationnel d\'application : Anact, 2025</span></div>
-</div>`
+<div class="prose"><p>Chiffre principal : ≈ au moins 98 M€/an.</p><p>Données sources : 243 000 accidents féminins reconnus en 2019 (ANACT 2022) · écart de durée d'arrêt hors BTP : 5,9 jours (73,8 − 67,9) · salaire brut annuel féminin moyen EQTP : 34 474 € (INSEE, 2019).</p><p>Calcul : 243 000 × 5,9 = 1 433 700 journées supplémentaires. SJR = 34 474 / 12 / 30,42 = 94,45 €. IJ moyenne pondérée sur 74 jours : (28 × 56,67 + 46 × 75,56) / 74 = 68,25 €. Coût direct : 1 433 700 × 68,25 = 98 M€/an.</p><p>Limites : l'écart salarial de 16 % minore le coût comptable sans réduire la durée réelle des arrêts. Les maladies professionnelles ne sont pas comptabilisées. Les coûts indirects ne sont pas intégrés. La part de l'écart attribuable à l'ergonomie n'a pas été isolée. Le chiffre est donc une borne basse.</p></div>`
     }
   },
 
@@ -1300,7 +1257,7 @@ const popupData = {
     color:'#1a2480',
     title:'Le célibat des prêtres',
     dateline:'',
-    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Le solde',id:'lsolde'},{label:'Sources & références',id:'l4'}],
+    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
   <div class="l1-badges"><span class="badge e">≈ Estimation</span></div>
@@ -1332,13 +1289,13 @@ const popupData = {
 <div class="sec-title">Comment le silence a été organisé</div>
 <div class="prose"><p>Pendant huit siècles, les abus sur mineurs commis par des membres du clergé sont traités comme des fautes disciplinaires internes. Les prêtres mis en cause sont mutés dans d'autres paroisses, parfois dans d'autres pays. Ce système est documenté dans les archives épiscopales de nombreux pays.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Système de mutation documenté : Grand Jury de Pennsylvanie, 2018 · 300 prêtres, 1 000 victimes sur 70 ans dans six diocèses</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Système de mutation documenté : Grand Jury de Pennsylvanie, 2018 — 300 prêtres, 1 000 victimes sur 70 ans dans six diocèses</span></div>
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Rapport Ryan (Irlande, 2009) : abus systémiques dans les institutions catholiques</span></div>
 </div>`,
       l3cf:`<div class="etsi-header"><span class="etsi-badge">Et si ?</span></div>
 <div class="cf-note">Ce qui suit articule deux questions distinctes : l'origine de la règle et ses conséquences.</div>
 <div class="sec-title">Et si le célibat avait été facultatif dès 1139 ?</div>
-<div class="prose"><p>Les Églises chrétiennes qui ont maintenu un clergé marié · orthodoxes, anglicans, protestants · ont produit des scandales d'abus, mais pas de système organisé de dissimulation à l'échelle d'une institution mondiale pendant neuf siècles. Le lien causal entre célibat obligatoire et abus n'est pas établi comme direct. Il l'est comme systémique : une institution qui sélectionne ses membres sur une contrainte sexuelle non naturelle, qui les isole, qui leur donne une autorité absolue sur des populations vulnérables, et qui gère les infractions en interne, crée les conditions structurelles du déni.</p></div>
+<div class="prose"><p>Les Églises chrétiennes qui ont maintenu un clergé marié — orthodoxes, anglicans, protestants — ont produit des scandales d'abus, mais pas de système organisé de dissimulation à l'échelle d'une institution mondiale pendant neuf siècles. Le lien causal entre célibat obligatoire et abus n'est pas établi comme direct. Il l'est comme systémique : une institution qui sélectionne ses membres sur une contrainte sexuelle non naturelle, qui les isole, qui leur donne une autorité absolue sur des populations vulnérables, et qui gère les infractions en interne, crée les conditions structurelles du déni.</p></div>
 <div class="proof-list">
   <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Lien célibat / conditions structurelles des abus : raisonnement des commissions Sauvé (2021) et Ryan (2009), non établi comme causalité directe</span></div>
 </div>`,
@@ -1353,13 +1310,7 @@ const popupData = {
 <div class="sec-title">Sources canoniques</div>
 <ul class="src-list">
   <li>Lea, H.C. (1867). A History of Sacerdotal Celibacy in the Christian Church. London: Williams and Norgate</li>
-</ul>`,
-      lsolde:`<div class="sec-title">En 1139</div>
-<div class="prose"><p>Rendre le célibat facultatif n\'avait pas de coût financier direct. C\'était une décision canonique. Le concile a choisi autrement, pour des raisons patrimoniales documentées.</p></div>
-<div class="sec-title">En 2026</div>
-<div class="prose"><p>Le coût d\'une réforme doctrinale reste non chiffrable. Ce n\'est pas une variable économique.</p></div>
-<div class="sec-title">Le solde</div>
-<div class="prose"><p>Non calculable. La mesure corrective n\'a pas de coût financier identifiable. Le coût de l\'inaction est chiffré en victimes, pas en euros. Les deux termes n\'ont pas d\'unité commune.</p></div>`
+</ul>`
     }
   },
 
@@ -1394,13 +1345,13 @@ const popupData = {
 <div class="proof-list">
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Création du baccalauréat réservé aux garçons, 1808 : fait établi</span></div>
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Loi Camille Sée, 1880, programmes sans baccalauréat : fait établi</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">25 % de femmes dans les usines d'armement en 1917 · Archives nationales du monde du travail · Sénat, colloque octobre 2018</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">240 000 morts, grippe espagnole France 1918 · Darmon, Annales de démographie historique, 2001</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">25 % de femmes dans les usines d'armement en 1917 — Archives nationales du monde du travail · Sénat, colloque octobre 2018</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">240 000 morts, grippe espagnole France 1918 — Darmon, Annales de démographie historique, 2001</span></div>
   <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Effet de l'absence de femmes médecins sur la mortalité de 1918 : réel, non quantifiable</span></div>
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Ouverture du baccalauréat aux filles, 1924 : fait établi</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Meilleurs résultats des filles au baccalauréat dans les années 1930 · Héry, Clio, 2003</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Quotas et interdictions Vichy · Schoeni, 2012</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">84 % de bachelières en 2022 · ministère de l'Éducation nationale, DEPP, 2024</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Meilleurs résultats des filles au baccalauréat dans les années 1930 — Héry, Clio, 2003</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Quotas et interdictions Vichy — Schoeni, 2012</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">84 % de bachelières en 2022 — ministère de l'Éducation nationale, DEPP, 2024</span></div>
 </div>`,
       l3f:`<div class="sec-title">Pourquoi 1808 exclut sans le dire</div>
 <div class="prose"><p>Le baccalauréat napoléonien n'interdit pas explicitement les filles. Il les ignore. L'institution est conçue pour produire des cadres civils et militaires dans un État qui ne leur réserve aucun de ces rôles. L'exclusion n'a pas besoin d'être écrite : elle est dans la logique du projet.</p></div>
@@ -1412,24 +1363,24 @@ const popupData = {
 <div class="prose"><p>Les premières bachelières arrivent sur un marché du travail qui ne les attendait pas. Dès les années 1930, des quotas limitent leur accès à certains postes dans la fonction publique. La crise économique de 1929 fournit un argument supplémentaire : les femmes qui travaillent sont accusées de prendre la place des hommes. En 1940, le régime de Vichy interdit l'embauche des femmes mariées dans les services de l'État. Une génération entière de femmes qualifiées exerce en dessous de ses compétences, ou renonce.</p><p>Ce qui se passe entre 1924 et 1945 n'est pas un accident. Chaque fois qu'une barrière formelle tombe, d'autres se reconstituent. Le diplôme s'ouvre, la carrière se ferme.</p></div>
 <div class="proof-list">
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Loi Camille Sée, 1880, programmes sans baccalauréat : fait établi</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">25 % de femmes dans les usines d'armement en 1917 · Archives nationales du monde du travail · Sénat, colloque octobre 2018</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">25 % de femmes dans les usines d'armement en 1917 — Archives nationales du monde du travail · Sénat, colloque octobre 2018</span></div>
   <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Citation attribuée au général Joffre : rapportée par le Sénat, aucune source primaire identifiée</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Quotas et interdictions Vichy · Schoeni, 2012</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Meilleurs résultats des filles au baccalauréat dans les années 1930 · Héry, Clio, 2003</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Quotas et interdictions Vichy — Schoeni, 2012</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Meilleurs résultats des filles au baccalauréat dans les années 1930 — Héry, Clio, 2003</span></div>
 </div>`,
       l3cf:`<div class="sec-title">Ce que l'on sait</div>
 <div class="prose"><p>Pendant 116 ans, les filles n'ont pas eu accès au baccalauréat. On sait aussi que chaque année de scolarisation supplémentaire augmente les revenus futurs d'une femme de 8 à 10 % ; que dans les pays où les filles accèdent à l'éducation secondaire, la productivité économique augmente, l'innovation progresse et la qualité des décisions collectives s'améliore ; que dès les années 1930, là où elles ont accès aux mêmes examens que les garçons, elles obtiennent de meilleurs résultats.</p></div>
 <div class="sec-title">Ce que cela implique logiquement</div>
-<div class="prose"><p>Si les filles avaient eu accès au baccalauréat dès 1808 : plus de femmes auraient eu accès aux professions qualifiées · médecine, droit, enseignement supérieur · ; davantage de décisions économiques, scientifiques et administratives auraient été prises avec l'ensemble des compétences disponibles ; le nombre de médecins civils en 1918 aurait été plus important, alors que la mobilisation des hommes pendant la guerre avait fortement réduit la capacité médicale du pays.</p></div>
+<div class="prose"><p>Si les filles avaient eu accès au baccalauréat dès 1808 : plus de femmes auraient eu accès aux professions qualifiées — médecine, droit, enseignement supérieur — ; davantage de décisions économiques, scientifiques et administratives auraient été prises avec l'ensemble des compétences disponibles ; le nombre de médecins civils en 1918 aurait été plus important, alors que la mobilisation des hommes pendant la guerre avait fortement réduit la capacité médicale du pays.</p></div>
 <div class="sec-title">Ce que l'on ne peut pas calculer</div>
 <div class="prose"><p>On ne peut pas reconstituer combien de femmes auraient exercé une profession qualifiée en 1850, ni la productivité moyenne d'une économie qui aurait formé l'ensemble de ses talents dès le XIXe siècle. Les structures économiques, le droit du travail et les normes sociales de l'époque constituaient des obstacles indépendants de l'éducation. Un diplôme ne suffisait pas : le Code civil interdisait aux femmes mariées de travailler sans autorisation maritale jusqu'en 1965.</p></div>
 <div class="sec-title">Mais on peut dire ceci</div>
 <div class="prose"><p>Pendant 116 ans, une partie des compétences disponibles dans la société française n'a pas été formée. Une partie des décisions a été prise sans elles. Une partie des problèmes n'a jamais été posée, parce que celles qui auraient pu les poser n'avaient pas été formées pour ça. Ces coûts n'apparaissent dans aucun compte. À l'échelle mondiale, la Banque mondiale estime que les inégalités d'accès à l'éducation coûtent encore 15 000 à 30 000 milliards de dollars en revenus non produits. L'histoire n'est pas terminée.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+8 à 10 % de revenus par année de scolarisation · Banque mondiale, données panel, dizaines de pays</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+8 à 10 % de revenus par année de scolarisation — Banque mondiale, données panel, dizaines de pays</span></div>
   <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Effet de l'exclusion des femmes médecins sur la mortalité de 1918 : réel, non quantifiable</span></div>
   <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Coût des décisions prises sans les femmes sur 116 ans : non calculé, non calculable</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Interdiction de travailler sans autorisation maritale jusqu'en 1965 · Code civil, article 216, loi du 13 juillet 1965</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Interdiction de travailler sans autorisation maritale jusqu'en 1965 — Code civil, article 216, loi du 13 juillet 1965</span></div>
 </div>`,
       l4:`<div class="sec-title">Coût mondial et scolarisation</div>
 <ul class="src-list">
@@ -1469,7 +1420,7 @@ const popupData = {
     color:'#1a2480',
     title:'Cœur : des diagnostics faussés',
     dateline:'',
-    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Le solde',id:'lsolde'},{label:'Sources & références',id:'l4'}],
+    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
   <div class="l1-badges"><span class="badge v">✓ Documenté</span><span class="badge e">≈ Estimation</span></div>
@@ -1506,17 +1457,8 @@ const popupData = {
 </ul>
 <div class="sec-title">Coût économique</div>
 <ul class="src-list">
-  <li>American Heart Association et McKinsey Health Institute, The State of US Women\'s Heart Health, juin 2024</li>
-</ul>`,
-      lsolde:`<div class="sec-title">Vers 1973–1991</div>
-<div class="prose"><p>Inclure les femmes dans les essais cliniques cardiovasculaires dès 1973, ou au moins après l\'article fondateur de Bernardine Healy en 1991, aurait représenté un surcoût de 10 à 20 % du budget des programmes concernés. ≈ Pour l\'ensemble des essais cardiovasculaires financés par les NIH (National Institutes of Health, principal organisme public américain de financement de la recherche médicale) à l\'époque, cela représente quelques centaines de millions de dollars par an. Aucune donnée consolidée précise n\'est disponible pour cette période.</p></div>
-<div class="sec-title">En 2026</div>
-<div class="prose"><p>Les femmes représentent toujours 27 % des participants aux essais cliniques cardiovasculaires. ✓ Source : AHA (American Heart Association) / McKinsey Health Institute, 2024. Le surrisque de mauvais diagnostic (50 %) et de décès dans les 30 jours suivant un infarctus (70 %) n\'ont pas été corrigés dans les protocoles de triage.</p></div>
-<div class="sec-title">Le solde</div>
-<div class="prose"><p>Coût de la mesure corrective initiale : quelques centaines de millions de dollars par an sur la période 1973–1991. ≈ Coût annuel de l\'inaction en 2026 : 28 Mds $/an. Le rapport est d\'au moins 1 pour 100. Le solde financier est calculable dans ses ordres de grandeur ; le solde en vies ne l\'est pas.</p></div>
-<div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">27 % de femmes dans les essais cliniques cardiovasculaires : American Heart Association / McKinsey Health Institute, The State of US Women\'s Heart Health, juin 2024</span></div>
-</div>`
+  <li>American Heart Association et McKinsey Health Institute, The State of US Women's Heart Health, juin 2024</li>
+</ul>`
     }
   },
 
@@ -1525,7 +1467,7 @@ const popupData = {
     color:'#e02020',
     title:'Nourrir le monde',
     dateline:'',
-    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Le solde',id:'lsolde'},{label:'Sources & références',id:'l4'}],
+    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
   <div class="l1-badges"><span class="badge v">✓ Documenté</span><span class="badge e">≈ Estimation modélisée</span></div>
@@ -1539,34 +1481,34 @@ const popupData = {
   <p class="l1-desc">C'est ce que le monde perdrait aujourd'hui, chaque année, tant que l'écart d'accès aux ressources n'est pas comblé. Selon la FAO, dans un scénario d'égalisation de l'accès aux ressources productives, le nombre de personnes en situation d'insécurité alimentaire pourrait être réduit de plusieurs dizaines de millions. En 2024, 45 millions de personnes supplémentaires souffrent d'insécurité alimentaire à cause de cet écart.</p>
 </div>`,
       l2:`<div class="sec-title">Le monde aujourd'hui : des inégalités d'accès aux facteurs de production</div>
-<div class="prose"><p>Dans plusieurs pays, lorsque les femmes ont eu accès aux mêmes intrants agricoles que les hommes, la production de leurs exploitations a augmenté d'environ 19 %. Un programme des Nations Unies mené dans sept pays entre 2014 et 2021 · Éthiopie, Guatemala, Kirghizstan, Liberia, Népal, Niger et Rwanda · a donné aux femmes rurales un accès égal à la terre, au crédit, à la formation et aux machines : la production a augmenté de 82 %. Ces hausses ont été observées sur le terrain. L'estimation mondiale de la FAO projette ce type d'effet à l'échelle globale.</p></div>
+<div class="prose"><p>Dans plusieurs pays, lorsque les femmes ont eu accès aux mêmes intrants agricoles que les hommes, la production de leurs exploitations a augmenté d'environ 19 %. Un programme des Nations Unies mené dans sept pays entre 2014 et 2021 — Éthiopie, Guatemala, Kirghizstan, Liberia, Népal, Niger et Rwanda — a donné aux femmes rurales un accès égal à la terre, au crédit, à la formation et aux machines : la production a augmenté de 82 %. Ces hausses ont été observées sur le terrain. L'estimation mondiale de la FAO projette ce type d'effet à l'échelle globale.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+82 % de production avec accès égal aux ressources · FAO · FIDA · ONU Femmes · Programme conjoint 2014–2021 · 7 pays · 80 000 participantes · résultat observé sur exploitations accompagnées</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+19 % de production en corrigeant l'accès aux intrants · ONU Femmes · Banque mondiale · 2015 · résultat observé dans les pays étudiés</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Estimation d'un gain mondial d'environ 1 000 milliards de dollars par an · FAO, La situation des femmes dans les systèmes agroalimentaires, 2023 · scénario modélisé d'égalisation de l'accès aux ressources</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+82 % de production avec accès égal aux ressources — FAO · FIDA · ONU Femmes · Programme conjoint 2014–2021 · 7 pays · 80 000 participantes — résultat observé sur exploitations accompagnées</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">+19 % de production en corrigeant l'accès aux intrants — ONU Femmes · Banque mondiale · 2015 — résultat observé dans les pays étudiés</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Estimation d'un gain mondial d'environ 1 000 milliards de dollars par an — FAO, La situation des femmes dans les systèmes agroalimentaires, 2023 — scénario modélisé d'égalisation de l'accès aux ressources</span></div>
 </div>
 <div class="sec-title">France 1804–1985 : l'incapacité juridique</div>
 <div class="prose"><p>De 1804 à 1965, le Code civil place la femme mariée en incapacité juridique. Conséquence économique directe documentée : impossibilité de signer un bail, d'emprunter, de gérer les biens communs. La loi du 13 juillet 1965 lève partiellement cette incapacité. L'égalité complète dans la gestion des biens n'arrive qu'en 1985.</p></div>
 <div class="sec-title">France aujourd'hui : un foncier morcelé</div>
 <div class="prose"><p>Le fractionnement foncier est dû à de nombreux facteurs : successions, structure familiale, évolution démographique, fiscalité, transformations agricoles. L'incapacité juridique des femmes a pu être un facteur parmi d'autres en limitant leur capacité à gérer ou regrouper des terres héritées.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">8 % de femmes cheffes d'exploitation en 1970 · 24 % en 2000 · 24,5 % en 2023 · Agreste, recensements agricoles</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">8,1 % des cheffes accèdent au statut par transfert entre époux en 2023 (16 % dans les années 2000) · MSA, 2023</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">2,5 millions d'hectares en friche · 20 000 hectares abandonnés par an · CGAAER, 2024 · Conseil supérieur du notariat</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">8 % de femmes cheffes d'exploitation en 1970 · 24 % en 2000 · 24,5 % en 2023 — Agreste, recensements agricoles</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">8,1 % des cheffes accèdent au statut par transfert entre époux en 2023 (16 % dans les années 2000) — MSA, 2023</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">2,5 millions d'hectares en friche · 20 000 hectares abandonnés par an — CGAAER, 2024 · Conseil supérieur du notariat</span></div>
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Environ un tiers de la surface agricole en indivision</span></div>
-  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Lien direct entre incapacité juridique 1804–1965 et niveau actuel de friches ou d'indivisions · hypothèse contrefactuelle non mesurée</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Lien direct entre incapacité juridique 1804–1965 et niveau actuel de friches ou d'indivisions — hypothèse contrefactuelle non mesurée</span></div>
 </div>`,
       l3f:`<div class="chain">
-  <div class="chain-step"><span class="chain-year">1804</span><span class="chain-text">Le Code civil place la femme mariée en incapacité juridique totale. Ce n'est pas une nouveauté absolue · l'Ancien Régime limitait déjà les droits des femmes ·, mais le Code le systématise et l'étend à tout le territoire français. Pendant 161 ans, cette règle s'applique sans exception.</span></div>
+  <div class="chain-step"><span class="chain-year">1804</span><span class="chain-text">Le Code civil place la femme mariée en incapacité juridique totale. Ce n'est pas une nouveauté absolue — l'Ancien Régime limitait déjà les droits des femmes —, mais le Code le systématise et l'étend à tout le territoire français. Pendant 161 ans, cette règle s'applique sans exception.</span></div>
   <div class="chain-step"><span class="chain-year">1894</span><span class="chain-text">L'État crée le Crédit Agricole pour permettre aux exploitants de mécaniser leurs exploitations, d'acheter des semences, d'investir. Pendant 71 ans, la moitié des exploitants potentiels ne peut pas y accéder. Les exploitations gérées de fait par des femmes accumulent un retard de mécanisation.</span></div>
   <div class="chain-step"><span class="chain-year">1914</span><span class="chain-text">La mobilisation appelle deux millions d'hommes qui travaillaient la terre. Les femmes labourent, sèment, récoltent, sans pouvoir emprunter pour acheter du matériel. Ce que la guerre révèle, ce n'est pas l'incapacité des femmes à gérer des exploitations. C'est l'écart entre ce qu'elles font et ce que la loi leur permet de faire.</span></div>
-  <div class="chain-step"><span class="chain-year">1965</span><span class="chain-text">La loi du 13 juillet met fin à une partie des restrictions. À partir de cette date, les femmes mariées peuvent gérer leurs biens personnels et travailler sans autorisation de leur mari. L'égalité complète dans la gestion des biens du couple n'arrive qu'en 1985 · 181 ans après le Code civil.</span></div>
+  <div class="chain-step"><span class="chain-year">1965</span><span class="chain-text">La loi du 13 juillet met fin à une partie des restrictions. À partir de cette date, les femmes mariées peuvent gérer leurs biens personnels et travailler sans autorisation de leur mari. L'égalité complète dans la gestion des biens du couple n'arrive qu'en 1985 — 181 ans après le Code civil.</span></div>
   <div class="chain-step"><span class="chain-year">1970–2023</span><span class="chain-text">En 1970, 8 % de femmes cheffes d'exploitation. En 2023, 24,5 %. Le retard de mécanisation des exploitations féminines, les terres morcelées par des décennies de successions contraintes, les 2,5 millions d'hectares en friche : ces héritages ne se corrigent pas par une loi.</span></div>
 </div>
 <div class="proof-list">
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Code civil 1804, article 1124 : incapacité juridique de la femme mariée</span></div>
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Création du Crédit Agricole : 1894</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Mobilisation 1914 : deux millions d'actifs agricoles · Gervais, Jollivet, Tavernier, Histoire de la France rurale, tome 4, 1977</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Mobilisation 1914 : deux millions d'actifs agricoles — Gervais, Jollivet, Tavernier, Histoire de la France rurale, tome 4, 1977</span></div>
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Loi du 13 juillet 1965 : levée partielle de l'incapacité</span></div>
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Loi du 23 décembre 1985 : égalité complète dans la gestion des biens</span></div>
 </div>`,
@@ -1579,17 +1521,17 @@ const popupData = {
 <div class="sec-title">Mais on peut dire ceci</div>
 <div class="prose"><p>Pendant 161 ans, une partie du travail agricole était invisible juridiquement ; une partie des décisions d'investissement était empêchée ; une partie du capital foncier était immobilisée ; une partie du potentiel de production n'a pas été activée. À l'échelle mondiale, les institutions internationales estiment que les inégalités d'accès aux ressources en agriculture coûtent encore des centaines de milliards de dollars chaque année. L'histoire n'est pas terminée.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Effets documentés de l'accès aux ressources : +19 % à +82 % de production · FAO/FIDA/ONU Femmes 2014–2021 · ONU Femmes/BM 2015</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Effets documentés de l'accès aux ressources : +19 % à +82 % de production — FAO/FIDA/ONU Femmes 2014–2021 · ONU Femmes/BM 2015</span></div>
   <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Perte cumulée France 1804–1965 : non calculable avec les données disponibles</span></div>
   <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Part des friches actuelles directement attribuable à l'incapacité juridique : hypothèse contrefactuelle non mesurée</span></div>
 </div>`,
-      l4:`<div class="sec-title">Droit et législation · France</div>
+      l4:`<div class="sec-title">Droit et législation — France</div>
 <ul class="src-list">
   <li>Code civil des Français, 21 mars 1804, article 1124</li>
   <li>Loi n° 65-570 du 13 juillet 1965 portant réforme des régimes matrimoniaux</li>
   <li>Loi n° 85-1372 du 23 décembre 1985 relative à l'égalité des époux dans la gestion des biens</li>
 </ul>
-<div class="sec-title">Statistiques agricoles · France</div>
+<div class="sec-title">Statistiques agricoles — France</div>
 <ul class="src-list">
   <li>Agreste, Recensements agricoles : 1970, 1979, 1988, 2000, 2010, 2020</li>
   <li>Agreste, Recensement agricole 2020, Portrait des femmes exploitantes, édition 2024</li>
@@ -1597,7 +1539,7 @@ const popupData = {
   <li>Sénat, Femmes et agriculture : pour l'égalité dans les territoires, rapport d'information, 2017</li>
   <li>INSEE, Comptes de l'agriculture, valeur de la production agricole 2024</li>
 </ul>
-<div class="sec-title">Foncier et friches · France</div>
+<div class="sec-title">Foncier et friches — France</div>
 <ul class="src-list">
   <li>CGAAER, Rapport sur l'abandon des terres agricoles, 2024</li>
   <li>Conseil supérieur du notariat, Données sur la propriété et l'indivision des terres agricoles, 2023</li>
@@ -1606,24 +1548,15 @@ const popupData = {
 </ul>
 <div class="sec-title">Agriculture et guerre 1914–1918</div>
 <ul class="src-list">
-  <li>Gervais, Michel · Jollivet, Marcel · Tavernier, Yves · Histoire de la France rurale, tome 4, Seuil, 1977</li>
+  <li>Gervais, Michel · Jollivet, Marcel · Tavernier, Yves — Histoire de la France rurale, tome 4, Seuil, 1977</li>
   <li>OFCE, Économie française en guerre 1914–1918 : production et commerce extérieur, 2021</li>
 </ul>
 <div class="sec-title">Données mondiales</div>
 <ul class="src-list">
   <li>FAO, La situation des femmes dans les systèmes agroalimentaires, 2023</li>
-  <li>FAO · FIDA · ONU Femmes · PAM, Joint Programme on Rural Women\'s Economic Empowerment 2014–2021, rapport final</li>
+  <li>FAO · FIDA · ONU Femmes · PAM, Joint Programme on Rural Women's Economic Empowerment 2014–2021, rapport final</li>
   <li>ONU Femmes · Banque mondiale · PNUD · PNUE, The Cost of the Gender Gap in Agricultural Productivity in Malawi, Tanzania and Uganda, 2015</li>
-</ul>`,
-      lsolde:`<div class="sec-title">En 1804</div>
-<div class="prose"><p>Accorder aux femmes mariées les mêmes droits contractuels que leurs maris n\'avait pas de coût financier direct. C\'était un choix de rédaction du Code civil. Le coût était politique, pas budgétaire.</p><p>Ce que cette réforme n\'aurait pas garanti : une transformation immédiate de la production agricole. Les droits formels et leur usage effectif suivent des rythmes différents. Le lien entre capacité juridique en 1804 et rendements agricoles au XIXe siècle ne peut pas être établi avec précision. ?</p></div>
-<div class="sec-title">En 2026</div>
-<div class="prose"><p>La FAO (Organisation des Nations unies pour l\'alimentation et l\'agriculture) et la Banque mondiale investissent entre 2 et 4 Mds $/an dans des programmes d\'accès égal aux ressources agricoles. ≈ [NV] Ce chiffre représente entre 0,2 % et 0,4 % du manque à gagner estimé à 1 000 Mds $/an.</p><p>Le coût d\'une politique correctrice complète à l\'échelle mondiale, réformes foncières, programmes de crédit agricole inclusifs, modifications législatives dans des dizaines de pays, n\'est pas calculable avec précision.</p></div>
-<div class="sec-title">Le solde</div>
-<div class="prose"><p>Coût d\'une correction en 1804 : nul en termes financiers directs. Coût annuel de l\'inaction en 2026 : 1 000 Mds $/an. ≈ Les deux termes ne sont pas comparables sur la même échelle temporelle.</p></div>
-<div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Manque à gagner annuel de 1 000 Mds $/an : FAO, La situation des femmes dans les systèmes agroalimentaires, 2023</span></div>
-</div>`
+</ul>`
     }
   },
 
@@ -1632,7 +1565,7 @@ const popupData = {
     color:'#e8175d',
     title:'La molécule boycottée',
     dateline:'',
-    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Le solde',id:'lsolde'},{label:'Sources & références',id:'l4'}],
+    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#2a1a3a;">
   <div class="l1-badges"><span class="badge c">? Ordre de grandeur maximal sous hypothèses favorables</span></div>
@@ -1659,11 +1592,11 @@ const popupData = {
   <div class="chain-step"><span class="chain-year">2023</span><span class="chain-text">Katalin Karikó et Drew Weissman reçoivent le prix Nobel de médecine.</span></div>
 </div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Biais d'évaluation selon le profil du chercheur (−30 %) · Witteman et al., The Lancet, 2019 · conception CIHR permettant d'isoler le biais</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Écart de montant sur premières bourses NIH (−24 %, à domaine et type de bourse comparables) · Uzzi & Woodruff, PNAS, 2019</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Productivité requise 2,5× supérieure pour note équivalente (cas historique) · Wennerås & Wold, Nature, 1997</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Aucun poste stable à Penn, quatre rétrogradations, salaire inférieur aux techniciens · Harvard Crimson, 2021</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Premier financement obtenu en 2006, 17 ans après l'arrivée · PMC, 2021</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Biais d'évaluation selon le profil du chercheur (−30 %) — Witteman et al., The Lancet, 2019 · conception CIHR permettant d'isoler le biais</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Écart de montant sur premières bourses NIH (−24 %, à domaine et type de bourse comparables) — Uzzi & Woodruff, PNAS, 2019</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Productivité requise 2,5× supérieure pour note équivalente (cas historique) — Wennerås & Wold, Nature, 1997</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Aucun poste stable à Penn, quatre rétrogradations, salaire inférieur aux techniciens — Harvard Crimson, 2021</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Premier financement obtenu en 2006, 17 ans après l'arrivée — PMC, 2021</span></div>
   <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Karikó comme cas représentatif du biais systémique : illustration, non preuve causale</span></div>
 </div>`,
       l3f:`<div class="sec-title">Une décision prise sans calculer ce qu'elle coûtait</div>
@@ -1673,8 +1606,8 @@ const popupData = {
 <div class="sec-title">Ce que le prix Nobel a révélé</div>
 <div class="prose"><p>Quand Karikó et Weissman reçoivent le prix Nobel en 2023, la presse mondiale raconte l'histoire de la chercheuse ignorée pendant trente ans. Ce récit est exact. Il oublie une question : combien d'innovations potentielles restent aujourd'hui sous le seuil de financement. Quel coût social cela crée-t-il ?</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Biais d'évaluation dans les comités de financement · Wennerås & Wold, Nature, 1997 · Witteman et al., The Lancet, 2019</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Sous-représentation des femmes dans les comités d'évaluation NIH · RAND Corporation, 2004</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Biais d'évaluation dans les comités de financement — Wennerås & Wold, Nature, 1997 · Witteman et al., The Lancet, 2019</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Sous-représentation des femmes dans les comités d'évaluation NIH — RAND Corporation, 2004</span></div>
   <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Lien entre biais de financement et retard sur l'ARNm : inférence raisonnée, non calculée</span></div>
 </div>`,
       l3cf:`<div class="sec-title">Ce que l'on sait</div>
@@ -1686,8 +1619,8 @@ const popupData = {
 <div class="sec-title">Mais on peut dire ceci</div>
 <div class="prose"><p>En 2020, la mortalité mondiale liée au Covid se comptait en milliers de décès par jour. Un mois de décalage sur le calendrier vaccinal correspond à un ordre de grandeur de cette échelle. Ce chiffre n'établit pas un lien direct entre une décision et un nombre de décès. Il illustre ce que peut représenter, dans le temps, un retard scientifique.</p><p>Quelque part en 2026, une autre chercheuse travaille dans les mêmes conditions sur une découverte que personne ne finance suffisamment. Son nom n'est pas encore connu. Le système qui l'a freinée, lui, n'a pas changé.</p></div>
 <div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Dix-sept ans sans poste stable ni financement régulier · Harvard Crimson, 2021 · PMC, 2021</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Écarts d'allocation des premières bourses · Witteman et al., The Lancet, 2019 · Uzzi & Woodruff, PNAS, 2019</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Dix-sept ans sans poste stable ni financement régulier — Harvard Crimson, 2021 · PMC, 2021</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Écarts d'allocation des premières bourses — Witteman et al., The Lancet, 2019 · Uzzi & Woodruff, PNAS, 2019</span></div>
   <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Relation ressources / production scientifique : documentée en moyenne, application au cas particulier hypothétique</span></div>
   <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Accélération de la percée : plausible, non mesurable</span></div>
   <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Ordre de grandeur sociétal : illustratif, non causal</span></div>
@@ -1702,12 +1635,12 @@ const popupData = {
   <li>Watson, O.J. et al. (2022). Global impact of the first year of COVID-19 vaccination. <em>Lancet Infectious Diseases</em>, 22(9), 1293–1302.</li>
 </ul>
 <div class="sec-title">Note méthodologique</div>
-<div class="prose"><p>Les sources sur la carrière de Karikó à Penn émanent en partie de l'institution qui l'a écartée. Les témoignages directs de Karikó · Nobel Media 2023, Wired 2020, Harvard Crimson 2021 · constituent le contrepoids indispensable. Le raisonnement contrefactuel repose sur plusieurs inférences successives, dont aucune n'est individuellement démontrable : lien entre sous-financement et retard de la percée (≈) ; lien entre maturité scientifique et calendrier vaccinal (≈). Le chiffre de mortalité OMS est réel (✓) ; son usage ici est illustratif, non causal.</p></div>
+<div class="prose"><p>Les sources sur la carrière de Karikó à Penn émanent en partie de l'institution qui l'a écartée. Les témoignages directs de Karikó — Nobel Media 2023, Wired 2020, Harvard Crimson 2021 — constituent le contrepoids indispensable. Le raisonnement contrefactuel repose sur plusieurs inférences successives, dont aucune n'est individuellement démontrable : lien entre sous-financement et retard de la percée (≈) ; lien entre maturité scientifique et calendrier vaccinal (≈). Le chiffre de mortalité OMS est réel (✓) ; son usage ici est illustratif, non causal.</p></div>
 <div class="sec-title">Biographie et carrière</div>
 <ul class="src-list">
   <li>Académie Nobel, biographie officielle de Katalin Karikó, 2023.</li>
   <li>Karikó, K. Getting the message right. <em>EMBO Reports</em>, 2023 ; PMC10626440.</li>
-  <li>PMC8143802, 2021 · chronologie détaillée 1989–2020.</li>
+  <li>PMC8143802, 2021 — chronologie détaillée 1989–2020.</li>
   <li>Harvard Crimson, 15 mars 2021.</li>
 </ul>
 <div class="sec-title">Biais de genre dans les financements</div>
@@ -1717,7 +1650,7 @@ const popupData = {
   <li>RAND Corporation, Research Brief RB-9147, 2004.</li>
   <li>PMC, Gender Disparity in Grants and Awards at the NIH, PMC8141289, 2021.</li>
   <li>Frontiers in Immunology, PMC10663363, 2023.</li>
-  <li>Uzzi & Woodruff, <em>PNAS</em>, 2019 · écart médian sur premières bourses NIH.</li>
+  <li>Uzzi & Woodruff, <em>PNAS</em>, 2019 — écart médian sur premières bourses NIH.</li>
 </ul>
 <div class="sec-title">Développement vaccinal</div>
 <ul class="src-list">
@@ -1726,13 +1659,7 @@ const popupData = {
   <li>PMC8935460, 2022.</li>
   <li>OMS, COVID-19 Dashboard, données 2020.</li>
   <li>Watson et al., <em>Lancet Infectious Diseases</em>, 22(9):1293–1302, 2022.</li>
-</ul>`,
-      lsolde:`<div class="sec-title">Vers 1989–1995</div>
-<div class="prose"><p>Aligner le financement des recherches de Katalin Karikó sur celui accordé à ses homologues aurait représenté entre 500 000 et 2 M$/an sur dix à quinze ans, soit 5 à 30 M$ au total. C\'est l\'ordre de grandeur d\'une bourse standard des NIH (National Institutes of Health, principal organisme public américain de financement de la recherche médicale) pour une équipe constituée. ≈</p><p>Ce que ce financement n\'aurait pas garanti : une découverte plus rapide. L\'ARNm n\'était qu\'un maillon. Les nanoparticules lipidiques (les enveloppes permettant d\'introduire l\'ARNm dans les cellules sans qu\'il soit détruit), les procédures d\'autorisation d\'urgence, le séquençage rapide du génome viral ont suivi leurs propres trajectoires. Le lien entre financement supplémentaire et calendrier vaccinal accéléré ne peut pas être établi. ?</p></div>
-<div class="sec-title">En 2026</div>
-<div class="prose"><p>Rééquilibrer les budgets des grands organismes de financement, les NIH aux États-Unis, l\'ERC (Conseil européen de la recherche) en Europe, l\'ANR (Agence nationale de la recherche) en France, ne supposerait pas d\'augmenter les budgets totaux mais de redistribuer à dossiers scientifiques comparables. L\'ampleur du déséquilibre actuel se chiffre en dizaines de milliards de dollars par an à l\'échelle mondiale. Ce chiffre mesure l\'écart, pas le coût d\'une réforme.</p><p>Le coût d\'un traitement ou d\'un vaccin retardé par ce déséquilibre systémique ne peut pas être calculé. Les variables indépendantes sont trop nombreuses pour isoler l\'effet d\'un seul biais de financement.</p></div>
-<div class="sec-title">Le solde</div>
-<div class="prose"><p>Coût de la correction : 5 à 30 M$ sur la période. ≈ Coût de l\'inaction : 170 000 à 350 000 morts, ordre de grandeur illustratif sous hypothèse maximale. ? Les deux termes n\'ont pas d\'unité commune. Le solde financier n\'est pas calculable.</p></div>`
+</ul>`
     }
   },
 
@@ -1741,7 +1668,7 @@ const popupData = {
     color:'#e8175d',
     title:'Le fiasco financier',
     dateline:'',
-    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Le solde',id:'lsolde'},{label:'Sources & références',id:'l4'}],
+    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
   <div class="l1-badges"><span class="badge e">≈ Estimation</span></div>
@@ -1795,14 +1722,14 @@ const popupData = {
   <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">4,3 fois moins financées, 4 % du capital-investissement : Bpifrance, données genrées 2025</span></div>
 </div>`,
       l4:`<div class="sec-title">Notes méthodologiques</div>
-<div class="prose"><p><strong>52 milliards : médiane de la fourchette historique (badge ≈)</strong> · Hypothèse médiane de l'étude Peterson / EY (+3 % de marge) appliquée au chiffre d'affaires du CAC 40 en 2023 (1 736 Mds €). Corrélation, pas causalité. Fourchette complète : 17 Mds € (hypothèse basse, +1 %) à 104 Mds € (hypothèse haute, +6 %).</p><p><strong>52 milliards : gain résiduel 2026 (badge ?)</strong> · Raisonnement en trois inférences : (1) l'effet Peterson porte sur les postes opérationnels ≈ ; (2) en 2026, 30 % des femmes en comex occupent un poste opérationnel, contre 60 % des hommes ✓ ; (3) ratio d'activation 30/60 = 50 % × 104 Mds € = ~52 Mds €. ?</p><p><strong>11 milliards : projection OCDE (badge ?)</strong> · 0,4 % de croissance annuelle (OCDE, 2017) appliqué au PIB français 2023 (2 800 Mds €). Périmètre distinct : ensemble de l'économie française, pas les seules directions du CAC 40. Les deux chiffres ne s'additionnent pas.</p></div>
+<div class="prose"><p><strong>52 milliards : médiane de la fourchette historique (badge ≈)</strong> — Hypothèse médiane de l'étude Peterson / EY (+3 % de marge) appliquée au chiffre d'affaires du CAC 40 en 2023 (1 736 Mds €). Corrélation, pas causalité. Fourchette complète : 17 Mds € (hypothèse basse, +1 %) à 104 Mds € (hypothèse haute, +6 %).</p><p><strong>52 milliards : gain résiduel 2026 (badge ?)</strong> — Raisonnement en trois inférences : (1) l'effet Peterson porte sur les postes opérationnels ≈ ; (2) en 2026, 30 % des femmes en comex occupent un poste opérationnel, contre 60 % des hommes ✓ ; (3) ratio d'activation 30/60 = 50 % × 104 Mds € = ~52 Mds €. ?</p><p><strong>11 milliards : projection OCDE (badge ?)</strong> — 0,4 % de croissance annuelle (OCDE, 2017) appliqué au PIB français 2023 (2 800 Mds €). Périmètre distinct : ensemble de l'économie française, pas les seules directions du CAC 40. Les deux chiffres ne s'additionnent pas.</p></div>
 <div class="sec-title">Références</div>
 <ul class="src-list">
   <li>≈ Noland M., Moran T., Kotschwar B., Is Gender Diversity Profitable? Peterson Institute / EY, Working Paper 16-3, 2016</li>
   <li>✓ EY, Profil financier du CAC 40, 18e édition, 2024</li>
   <li>✓ IFA / Ethics & Boards, Baromètre de la mixité des instances dirigeantes du SBF 120, février 2026</li>
   <li>✓ Sénat, Parité en entreprise : dix ans après la loi Copé-Zimmermann, rapport d'information, 2021</li>
-  <li>✓ Observatoire SKEMA de la féminisation des entreprises, édition 2026</li>
+  <li>✓ Observatoire Skema de la féminisation des entreprises, édition 2025</li>
   <li>✓ Hsieh C.-T., Hurst E., Jones C., Klenow P., The Allocation of Talent and U.S. Economic Growth, Econometrica, vol. 87, n° 5, 2019</li>
   <li>✓ Eckbo B.E., Nygaard K., Thorburn K.S., Board Gender-Balancing and Firm Value, Management Science, 2022</li>
   <li>✓ Green T., Hand J., Diversity Wins? A Replication Study, Econ Journal Watch, 2024</li>
@@ -1811,17 +1738,7 @@ const popupData = {
   <li>✓ Bpifrance, données genrées 2025 sur l'exercice 2024</li>
   <li>≈ MSCI, Women on Boards : Global Trends in Gender Diversity on Corporate Boards, 2015–2016</li>
   <li>≈ McKinsey & Company, Diversity Wins: How Inclusion Matters, 2020</li>
-</ul>`,
-      lsolde:`<div class="sec-title">Dans les années 1990–2000</div>
-<div class="prose"><p>Imposer des quotas de mixité dans les comités exécutifs du CAC 40 dès cette période aurait représenté un coût administratif estimé à quelques centaines de millions d\'euros sur 5 à 10 ans : mise en conformité, formation, adaptation des processus de recrutement. ≈ La loi Copé-Zimmermann de 2011, qui impose des quotas dans les conseils d\'administration, a été appliquée sans coût identifié publiquement pour les entreprises.</p></div>
-<div class="sec-title">En 2026</div>
-<div class="prose"><p>Les femmes représentent 28,81 % des membres des comités exécutifs du CAC 40 en 2025. ✓ Source : Observatoire SKEMA de la féminisation des entreprises, édition 2026. Les postes de président ou directeur général restent occupés par des femmes dans seulement 7,5 % des cas. ✓</p><p>Le coût d\'une politique de mixité exécutive complète, accompagnement des carrières et restructuration des processus de promotion, est estimé à 1 à 3 Mds € sur 5 ans pour l\'ensemble du CAC 40. ≈ [NV]</p></div>
-<div class="sec-title">Le solde</div>
-<div class="prose"><p>Coût de la mesure corrective initiale dans les années 1990–2000 : quelques centaines de millions d\'euros sur 10 ans. ≈ Manque à gagner annuel en 2026 : 52 à 104 Mds €/an. Le rapport est d\'au moins 1 pour 500.</p></div>
-<div class="proof-list">
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">28,81 % de femmes dans les comités exécutifs du CAC 40 en 2025 : Observatoire SKEMA de la féminisation des entreprises, édition 2026</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">7,5 % de femmes aux postes de président ou directeur général : IFA / Ethics & Boards, Baromètre de la mixité des instances dirigeantes du SBF 120, février 2026</span></div>
-</div>`
+</ul>`
     }
   },
 
@@ -1830,7 +1747,7 @@ const popupData = {
     color:'#e02020',
     title:'Sport : l\'équipement blesse',
     dateline:'',
-    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Le solde',id:'lsolde'},{label:'Sources & références',id:'l4'}],
+    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
   <div class="l1-badges"><span class="badge e">≈ Estimation</span></div>
@@ -1858,13 +1775,7 @@ const popupData = {
   <li>Harvard GenderSci Lab, British Journal of Sports Medicine, déc. 2024</li>
   <li>Mather et al., Journal of Bone and Joint Surgery, 2013</li>
   <li>Caroline Criado-Perez, Invisible Women, éditions Hauteville, 2020</li>
-</ul>`,
-      lsolde:`<div class="sec-title">Vers 1972</div>
-<div class="prose"><p>Reformuler les normes de conception d\'équipements sportifs pour inclure la morphologie féminine aurait représenté quelques dizaines à quelques centaines de millions de dollars d\'études biomécaniques et de refonte des gammes. ≈ Estimation par analogie avec les budgets de R&D des grands équipementiers sportifs. Aucune donnée publique précise n\'existe sur ce qu\'aurait coûté cette adaptation à l\'époque.</p></div>
-<div class="sec-title">En 2026</div>
-<div class="prose"><p>Adapter l\'ensemble des gammes, chaussures, protections, vêtements techniques, représente un investissement estimé à 500 M à 2 Mds $ au niveau mondial. ≈ Estimation par analogie avec des programmes de refonte industrielle comparables. Aucune donnée sectorielle consolidée n\'est disponible.</p></div>
-<div class="sec-title">Le solde</div>
-<div class="prose"><p>Coût de la mesure corrective initiale vers 1972 : quelques dizaines à quelques centaines de millions de dollars. ≈ Coût annuel de l\'inaction : 1,5 à 5 Mds $/an. Coût de la mise à niveau en 2026 : 500 M à 2 Mds $, à comparer à un surcoût annuel de blessures de 1,5 à 5 Mds $. Le retour sur investissement est inférieur à deux ans sous l\'hypothèse basse.</p></div>`
+</ul>`
     }
   },
 
@@ -1873,7 +1784,7 @@ const popupData = {
     color:'#e8175d',
     title:'Adam et Ève',
     dateline:'',
-    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Le solde',id:'lsolde'},{label:'Sources & références',id:'l4'}],
+    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
   <div class="l1-badges"><span class="badge e">≈ Estimation</span><span class="badge c">? Probabilité</span></div>
@@ -1944,13 +1855,13 @@ const popupData = {
 </div>`,
       l4:`<div class="sec-title">Texte source et traductions</div>
 <ul class="src-list">
-  <li>Biblia Sacra Vulgata, Jérôme de Stridon (405) · édition critique Weber-Gryson, Deutsche Bibelgesellschaft, Stuttgart, 5e éd. 2007</li>
+  <li>Biblia Sacra Vulgata, Jérôme de Stridon (405) — édition critique Weber-Gryson, Deutsche Bibelgesellschaft, Stuttgart, 5e éd. 2007</li>
   <li>Septuaginta, éd. Alfred Rahlfs, Deutsche Bibelgesellschaft, Stuttgart, 1935 ; Editio altera rév. Robert Hanhart, 2006</li>
 </ul>
 <div class="sec-title">Doctrine théologique</div>
 <ul class="src-list">
-  <li>Augustin d'Hippone, De Genesi ad litteram (401–415), livres IX–XI · CSEL 28/1, éd. J. Zycha, Vienne, 1894</li>
-  <li>Thomas d'Aquin, Somme théologique, Ia, q.92 (XIIIe s.) · éd. Leonine, Rome, 1888 ; trad. A.-M. Roguet, Éd. du Cerf, Paris, 1984–1986</li>
+  <li>Augustin d'Hippone, De Genesi ad litteram (401–415), livres IX–XI — CSEL 28/1, éd. J. Zycha, Vienne, 1894</li>
+  <li>Thomas d'Aquin, Somme théologique, Ia, q.92 (XIIIe s.) — éd. Leonine, Rome, 1888 ; trad. A.-M. Roguet, Éd. du Cerf, Paris, 1984–1986</li>
   <li>Kari Elisabeth Børresen, Subordination et équivalence : nature et rôle de la femme d'après Augustin et Thomas d'Aquin, Universitetsforlaget/Maison Mame, Oslo/Paris, 1968</li>
 </ul>
 <div class="sec-title">Tradition syriaque</div>
@@ -1959,7 +1870,7 @@ const popupData = {
 </ul>
 <div class="sec-title">Droit et évolutions législatives</div>
 <ul class="src-list">
-  <li>Code Napoléon (1804), articles 213–226 · Gallica / BnF</li>
+  <li>Code Napoléon (1804), articles 213–226 — Gallica / BnF</li>
   <li>Anne Lefebvre-Teillard, Introduction historique au droit des personnes et de la famille, PUF, Paris, 1996</li>
   <li>Banque mondiale, Women, Business and the Law 2024</li>
 </ul>
@@ -1971,7 +1882,7 @@ const popupData = {
 </ul>
 <div class="sec-title">Note méthodologique</div>
 <div class="prose"><p>La chaîne qui va de la traduction de Jérôme en 405 jusqu'aux lois civiles européennes s'étend sur quinze siècles. Ce qui est établi : les textes juridiques médiévaux et modernes justifient explicitement l'incapacité juridique des femmes par une doctrine construite sur la Genèse. La traduction de 405 est le maillon textuel qui fixe et transmet cette interprétation. Elle n'est pas la seule cause.</p>
-<p><strong>Le calcul des 120 000 milliards de dollars</strong> repose sur trois étapes. Première étape : l'étude McKinsey (2015) mesure un écart de 26 % du PIB mondial entre production réelle et production à égalité totale · c'est un plafond théorique. Deuxième étape : les données du Maddison Project donnent le PIB de l'Europe occidentale à partir de 1820 ; pour 1804–1820, extrapolation. Troisième étape : conversion en valeur 2024 par le déflateur CPI américain (facteur 2,5).</p></div>
+<p><strong>Le calcul des 120 000 milliards de dollars</strong> repose sur trois étapes. Première étape : l'étude McKinsey (2015) mesure un écart de 26 % du PIB mondial entre production réelle et production à égalité totale — c'est un plafond théorique. Deuxième étape : les données du Maddison Project donnent le PIB de l'Europe occidentale à partir de 1820 ; pour 1804–1820, extrapolation. Troisième étape : conversion en valeur 2024 par le déflateur CPI américain (facteur 2,5).</p></div>
 <div class="prose"><table style="width:100%;border-collapse:collapse;font-size:0.85em;margin:12px 0;">
 <tr style="background:#f0f0f0;"><th style="padding:5px 8px;text-align:left;">Période</th><th style="padding:5px 8px;text-align:right;">PIB moy. Europe occ.</th><th style="padding:5px 8px;text-align:right;">Perte estimée/an</th><th style="padding:5px 8px;text-align:right;">Total cumulé</th></tr>
 <tr><td style="padding:5px 8px;">1804–1850 (46 ans)</td><td style="padding:5px 8px;text-align:right;">~330 Mds $ (1990)</td><td style="padding:5px 8px;text-align:right;">~86 Mds/an</td><td style="padding:5px 8px;text-align:right;">~3 960 Mds</td></tr>
@@ -1979,16 +1890,7 @@ const popupData = {
 <tr><td style="padding:5px 8px;">1913–1965 (52 ans)</td><td style="padding:5px 8px;text-align:right;">~2 200 Mds $ (1990)</td><td style="padding:5px 8px;text-align:right;">~572 Mds/an</td><td style="padding:5px 8px;text-align:right;">~29 700 Mds</td></tr>
 <tr style="background:#e8f4e8;font-weight:bold;"><td style="padding:5px 8px;">Total 161 ans</td><td style="padding:5px 8px;"></td><td style="padding:5px 8px;"></td><td style="padding:5px 8px;text-align:right;">~48 360 Mds $ (1990)<br>soit ~120 000 Mds $ (2024)</td></tr>
 </table></div>
-<div class="prose"><p><strong>Trois limites principales.</strong> Ce calcul repose sur une hypothèse centrale qui n\'est pas réaliste : que l\'écart mesuré en 2015 aurait été identique en 1850 dans une économie à 90 % agricole. Par ailleurs, le taux McKinsey mesure un écart résiduel en 2015, après cinquante ans de convergence ; il ne mesure pas l\'exclusion quasi totale de 1850. Enfin, aucun économiste n\'a produit d\'estimation équivalente sur cette période. Les travaux de Claudia Goldin documentent les mécanismes d\'exclusion sans produire de chiffre cumulé comparable. Ce calcul est une illustration de l\'ordre de grandeur, pas une estimation économique au sens strict.</p></div>`,
-      lsolde:`<div class="sec-title">En 405</div>
-<div class="prose"><p>Traduire le mot hébreu tsela par « flanc » plutôt que « côte » n\'avait aucun coût. C\'était un choix de traducteur. Jérôme a fait un autre choix, pour des raisons qui ne sont pas documentées avec certitude.</p><p>Ce que ce choix différent aurait produit sur le droit médiéval, puis moderne, ne peut pas être calculé. La traduction de Jérôme est un maillon dans une chaîne longue de seize siècles. Elle n\'en est pas la seule cause.</p></div>
-<div class="sec-title">En 2026</div>
-<div class="prose"><p>Les politiques d\'égalité économique documentées, congés parentaux, obligations de transparence salariale, quotas dans les instances dirigeantes, coûtent entre 0,5 % et 2 % du PIB selon les dispositifs. Pour les seuls pays de l\'OCDE (Organisation de coopération et de développement économiques), cela représente entre 140 et 560 Mds $/an. ≈ Ces chiffres sont des ordres de grandeur ; les dispositifs varient fortement d\'un pays à l\'autre.</p></div>
-<div class="sec-title">Le solde</div>
-<div class="prose"><p>Coût d\'une correction en 405 : nul. Manque à gagner économique mondial estimé en 2026 : 12 000 à 28 000 Mds $/an. ≈ Source : McKinsey Global Institute, 2015. Le lien causal entre la traduction de 405 et les inégalités économiques actuelles ne peut pas être isolé.</p></div>
-<div class="proof-list">
-  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Écart de production annuel 12 000–28 000 Mds $/an : McKinsey Global Institute, The Power of Parity, septembre 2015</span></div>
-</div>`
+<div class="prose"><p><strong>Trois limites principales.</strong> Ce calcul repose sur une hypothèse centrale qui n'est pas réaliste : que l'écart mesuré en 2015 aurait été identique en 1850 dans une économie à 90 % agricole. Par ailleurs, le taux McKinsey mesure un écart résiduel en 2015, après cinquante ans de convergence ; il ne mesure pas l'exclusion quasi totale de 1850. Enfin, aucun économiste n'a produit d'estimation équivalente sur cette période. Les travaux de Claudia Goldin documentent les mécanismes d'exclusion sans produire de chiffre cumulé comparable. Ce calcul est une illustration de l'ordre de grandeur, pas une estimation économique au sens strict.</p></div>`
     }
   },
 
@@ -1997,7 +1899,7 @@ const popupData = {
     color:'#1a2480',
     title:'Le tri des CV',
     dateline:'',
-    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'Le mécanisme',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Le solde',id:'lsolde'},{label:'Sources & références',id:'l4'}],
+    tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'Le mécanisme',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
     panels:{
       l1:`<div class="l1-block" style="background:#1e3a2f;">
   <div class="l1-badges"><span class="badge e">≈ Estimation</span><span class="badge v">✓ Documenté</span></div>
@@ -2041,25 +1943,64 @@ const popupData = {
   <li>France Stratégie (2016). Le coût économique des discriminations.</li>
   <li>INSEE (2024). L'intelligence artificielle dans les entreprises françaises.</li>
   <li>Règlement (UE) 2024/1689, AI Act, 13 juin 2024.</li>
-  <li>Direction générale des Entreprises (DGE) · Estimation des coûts de mise en conformité AI Act pour les entreprises françaises, 2025.</li>
-  <li>Accord politique provisoire Digital Omnibus · Parlement européen, adopté le 7 mai 2026 · report possible des obligations haut risque au 2 décembre 2027, sous réserve d\'adoption formelle par les deux co-législateurs avant le 2 août 2026.</li>
-</ul>`,
-      lsolde:`<div class="sec-title">Vers 2003–2015</div>
-<div class="prose"><p>Imposer des audits de biais dès le déploiement des outils de recrutement algorithmique aurait représenté un coût de l\'ordre de 10 à 30 M€/an pour la France. C\'est l\'ordre de grandeur d\'une autorité administrative indépendante comparable : la CNIL (Commission nationale de l\'informatique et des libertés) dispose d\'un budget de 30,2 M€ pour 303 agents (rapport annuel 2025) ; l\'ANSSI (Agence nationale de la sécurité des systèmes d\'information) dispose de 44 M€ hors masse salariale pour 658 agents (rapport d\'activité 2025). En 2003–2010, un périmètre plus restreint aurait mobilisé 5 à 15 M€/an. Aucun précédent réglementaire exact n\'existait à cette date : c\'est une estimation par analogie. ≈</p></div>
-<div class="sec-title">En 2026</div>
-<div class="prose"><p>L\'AI Act (règlement européen sur l\'intelligence artificielle) classe les outils de recrutement algorithmique parmi les systèmes à haut risque. La date légale d\'entrée en vigueur est le 2 août 2026. Un accord politique provisoire conclu le 7 mai 2026 dans le cadre du Digital Omnibus pourrait reporter cette échéance au 2 décembre 2027, si ce texte est adopté formellement par le Parlement européen et le Conseil de l\'Union européenne avant le 2 août.</p><p>Coûts de mise en conformité pour les entreprises françaises concernées : entre 2 000 et 8 000 €/an pour une PME (Direction générale des Entreprises) ; entre 200 000 et 400 000 € de mise en conformité initiale pour une grande entreprise déployant un système à haut risque, plus environ 70 000 €/an de maintenance. Pour le parc estimé de 1 000 à 2 000 entreprises réellement concernées : entre 200 M et 800 M€ sur 3 à 5 ans. ≈ Estimation indicative, sans source primaire consolidée sur la France.</p></div>
-<div class="sec-title">Le solde</div>
-<div class="prose"><p>Coût de la mesure corrective initiale : 5 à 30 M€/an. ≈ Coût annuel de l\'inaction : 3 000 à 7 000 M€/an. Pour chaque euro investi dans un dispositif de contrôle des biais dès 2003, entre 100 et 1 400 euros de pertes annuelles auraient pu être évités. Ce ratio reflète l\'ampleur des incertitudes cumulées : il doit être lu comme un ordre de grandeur structurel, pas comme un chiffre précis.</p></div>
-<div class="proof-list">
-  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Budget CNIL 30,2 M€ · 303 agents : rapport annuel CNIL 2025</span></div>
-  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Budget ANSSI 44 M€ hors masse salariale · 658 agents : rapport d\'activité ANSSI 2025</span></div>
-  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Coûts de mise en conformité AI Act pour les entreprises françaises : Direction générale des Entreprises (DGE), 2025</span></div>
-  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Règlement (UE) 2024/1689, AI Act, 13 juin 2024 · systèmes de recrutement classés haut risque, annexe III</span></div>
-</div>`
+</ul>`
     }
   }
 };
 
+
+// ── Filtres (Domaine + Preuve) ────────────────────────────────────────────────
+function setupFilters() {
+  const domainBtns = document.querySelectorAll('.filter-btn');
+  const badgeBtns = document.querySelectorAll('.badge-filter');
+  const cards = document.querySelectorAll('.fiches-grid .card');
+  const countEl = document.getElementById('gridCount');
+  let activeDomain = 'all';
+  let activeBadge = null;
+
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach(card => {
+      const cardDomain = card.getAttribute('data-domain');
+      const cardBadge = card.getAttribute('data-badge');
+      const matchDomain = activeDomain === 'all' || cardDomain === activeDomain;
+      const matchBadge = activeBadge === null || cardBadge === activeBadge;
+      const show = matchDomain && matchBadge;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (countEl) {
+      countEl.textContent = visible + (visible > 1 ? ' fiches' : ' fiche');
+    }
+  }
+
+  domainBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      domainBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeDomain = btn.getAttribute('data-domain');
+      applyFilters();
+    });
+  });
+
+  badgeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const badge = btn.getAttribute('data-badge');
+      if (activeBadge === badge) {
+        activeBadge = null;
+        btn.classList.remove('active');
+      } else {
+        badgeBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeBadge = badge;
+      }
+      applyFilters();
+    });
+  });
+
+  applyFilters();
+}
+document.addEventListener('DOMContentLoaded', setupFilters);
 
 // ── syncNavCounts ──────────────────────────────────────────────────────────────
 function syncNavCounts() {
@@ -2096,6 +2037,7 @@ function goToGrid() {
 function openFaq() {
   document.getElementById('fiche-overlay').style.display = 'none';
   document.getElementById('apropos-overlay').style.display = 'none';
+  document.getElementById('droits-overlay').style.display = 'none';
   document.getElementById('faq-overlay').style.display = 'block';
   window.scrollTo(0, 0);
 }
@@ -2107,11 +2049,24 @@ function closeFaq() {
 function openApropos() {
   document.getElementById('fiche-overlay').style.display = 'none';
   document.getElementById('faq-overlay').style.display = 'none';
+  document.getElementById('droits-overlay').style.display = 'none';
   document.getElementById('apropos-overlay').style.display = 'block';
   window.scrollTo(0, 0);
 }
 function closeApropos() {
   document.getElementById('apropos-overlay').style.display = 'none';
+}
+
+// ── Droits ────────────────────────────────────────────────────────────────────
+function openDroits() {
+  document.getElementById('fiche-overlay').style.display = 'none';
+  document.getElementById('faq-overlay').style.display = 'none';
+  document.getElementById('apropos-overlay').style.display = 'none';
+  document.getElementById('droits-overlay').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+function closeDroits() {
+  document.getElementById('droits-overlay').style.display = 'none';
 }
 
 // ── openFiche ─────────────────────────────────────────────────────────────────
