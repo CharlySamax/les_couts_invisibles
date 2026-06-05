@@ -772,6 +772,26 @@ nav, header {
     </div>
   </div>
 
+  <!-- aide-alimentaire-surplus · 1984-2026 · Bleu · Santé/Alimentation -->
+  <div class="ep-row left" style="--ep-color:#e85d04;" onclick="openFiche('aide-alimentaire-surplus')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">La générosité déséquilibrée</h2>
+      <p class="ep-subtitle">Pendant quarante ans, l&apos;aide alimentaire a distribué ce qui était disponible. Pas ce dont les bénéficiaires avaient besoin.</p>
+      <div class="ep-cost-main">? 86 M€/an</div>
+      <div class="ep-cost-label">coût annuel estimé · borne basse · France · 2005-2023</div>
+      <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdu en 2026 · France</span>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">✓ 80 M€/an</div>
+          <span class="ep-current-label">la logique de surplus reste le cadre dominant · le PMMPT la corrige à la marge</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="anchor" id="anchor">
@@ -924,6 +944,24 @@ nav, header {
         <p class="card-title">La sélection des CV</p>
         <p class="card-sub">Taux d'erreur 34,7 % / 0,8 % selon le visage — algorithmes entraînés sur données incomplètes</p>
         <div class="card-footer"><span class="badge v">✓ Documenté</span><span class="card-epoch">depuis 2003</span></div>
+        <span class="card-arrow">↗</span>
+      </div>
+
+      <div class="card" data-domain="sante" data-badge="c" onclick="openFiche('aide-alimentaire-surplus')">
+        <p class="card-domain">Santé · Aide alimentaire · France</p>
+        <div>
+          <p class="card-number">86 M€<span class="card-unit">par an · coût estimé · borne basse · France</span></p>
+        </div>
+        <div class="card-evitable">
+          <span class="card-evitable-label">Encore perdu en 2026 · France</span><br>
+          ✓ 80 M€/an
+        </div>
+        <p class="card-title">La générosité déséquilibrée</p>
+        <p class="card-sub">Pendant quarante ans, l&apos;aide alimentaire a distribué ce qui était disponible. La facture sanitaire estimée dépasse le coût du programme qui aurait pu l&apos;éviter.</p>
+        <div class="card-footer">
+          <span class="badge c">? Probabilité</span>
+          <span class="card-epoch">1984-2026</span>
+        </div>
         <span class="card-arrow">↗</span>
       </div>
 
@@ -1944,6 +1982,125 @@ const popupData = {
   <li>INSEE (2024). L'intelligence artificielle dans les entreprises françaises.</li>
   <li>Règlement (UE) 2024/1689, AI Act, 13 juin 2024.</li>
 </ul>`
+    }
+  },
+
+  'aide-alimentaire-surplus': {
+    domain: 'Santé · Aide alimentaire · France',
+    epoch: '1984-2026',
+    color: '#e85d04',
+    title: 'La générosité déséquilibrée',
+    dateline: '',
+    tabs: [
+      {label: 'Le chiffre',           id: 'l1'},
+      {label: 'Les faits',            id: 'l2'},
+      {label: "L'histoire",           id: 'l3f'},
+      {label: 'Et si ?',              id: 'l3cf'},
+      {label: 'Sources & références', id: 'l4'}
+    ],
+    panels: {
+      l1: `<div class="l1-block" style="background:#e85d04;">
+  <div class="l1-badges"><span class="badge c">? Probabilité</span></div>
+  <div class="l1-number">≈ 86 millions d'euros par an</div>
+  <p class="l1-desc">En 1984, les premières Banques Alimentaires françaises sont créées pour redistribuer des denrées encore consommables qui étaient détruites ou jetées. L'urgence étant de nourrir, la question de la qualité nutritionnelle n'est pas posée. Cette logique structure l'aide alimentaire pendant quarante ans.<br><br>En 2004-2005, l'InVS (Institut national de veille sanitaire) mesure pour la première fois l'état nutritionnel des bénéficiaires. Seulement 1,2 % atteignent les recommandations en fruits et légumes. ✓ L'obésité touche 28,8 % des bénéficiaires, contre 17 % en population générale. Le diabète touche 8,9 % des femmes bénéficiaires, contre 3,3 % en population générale. ✓<br><br>En appliquant les coûts institutionnels de prise en charge à cet écart documenté, avec une hypothèse d'attribution basse et conservatrice de 25 %, le coût annuel estimé pour la collectivité est de l'ordre de 86 millions d'euros par an, soit 1,5 milliard d'euros sur dix-huit ans. ?<br><br>En 2023, le gouvernement lance le programme Mieux manger pour tous (PMMPT). Son budget : 80 millions d'euros par an. Moins que le coût estimé de l'inaction.</p>
+  <div class="l1-sources">✓ Documenté · ≈ Estimation · ? Probabilité — Sources : InVS/Santé publique France, études ABENA 2004-2005 et 2011-2012 · Cour des comptes, juillet 2025 · DGCS, PMMPT 2023</div>
+</div>
+<div class="l1-block-evitable">
+  <div class="l1-evitable-label">Encore perdu en 2026 · France</div>
+  <div class="l1-badges"><span class="badge v">✓ Documenté</span></div>
+  <div class="l1-number">80 M€/an</div>
+  <p class="l1-desc">En 2026, le programme est en cours. La logique de surplus reste le cadre dominant : le PMMPT (Programme Mieux manger pour tous) la corrige à la marge, sans la remplacer. 4 millions de bénéficiaires sont concernés par les nouvelles orientations nutritionnelles. Source : DGCS, programme Mieux manger pour tous, 2025-2026.</p>
+</div>`,
+      l2: `<div class="chain">
+  <div class="chain-step">
+    <span class="chain-year">1984</span>
+    <span class="chain-text">En hiver 1984, Bernard Dandrel crée la première Banque Alimentaire de France à Arcueil. L'idée vient d'une tribune publiée dans La Croix : des denrées encore consommables sont détruites pendant que des gens ont faim. La solution est logistique : collecter les surplus des industries agroalimentaires et de la grande distribution, les redistribuer. La qualité nutritionnelle de ce qui est collecté n'est pas un critère. ✓ Source : Fédération Française des Banques Alimentaires.</span>
+  </div>
+  <div class="chain-step">
+    <span class="chain-year">1987</span>
+    <span class="chain-text">En décembre 1987, le Conseil européen crée le PEAD (Programme européen d'aide aux plus démunis) par le règlement n° 3740/87. Ce programme redistribue les surplus agricoles de la PAC (Politique agricole commune) aux associations caritatives. Les matières premières distribuées sont principalement des céréales, du riz, du sucre, de la poudre de lait et du beurre. La logique de surplus devient institutionnelle à l'échelle européenne. Ces stocks d'intervention coûtaient plus cher à stocker qu'à distribuer. ✓ Source : règlement CEE n° 3740/87 · Ministère de l'Agriculture · Sénat, E7845.</span>
+  </div>
+  <div class="chain-step">
+    <span class="chain-year">2004-2005</span>
+    <span class="chain-text">L'InVS (Institut national de veille sanitaire, devenu Santé publique France) conduit la première étude ABENA (Alimentation et état nutritionnel des bénéficiaires de l'aide alimentaire). C'est la première fois qu'une institution française mesure l'état nutritionnel des personnes ayant recours à l'aide alimentaire. Résultat : seulement 1,2 % des bénéficiaires atteignent les recommandations en fruits et légumes. Des déficits vitaminiques sont cliniquement mesurés. ✓ Source : InVS/Santé publique France, étude ABENA 2004-2005, BEH n° 11-12, 21 mars 2006.</span>
+  </div>
+  <div class="chain-step">
+    <span class="chain-year">2011-2012</span>
+    <span class="chain-text">L'étude ABENA est reconduite sur un protocole comparable, pour mesurer les évolutions. La situation ne s'est pas améliorée. L'obésité touche 28,8 % des bénéficiaires, contre 17 % en population générale. Le diabète touche 8,9 % des femmes bénéficiaires, contre 3,3 % en population générale. Aucune politique corrective ne suit. ✓ Source : InVS/ORS/Inpes/DGCS, étude ABENA 2011-2012, mars 2013.</span>
+  </div>
+  <div class="chain-step">
+    <span class="chain-year">2023</span>
+    <span class="chain-text">Le gouvernement lance le programme Mieux manger pour tous (PMMPT), confié à l'Agence Phare par la DGCS (Direction générale de la cohésion sociale). C'est la première politique publique qui agit sur la composition nutritionnelle de ce qui est distribué dans l'aide alimentaire, pas seulement sur son volume. Elle arrive dix-huit ans après le premier diagnostic. ✓ Source : DGCS, cahier des charges PMMPT, 2023.</span>
+  </div>
+  <div class="chain-step">
+    <span class="chain-year">2025-2026</span>
+    <span class="chain-text">Le PMMPT mobilise 80 millions d'euros par an pour améliorer la qualité nutritionnelle de l'aide pour 4 millions de bénéficiaires, soit environ 20 euros par personne et par an. ✓ Source : DGCS, programme Mieux manger pour tous, 2025-2026.</span>
+  </div>
+</div>
+<div class="sec-title">L'angle mort</div>
+<div class="prose"><p>Les études ABENA documentent un écart nutritionnel et des prévalences élevées de maladies. Elles ne permettent pas d'établir que la qualité de l'aide alimentaire en est la cause directe : les bénéficiaires cumulent d'autres facteurs de risque liés à la précarité (stress, accès aux soins, logement). Isoler la part imputable au contenu de l'aide alimentaire nécessiterait une étude causale que ni ABENA 1 ni ABENA 2 ne prétendent constituer.</p><p>Par ailleurs, la contrainte logistique de 1984 était réelle : distribuer des produits frais à grande échelle sans infrastructure de froid n'était pas possible. Ce n'est pas ce choix initial qui est discutable, c'est qu'il n'ait jamais été révisé en quarante ans, alors que les connaissances nutritionnelles et les moyens logistiques ont évolué.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Création des Banques Alimentaires sur la logique du surplus, 1984 · FFBA</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Ouverture des surplus PAC à l'aide alimentaire, règlement CEE n° 3740/87 · Ministère de l'Agriculture, Sénat</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">1,2 % des bénéficiaires atteignent les recommandations en fruits et légumes, 2004-2005 · InVS/SPF, ABENA 2004-2005</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Obésité : 28,8 % des bénéficiaires vs 17 % en population générale, 2011-2012 · InVS/SPF, ABENA 2011-2012</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Diabète femmes : 8,9 % vs 3,3 % en population générale, 2011-2012 · InVS/SPF, ABENA 2011-2012</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">PMMPT lancé en 2023, confié à Phare · DGCS, cahier des charges 2023</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">80 M€/an · 4 millions de bénéficiaires · 2025-2026 · DGCS, PMMPT</span></div>
+</div>`,
+      l3f: `<div class="prose"><p>En 1984, le problème est simple à formuler : des entrepôts débordent de nourriture pendant que des gens ont faim. La solution qui émerge est logique : récupérer ce qui allait être détruit, le redistribuer. L'urgence étant de nourrir, personne ne pose la question de ce que ces produits apportent nutritionnellement.</p><p>Cette logique a aussi une contrainte technique réelle. Distribuer des fruits, des légumes ou des produits frais à grande échelle suppose des camions réfrigérés, des entrepôts avec le froid, une rotation rapide des stocks. En 1984, aucune des associations qui se lancent dans l'aide alimentaire ne dispose de cette infrastructure. On travaille avec ce qu'on a : des conserves, des pâtes, des produits secs.</p><p>Mais alors que les moyens et les connaissances évoluent, le cadre de fonctionnement ne change pas. L'aide alimentaire continue de distribuer ce qui est disponible, pas ce dont les bénéficiaires ont besoin.</p><p>De plus, il est très difficile d'imposer des critères nutritionnels sur des dons. On ne peut pas refuser un surplus industriel parce qu'il est trop sucré ou trop transformé.</p><p>En 2014, un premier levier apparaît. Le PEAD (Programme européen d'aide aux plus démunis) est remplacé par le FEAD (Fonds européen d'aide aux plus démunis), qui permet pour la première fois d'acheter des denrées sur le marché plutôt que de distribuer uniquement des surplus. C'est un changement structurel important : on peut désormais choisir ce qu'on distribue. Mais il faudra encore neuf ans pour qu'une politique nationale s'en empare vraiment.</p><p>En 2023, le PMMPT (Programme Mieux manger pour tous) est lancé. Dix-huit ans après le premier diagnostic institutionnel. C'est la première fois qu'une politique publique agit délibérément sur ce qu'il y a dans les colis, pas seulement sur leur volume.</p></div>`,
+      l3cf: `<div class="etsi-header"><span class="etsi-badge">Et si ?</span></div>
+<div class="cf-note">Ce raisonnement part de données documentées. Les hypothèses sont expliquées à chaque étape.</div>
+<div class="sec-title">Et si le PMMPT (Programme Mieux manger pour tous) avait été lancé dès 2005, après le premier diagnostic ?</div>
+<div class="prose"><p>L'étude ABENA documente une surprévalence d'obésité de 11,8 points et un excès de diabète de 5,6 points chez les femmes bénéficiaires, par rapport à la population générale. ✓ Source : InVS/Santé publique France, ABENA 2004-2005 et 2011-2012.</p><p>Le PMMPT est lancé en 2023, dix-huit ans après ce premier diagnostic. Son budget de démarrage est de 60 millions d'euros par an. ✓ Source : DGCS, 2023.</p></div>
+<div class="sec-title">Ce qu'on peut calculer</div>
+<div class="prose"><p>18 ans × 60 M€ = 1,08 milliard d'euros. C'est le coût cumulé d'un programme équivalent qui aurait pu exister dès 2005 et n'a pas existé. ≈</p></div>
+<div class="sec-title">Ce qu'on peut estimer</div>
+<div class="prose"><p>Les femmes représentent 57 % des bénéficiaires de l'aide alimentaire (ABENA 2011-2012), soit environ 2,28 millions de femmes sur une base de 4 millions de bénéficiaires. ✓</p><p>Parmi elles, 8,9 % sont diabétiques, contre 3,3 % en population générale, soit un écart de 5,6 points. ✓ Source : ABENA 2011-2012.</p><p>Cet écart représente environ 128 000 femmes supplémentaires atteintes de diabète par rapport à ce qu'on observerait si leur prévalence correspondait à celle de la population générale. ≈ Calcul : 2,28 millions × 5,6 % = 127 680 cas.</p><p>La prise en charge du diabète coûte en moyenne 2 684 euros par patient et par an. ✓ Source : Cour des comptes, juillet 2025.</p><p>Appliqué à ces 128 000 cas excédentaires : 128 000 × 2 684 € = environ 343 millions d'euros par an. ≈</p><p>Si 25 % de cet excès est attribuable à la qualité nutritionnelle de l'aide alimentaire — hypothèse basse, conservatrice, non vérifiable sans étude causale — le coût annuel pour la collectivité serait de l'ordre de 86 millions d'euros par an, soit environ 1,5 milliard d'euros sur dix-huit ans. ?</p><p>Ces deux montants mesurent des réalités différentes. 1,08 milliard d'euros est le coût d'un programme qui n'a pas existé. 1,5 milliard d'euros est une estimation du coût sanitaire de son absence. Même avec l'hypothèse la plus prudente, le second dépasse le premier.</p></div>
+<div class="sec-title">Ce qu'on ne peut pas calculer</div>
+<div class="prose"><p>La part exacte attribuable à la qualité de l'aide alimentaire. ABENA établit un écart entre bénéficiaires et population générale, pas une cause. D'autres facteurs de précarité jouent un rôle. Ce calcul donne un ordre de grandeur, pas un résultat.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Surprévalence obésité +11,8 points · diabète femmes +5,6 points · InVS/SPF, ABENA 2004-2005 et 2011-2012</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Femmes : 57 % des bénéficiaires · 2,28 M sur 4 M · ABENA 2011-2012</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Coût diabète : 2 684 €/patient/an · Cour des comptes, juillet 2025</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">PMMPT lancé 18 ans après le premier diagnostic · 60 M€/an · DGCS, 2023</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">128 000 cas excédentaires de diabète · Calcul : 2,28 M × 5,6 %</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Coût excédentaire estimé : 343 M€/an · 128 000 × 2 684 €</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Coût cumulé d'un programme lancé en 2005 : 1,08 Md€ · 60 M€ × 18 ans</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Coût à 25 % d'attribution : ≈ 86 M€/an · 1,5 Md€ sur 18 ans · Hypothèse conservatrice déclarée</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Part exacte attribuable à la qualité de l'aide · Non calculable sans étude causale</span></div>
+</div>`,
+      l4: `<div class="sec-title">Création et histoire de l'aide alimentaire</div>
+<ul class="src-list">
+  <li>Fédération Française des Banques Alimentaires (FFBA) — « La belle histoire des Banques Alimentaires », 1984. [Création de la première Banque Alimentaire à Arcueil par Bernard Dandrel, logique de lutte contre le gaspillage.]</li>
+  <li>Fédération Française des Banques Alimentaires — « Une histoire de partage ». [Principes fondateurs : gratuité, don, lutte contre le gaspillage.]</li>
+</ul>
+<div class="sec-title">Institutionnalisation européenne</div>
+<ul class="src-list">
+  <li>Règlement CEE n° 3740/87 du Conseil, décembre 1987. [Création du PEAD, redistribution des surplus PAC aux associations caritatives.]</li>
+  <li>Ministère de l'Agriculture — « Programme européen d'aide aux plus démunis (PEAD) », agriculture.gouv.fr. [Fonctionnement du troc PAC/denrées alimentaires.]</li>
+  <li>Sénat — document E7845, « Fonds européen d'aide aux plus démunis ». [Remplacement du PEAD par le FEAD en 2014, règlement UE n° 223/2014.]</li>
+</ul>
+<div class="sec-title">État nutritionnel des bénéficiaires</div>
+<ul class="src-list">
+  <li>InVS (Institut national de veille sanitaire, devenu Santé publique France) — étude ABENA 2004-2005, rapport épidémiologique. Premiers résultats publiés dans le Bulletin épidémiologique hebdomadaire (BEH) n° 11-12, 21 mars 2006.</li>
+  <li>InVS / ORS Île-de-France / Inpes / DGCS — étude ABENA 2011-2012, « Alimentation et état nutritionnel des bénéficiaires de l'aide alimentaire », rapport publié en mars 2013. [Obésité : 28,8 % des bénéficiaires vs 17 % en population générale. Diabète femmes : 8,9 % vs 3,3 %.]</li>
+</ul>
+<div class="sec-title">Politique nutritionnelle</div>
+<ul class="src-list">
+  <li>Ministère de la Santé et de la Prévention — Programme national nutrition santé (PNNS), lancé en 2001. [Recommandation « cinq fruits et légumes par jour », citée en contraste avec la réalité nutritionnelle des bénéficiaires de l'aide alimentaire.]</li>
+</ul>
+<div class="sec-title">Coût des pathologies</div>
+<ul class="src-list">
+  <li>Cour des comptes — « Prévention et prise en charge précoce du diabète », juillet 2025. [Coût annuel du diabète : 10,2 Mds€ pour 3,8 millions de patients, soit 2 684 €/patient/an. Utilisé pour l'estimation du Et si ?]</li>
+</ul>
+<div class="sec-title">Programme Mieux manger pour tous</div>
+<ul class="src-list">
+  <li>DGCS (Direction générale de la cohésion sociale) — cahier des charges du programme Mieux manger pour tous (PMMPT), 2023.</li>
+  <li>DGCS — budget PMMPT : 60 M€/an en 2023-2024, 80 M€/an en 2025-2026. [4 millions de bénéficiaires concernés.]</li>
+</ul>
+<div class="sec-title">Note méthodologique</div>
+<div class="prose"><p>Le calcul du Et si ? repose sur deux raisonnements distincts.</p><p>Premier chiffre (≈ 1,08 Md€) : budget de démarrage du PMMPT (60 M€/an, DGCS 2023) multiplié par 18 ans. Extrapolation arithmétique sans actualisation ni indexation.</p><p>Second chiffre (? ≈ 86 M€/an · 1,5 Md€ sur 18 ans) : excès de diabète documenté chez les femmes bénéficiaires (ABENA 2011-2012 : +5,6 points sur 2,28 millions de femmes = 128 000 cas), multiplié par le coût annuel de prise en charge du diabète (2 684 €/patient/an, Cour des comptes 2025), avec une hypothèse d'attribution de 25 % à la qualité nutritionnelle de l'aide alimentaire.</p><p>Ces deux montants mesurent des réalités différentes : 1,08 Md€ est le coût d'un programme qui n'a pas existé. 1,5 Md€ est une estimation du coût sanitaire de son absence. Les études ABENA établissent un écart de prévalence, pas une causalité directe. L'hypothèse d'attribution (25 %) est conservatrice et déclarée.</p></div>`
     }
   }
 };
