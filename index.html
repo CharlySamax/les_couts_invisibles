@@ -314,6 +314,41 @@ nav, header {
   font-weight: 600;
   opacity: 0.8;
 }
+.card-solde {
+  font-size: 0.78rem;
+  color: var(--blue);
+  font-weight: 500;
+  line-height: 1.4;
+  padding-top: 0.3rem;
+  border-top: 1px solid rgba(26,56,96,0.15);
+  margin-top: 0.1rem;
+}
+.card-solde-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-family: 'DM Mono', monospace;
+  font-weight: 600;
+  opacity: 0.8;
+}
+.ep-solde-header {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.ep-solde-value {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.4;
+}
 .legend { display: flex; gap: 1.5rem; flex-wrap: wrap; padding: 1.5rem 0 0; }
 .legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; color: var(--ink2); }
 .legend-sym { font-weight: 700; font-size: 0.78rem; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 2px; font-family: var(--mono); }
@@ -565,7 +600,7 @@ nav, header {
   <div class="timeline-axis-v"></div>
 
   <!-- 1 · 2023 · Magenta · gauche -->
-  <div class="ep-row left" style="--ep-color:#e8175d;" onclick="openFiche('plafond')">
+  <div class="ep-row left" style="--ep-color:#A03060;" onclick="openFiche('plafond')">
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">Le fiasco financier</h2>
@@ -587,7 +622,7 @@ nav, header {
   <div class="era-sep"><span>Décennies récentes</span></div>
 
   <!-- 2 · IA · Marine · droit -->
-  <div class="ep-row right" style="--ep-color:#1a2480;" onclick="openFiche('faciale')">
+  <div class="ep-row right" style="--ep-color:#2E86AB;" onclick="openFiche('faciale')">
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">La sélection des CV</h2>
@@ -607,7 +642,7 @@ nav, header {
   </div>
 
   <!-- 3 · Travail dangereux · Vert foncé · gauche -->
-  <div class="ep-row left" style="--ep-color:#2d6a4f;" onclick="openFiche('travail-dangereux')">
+  <div class="ep-row left" style="--ep-color:#1B6B4A;" onclick="openFiche('travail-dangereux')">
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">Le travail dangereux</h2>
@@ -627,7 +662,7 @@ nav, header {
   </div>
 
   <!-- 4 · ~1950 sport · Rouge · droit -->
-  <div class="ep-row right" style="--ep-color:#e02020;" onclick="openFiche('sport-dangereux')">
+  <div class="ep-row right" style="--ep-color:#922B21;" onclick="openFiche('sport-dangereux')">
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">Sport : l'équipement blesse</h2>
@@ -647,7 +682,7 @@ nav, header {
   </div>
 
   <!-- 5 · 1973 · Marine · gauche -->
-  <div class="ep-row left" style="--ep-color:#1a2480;" onclick="openFiche('cardio')">
+  <div class="ep-row left" style="--ep-color:#1A5276;" onclick="openFiche('cardio')">
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">Cœur : des diagnostics faussés</h2>
@@ -669,7 +704,7 @@ nav, header {
   <div class="era-sep"><span>XXe siècle</span></div>
 
   <!-- 6 · 1989 · Magenta · droit -->
-  <div class="ep-row right" style="--ep-color:#e8175d;" onclick="openFiche('kariko')">
+  <div class="ep-row right" style="--ep-color:#1F618D;" onclick="openFiche('kariko')">
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">La molécule boycottée</h2>
@@ -691,7 +726,7 @@ nav, header {
   <div class="era-sep"><span>XIXe siècle</span></div>
 
   <!-- 8 · 1808 · Bleu · droit -->
-  <div class="ep-row right" style="--ep-color:#1469c7;" onclick="openFiche('education')">
+  <div class="ep-row right" style="--ep-color:#56A662;" onclick="openFiche('education')">
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">L'école a-t-elle toute sa tête ?</h2>
@@ -711,7 +746,7 @@ nav, header {
   </div>
 
   <!-- 9 · 1804 · Rouge · gauche -->
-  <div class="ep-row left" style="--ep-color:#e02020;" onclick="openFiche('nourrir')">
+  <div class="ep-row left" style="--ep-color:#D4730A;" onclick="openFiche('nourrir')">
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">Nourrir le monde</h2>
@@ -733,7 +768,7 @@ nav, header {
   <div class="era-sep"><span>Ancien régime · Conquêtes</span></div>
 
   <!-- 10 · 1139 · Marine · droit -->
-  <div class="ep-row right" style="--ep-color:#1a2480;" onclick="openFiche('celibat')">
+  <div class="ep-row right" style="--ep-color:#5B2D8E;" onclick="openFiche('celibat')">
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">Le célibat des prêtres</h2>
@@ -753,7 +788,7 @@ nav, header {
   </div>
 
   <!-- 11 · 405 · Magenta · gauche -->
-  <div class="ep-row left" style="--ep-color:#e8175d;" onclick="openFiche('adam')">
+  <div class="ep-row left" style="--ep-color:#78281F;" onclick="openFiche('adam')">
     <div class="ep-pip"></div>
     <div class="ep-card">
       <h2 class="ep-title">Adam et Ève</h2>
@@ -769,6 +804,29 @@ nav, header {
           <span class="ep-current-label">Mondial</span>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- douleur · 1977-2026 · Magenta · Santé/Biais de genre -->
+  <div class="ep-row right" style="--ep-color:#4A235A;" onclick="openFiche('douleur')">
+    <div class="ep-pip"></div>
+    <div class="ep-card">
+      <h2 class="ep-title">Le mauvais étalon</h2>
+      <p class="ep-subtitle">Jusqu&apos;en 2015, 80 % des études sur la douleur portaient exclusivement sur des rongeurs mâles. Le sous-traitement qui en découle est documenté et chiffré.</p>
+      <div class="ep-cost-main">≈ 3 Mds €/an</div>
+      <div class="ep-cost-label">dépenses directes de soins · migraine · France · 1977-2026</div>
+      <div class="ep-sep"></div>
+      <span class="ep-encore-header">Encore perdu en 2026 · France</span>
+      <div class="ep-current">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="ep-current-value">≈ 3 Mds €/an</div>
+          <span class="ep-current-label">France</span>
+        </div>
+      </div>
+      <div class="ep-sep"></div>
+      <span class="ep-solde-header">Le solde</span>
+      <div class="ep-solde-value">Coût d&apos;une correction : ≈ 1,4 M€, une fois. Coût de l&apos;inaction : 3 Mds€/an.</div>
     </div>
   </div>
 
@@ -962,6 +1020,23 @@ nav, header {
           <span class="badge c">? Probabilité</span>
           <span class="card-epoch">1984-2026</span>
         </div>
+        <span class="card-arrow">↗</span>
+      </div>
+
+      <div class="card" data-domain="sante" data-badge="e" onclick="openFiche('douleur')">
+        <p class="card-domain">Santé · Biais de genre · France</p>
+        <div><p class="card-number">≈ 3 Mds €<span class="card-unit">par an · dépenses directes de soins · France</span></p></div>
+        <div class="card-evitable">
+          <span class="card-evitable-label">Encore perdu en 2026 · France</span><br>
+          ≈ 3 Mds €/an
+        </div>
+        <div class="card-solde">
+          <span class="card-solde-label">Le solde</span><br>
+          Coût d&apos;une correction : ≈ 1,4 M€, une fois. Coût de l&apos;inaction : 3 Mds€/an.
+        </div>
+        <p class="card-title">Le mauvais étalon</p>
+        <p class="card-sub">Jusqu&apos;en 2015, 80 % des études sur la douleur portaient exclusivement sur des rongeurs mâles. Le sous-traitement qui en découle est documenté et chiffré.</p>
+        <div class="card-footer"><span class="badge e">≈ Estimation</span><span class="card-epoch">1977-2026</span></div>
         <span class="card-arrow">↗</span>
       </div>
 
@@ -1189,7 +1264,7 @@ document.querySelectorAll('.ep-row,.era-sep,.anchor').forEach(el=>revObs.observe
 const popupData = {
   'travail-dangereux': {
     domain:'Travail · Santé · Ergonomie · France', epoch:'2001–2019',
-    color:'#2d6a4f',
+    color:'#1B6B4A',
     title:'Le travail dangereux',
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1292,7 +1367,7 @@ const popupData = {
 
   celibat: {
     domain:'Droit canonique · Église catholique · Mondial', epoch:'1139–2020',
-    color:'#1a2480',
+    color:'#5B2D8E',
     title:'Le célibat des prêtres',
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1354,7 +1429,7 @@ const popupData = {
 
   education: {
     domain:'Éducation · Droit civil · Santé publique · Mondial', epoch:'1808–1924',
-    color:'#1469c7',
+    color:'#56A662',
     title:"L'école a-t-elle toute sa tête ?",
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1455,7 +1530,7 @@ const popupData = {
 
   cardio: {
     domain:'Santé · Médecine cardiovasculaire · États-Unis', epoch:'1973–2024',
-    color:'#1a2480',
+    color:'#1A5276',
     title:'Cœur : des diagnostics faussés',
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1502,7 +1577,7 @@ const popupData = {
 
   nourrir: {
     domain:'Agriculture · Droit civil · Foncier · Mondial', epoch:'1804–1985',
-    color:'#e02020',
+    color:'#D4730A',
     title:'Nourrir le monde',
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1600,7 +1675,7 @@ const popupData = {
 
   kariko: {
     domain:'Santé · Recherche médicale · Mondial', epoch:'1989–2006',
-    color:'#e8175d',
+    color:'#1F618D',
     title:'La molécule boycottée',
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1703,7 +1778,7 @@ const popupData = {
 
   plafond: {
     domain:'Finance · Gouvernance d\'entreprise · France', epoch:'2023–2024',
-    color:'#e8175d',
+    color:'#A03060',
     title:'Le fiasco financier',
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1782,7 +1857,7 @@ const popupData = {
 
   'sport-dangereux': {
     domain:'Sport · Équipement', epoch:'~1950–2026',
-    color:'#e02020',
+    color:'#922B21',
     title:'Sport : l\'équipement blesse',
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:"L'histoire",id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1819,7 +1894,7 @@ const popupData = {
 
   adam: {
     domain:'Religion · Droit civil', epoch:'405–1965',
-    color:'#e8175d',
+    color:'#78281F',
     title:'Adam et Ève',
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'L\'histoire',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -1934,7 +2009,7 @@ const popupData = {
 
   faciale: {
     domain:'Technologie · Intelligence artificielle · France / Mondial', epoch:'depuis 2003',
-    color:'#1a2480',
+    color:'#2E86AB',
     title:'Le tri des CV',
     dateline:'',
     tabs:[{label:'Le chiffre',id:'l1'},{label:'Les faits',id:'l2'},{label:'Le mécanisme',id:'l3f'},{label:'Et si ?',id:'l3cf'},{label:'Sources & références',id:'l4'}],
@@ -2101,6 +2176,193 @@ const popupData = {
 </ul>
 <div class="sec-title">Note méthodologique</div>
 <div class="prose"><p>Le calcul du Et si ? repose sur deux raisonnements distincts.</p><p>Premier chiffre (≈ 1,08 Md€) : budget de démarrage du PMMPT (60 M€/an, DGCS 2023) multiplié par 18 ans. Extrapolation arithmétique sans actualisation ni indexation.</p><p>Second chiffre (? ≈ 86 M€/an · 1,5 Md€ sur 18 ans) : excès de diabète documenté chez les femmes bénéficiaires (ABENA 2011-2012 : +5,6 points sur 2,28 millions de femmes = 128 000 cas), multiplié par le coût annuel de prise en charge du diabète (2 684 €/patient/an, Cour des comptes 2025), avec une hypothèse d'attribution de 25 % à la qualité nutritionnelle de l'aide alimentaire.</p><p>Ces deux montants mesurent des réalités différentes : 1,08 Md€ est le coût d'un programme qui n'a pas existé. 1,5 Md€ est une estimation du coût sanitaire de son absence. Les études ABENA établissent un écart de prévalence, pas une causalité directe. L'hypothèse d'attribution (25 %) est conservatrice et déclarée.</p></div>`
+    }
+  }
+  ,
+  'douleur': {
+    domain: 'Santé · Biais de genre · France',
+    epoch: '1977-2026',
+    color: '#4A235A',
+    title: 'Le mauvais étalon',
+    dateline: '',
+    tabs: [
+      {label: 'Le chiffre',           id: 'l1'},
+      {label: 'Les faits',            id: 'l2'},
+      {label: "L'histoire",           id: 'l3f'},
+      {label: 'Et si ?',              id: 'l3cf'},
+      {label: 'Le solde',             id: 'lsolde'},
+      {label: 'Sources & références', id: 'l4'}
+    ],
+    panels: {
+      l1: `<div class="l1-block" style="background:#8b0a3a;">
+  <div class="l1-badges"><span class="badge e">≈ Estimation</span><span class="badge v">✓ Documenté</span></div>
+  <div class="l1-number">≈ 3 milliards €/an</div>
+  <p class="l1-desc">La migraine est la deuxième cause mondiale d&apos;années de vie vécues avec un handicap, et la première chez les femmes de moins de 50 ans. Elle touche environ deux fois plus de femmes que d&apos;hommes.<br><br>
+  ✓ Demarquay G. et al., SFEMC, <em>Revue neurologique</em>, 2021 · Steiner T.J. et Stovner L.J., <em>The Journal of Headache and Pain</em>, 2020 [GBD 2019]<br><br>
+  Les dépenses directes de soins liées à la migraine sont estimées à près de 3 milliards d&apos;euros par an en France. Ce chiffre couvre les consultations, hospitalisations et médicaments. Chaque année, la migraine cause environ 20 millions de journées de travail perdues en France.<br><br>
+  ≈ Fédération française de neurologie, ffn-neurologie.fr [date non précisée par la source · méthodologie non publiée]<br><br>
+  Quel que soit le niveau de douleur déclaré, les femmes reçoivent moins souvent un antalgique que les hommes aux urgences. C&apos;est mesuré. Le lien entre ce biais de prise en charge et le coût global n&apos;est pas isolable avec précision : le calcul de cette fiche est une estimation construite, pas un fait direct.<br><br>
+  ✓ Bobbia X. et al., <em>European Journal of Emergency Medicine</em>, 2024</p>
+  <div class="l1-sources">✓ = fait documenté par source primaire · ≈ = estimation, méthodologie explicitée · ? = inférence, raisonnement explicite</div>
+</div>
+<div class="l1-block-evitable">
+  <div class="l1-evitable-label">Encore perdu en 2026 · France · par an</div>
+  <div class="l1-badges"><span class="badge e">≈ Estimation</span></div>
+  <div class="l1-number">≈ 3 milliards €/an</div>
+  <p class="l1-desc">La migraine reste la première cause d&apos;années de vie avec handicap avant 50 ans chez les femmes. Les biais de recherche et de prise en charge documentés dans cette fiche sont toujours actifs.</p>
+  <div class="l1-sources">Sources : Demarquay G. et al., SFEMC, <em>Revue neurologique</em>, 2021 · Steiner T.J. et Stovner L.J., <em>The Journal of Headache and Pain</em>, 2020 · Fédération française de neurologie, ffn-neurologie.fr</div>
+</div>`,
+      l2: `<div class="chain">
+  <div class="chain-step">
+    <span class="chain-year">1961</span>
+    <span class="chain-text">La thalidomide provoque des malformations graves chez des milliers d&apos;enfants nés de mères traitées contre les nausées de grossesse. La réaction réglementaire est rapide. Les essais cliniques se resserrent. La prudence à l&apos;égard des femmes en âge de procréer devient un réflexe institutionnel. ✓</span>
+  </div>
+  <div class="chain-step">
+    <span class="chain-year">1977</span>
+    <span class="chain-text">La Food and Drug Administration (agence américaine du médicament) recommande d&apos;exclure les femmes en âge de procréer des essais cliniques de phase I et II. La raison invoquée : les variations hormonales féminines « compliquent » les données. Cette exclusion restera en vigueur seize ans. ✓</span>
+  </div>
+  <div class="chain-step">
+    <span class="chain-year">1993</span>
+    <span class="chain-text">Le NIH Revitalization Act rend obligatoire l&apos;inclusion des femmes dans les essais cliniques financés par les National Institutes of Health (principal organisme public américain de financement de la recherche médicale). L&apos;obligation ne couvre pas les études précliniques sur animaux. ✓</span>
+  </div>
+  <div class="chain-step">
+    <span class="chain-year">1996-2015</span>
+    <span class="chain-text">Une revue systématique des articles publiés dans <em>Pain</em>, la revue de référence mondiale en recherche sur la douleur, établit que 79 % des études portent exclusivement sur des rongeurs mâles. En 2015, ce chiffre est identique : 79 %. Vingt ans sans évolution. ✓</span>
+  </div>
+  <div class="chain-step">
+    <span class="chain-year">2016</span>
+    <span class="chain-text">Les National Institutes of Health imposent l&apos;obligation de considérer le sexe comme variable biologique dans toutes les études précliniques qu&apos;ils financent. En 2019, la part d&apos;études <em>Pain</em> portant exclusivement sur des rongeurs mâles est descendue à 50 %. Mais parmi les études ayant testé les deux sexes sur des rongeurs, les résultats se confirment dans 72 % des cas chez les mâles contre 28 % chez les femelles. La littérature reste orientée vers les mécanismes masculins. ✓</span>
+  </div>
+  <div class="chain-step">
+    <span class="chain-year">2024</span>
+    <span class="chain-text">Une étude menée auprès de 1 563 soignants dans quatre pays francophones (France, Suisse, Belgique, Monaco) présente un cas clinique identique de douleur thoracique, accompagné d&apos;une photo de patient générée par intelligence artificielle pour contrôler tous les paramètres à l&apos;exception du sexe et de l&apos;origine perçue du patient. Résultat : le cas est jugé urgence vitale dans 62 % des cas quand l&apos;image montre un homme, contre 49 % quand elle montre une femme. L&apos;écart est de 13 points. Un homme blanc a 50 % de chances supplémentaires d&apos;être orienté vers une prise en charge urgente qu&apos;une femme noire pour la même douleur. ✓</span>
+  </div>
+</div>
+<div class="sec-title">L&apos;angle mort</div>
+<div class="prose"><p>Cette chaîne documente le mécanisme. Elle ne chiffre pas la part du coût de la migraine directement imputable au biais de recherche ou au biais de prise en charge. Ce calcul n&apos;existe pas dans la littérature : il est construit dans l&apos;onglet « Et si ? ».</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Thalidomide 1961 : McBride W.G., <em>The Lancet</em>, 1961 · Kefauver-Harris Amendment, 1962</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Exclusion FDA 1977 : archives réglementaires FDA</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">NIH Revitalization Act 1993 : Public Law 103-43</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">79 % d&apos;études sur rongeurs mâles, 1996-2015 : Mogil J.S. et Chanda M.L., <em>Pain</em>, 2005 · Mogil J.S., <em>Nature Reviews Neuroscience</em>, 2020</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">50 % en 2019, 72 % / 28 % chez les rongeurs : Mogil J.S., <em>Nature Reviews Neuroscience</em>, 2020</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Étude 1 563 soignants, 62 % / 49 % : Bobbia X. et al., <em>European Journal of Emergency Medicine</em>, 2024</span></div>
+</div>`,
+      l3f: `<div class="prose">
+<p>Avant même qu&apos;Hippocrate ne nomme l&apos;hystérie, une autre tradition fixait le statut de la douleur des femmes. La Genèse 3:16 pose un verdict : parce qu&apos;Ève a péché, toutes les femmes enfanteront dans la souffrance. Ce n&apos;est pas un symptôme. C&apos;est une sentence.</p>
+<p>Cette lecture traverse le Moyen Âge et au-delà. Soulager la douleur de l&apos;accouchement revient à contrarier la volonté divine. Luther écrit au XVIe siècle que si les grossesses fatiguent les femmes ou les mènent à la mort, peu importe — elles sont faites pour ça [trad. libre]. Aux XVIe et XVIIe siècles, les femmes qui soulagent les douleurs du travail avec des plantes, ergot de seigle ou belladone, sont poursuivies pour sorcellerie. En 1591, lors des procès de North Berwick en Écosse, Euphame MacCalzean est brûlée vive sur ordre de Jacques VI. Parmi la dizaine de charges retenues contre elle figurait le fait d&apos;avoir eu recours à un soulagement de la douleur lors de l&apos;accouchement, acte alors qualifié de sorcellerie.</p>
+<p>En 1847, l&apos;obstétricien James Young Simpson introduit le chloroforme en obstétrique. Les milieux cléricaux et conservateurs s&apos;insurgent : la douleur de l&apos;accouchement est ordonnée par l&apos;Écriture. C&apos;est en 1957 seulement que Pie XII prend position devant le Congrès national de la Société italienne d&apos;anesthésiologie pour déclarer que l&apos;Église ne s&apos;oppose pas à l&apos;analgésie.</p>
+<p>Trois siècles de résistance au traitement de la douleur féminine, dissous en une allocution de 1957.</p>
+<p>La couche médicale s&apos;est construite en parallèle. Le mot « hystérie » vient du grec <em>hustera</em>, l&apos;utérus. Hippocrate attribue à cet organe une série de troubles qui affectent spécifiquement les femmes. Au XIXe siècle, la douleur féminine inexpliquée reçoit un nom : l&apos;hystérie. Ce diagnostic, qui renvoie à une origine psychologique ou utérine, dispense de chercher une cause physique et d&apos;y apporter un traitement. Le diagnostic change au fil des siècles. La logique reste : la souffrance de la femme a une origine dans sa biologie féminine, pas dans une cause externe qui mérite traitement.</p>
+<p>La formation médicale du XXe siècle perpétue une asymétrie documentée : les soignants sont enseignés à traiter avec plus de retenue les patients « expressifs » et plus libéralement les patients « stoïques ». La femme tombe dans la première catégorie, l&apos;homme dans la seconde.</p>
+<p>En 2001, Diane Hoffmann et Anita Tarzian publient dans le <em>Journal of Law, Medicine &amp; Ethics</em> une revue de la littérature sur le traitement de la douleur selon le sexe. Leur conclusion : les femmes reçoivent moins d&apos;antalgiques que les hommes, plus souvent des sédatifs, et leurs douleurs sont plus souvent attribuées à des causes psychologiques. Une constante documentée sur plusieurs décennies et dans plusieurs pays.</p>
+<p>En 2024, l&apos;un des co-auteurs de l&apos;étude sur les urgences francophones résume le mécanisme en une phrase : « Les femmes sont vues comme exagérant ou hystériques, les hommes comme stoïques quand ils se plaignent de douleur. »</p>
+<p>Entre Hippocrate et les urgences de 2024, le mot a changé. La mécanique est restée.</p>
+</div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Genèse 3:16, texte biblique</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Luther, cité dans Roper L., <em>Martin Luther : Renegade and Prophet</em>, Bodley Head, 2016</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Ehrenreich B. et English D., <em>Witches, Midwives and Nurses</em>, Feminist Press, 1973 · Blázquez-Ruiz et al., <em>IJERPH</em>, 2022</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Lurie S., « Euphemia Maclean, Agnes Sampson and pain relief during labour », <em>Anaesthesia</em>, 2004</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Simpson J.Y., <em>Account of a New Anaesthetic Agent</em>, 1847</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Pie XII, discours au IXe Congrès national de la Société italienne d&apos;anesthésiologie, 24 février 1957, archives Vatican</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Hustvedt A., <em>Medical Muses</em>, Norton, 2011 · Micale M.S., <em>Approaching Hysteria</em>, Princeton University Press, 1995</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Hoffmann D.E. et Tarzian A.J., « The Girl Who Cried Pain », <em>Journal of Law, Medicine &amp; Ethics</em>, 2001</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Gileles-Hillel A., cité dans Guzikevits et al., PNAS, 2024</span></div>
+</div>`,
+      l3cf: `<div class="etsi-header"><span class="etsi-badge">Et si ?</span></div>
+<div class="cf-note">Ce scénario est une hypothèse, pas un fait établi. Les hypothèses sont explicitées à chaque étape.</div>
+<div class="sec-title">Ce que l&apos;on sait</div>
+<div class="prose">
+<p>La migraine touche environ deux fois plus de femmes que d&apos;hommes en France. Son coût annuel en dépenses directes de soins est estimé à près de 3 milliards d&apos;euros. Ce chiffre est mesuré sur la population actuelle, avec les traitements actuels, issus d&apos;une recherche préclinique conduite à 80 % sur des rongeurs mâles jusqu&apos;en 2015.</p>
+<p>Quand des études testent les deux sexes sur des rongeurs, les résultats se confirment dans 72 % des cas chez les mâles contre 28 % chez les femelles. Les mécanismes validés sur le mâle animal servent de base aux traitements développés pour l&apos;humain. La biologie de la douleur féminine, animale comme humaine, reste partiellement inconnue.</p>
+<p>Aux urgences, les femmes reçoivent moins souvent un antalgique que les hommes pour le même niveau de douleur déclaré. L&apos;étude Bobbia et al. 2024 le mesure en France et dans trois pays francophones, sur 1 563 soignants.</p>
+</div>
+<div class="sec-title">Ce que cela implique</div>
+<div class="prose">
+<p>Si la recherche sur la douleur avait intégré les deux sexes à parité depuis 1977, deux effets auraient joué en sens inverse du coût actuel.</p>
+<p>Premier effet : la migraine féminine a une composante hormonale spécifique. Les fluctuations d&apos;oestrogènes déclenchent des crises, notamment au moment des règles. Cette biologie est documentée aujourd&apos;hui (Inserm, Ameli). Elle ne l&apos;était pas dans une recherche préclinique conduite à 80 % sur des rongeurs mâles jusqu&apos;en 2015. Des traitements tenant compte de cette composante auraient probablement réduit la durée et la fréquence des crises chez les femmes. La migraine est la première cause d&apos;années de vie avec handicap chez les femmes de moins de 50 ans (Steiner et al., GBD 2019).</p>
+<p>Deuxième effet : une prise en charge sans biais aux urgences aurait réduit les complications liées au sous-traitement de la douleur aiguë, notamment les crises prolongées et les passages en migraine chronique.</p>
+</div>
+<div class="sec-title">Ce que l&apos;on ne peut pas calculer</div>
+<div class="prose"><p>La part du coût de la migraine directement imputable au biais de recherche et au biais de prise en charge n&apos;est pas isolable. Aucune étude ne l&apos;a quantifiée. Le lien causal est documenté comme mécanisme, pas comme mesure.</p></div>
+<div class="sec-title">Ce que l&apos;on peut dire</div>
+<div class="prose"><p>Les femmes représentent 57 % des 23 millions de personnes souffrant de douleur chronique en France. Si le sous-traitement documenté allonge la durée moyenne des épisodes de 10 % seulement, l&apos;impact sur les arrêts de travail et les coûts de soins se chiffre en centaines de millions d&apos;euros par an. C&apos;est une borne basse construite sur une hypothèse conservatrice.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">57 % de femmes parmi les douloureux chroniques : Observatoire français de la douleur, 2025</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Biais de recherche, 72 % / 28 % chez les rongeurs : Mogil J.S., <em>Nature Reviews Neuroscience</em>, 2020</span></div>
+  <div class="proof-row"><span class="proof-sym v">✓</span><span class="proof-text">Biais de prise en charge aux urgences : Bobbia X. et al., <em>European Journal of Emergency Medicine</em>, 2024 · Guzikevits et al., PNAS, 2024</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">Effet de 10 % sur la durée des épisodes : hypothèse conservatrice, non documentée par source primaire</span></div>
+  <div class="proof-row"><span class="proof-sym c">?</span><span class="proof-text">Coût en centaines de millions : inférence construite sur les trois maillons précédents</span></div>
+</div>`,
+      lsolde: `<div class="sec-title">Coût d&apos;une correction</div>
+<div class="prose">
+<p>La correction identifiable porte sur la prise en charge aux urgences : intégrer un module de sensibilisation aux biais implicites dans la formation médicale continue obligatoire (Développement professionnel continu — DPC), cadre réglementaire déjà en place en France.</p>
+<p>Coût estimé pour les médecins urgentistes : ≈ 1,4 million d&apos;euros, une fois.</p>
+<p>≈ Estimation construite · 4 500 urgentistes (DREES, 2022) × 300 € (module e-learning court, fourchette basse des tarifs DPC) · Source : ANDPC, tarifs universitaires DPC France</p>
+<p>La correction sur la recherche préclinique est en cours depuis 2016 (NIH SABV). Son surcoût n&apos;est pas documenté comme significatif : dans la majorité des études, l&apos;inclusion de femelles se fait en réduisant le nombre de mâles, sans budget additionnel.</p>
+</div>
+<div class="sec-title">Coût de l&apos;inaction</div>
+<div class="prose"><p>≈ 3 milliards d&apos;euros par an · dépenses de santé liées à la migraine · France · Fédération française de neurologie</p>
+<p>La part imputable au biais de prise en charge n&apos;est pas isolable. Elle est documentée comme mécanisme, pas comme mesure.</p></div>
+<div class="sec-title">Le solde</div>
+<div class="prose"><p>Coût d&apos;une correction : ≈ 1,4 M€, une fois.<br>Coût de l&apos;inaction : 3 Mds€/an.</p></div>
+<div class="proof-list">
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">4 500 urgentistes à temps plein · DREES, 2022</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">300 € par soignant · fourchette basse tarifs DPC · ANDPC 2024</span></div>
+  <div class="proof-row"><span class="proof-sym e">≈</span><span class="proof-text">3 Mds€/an · dépenses directes de soins · migraine · FFN</span></div>
+</div>`,
+      l4: `<div class="sec-title">Données épidémiologiques · migraine</div>
+<ul class="src-list">
+  <li>Demarquay G. et al. — « Recommandations pour le diagnostic et la prise en charge de la migraine chez l&apos;adulte », Société française d&apos;étude et de traitement des migraines et céphalées (SFEMC), <em>Revue neurologique</em>, 2021.</li>
+  <li>Steiner T.J. et Stovner L.J. — « Migraine remains second among the world&apos;s causes of disability, and first among young women », <em>The Journal of Headache and Pain</em>, 2020. [GBD 2019]</li>
+  <li>Fédération française de neurologie (FFN) — « La migraine », ffn-neurologie.fr. [coût 3 Mds€, 20 millions de journées perdues, ratio 2 femmes / 1 homme]</li>
+  <li>Observatoire français de la douleur et des antalgiques / Fondation Analgesia — enquête auprès de 11 940 personnes, 2025. [57 % de femmes parmi les 23 millions de douloureux chroniques]</li>
+</ul>
+<div class="sec-title">Mécanismes biologiques · migraine</div>
+<ul class="src-list">
+  <li>Inserm — dossier « Migraine », inserm.fr, mis à jour 2020. [excitabilité neuronale, composante hormonale, prédisposition génétique]</li>
+  <li>Ameli.fr — « Migraine : symptômes, facteurs déclenchants et évolution », 2025.</li>
+</ul>
+<div class="sec-title">Biais de recherche · douleur</div>
+<ul class="src-list">
+  <li>Mogil J.S. et Chanda M.L. — « The case for the inclusion of female subjects in basic science studies of pain », <em>Pain</em>, 2005. [79 % d&apos;études sur rongeurs mâles, 1996-2005]</li>
+  <li>Mogil J.S. — « Qualitative sex differences in pain processing: emerging evidence of a biased literature », <em>Nature Reviews Neuroscience</em>, vol. 21, p. 353-365, 2020. DOI : 10.1038/s41583-020-0310-6. [80 % en 2015, 50 % en 2019, 72 % / 28 % chez les rongeurs]</li>
+  <li>NIH — Notice NOT-OD-15-102, « Consideration of Sex as a Biological Variable in NIH-funded Research », 2015.</li>
+  <li>NIH Revitalization Act — Public Law 103-43, 1993.</li>
+  <li>FDA — recommandation d&apos;exclusion des femmes en âge de procréer des essais cliniques de phase I et II, 1977.</li>
+</ul>
+<div class="sec-title">Biais de prise en charge · douleur</div>
+<ul class="src-list">
+  <li>Bobbia X. et al. — « Sex bias in the management of chest pain in emergency departments », <em>European Journal of Emergency Medicine</em>, 2024. [1 563 soignants, 4 pays francophones, 62 % / 49 %]</li>
+  <li>Guzikevits M. et al. — « Sex bias in pain management decisions », <em>PNAS</em>, 2024. [21 851 dossiers, États-Unis et Israël]</li>
+  <li>Hoffmann D.E. et Tarzian A.J. — « The Girl Who Cried Pain : A Bias Against Women in the Treatment of Pain », <em>Journal of Law, Medicine &amp; Ethics</em>, vol. 29, n° 1, 2001, p. 13-27.</li>
+</ul>
+<div class="sec-title">Histoire · douleur et religion</div>
+<ul class="src-list">
+  <li>Genèse 3:16, texte biblique.</li>
+  <li>Roper L. — <em>Martin Luther : Renegade and Prophet</em>, Bodley Head, 2016.</li>
+  <li>Ehrenreich B. et English D. — <em>Witches, Midwives and Nurses</em>, Feminist Press, 1973.</li>
+  <li>Blázquez-Ruiz F.J. et al. — « Midwives and the Inquisition », <em>International Journal of Environmental Research and Public Health</em>, 2022.</li>
+  <li>Lurie S. — « Euphemia Maclean, Agnes Sampson and pain relief during labour in 16th century Edinburgh », <em>Anaesthesia</em>, 2004.</li>
+  <li>Simpson J.Y. — <em>Account of a New Anaesthetic Agent as a Substitute for Sulphuric Ether in Surgery and Midwifery</em>, Edinburgh, 1847.</li>
+  <li>Pie XII — discours au IXe Congrès national de la Société italienne d&apos;anesthésiologie, 24 février 1957, archives Vatican.</li>
+</ul>
+<div class="sec-title">Histoire · hystérie et médecine</div>
+<ul class="src-list">
+  <li>Hustvedt A. — <em>Medical Muses : Hysteria in Nineteenth-Century Paris</em>, Norton, 2011.</li>
+  <li>Micale M.S. — <em>Approaching Hysteria : Disease and Its Interpretations</em>, Princeton University Press, 1995.</li>
+</ul>
+<div class="sec-title">Thalidomide</div>
+<ul class="src-list">
+  <li>McBride W.G. — lettre « Thalidomide and Congenital Abnormalities », <em>The Lancet</em>, vol. 278, n° 7216, p. 1358, 1961.</li>
+  <li>Kefauver-Harris Amendment — Drug Amendments Act, loi fédérale américaine, 1962.</li>
+</ul>
+<div class="sec-title">Coût d&apos;une correction</div>
+<ul class="src-list">
+  <li>DREES — démographie des professionnels de santé au 1er janvier 2022. [4 500 médecins urgentistes à temps plein]</li>
+  <li>ANDPC (Agence nationale du développement professionnel continu) — tarifs DPC 2024. [cadre réglementaire et fourchette de coûts]</li>
+</ul>`
     }
   }
 };
